@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Todo</title>
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Todo</h1>
+
+<input id="id-input-content" type="text" name="content">
+<button id="id-button-add" type="submit">创建新 Todo</button>
+
+{{todos}}
+
+<script>
+    var log = function () {
+        // 在 js 的函数里面有一个特殊的变量 arguments
+        // 它存储了所有的参数
+        console.log(arguments)
+    }
+
+    var sendAddRequest = function (content) {
+        log('sendAddRequest', content)
+        // 在 js 中可以省略字典 key 的引号
+        var todo = {
+            content: content,
+        }
+
+        var insertTodo = function (todo) {
+            // <p class="status-active">
+            // {} {}@{}<a href="/todo/complete?id={}">完成</a>
+            // </p>
+            // js 中的 模板字符串可以近似地实现 python 中字符串 format 函数的功能
+            // 模板字符串是用 ` 引用的
+            var id = todo.id
+            var content = todo.content
+            var time = todo.created_time
+            var template = `
+                       <p class="status-active">
+                      ${id} ${content}@${time}<a href="/todo/complete?id=${id}">完成</a>
+                      </p>
+                `;
+            log('模板字符串', template)
+            $('body').append(template)
+        }
+
+
+        // 构造一个请求
+        var request = {
+            url: '/todo/add',
+            type: 'post',
+            data: todo,
+            success: function (r) {
+                log('成功', r)
+                // JSON.parse 把字符串解析为 object(也就是js中的字典)
+                var todo = JSON.parse(r)
+                log('todo, ', todo)
+                insertTodo(todo)
+            },
+            error: function (err) {
+                log('失败', err)
+            }
+        }
+        // 发送这个请求
+        jQuery.ajax(request)
+    }
+
+    $('#id-button-add').on('click', function () {
+        log('点击到了 button')
+        var content = $('#id-input-content').val()
+        sendAddRequest(content)
+    })
+
+</script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.min.js"></script>-->
+</body>
+</html>
