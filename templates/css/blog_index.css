@@ -1,0 +1,87 @@
+*{
+  margin: 0;
+}
+
+body{
+  background-color: #CFCFCF;
+}
+
+#main{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+body > div > header{
+  padding: 22px 0 0 20px;
+  background: url("../../static/img/1.jpg") repeat;
+
+
+}
+
+header .header-title{
+  margin-left: 100px;
+  font: normal 120% 'Yanone Kaffeesatz', arial, sans-serif;
+}
+
+header div a{
+  color: #FFF;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+a .logo_color{
+  color: blue;
+}
+
+header div a:hover .logo_color{
+  color: #FFF;
+}
+
+header .header-title h2{
+  display: block;
+  color: #A8AA94;
+  font-size: 15px;
+  -webkit-margin-before: 10px;
+  /*-webkit-margin-after: 0.83em;*/
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+nav{
+      font-family: "Lato", "Verdana", sans-serif;
+    height: 38px;
+    width: 100%;
+    /*background: gray;*/
+    /*background: url("../../static/img/1.jpg") no-repeat;*/
+}
+
+nav ul{
+  margin-right: 100px;
+  list-style-type: none;
+}
+
+nav ul li{
+  display: block;
+  float: right;
+  position: relative;
+  margin: 0 20px;
+}
+
+nav ul li a{
+  color: white;
+  text-decoration:none;
+}
+
+nav ul li a:hover{
+  color: blue;
+}
+
+#site_container{
+  background: #f0f0f0;
+  clear: both;
+}
+
+.content{
+      background: #f8f8f8;
+}
