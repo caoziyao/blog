@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博</title>
+</head>
+<body>
+    <div class="content">
+        <form action="/add" method="post">
+            <input type="text" name="content" placeholder="添加微博">
+            <input type="text" name="username" size="10" placeholder="Name">
+            <button type="submit">添加微博</button>
+        </form>
+        {% for wb in weibos %}
+            <div>
+                {{ wb.content }} {{ wb.username }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
