@@ -11,11 +11,31 @@
             <input type="text" name="username" size="10" placeholder="Name">
             <button type="submit">添加微博</button>
         </form>
-        {% for wb in weibos %}
-            <div>
-                {{ wb.content }} {{ wb.username }}
-            </div>
-        {% endfor %}
+
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>content</th>
+                <th>username</th>
+                <th>action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for wb in weibos %}
+                <tr>
+                    <td>{{ wb.id }}</td>
+                    <td>{{ wb.content }}</td>
+                    <td>{{ wb.username }}</td>
+                    <!-- url_for 可以传递参数，先匹配动态路由，如果动态路由匹配失败则变成 query 参数 -->
+                    <td><a href={{ url_for('weibo.delete', weibo_id=wb.id) }}>delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
     </div>
 </body>
 </html>

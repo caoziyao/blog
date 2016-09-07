@@ -28,3 +28,11 @@ def add():
     wb = Weibo(form)
     wb.save()
     return redirect(url_for('.weibo_index'))
+
+
+@main.route('/delete/<int:weibo_id>')
+def delete(weibo_id):
+    wb = Weibo.query.get(weibo_id)
+    # 删除
+    wb.delete()
+    return redirect(url_for('.weibo_index'))
