@@ -1,3 +1,5 @@
+# api 只返回数据
+
 from flask import Blueprint
 from flask import render_template
 from flask import request
@@ -14,7 +16,7 @@ import json
 # 创建一个 蓝图对象 并且路由定义在蓝图对象中
 # 然后在 flask 主代码中「注册蓝图」来使用
 # 第一个参数是蓝图的名字，第二个参数是 ??
-main = Blueprint('myblog', __name__)
+main = Blueprint('api', __name__)
 
 
 def current_user():
@@ -24,31 +26,17 @@ def current_user():
         return u
 
 
-@main.route('/')
-def myblog_index():
-    cs = BlogComment.query.all()
-    return render_template('myblog_index.html', comments=cs)
 
-
-@main.route('/myblog/article/add')
-def myblog_add():
+@main.route('/comment/add', methods=['POST'])
+def comment_add():
     """
-    添加博客文章
+    添加评论
     """
-    pass
+    form = request.form
+    print('comment', form)
+    u = current_user()
 
-
-# @main.route('/myblog/comment/add', methods=['POST'])
-# def comment_add():
-#     """
-#     添加评论
-#     """
-#     form = request.form
-#     print('comment', form)
-#     u = current_user()
-#
-#     c = BlogComment(form)
-#     c.save()
-#     return c.json()
-
+    c = BlogComment(form)
+    c.save()
+    return c.json()
 

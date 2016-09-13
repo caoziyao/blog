@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>我的博客</title>
     <link type="text/css" rel="stylesheet" href="/static/css/weibo_index.css">
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/myblog_index.js"></script>
+
 </head>
 <body>
 
@@ -41,7 +45,24 @@
                         新模式的前沿，并与大家一起深入探讨企业管理信息化变革与机会，希望我们一起扬鞭奋蹄，
                         开创我们的美好未来！老“马”是我，是你，亦是大家！
                     </div>
-                    <div class="entry-footer">阅读全文</div>
+                    <div class="entry-footer">
+                        <span>阅读全文</span>
+                        <a href="#">评论</a>
+                    </div>
+
+
+                    <div class="entry-comment hide">
+                         <div class="comment-list ">
+                            {% for c in comments %}
+                                <div>{{ c.comment }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="comment-form">
+                            <input name="comment" class="left m comment-content" placeholder="Comment">
+                            <button class="blog-comment-add">发表</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="article">
