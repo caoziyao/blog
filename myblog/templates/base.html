@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+        <title>{% block title %}{% endblock %}</title>
+
+        <script src="/static/js/jquery-3.1.0.min.js"></script>
+        <script src="/static/js/api.js"></script>
+
+    {% endblock %}
+
+
+</head>
+<body>
+    {% block body %}
+         <div class="container">
+
+        <div class="header clearfix">
+            <div class="header-title">
+                <a href="#">ZYCODE和他的朋友们</a>
+                <h3>重点关注计算机科学与技术</h3>
+            </div>
+
+            <div class="header-nav ">
+                <ul class="nav-ul">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/user/register">登陆/注册</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content clearfix">
+
+            {% block left_content %}
+            {% endblock %}
+
+            <div class="right-content">
+                <div class="search">
+                    <form action="#" method="post">
+                        <input type="text" name="search">
+                        <button type="submit">搜索</button>
+                    </form>
+                </div>
+
+                <div class="tap">
+                    Down by the salley gardens
+                    My love and I did meet
+                    She passed the salley gardens
+                    With little snow-white feet
+                    She bid me take love easy
+                    As the leaves grow on the tree
+                    But I being young and foolish
+                    With her would not agree
+                    In a field by the river
+                    My love and I did stand
+                    And on my leaning shoulder
+                    She laid her snow-white hand
+                    She bid me take life easy
+                    As the grass grows on the weirs
+                    But I was young and foolish
+                    And now I'm full of tears
+                    Down by the salley gardens
+                    My love and I did meet
+                    She passed the salley gardens
+                    With little snow-white feet
+                    She bid me take love easy
+                    As the leaves grow on the tree
+                    But I being young and foolish
+                    With her would not agree
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="footer">
+            <h4>footer</h4>
+        </div>
+
+    </div>
+
+
+
+    {% endblock %}
+
+
+
+
+
+
+
+</body>
+</html>

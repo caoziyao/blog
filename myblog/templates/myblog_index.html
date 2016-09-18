@@ -1,137 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>我的博客</title>
+
+{% extends "base.html" %}
+
+{% block title %}
+    我的博客
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
     <link type="text/css" rel="stylesheet" href="/static/css/weibo_index.css">
-    <script src="/static/js/jquery-3.1.0.min.js"></script>
-    <script src="/static/js/api.js"></script>
     <script src="/static/js/myblog_index.js"></script>
+{% endblock %}
 
-</head>
-<body>
+{% block body %}
+   {{ super() }}
+{% endblock %}
 
-    <div class="container">
-
-        <div class="header clearfix">
-            <div class="header-title">
-                <a href="#">ZYCODE和他的朋友们</a>
-                <h3>重点关注计算机科学与技术</h3>
-            </div>
-
-            <div class="header-nav ">
-                <ul class="nav-ul">
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/user/register">登陆/注册</a></li>
-                </ul>
-            </div>
-        </div>
+{% block left_content %}
+           <div class="left-content">
+            <div class="article">
+                <div class="entry-title"><a class="read-more" href="/p=1">AlphaGo为什么那么厉害？</a></div>
 
 
-        <div class="content clearfix">
-
-            <div class="left-content">
-                <div class="article">
-                    <div class="entry-title"><a href="#">祝我生日快乐 - 2016</a></div>
-
-
-                    <div class="entry-meta">2016年8月29日</div>
-                    <div class="entry-summer">
-                        马杰涛（老马自奋蹄），“老马奋蹄”的灵感来自于当代大诗人臧克家《咏牛诗》的“老牛亦解韶光贵，不待扬鞭自奋蹄”。
-                        老马计算机应用专业毕业后在企业管理信息化领域奋战已有20载，如今云计算、
-                        大数据和社交网络的新一轮技术革命正在历史性变革IT产业。风暴就在前方，
-                        危机亦在身边。老牛尚知韶光贵，作为老“马”的我只有扬鞭奋蹄，自我学习、
-                        自我驱动才能与时俱进,才能持续创新、坚实发展。 本微博与大家分享互联网新技术、
-                        新模式的前沿，并与大家一起深入探讨企业管理信息化变革与机会，希望我们一起扬鞭奋蹄，
-                        开创我们的美好未来！老“马”是我，是你，亦是大家！
-                    </div>
-                    <div class="entry-footer">
-                        <span>阅读全文</span>
-                        <a href="#">评论</a>
-                    </div>
-
-
-                    <div class="entry-comment hide">
-                         <div class="comment-list ">
-                            {% for c in comments %}
-                                <div>{{ c.comment }}</div>
-                            {% endfor %}
-                        </div>
-
-                        <div class="comment-form">
-                            <input name="comment" class="left m comment-content" placeholder="Comment">
-                            <button class="blog-comment-add">发表</button>
-                        </div>
-                    </div>
+                <div class="entry-meta">2016年8月29日</div>
+                <div class="entry-summer">
+                    马杰涛（老马自奋蹄），“老马奋蹄”的灵感来自于当代大诗人臧克家《咏牛诗》的“老牛亦解韶光贵，不待扬鞭自奋蹄”。
+                    老马计算机应用专业毕业后在企业管理信息化领域奋战已有20载，如今云计算、
+                    大数据和社交网络的新一轮技术革命正在历史性变革IT产业。风暴就在前方，
+                    危机亦在身边。老牛尚知韶光贵，作为老“马”的我只有扬鞭奋蹄，自我学习、
+                    自我驱动才能与时俱进,才能持续创新、坚实发展。 本微博与大家分享互联网新技术、
+                    新模式的前沿，并与大家一起深入探讨企业管理信息化变革与机会，希望我们一起扬鞭奋蹄，
+                    开创我们的美好未来！老“马”是我，是你，亦是大家！
                 </div>
 
-                <div class="article">
-                    <div class="entry-title"><a href="#">祝我生日快乐 - 2016</a></div>
+                <a class="read-more" href="/p=1">阅读全文</a>
+                <div class="entry-footer">
 
-                    <div class="entry-meta">2016年8月29日</div>
-                    <div class="entry-summer">
-                        马杰涛（老马自奋蹄），“老马奋蹄”的灵感来自于当代大诗人臧克家《咏牛诗》的“老牛亦解韶光贵，不待扬鞭自奋蹄”。
-                        老马计算机应用专业毕业后在企业管理信息化领域奋战已有20载，如今云计算、
-                        大数据和社交网络的新一轮技术革命正在历史性变革IT产业。风暴就在前方，
-                        危机亦在身边。老牛尚知韶光贵，作为老“马”的我只有扬鞭奋蹄，自我学习、
-                        自我驱动才能与时俱进,才能持续创新、坚实发展。 本微博与大家分享互联网新技术、
-                        新模式的前沿，并与大家一起深入探讨企业管理信息化变革与机会，希望我们一起扬鞭奋蹄，
-                        开创我们的美好未来！老“马”是我，是你，亦是大家！
+                    <a href="#">评论</a>
+                </div>
+
+
+                <div class="entry-comment hide">
+                     <div class="comment-list ">
+                        {% for c in comments %}
+                            <div>{{ c.comment }}</div>
+                        {% endfor %}
                     </div>
-                    <div class="entry-footer">阅读全文</div>
-                </div>
 
-            </div>
-
-            <div class="right-content">
-                <div class="search">
-                    <form action="#" method="post">
-                        <input type="text" name="search">
-                        <button type="submit">搜索</button>
-                    </form>
-                </div>
-
-                <div class="tap">
-                    Down by the salley gardens
-                    My love and I did meet
-                    She passed the salley gardens
-                    With little snow-white feet
-                    She bid me take love easy
-                    As the leaves grow on the tree
-                    But I being young and foolish
-                    With her would not agree
-                    In a field by the river
-                    My love and I did stand
-                    And on my leaning shoulder
-                    She laid her snow-white hand
-                    She bid me take life easy
-                    As the grass grows on the weirs
-                    But I was young and foolish
-                    And now I'm full of tears
-                    Down by the salley gardens
-                    My love and I did meet
-                    She passed the salley gardens
-                    With little snow-white feet
-                    She bid me take love easy
-                    As the leaves grow on the tree
-                    But I being young and foolish
-                    With her would not agree
-
+                    <div class="comment-form">
+                        <input name="comment" class="left m comment-content" placeholder="Comment">
+                        <button class="blog-comment-add">发表</button>
+                    </div>
                 </div>
             </div>
 
+            <div class="article">
+                <div class="entry-title"><a href="#">祝我生日快乐 - 2016</a></div>
 
-
+                <div class="entry-meta">2016年8月29日</div>
+                <div class="entry-summer">
+                    马杰涛（老马自奋蹄），“老马奋蹄”的灵感来自于当代大诗人臧克家《咏牛诗》的“老牛亦解韶光贵，不待扬鞭自奋蹄”。
+                    老马计算机应用专业毕业后在企业管理信息化领域奋战已有20载，如今云计算、
+                    大数据和社交网络的新一轮技术革命正在历史性变革IT产业。风暴就在前方，
+                    危机亦在身边。老牛尚知韶光贵，作为老“马”的我只有扬鞭奋蹄，自我学习、
+                    自我驱动才能与时俱进,才能持续创新、坚实发展。 本微博与大家分享互联网新技术、
+                    新模式的前沿，并与大家一起深入探讨企业管理信息化变革与机会，希望我们一起扬鞭奋蹄，
+                    开创我们的美好未来！老“马”是我，是你，亦是大家！
+                </div>
+                <div class="entry-footer">阅读全文</div>
+            </div>
 
         </div>
+{% endblock %}
 
-        <div class="footer">
-            <h4>footer</h4>
-        </div>
-
-    </div>
-
-
-
-</body>
-</html>

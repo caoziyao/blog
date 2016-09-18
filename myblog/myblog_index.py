@@ -38,6 +38,9 @@ def myblog_add():
     pass
 
 
+@main.route('/p=<article_id>')
+def myblog_article(article_id):
+    return render_template('myblog_article.html')
 # @main.route('/myblog/comment/add', methods=['POST'])
 # def comment_add():
 #     """
