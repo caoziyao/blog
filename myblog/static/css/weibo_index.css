@@ -1,135 +1,54 @@
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
     /*outline: 1px red dashed;*/
 }
-
-ul{
-  list-style-type: none;
+.weibos-list {
+    /*background-color: lightblue;*/
+    /* border: 1px black solid; */
 }
 
-a{
-    text-decoration: none;
+.weibo-cell {
+    border: 1px solid lightblue;
+    margin: 10px 0px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
-
-body{
-    background-color: #e6e6e6;
-
-}
-
-.clearfix{
-    /*clear: both;*/
-}
-
-.clearfix:after{
-      display: block;
-      clear: both;
-      height: 0;
-      content: '\200B';
-}
-
-.container{
-    background-color: white;
-    max-width: 960px;
-    margin: 20px auto;
-    overflow: hidden;
-    padding: 20px 30px;
-}
-
-.header{
-
-}
-
-.header-title{
-    margin-bottom: 20px;
-}
-
-.header-title a{
-        color: #515151;
-    display: inline-block;
-    text-decoration: none;
-    margin-bottom: 10px;
-    line-height: 1.846153846;
-    font-size: 1.857142857rem;
-    text-space: 1.22rem;
-     font-weight: bolder;
-}
-
-.header-title a:hover{
-    color: #21759b;
-}
-
-.header-title h3{
-        font-weight: normal;
-    font-size: 13px;
-    font-size: 0.928571429rem;
-    line-height: 1.846153846;
-    /*color: #757575;*/
-}
-
-.header-nav{
-   border-top: 1px #dcdcdc solid;
-   border-bottom: 1px #dcdcdc solid;
-   padding: 10px 0;
-}
-
-.nav-ul li{
-    display: inline-block;
-
-
-}
-
-.nav-ul li a{
-    color: #0f0f0f;
-    font-size: 0.88rem;
-}
-
-.nav-ul li a:hover{
-    color: #21759b;
-}
-
-.content{
-    /*margin: 20px 0;*/
-}
-
-.article{
-    border-bottom: 4px double #ededed;
-}
-
-.entry-title{
+.weibo-content{
+    background: cadetblue;
+    padding: 10px;
+    border-radius: 5px;
     margin: 10px 0px;
 }
 
-.left-content{
-    float: left;
-    width: 65.104166667%
-
+.comment-list{
+    background: lightsteelblue;
+    border-radius: 5px;
+    border-style: solid;
+    /* border-color: white; */
+    padding: 5px;
+    border: 0;
+    margin: 10px 0;
 }
 
-.article{
-    margin: 20px 0;
+comment-cell {
+    padding: 5px;
 }
 
-
-.entry-summer{
-    margin: 15px 0px;
+input {
+    outline: none;
+    border: none;
+    background: lightblue;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 10px;
 }
-
-.entry-footer{
-    margin: 15px 0px;
-}
-
-.right-content{
-    float: right;
-    width: 26.041666667%;
-}
-
-.search{
-    margin: 20px 0px;
-}
-
-.hide{
-    /*visibility:hidden*/
-    display: none;
+button {
+    border: none;
+    background: lightpink;
+    height: 30px;
+    border-radius: 5px;
+    width: 100px;
+    /* color: black; */
 }

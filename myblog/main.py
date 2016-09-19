@@ -3,6 +3,7 @@ from flask import render_template
 from myblog_index import main as myblog_routes
 from user import main as user_routes
 from api import main as api_routes
+from weibo.weibo_index import main as weibo_routes
 
 
 app = Flask(__name__)
@@ -18,6 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.register_blueprint(myblog_routes)
 app.register_blueprint(user_routes)
 app.register_blueprint(api_routes, url_prefix='/api')
+app.register_blueprint(weibo_routes)
 
 
 @app.errorhandler(404)

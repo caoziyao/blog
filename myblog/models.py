@@ -102,6 +102,48 @@ class BlogComment(db.Model, ModelHelper):
         return json.dumps(d, ensure_ascii=False)
 
 
+# 定义一个 Model，继承自 db.Model
+class Weibo(db.Model, ModelHelper):
+    __tablename__ = 'weibos'
+    # 下面是字段定义
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String())
+    created_time = db.Column(db.Integer, default=0)
+    username = db.Column(db.String(), default='')
+
+    # 定义关系
+    user_id = db.Column(db.Integer)
+
+    def __init__(self, form):
+        self.content = form.get('content', '')
+        self.created_time = int(time.time())
+        self.username = form.get('username', '')
+        self.comments = []
+
+    def load_comments(self):
+        self.comments = Weibo_Comment.query.filter_by(weibo_id=self.id).all()
+
+
+class Weibo_Comment(db.Model, ModelHelper):
+    """
+    评论微博
+    """
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String())
+    create_time = db.Column(db.Integer, default=0)
+    username = db.Column(db.String(), default='')
+
+    # 定义关系
+    user_id = db.Column(db.Integer)
+    weibo_id = db.Column(db.Integer)
+
+    def __init__(self, form):
+        self.comment = form.get('comment', '')
+        self.created_time = int(time.time())
+        self.username = form.get('username', '')
+
+
 def init_db():
     # 先 drop_all 删除所有数据库中的表
     # 再 create_all 创建所有的表
