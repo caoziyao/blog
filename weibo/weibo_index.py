@@ -1,21 +1,22 @@
 from flask import Blueprint
 from flask import render_template
 from flask import request
-from flask import url_for
 from flask import redirect
-from utils import log
-
+from flask import url_for
+from flask import session
 from models import Weibo
 from models import Weibo_Comment
 
 
+import json
+# http://wdxtub.com/
+
 # 创建一个 蓝图对象 并且路由定义在蓝图对象中
 # 然后在 flask 主代码中「注册蓝图」来使用
-# 第一个参数是蓝图的名字，第二个参数是套路
+# 第一个参数是蓝图的名字，第二个参数是 ??
 main = Blueprint('weibo', __name__)
 
-
-@main.route('/')
+@main.route('/weibo')
 def weibo_index():
     wbs = Weibo.query.all()
     # wcs = Weibo_Comment.query.all()
@@ -25,7 +26,7 @@ def weibo_index():
     return render_template('weibo_index.html', weibos=wbs)
 
 
-@main.route('/add', methods=['POST'])
+@main.route('/weibo/add', methods=['POST'])
 def add():
     """
     添加微博
@@ -37,7 +38,7 @@ def add():
     return redirect(url_for('.weibo_index'))
 
 
-@main.route('/delete/<int:weibo_id>')
+@main.route('/weibo/delete/<int:weibo_id>')
 def delete(weibo_id):
     # 获取 微博
     wb = Weibo.query.get(weibo_id)
@@ -52,7 +53,7 @@ def delete(weibo_id):
 
 
 
-@main.route('/comment/add', methods=['POST'])
+@main.route('/weibo/comment/add', methods=['POST'])
 def comment_add():
     """
     评论微博

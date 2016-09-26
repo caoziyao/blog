@@ -22,6 +22,7 @@ app.register_blueprint(api_routes, url_prefix='/api')
 app.register_blueprint(weibo_routes)
 
 
+
 @app.errorhandler(404)
 def error404(e):
     return render_template('404.html')

@@ -26,7 +26,10 @@ def current_user():
 
 @main.route('/')
 def myblog_index():
-    cs = BlogComment.query.all()
+    u = current_user()  # 判断是否登陆了，没有则重定向到登陆界面
+    if u is None:
+        return redirect('/user/register')
+    cs = BlogComment.query.all()    # 加载所有评论
     return render_template('myblog_index.html', comments=cs)
 
 
@@ -53,5 +56,3 @@ def myblog_article(article_id):
 #     c = BlogComment(form)
 #     c.save()
 #     return c.json()
-
-

@@ -25,3 +25,4 @@ api.myblogCommAdd = function (form, success, error) {
     var url = '/api/comment/add'
     api.post(url, form, success, error)
 }
+

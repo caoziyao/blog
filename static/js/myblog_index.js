@@ -13,7 +13,7 @@ $(document).ready(function () {
     var hide = $('.hide')
 
     // 评论超链接
-    $('.entry-footer a').click(function () {
+    $('.entry-footer-comment').click(function () {
         log('评论超链接')
         $(this).parent().next().slideToggle()
         return false
@@ -88,4 +88,3 @@ $(document).ready(function () {
        //  }
        //
        //  $.ajax(request)
-
