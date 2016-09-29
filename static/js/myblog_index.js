@@ -13,7 +13,7 @@ $(document).ready(function () {
     var hide = $('.hide')
 
     // 评论超链接
-    $('.entry-footer-comment').click(function () {
+    $('.thumb-footer-comment').click(function () {
         log('评论超链接')
         $(this).parent().next().slideToggle()
         return false
@@ -39,9 +39,9 @@ $(document).ready(function () {
             var response = arguments[0]
             var str = JSON.parse(response)
             var username = str.username
-            log('js username', username)
-
             var comment = str.comment
+
+            log('js comment', comment)
             var created_time = comment.created_time
             var cell = `
                 <div >

@@ -5,8 +5,8 @@ from flask import redirect
 from flask import url_for
 from flask import session
 
-from models import User
-from models import BlogComment
+from models.user import User
+from models.blogcomment import BlogComment
 
 import json
 # http://wdxtub.com/
@@ -30,29 +30,32 @@ def myblog_index():
     if u is None:
         return redirect('/user/register')
     cs = BlogComment.query.all()    # 加载所有评论
+    # print(cs)
     return render_template('myblog_index.html', comments=cs)
 
 
-@main.route('/myblog/article/add')
-def myblog_add():
-    """
-    添加博客文章
-    """
-    pass
+# @main.route('/myblog/article/add')
+# def myblog_add():
+#     """
+#     添加博客文章
+#     """
+#     pass
 
 
 @main.route('/p=<article_id>')
 def myblog_article(article_id):
     return render_template('myblog_article.html')
-# @main.route('/myblog/comment/add', methods=['POST'])
-# def comment_add():
-#     """
-#     添加评论
-#     """
-#     form = request.form
-#     print('comment', form)
-#     u = current_user()
-#
-#     c = BlogComment(form)
-#     c.save()
-#     return c.json()
+
+
+@main.route('/myblog/comment/add', methods=['POST'])
+def comment_add():
+    """
+    添加评论
+    """
+    form = request.form
+    print('comment', form)
+    u = current_user()
+
+    c = BlogComment(form)
+    c.save()
+    return c.json()

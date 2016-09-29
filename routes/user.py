@@ -5,7 +5,7 @@ from flask import redirect
 from flask import url_for
 from flask import session
 
-from models import User
+from models.user import User
 
 # 创建一个 蓝图对象 并且路由定义在蓝图对象中
 # 然后在 flask 主代码中「注册蓝图」来使用

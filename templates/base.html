@@ -2,97 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% block head %}
         <title>{% block title %}{% endblock %}</title>
-
+        <link type="text/css" rel="stylesheet" href="/static/css/base.css">
+        {% block css %}{% endblock %}
         <script src="/static/js/jquery-3.1.0.min.js"></script>
         <script src="/static/js/api.js"></script>
-
-    {% endblock %}
-
+        {% block script %}{% endblock %}
 
 </head>
 <body>
-    {% block body %}
-         <div class="container">
 
-        <div class="header clearfix">
-            <div class="header-title">
-                <a href="#">ZYCODE和他的朋友们</a>
-                <h3>重点关注计算机科学与技术</h3>
-            </div>
-
-            <div class="header-nav ">
-                <ul class="nav-ul">
-                    <li><a href="/">首页</a></li>
-                    <li><a href="/user/register">登陆/注册</a></li>
-                    <li><a href="/weibo">微博</a></li>
-                </ul>
+        <div id="header" class="fix">
+            <div class="container header_cont">
+                <nav id="topMenu" class="menu_click">
+                    <div class="menu-menu-1-container">
+                        <ul id="menu-menu-1">
+                            <li><a href="#">首页</a></li>
+                            <li><a href="#">微博</a></li>
+                            <li><a href="#">文章列表</a></li>
+                            <li><a href="#">分类</a></li>
+                            <li><a href="#">标签</a></li>
+                            <li><a href="#">关于</a></li>
+                            <li><a href="#">登陆/注册</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <h1 class="logo"><a href="#">gnhg's blog</a></h1>
             </div>
         </div>
 
-        <div class="content clearfix">
 
-            {% block left_content %}
+        <div class="main_bg">
+            
+            {% block main %}
+            {% endblock %}
+            
+
+            {% block sidebar %}
             {% endblock %}
 
-            <div class="right-content">
-                <div class="search">
-                    <form action="#" method="post">
-                        <input type="text" name="search">
-                        <button type="submit">搜索</button>
-                    </form>
-                </div>
+            
+    </div>
 
-                <div class="tap">
-                    Down by the salley gardens
-                    My love and I did meet
-                    She passed the salley gardens
-                    With little snow-white feet
-                    She bid me take love easy
-                    As the leaves grow on the tree
-                    But I being young and foolish
-                    With her would not agree
-                    In a field by the river
-                    My love and I did stand
-                    And on my leaning shoulder
-                    She laid her snow-white hand
-                    She bid me take life easy
-                    As the grass grows on the weirs
-                    But I was young and foolish
-                    And now I'm full of tears
-                    Down by the salley gardens
-                    My love and I did meet
-                    She passed the salley gardens
-                    With little snow-white feet
-                    She bid me take love easy
-                    As the leaves grow on the tree
-                    But I being young and foolish
-                    With her would not agree
+    <div id="footer">
+        <div class="footer-left">
+        <ul class="footer-container">
+            <li><a href="https://justyy.com" target="_blank">赖博士</a></li>
+            <li><a href="http://asheblog.org" target="_blank">AsheBlog</a></li>
+            <li><a href="http://maro6.com" target="_blank">Maro的博客</a></li>
+            <li><a href="http://cheen.cn" target="_blank">枫叶飘落</a></li>
+            <li><a href="http://cnzl.org" target="_blank">黎叔</a></li>
+            <li><a href="http://199508.com" target="_blank">nob太雄</a></li>
+            <li><a href="http://rffan.info" target="_blank">啊福</a></li>
+            <li><a href="http://piaoling.me" target="_blank">飘零</a></li>
+            <li><a href="http://www.wysafe.com" target="_blank">梦月酱</a></li>
+            <li><a href="http://www.lingchenzi.com" target="_blank">灵尘居</a></li>
+            <li><a href="http://www.mwulu.com" target="_blank">喵呜噜</a></li>
+            <li><a href="http://louishan.com" target="_blank">生活志</a></li>
+            <li><a href="http://fang.in" target="_blank">蛋疼哥</a></li>
+            <li><a href="https://www.biji.io" target="_blank">设计笔记</a></li>
+            <li><a href="http://www.wlyx581.com" target="_blank">囧小样</a></li>
+            <li><a href="http://www.bgbk.org" target="_blank">斌果博客</a></li>
+            <li><a href="http://wonse.info" target="_blank">王鑫的小屋</a></li>
 
-                </div>
-            </div>
+            <li><a href="https://tumutanzi.com" target="_blank">土木坛子</a></li>
+            <li><a href="http://fatesinger.com" target="_blank">大发</a></li>
+            <li><a href="https://immmmm.com" target="_blank">木木</a></li>
+            <li><a href="http://forbetty.com" target="_blank">贝总</a></li>
+        </ul>
+     </div>
 
 
-
-
-        </div>
-
-        <div class="footer">
-            <h4>footer</h4>
+        <div class="footer-right">
+            <p>Powered by WordPress</p>
+                    <p>Theme is DesNote-Pro by <a target="_blank" href="#/">Tokin</a></p>
+            <p>vultr 高速服务器由 <a target="_blank" href="#">bnhb</a> 独家赞助</p>
+            <p>© 2016 <a href="#">gnhg</a></p>
         </div>
 
     </div>
-
-
-
-    {% endblock %}
-
-
-
-
-
-
-
 </body>
 </html>
+
+

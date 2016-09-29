@@ -7,8 +7,8 @@ from flask import redirect
 from flask import url_for
 from flask import session
 
-from models import User
-from models import BlogComment
+from models.user import User
+from models.blogcomment import BlogComment
 
 import json
 # http://wdxtub.com/
