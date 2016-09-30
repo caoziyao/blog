@@ -14,7 +14,7 @@
 
 
                 {% block main %}
-<div id="main">
+    <div id="main">
                 <div class="post post-list">
                     <div class="thumbnail">
                         <img src="" alt="img">
@@ -30,20 +30,20 @@
 
                      <div class="thumb-footer">
                         <a class="read-more" href="/p=1">阅读全文</a>
-                        <a class="thumb-footer-comment" href="#">评论</a>
+                        <a class="thumb-footer-comment" href="#">评论({{ replys }})</a>
                     </div>
 
                     <div class="hide comment-list">
                         <input class="comment-content" type="text" name="comment" value="" placeholder="评论">
                         <button class="blog-comment-add" type="submit">评论</button>
-                        {% for c in comments %}
-                            <div>{{ c.comment }}</div>
+                        {% for c in comment_list %}
+                            <div>{{ c.comment }} {{ c.created_time }}</div>
                         {% endfor %}
                     </div>
                 </div>
                 
                 <div class="clearer"></div>
-</div>
+    </div>
                 {% endblock %}
 
 {% block sidebar %}

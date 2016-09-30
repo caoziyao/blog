@@ -27,11 +27,13 @@ def current_user():
 @main.route('/')
 def myblog_index():
     u = current_user()  # 判断是否登陆了，没有则重定向到登陆界面
-    if u is None:
-        return redirect('/user/register')
+    # if u is None:
+    #     return redirect('/user/register')
     cs = BlogComment.query.all()    # 加载所有评论
     # print(cs)
-    return render_template('myblog_index.html', comments=cs)
+    # print(type(cs))   list
+    r = len(cs)     # 评论数
+    return render_template('myblog_index.html', comment_list=cs, replys=r)
 
 
 # @main.route('/myblog/article/add')

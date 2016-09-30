@@ -16,7 +16,7 @@ class Weibo(db.Model, ModelHelper):
 
     def __init__(self, form):
         self.content = form.get('content', '')
-        self.created_time = int(time.time())
+        self.created_time = timestamp()
         self.username = form.get('username', '')
         self.comments = []
 

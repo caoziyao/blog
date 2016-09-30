@@ -78,6 +78,10 @@ a {
     background-color: lightskyblue;
 }
 
+.logo{
+    padding-top: 5px;
+}
+
 .main_bg{
     width: 1100px;
     height: 800px;

@@ -40,12 +40,13 @@ $(document).ready(function () {
             var str = JSON.parse(response)
             var username = str.username
             var comment = str.comment
+            var created_time = str.created_time
 
             log('js comment', comment)
-            var created_time = comment.created_time
+            // var created_time = comment.created_time
             var cell = `
                 <div >
-                    <div>${comment}</div>
+                    <div>${comment} ${created_time}</div>
                 </div>
             `;
             comment_list.append(cell)

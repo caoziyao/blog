@@ -6,7 +6,12 @@ db = SQLAlchemy()
 
 
 def timestamp():
-    return int(time.time())
+    """
+    格式化时间
+    """
+    strtime =  time.strftime("%Y-%m-%d-%H-%M", time.localtime()) 
+    y, m, d, h, min = strtime.split('-')
+    return y + '年' + m + '月' + d + '日' + ' ' + h + ':' + min
 
 
 class ModelHelper(object):

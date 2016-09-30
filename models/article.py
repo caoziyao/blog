@@ -21,5 +21,5 @@ class Article(db.Model, ModelHelper):
         self.title = form('title', '')
         self.author = 'czy'
         self.popular = 0
-        self.created_time = int(time.time())
+        self.created_time = timestamp()
         self.content = form('content', '')
