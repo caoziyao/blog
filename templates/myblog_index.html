@@ -13,22 +13,28 @@
 
 
 
-                {% block main %}
+    {% block main %}
     <div id="main">
-                <div class="post post-list">
+               
+
+            {% for al in article_list %}
+                    <div class="post post-list">
+
                     <div class="thumbnail">
                         <img src="" alt="img">
                     </div>
                     <div class="info thumb">
-                        <h2><a href="">title</a></h2>
-                        <span class="time"><i class="iconfont icon-rili"></i>09月26日</span>
-                        <p>
+                        <h2><a href="">{{ al.title }}</a></h2>
+                        <span class="time"><i class="iconfont icon-rili"></i>{{ al.created_time }}</span>
+                        <!--<p>
                             某日，在微信公众号【好奇实验室】看到一篇文章《付了钱连不上客服还不理！FQ 去油管安静的看个视频怎么这么难？》...            
-                        </p>
-
+                        </p>-->
                     </div>
 
-                     <div class="thumb-footer">
+                    </div>
+            {% endfor %}
+
+                     <!--<div class="thumb-footer">
                         <a class="read-more" href="/p=1">阅读全文</a>
                         <a class="thumb-footer-comment" href="#">评论({{ replys }})</a>
                     </div>
@@ -39,36 +45,12 @@
                         {% for c in comment_list %}
                             <div>{{ c.comment }} {{ c.created_time }}</div>
                         {% endfor %}
-                    </div>
-                </div>
+                    </div>-->
+                
                 
                 <div class="clearer"></div>
     </div>
-                {% endblock %}
+    {% endblock %}
 
-{% block sidebar %}
-    <div id="sidebar">
-                <div id="aboutMe">
-                        <div class="profile">
-                            <img src="{{ url_for('static', filename='img/10.png') }}" alt="头像">
-                            <div class="info">
-                                <h1>gnhg</h1>
-                                <p>github</p>
-                            </div>
-                        </div>
-
-                        <div class="counts">
-                            <ul>
-                                <li id="recent-posts-3">posts</li>
-                                <li id="recent-comments-3">comment</li>
-                                <li id="categories-3">cate</li>
-                                <li id="archives-3">archives</li>
-                                <li id="tag_cloud-2">tag</li>
-                                <li id="calendar-2">cal</li>
-                            </ul>
-                        </div>
-                </div>
-            </div>
-{% endblock %}
 
 

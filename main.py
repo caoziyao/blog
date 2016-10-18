@@ -9,6 +9,7 @@ from models import db
 from routes.myblog_index import main as myblog_routes
 from routes.user import main as user_routes
 from routes.api import main as api_routes
+from routes.acticle import main as acticle_routes
 # from weibo.weibo_index import main as weibo_routes
 
 
@@ -27,6 +28,7 @@ def register_route(app):
 	# 有一个 url_prefix 可以用来给蓝图中的每个路由加一个前缀
 	app.register_blueprint(myblog_routes)
 	app.register_blueprint(user_routes)
+	app.register_blueprint(acticle_routes, url_prefix='/acticle')
 	app.register_blueprint(api_routes, url_prefix='/api')
 	# app.register_blueprint(weibo_routes)
 

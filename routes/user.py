@@ -12,6 +12,28 @@ from models.user import User
 # 第一个参数是蓝图的名字，第二个参数是 ??
 main = Blueprint('user', __name__)
 
+def current_user():
+    """
+    当前用户
+    session 获得 user_id
+    """
+    uid = session.get('user_id')
+    if uid is not None:
+        u = User.query.get(uid)
+        return u
+
+def is_superuser():
+    """
+    管理员用户，只有一个
+    """
+    u = current_user()
+    if u is None:
+        return False
+    if u.username == 'cao' and u.password == '123':
+        return True
+    else:
+        return False
+
 
 @main.route('/user/login', methods=['GET', 'POST'])
 def login():
@@ -47,9 +69,17 @@ def register():
             print('register', form)
             u.save()
             print('注册成功')
-            return redirect(url_for('myblog.myblog_index'))
+            return redirect(url_for('user.login'))
         else:
             print('注册失败')
             return render_template('myblog_login.html')
     else:
         return render_template('myblog_login.html')
+
+@main.route('/logout')
+def logout():
+    """
+    登出
+    """
+    session.pop('user_id', None)
+    return redirect('/')

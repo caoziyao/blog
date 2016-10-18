@@ -17,3 +17,13 @@
 .hide{
     display: none;
 }
+
+#main{
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+    /*letter-spacing: 0;*/
+    margin-top: 30px;
+    margin-left: 60px;
+}
+

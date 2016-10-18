@@ -5,8 +5,14 @@ from flask import redirect
 from flask import url_for
 from flask import session
 
+from models.article import Article
 from models.user import User
 from models.blogcomment import BlogComment
+
+
+from routes.user import current_user
+from routes.user import is_superuser
+
 
 import json
 # http://wdxtub.com/
@@ -17,23 +23,19 @@ import json
 main = Blueprint('myblog', __name__)
 
 
-def current_user():
-    uid = session.get('user_id')
-    if uid is not None:
-        u = User.query.get(uid)
-        return u
 
 
 @main.route('/')
 def myblog_index():
     u = current_user()  # 判断是否登陆了，没有则重定向到登陆界面
-    # if u is None:
-    #     return redirect('/user/register')
-    cs = BlogComment.query.all()    # 加载所有评论
+    # cs = BlogComment.query.all()    # 加载所有评论
+    articles = Article.query.all()
+    if is_superuser():
+        print('is superuser')
     # print(cs)
     # print(type(cs))   list
-    r = len(cs)     # 评论数
-    return render_template('myblog_index.html', comment_list=cs, replys=r)
+
+    return render_template('myblog_index.html', article_list=articles, user=u)
 
 
 # @main.route('/myblog/article/add')

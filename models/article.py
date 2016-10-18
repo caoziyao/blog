@@ -19,7 +19,7 @@ class Article(db.Model, ModelHelper):
 
     def __init__(self, form):
         self.title = form('title', '')
-        self.author = 'czy'
+        self.author = self.author
         self.popular = 0
         self.created_time = timestamp()
         self.content = form('content', '')

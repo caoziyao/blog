@@ -17,32 +17,63 @@
                 <nav id="topMenu" class="menu_click">
                     <div class="menu-menu-1-container">
                         <ul id="menu-menu-1">
-                            <li><a href="#">首页</a></li>
+                            <li><a href="/">首页</a></li>
+                            <li><a href="http://www.jianshu.com/users/e3a7469265f5/latest_articles">简书</a></li>
+                            <li><a href="https://github.com/caoziyao">GitHub</a></li>
                             <li><a href="#">微博</a></li>
                             <li><a href="#">文章列表</a></li>
                             <li><a href="#">分类</a></li>
                             <li><a href="#">标签</a></li>
                             <li><a href="#">关于</a></li>
-                            <li><a href="#">登陆/注册</a></li>
+                            {% if user %}
+                            <li><a href="{{ url_for('user.logout') }}">登出</a></li>
+                            {% else %}
+                            <li><a href="{{ url_for('user.login') }}">登陆/注册</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </nav>
-                <h1 class="logo"><a href="#">gnhg's blog</a></h1>
+                <h1 class="logo"><a href="/">gnhg's blog</a></h1>
             </div>
         </div>
 
 
-        <div class="main_bg">
+        <div id="main_bg">
             
             {% block main %}
             {% endblock %}
             
 
-            {% block sidebar %}
-            {% endblock %}
+            <div id="sidebar">
+                <div id="aboutMe">
+                        <div class="profile">
+                            <img src="{{ url_for('static', filename='img/10.png') }}" alt="头像">
+                            <div class="info">
+                                {% if user %}
+                                <a href="/">{{ user.username }}</a>
+                                <p><a href="{{ url_for('acticle.new_acticle') }}">创建新文章</a></p>
+                                {% else %}
+                                <p></p>
+                                <a href="{{ url_for('user.login') }}">游客/请登录</a>
+                                {% endif %}
+                                
+                            </div>
+                        </div>
 
-            
-    </div>
+                        <div class="counts">
+                            <ul>
+                                <li id="recent-posts-3">posts</li>
+                                <li id="recent-comments-3">comment</li>
+                                <li id="categories-3">cate</li>
+                                <li id="archives-3">archives</li>
+                                <li id="tag_cloud-2">tag</li>
+                                <li id="calendar-2">cal</li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+
+         </div>
 
     <div id="footer">
         <div class="footer-left">
