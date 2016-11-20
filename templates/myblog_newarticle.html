@@ -3,13 +3,17 @@
  {% block css %}
     <link type="text/css" rel="stylesheet" href="/static/css/myblog_newarticle.css">
  {% endblock %}
- {% block script %}{% endblock %}
+ {% block script %}
+    <script src="/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/showdown.min.js"></script>
+    <script src="/static/js/myblog_newarticle.js"></script>
+ {% endblock %}
 
 {% block main %}
     <div id="main">
         <form action="{{ url_for('article.new_article') }}" method='post'>
             <input type="text" name="title" value="">
-            <input type="text" name="content" value="">
+            <textarea  type="text" name="content" value=""></textarea>
             <button type="submit">提交</button>
         </form>
     </div>

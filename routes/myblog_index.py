@@ -5,7 +5,6 @@ from models.user import User
 from models.comment import BlogComment
 from routes.user import current_user
 from routes.user import is_superuser
-
 from . import *
 
 
@@ -26,7 +25,7 @@ def myblog_index():
     #     print('is superuser')
     # # print(cs)
     # # print(type(cs))   list
-    print('article', articles)
+    # log('article', articles)
     # return 'hello'
     return render_template('myblog_index.html', article_list=articles, user=u)
 

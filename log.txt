@@ -1,1 +1,1076 @@
 2016-11-19 21:21:48 hello log
+2016-11-20 13:13:20 article [<Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1E10>
+  id = 1
+  created_time = 123
+  content = 123
+  user_id = 2
+  title = 123
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1E80>
+  id = 2
+  created_time = 2016年11月20日 12:33
+  content = ### fdfff
+  user_id = 1
+  title = madr
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1EF0>
+  id = 3
+  created_time = 2016年11月20日 12:50
+  content = # listen-online
+listen music online
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![platform](https://img.shields.io/badge/python-3.4-green.svg)]()
+
+让你用一个网页就能听到多个网站的在线音乐（现已包括网易云音乐，QQ音乐，虾米音乐，豆瓣音乐）。你可以非常的简单的访问和收听在线音乐，而不用受到单个音乐网站资源不全的限制了
+
+支持浏览器：IE 11, Chrome, FireFox, Safari
+
+* 主页：[https://github.com/caoziyao/listen-online](https://github.com/caoziyao/listen-online)
+* 联系邮箱：wyzycao@gmail.com
+
+![platform](https://github.com/caoziyao/listen-online/tree/master/static/img/1.png)  
+
+安装
+----------
+后台基于flask开发，可以用Python环境直接运行。
+1. pip环境下安装在requirements下的package
+ pip install -r static/dev.txt
+2. python app.py
+3. 访问 http://localhost:8888/
+
+后续改进
+----
+1. 搜索多家在线音乐提供商的资源
+2. 制作自己的歌单
+3. windows 和 Mac 客户端
+4. 
+
+致谢
+----
+在开发过程中，参考了很多音乐网站API的分析代码和文章，感谢这些开发者的努力。（具体项目网址参考源码）
+
+
+License
+--------
+MIT
+  user_id = 1
+  title = listen-online
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1F60>
+  id = 4
+  created_time = 2016年11月20日 12:50
+  content = # Cmd Markdown 简明语法手册
+
+标签： Cmd-Markdown
+
+---
+
+### 1. 斜体和粗体
+
+使用 * 和 ** 表示斜体和粗体。
+
+示例：
+
+这是 *斜体*，这是 **粗体**。
+
+### 2. 分级标题
+
+使用 === 表示一级标题，使用 --- 表示二级标题。
+
+示例：
+
+```
+这是一个一级标题
+============================
+
+这是一个二级标题
+--------------------------------------------------
+
+### 这是一个三级标题
+```
+
+你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。
+
+### 3. 外链接
+
+使用 \[描述](链接地址) 为文字增加外链接。
+
+示例：
+
+这是去往 [本人博客](http://ghosertblog.github.com) 的链接。
+
+### 4. 无序列表
+
+使用 *，+，- 表示无序列表。
+
+示例：
+
+- 无序列表项 一
+- 无序列表项 二
+- 无序列表项 三
+
+### 5. 有序列表
+
+使用数字和点表示有序列表。
+
+示例：
+
+1. 有序列表项 一
+2. 有序列表项 二
+3. 有序列表项 三
+
+### 6. 文字引用
+
+使用 > 表示文字引用。
+
+示例：
+
+> 野火烧不尽，春风吹又生。
+
+### 7. 行内代码块
+
+使用 \`代码` 表示行内代码块。
+
+示例：
+
+让我们聊聊 `html`。
+
+### 8.  代码块
+
+使用 四个缩进空格 表示代码块。
+
+示例：
+
+    这是一个代码块，此行左侧有四个不可见的空格。
+
+### 9.  插入图像
+
+使用 \!\[描述](图片链接地址) 插入图像。
+
+示例：
+
+![我的头像](https://www.zybuluo.com/static/img/my_head.jpg)
+  user_id = 1
+  title = mardom
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB048>
+  id = 5
+  created_time = 2016年11月20日 13:13
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB0F0>
+  id = 6
+  created_time = 2016年11月20日 13:13
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB198>
+  id = 7
+  created_time = 2016年11月20日 13:14
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB240>
+  id = 8
+  created_time = 2016年11月20日 13:14
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB2E8>
+  id = 9
+  created_time = 2016年11月20日 13:15
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>]
+2016-11-20 13:13:54 article [<Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x000000000576D7B8>
+  id = 1
+  created_time = 123
+  content = 123
+  user_id = 2
+  title = 123
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057A9748>
+  id = 2
+  created_time = 2016年11月20日 12:33
+  content = ### fdfff
+  user_id = 1
+  title = madr
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057A9668>
+  id = 3
+  created_time = 2016年11月20日 12:50
+  content = # listen-online
+listen music online
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![platform](https://img.shields.io/badge/python-3.4-green.svg)]()
+
+让你用一个网页就能听到多个网站的在线音乐（现已包括网易云音乐，QQ音乐，虾米音乐，豆瓣音乐）。你可以非常的简单的访问和收听在线音乐，而不用受到单个音乐网站资源不全的限制了
+
+支持浏览器：IE 11, Chrome, FireFox, Safari
+
+* 主页：[https://github.com/caoziyao/listen-online](https://github.com/caoziyao/listen-online)
+* 联系邮箱：wyzycao@gmail.com
+
+![platform](https://github.com/caoziyao/listen-online/tree/master/static/img/1.png)  
+
+安装
+----------
+后台基于flask开发，可以用Python环境直接运行。
+1. pip环境下安装在requirements下的package
+ pip install -r static/dev.txt
+2. python app.py
+3. 访问 http://localhost:8888/
+
+后续改进
+----
+1. 搜索多家在线音乐提供商的资源
+2. 制作自己的歌单
+3. windows 和 Mac 客户端
+4. 
+
+致谢
+----
+在开发过程中，参考了很多音乐网站API的分析代码和文章，感谢这些开发者的努力。（具体项目网址参考源码）
+
+
+License
+--------
+MIT
+  user_id = 1
+  title = listen-online
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057A9C18>
+  id = 4
+  created_time = 2016年11月20日 12:50
+  content = # Cmd Markdown 简明语法手册
+
+标签： Cmd-Markdown
+
+---
+
+### 1. 斜体和粗体
+
+使用 * 和 ** 表示斜体和粗体。
+
+示例：
+
+这是 *斜体*，这是 **粗体**。
+
+### 2. 分级标题
+
+使用 === 表示一级标题，使用 --- 表示二级标题。
+
+示例：
+
+```
+这是一个一级标题
+============================
+
+这是一个二级标题
+--------------------------------------------------
+
+### 这是一个三级标题
+```
+
+你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。
+
+### 3. 外链接
+
+使用 \[描述](链接地址) 为文字增加外链接。
+
+示例：
+
+这是去往 [本人博客](http://ghosertblog.github.com) 的链接。
+
+### 4. 无序列表
+
+使用 *，+，- 表示无序列表。
+
+示例：
+
+- 无序列表项 一
+- 无序列表项 二
+- 无序列表项 三
+
+### 5. 有序列表
+
+使用数字和点表示有序列表。
+
+示例：
+
+1. 有序列表项 一
+2. 有序列表项 二
+3. 有序列表项 三
+
+### 6. 文字引用
+
+使用 > 表示文字引用。
+
+示例：
+
+> 野火烧不尽，春风吹又生。
+
+### 7. 行内代码块
+
+使用 \`代码` 表示行内代码块。
+
+示例：
+
+让我们聊聊 `html`。
+
+### 8.  代码块
+
+使用 四个缩进空格 表示代码块。
+
+示例：
+
+    这是一个代码块，此行左侧有四个不可见的空格。
+
+### 9.  插入图像
+
+使用 \!\[描述](图片链接地址) 插入图像。
+
+示例：
+
+![我的头像](https://www.zybuluo.com/static/img/my_head.jpg)
+  user_id = 1
+  title = mardom
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057A9A58>
+  id = 5
+  created_time = 2016年11月20日 13:13
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1748>
+  id = 6
+  created_time = 2016年11月20日 13:13
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1B70>
+  id = 7
+  created_time = 2016年11月20日 13:14
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1080>
+  id = 8
+  created_time = 2016年11月20日 13:14
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057D1CF8>
+  id = 9
+  created_time = 2016年11月20日 13:15
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>]
+2016-11-20 13:13:00 article [<Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DBF28>
+  id = 1
+  created_time = 123
+  content = 123
+  user_id = 2
+  title = 123
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB748>
+  id = 2
+  created_time = 2016年11月20日 12:33
+  content = ### fdfff
+  user_id = 1
+  title = madr
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB080>
+  id = 3
+  created_time = 2016年11月20日 12:50
+  content = # listen-online
+listen music online
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![platform](https://img.shields.io/badge/python-3.4-green.svg)]()
+
+让你用一个网页就能听到多个网站的在线音乐（现已包括网易云音乐，QQ音乐，虾米音乐，豆瓣音乐）。你可以非常的简单的访问和收听在线音乐，而不用受到单个音乐网站资源不全的限制了
+
+支持浏览器：IE 11, Chrome, FireFox, Safari
+
+* 主页：[https://github.com/caoziyao/listen-online](https://github.com/caoziyao/listen-online)
+* 联系邮箱：wyzycao@gmail.com
+
+![platform](https://github.com/caoziyao/listen-online/tree/master/static/img/1.png)  
+
+安装
+----------
+后台基于flask开发，可以用Python环境直接运行。
+1. pip环境下安装在requirements下的package
+ pip install -r static/dev.txt
+2. python app.py
+3. 访问 http://localhost:8888/
+
+后续改进
+----
+1. 搜索多家在线音乐提供商的资源
+2. 制作自己的歌单
+3. windows 和 Mac 客户端
+4. 
+
+致谢
+----
+在开发过程中，参考了很多音乐网站API的分析代码和文章，感谢这些开发者的努力。（具体项目网址参考源码）
+
+
+License
+--------
+MIT
+  user_id = 1
+  title = listen-online
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB908>
+  id = 4
+  created_time = 2016年11月20日 12:50
+  content = # Cmd Markdown 简明语法手册
+
+标签： Cmd-Markdown
+
+---
+
+### 1. 斜体和粗体
+
+使用 * 和 ** 表示斜体和粗体。
+
+示例：
+
+这是 *斜体*，这是 **粗体**。
+
+### 2. 分级标题
+
+使用 === 表示一级标题，使用 --- 表示二级标题。
+
+示例：
+
+```
+这是一个一级标题
+============================
+
+这是一个二级标题
+--------------------------------------------------
+
+### 这是一个三级标题
+```
+
+你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。
+
+### 3. 外链接
+
+使用 \[描述](链接地址) 为文字增加外链接。
+
+示例：
+
+这是去往 [本人博客](http://ghosertblog.github.com) 的链接。
+
+### 4. 无序列表
+
+使用 *，+，- 表示无序列表。
+
+示例：
+
+- 无序列表项 一
+- 无序列表项 二
+- 无序列表项 三
+
+### 5. 有序列表
+
+使用数字和点表示有序列表。
+
+示例：
+
+1. 有序列表项 一
+2. 有序列表项 二
+3. 有序列表项 三
+
+### 6. 文字引用
+
+使用 > 表示文字引用。
+
+示例：
+
+> 野火烧不尽，春风吹又生。
+
+### 7. 行内代码块
+
+使用 \`代码` 表示行内代码块。
+
+示例：
+
+让我们聊聊 `html`。
+
+### 8.  代码块
+
+使用 四个缩进空格 表示代码块。
+
+示例：
+
+    这是一个代码块，此行左侧有四个不可见的空格。
+
+### 9.  插入图像
+
+使用 \!\[描述](图片链接地址) 插入图像。
+
+示例：
+
+![我的头像](https://www.zybuluo.com/static/img/my_head.jpg)
+  user_id = 1
+  title = mardom
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DBBA8>
+  id = 5
+  created_time = 2016年11月20日 13:13
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DBF60>
+  id = 6
+  created_time = 2016年11月20日 13:13
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB400>
+  id = 7
+  created_time = 2016年11月20日 13:14
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB588>
+  id = 8
+  created_time = 2016年11月20日 13:14
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DBA90>
+  id = 9
+  created_time = 2016年11月20日 13:15
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+
+1. [任天堂新主机来了！ Nintendo Switch主机掌机合二为一](http://www.nintendo.com/whatsnew/detail/first-look-at-nintendos-new-home-gaming-system)
+> 1.官方名称为 Nintendo Switch，预定明年 3 月发售。
+> 2.浏览任天堂 Switch 介绍视频可点击此处的[视频链接地址](https://www.youtube.com/watch?v=f5uik5fgIaI)。
+2.  [华为公布新品发布会时间，11 月 3 日慕尼黑见](http://www.ifanr.com/736018)
+> 1.此次发布的新品很有可能会是华为旗下的年度旗舰华为 Mate 9
+> 2.处理器核心架构升级，为 ARM Cortex-A73+Cortex-A53
+> 3.其他配置，2K 屏幕、标配 4GB RAM + 64GB ROM，高配 6GB + 128GB ROM 几乎是可以确定的
+3. [大疆推新款远摄变焦云台相机 可进行交通监控](http://tech.qq.com/a/20161024/038555.htm)
+> 1.无人机厂商DJI大疆创新今日发布禅思Z30远摄变焦云台相机。据介绍，禅思Z30拥有30倍光学变焦和6倍数码变焦，可与大疆经纬M100和M600飞行平台结合，为行业应用场景提供无人机航拍技术支持
+> **精彩视频推荐**
+4. [AT&T收购时代华纳后首个交易日：两家公司开盘价跌幅均超2%](http://tech.qq.com/a/20161024/042785.htm)
+> 1.美国电信巨头AT&T宣布斥资854亿美元收购时代华纳
+5. [苹果又将开发布会](http://www.ifanr.com/tuji/735432)
+> 1.在 10 月 27 日上午 10 点（北京时间 10 月 28 日凌晨 1 点）召开发布会，不出意外将会是新款 MacBook Pro
+6. [锤子发布两款新品]
+> 1.罗永浩带来两款手机 Smartisan M1 和 Smartisan M1L
+7. [小米 Note 2 发布会](http://www.leiphone.com/news/201610/Jk4inWPdXZGMSDqt.html)
+> 1. 2016 年 10 月 25 日下午 2 点，小米发布会在北京大学体育馆举行，小米推出此前一直备受关注的双曲面手机 Note 2、第二款 [VR](http://www.leiphone.com/category/arvr) 眼镜，以及 [MIX](http://www.leiphone.com/news/201610/sREX3w8ic50aUWaJ.html)“全面屏”概念手机 
+
+###  研究所
+1. [2016 年最引人注目的包装设计](http://www.qdaily.com/articles/33432.html)
+> 1.[[国际包装设计奖 Pentawards](http://www.pentawards.org/winners/) ](http://www.pentawards.org/winners/)
+>> 冷峻的黑色变得流行
+>> 简洁有力的包装很难设计，但设计得好往往就能出彩
+>> 卖食品的商家越来越注重商品的“本色”演出，以各种方式展示包装内部的产品本身，传递新鲜、自然的信息
+>> 密封式包装也有了更形象、贴近产品本身的表达
+>> 有趣还是很重要，它可能是在品类繁多的货架上抓住你眼球的利器
+>> more
+2. [《魔戒》作者托尔金的中土世界爱情小说，将于明年出版](http://www.qdaily.com/articles/33636.html)
+3. [如何海淘Everlane]()
+  user_id = 1
+  title = 11
+>, <Article: 
+  _sa_instance_state = <sqlalchemy.orm.state.InstanceState object at 0x00000000057DB320>
+  id = 10
+  created_time = 2016年11月20日 13:16
+  content = 这里是每周播报，关注新鲜事
+### 业界动态
+1. [小米电视的内容-互联网电视如何解决内容的问题](http://www.leiphone.com/news/201610/o0vA3Lma3VuofoK5.html)
+> 1. 九月底的小米秋季新品发布会上，电视业务负责人王川，用了将近 50 分钟的时间，介绍新款电视机和完全革新的电视操作系统 拼图墙（PatchWall）。
+> 2. 文章后面对互联网电视如何解决内容的问题作了探讨
+2. 日前，[龙芯3A3000四核处理器芯片完成流片并通过系统测试](http://www.leiphone.com/news/201610/R5rtdVMwBEeKthav.html)
+> 1. *龙芯*是中国科学院计算所自主研发的通用CPU。目前，3A3000已开始小批量生产，其中经过测试支持通过直连形成多路服务器的芯片成为3B3000
+> 2. 二代CPU的研发的三条不同的技术路线
+>> 1 独立自主路线技术路线，代表为龙芯和申威。
+2 是依附于ARM的技术路线，是购买ARM的IP授权，设计自己的SOC，典型代表是华为海思和[展讯](http://www.leiphone.com/news/201503/obIvOTQilB4noWUq.html)。
+3 完全依赖于境外技术买办路线，兆芯的ZX-A就是VIA NANO的马甲，宏芯的CP1就是IBM Power8的马甲，其本质是中国大陆掏钱请别人干，目前主要是把国外/境外已有的现成设计直接拿过来换成中国的品牌，这种技术路线的典型代表是兆芯、宏芯。
+3. [George Hotz发布“自动驾驶”模块](http://www.leiphone.com/news/201610/DEcxDKrpApTerhpQ.html) George Hotz在2016年9月13日TechCrunch发布会
+4. [Hyperloop One 联手迪拜加速器打造全球首个货运超级高铁](http://techcrunch.cn/2016/10/13/hyperloop-one-and-dubai-future-accelerators-will-build-the-first-hyperloop-for-cargo/)
+> 1. “[迪拜未来加速器](https://dubaifutureaccelerators.com/en) ”（Dubai Future Accelerators）是由阿联酋政府及 7 个政府部门联合创建
+> 2. Hyperloop One 将在阿联酋开展一个为期 12 周的测试项目
+> 3. 除了 Hyperloop One，其他公司Next（模块化公共交通解决方案）、ConsenSys（创建开发者工具、集散控制应用和企业级解决方案的块环链软件公司）、Construction Robotics（用于自动化施工的机器人开发商）也纷纷加入该项目。
+> 4. 迪拜未来基金会副主席默罕默德·艾尔·加尔贾维（Mohammed Al Gergawi）表示，他们的目标是“再建一个应对全球各种挑战的解决方案，然后与全世界分享。
+
+###  研究所
+  user_id = 1
+  title = 2
+>]
