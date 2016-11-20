@@ -23,6 +23,6 @@ class Article(db.Model, ModelHelper):
     blogComments = db.relationship('BlogComment', backref='article')
 
     def __init__(self, form):
-        self.title = form('title', '')
+        self.title = form.get('title', '')
         self.created_time = timestamp()
-        self.content = form('content', '')
+        self.content = form.get('content', '')

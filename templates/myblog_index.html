@@ -10,21 +10,18 @@
     {% endblock %}
 
     
-
-
-
     {% block main %}
     <div id="main">
                
 
-            {% for al in article_list %}
+            {% for al in article_list[::-1] %}
                 <div class="post post-list">
 
-                    <div class="thumbnail">
+                    <!--<div class="thumbnail">
                         <img src="" alt="img">
-                    </div>
+                    </div>-->
                     <div class="info thumb">
-                        <h2><a href="">{{ al.title }}</a></h2>
+                        <h2><a href="{{ url_for('article.article', article_id=al.id) }}">{{ al.title }}</a></h2>
                         <span class="time"><i class="iconfont icon-rili"></i>{{ al.created_time }}</span>
                         <!--<p>
                             某日，在微信公众号【好奇实验室】看到一篇文章《付了钱连不上客服还不理！FQ 去油管安静的看个视频怎么这么难？》...            

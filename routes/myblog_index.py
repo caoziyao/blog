@@ -1,12 +1,12 @@
-from . import *
+
 
 from models.article import Article
 from models.user import User
 from models.comment import BlogComment
-
-
 from routes.user import current_user
 from routes.user import is_superuser
+
+from . import *
 
 
 # http://wdxtub.com/
@@ -38,21 +38,3 @@ def myblog_index():
 #     """
 #     pass
 
-
-@main.route('/p=<article_id>')
-def myblog_article(article_id):
-    return render_template('myblog_article.html')
-
-
-@main.route('/myblog/comment/add', methods=['POST'])
-def comment_add():
-    """
-    添加评论
-    """
-    form = request.form
-    print('comment', form)
-    u = current_user()
-
-    c = BlogComment(form)
-    c.save()
-    return c.json()
