@@ -10,16 +10,19 @@ class Article(db.Model, ModelHelper):
     # 下面是字段定义
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String())
-    author = db.Column(db.String())
-    popular = db.Column(db.Integer, default=0)
     created_time = db.Column(db.Integer, default=0)
     content = db.Column(db.String())
 
-    # 定义关系
+    # 定义外键
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    # 定义一个关系
+    # foreign_keys 有时候可以省略, 比如现在...
+    # 自动关联 不用手动查询就有数据
+    user = db.relationship('User', backref='article')
+    blogComments = db.relationship('BlogComment', backref='article')
 
     def __init__(self, form):
         self.title = form('title', '')
-        self.author = self.author
-        self.popular = 0
         self.created_time = timestamp()
         self.content = form('content', '')

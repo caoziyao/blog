@@ -1,9 +1,4 @@
-from flask import Blueprint
-from flask import render_template
-from flask import request
-from flask import redirect
-from flask import url_for
-from flask import session
+from . import *
 
 
 # 创建一个 蓝图对象 并且路由定义在蓝图对象中

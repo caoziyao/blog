@@ -1,14 +1,9 @@
 # api 只返回数据
 
-from flask import Blueprint
-from flask import render_template
-from flask import request
-from flask import redirect
-from flask import url_for
-from flask import session
+from . import *
 
 from models.user import User
-from models.blogcomment import BlogComment
+from models.comment import BlogComment
 
 import json
 # http://wdxtub.com/
