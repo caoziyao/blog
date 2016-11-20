@@ -12,8 +12,23 @@
 {% block main %}
     <div id="main">
         <form action="{{ url_for('article.new_article') }}" method='post'>
-            <input type="text" name="title" value="">
-            <textarea  type="text" name="content" value=""></textarea>
+            <input type="text" name="title" value="" placeholder="title">
+            <div>
+                <textarea rows="10" cols="60"  type="text" name="content" value="" placeholder="content"></textarea>
+            </div>
+
+            <div class="cell">
+                请选择一个节点
+            </div>
+ 
+            <div class="cell">
+                <select name='tag_id'>
+                    {% for t in taglist %}
+                        <option value="{{ t.id }}">{{ t.tagtitle }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
             <button type="submit">提交</button>
         </form>
     </div>

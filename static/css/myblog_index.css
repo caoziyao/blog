@@ -10,6 +10,10 @@
     border-bottom: 1px solid #eee;
 }
 
+.post-title > h2 > a{
+    font-size: 30px;
+}
+
 .thumb-footer{
     margin-top: 10px;
 }
@@ -18,12 +22,32 @@
     display: none;
 }
 
-#main{
-    width: 65%;
+.subpost{
+    font-size: 14px;
+    line-height: 10px;
     display: inline-block;
-    vertical-align: top;
-    /*letter-spacing: 0;*/
-    margin-top: 30px;
-    margin-left: 60px;
+    
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #999;
+
+}
+.tag{
+    background-color: #f5f5f5;
+    padding: 4px 4px 4px 4px;
 }
 
+.subpost a{
+        display: inline-block;
+}
+
+.subpost a:hover{
+     text-decoration: underline;
+    /*background-color: #ccf00c;*/
+}
+
+.time{
+    padding: 4px 4px 4px 4px;
+}

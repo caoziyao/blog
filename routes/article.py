@@ -2,6 +2,8 @@
 from models.article import Article
 from models.user import User
 from models.comment import BlogComment
+from models.tags import Tag
+from models.tags import Article_has_Tags
 from routes.user import current_user
 from routes.user import is_superuser
 
@@ -21,7 +23,8 @@ def new_article():
     """
     u = current_user() 
     if request.method == 'GET':
-        return render_template('myblog_newarticle.html', user=u)
+        t = Tag.query.all()
+        return render_template('myblog_newarticle.html', user=u, taglist=t)
     else:
         form = request.form
         title = form.get('title', '')
@@ -29,6 +32,13 @@ def new_article():
         a = Article(form)
         a.user_id = u.id
         a.save()
+
+
+        at = Article_has_Tags()
+        at.article_id = a.id
+        at.tag_id = form.get('tag_id', '')
+        at.save()
+        
         return redirect(url_for('myblog.myblog_index'))
         # return render_template('myblog_newarticle.html', user=u)
 

@@ -20,12 +20,15 @@
                     <!--<div class="thumbnail">
                         <img src="" alt="img">
                     </div>-->
-                    <div class="info thumb">
-                        <h2><a href="{{ url_for('article.article', article_id=al.id) }}">{{ al.title }}</a></h2>
-                        <span class="time"><i class="iconfont icon-rili"></i>{{ al.created_time }}</span>
-                        <!--<p>
-                            某日，在微信公众号【好奇实验室】看到一篇文章《付了钱连不上客服还不理！FQ 去油管安静的看个视频怎么这么难？》...            
-                        </p>-->
+                    <div class="info thumb post-title">
+                        <h2 class=""><a href="{{ url_for('article.article', article_id=al.id) }}">{{ al.title }}</a></h2>
+                        <div class="subpost">
+                            {% for at in al.arttags %}
+                            <a class="tag" href="/">{{ at.tag.tagtitle }}</a>
+                            {% endfor %}
+                            <span class="time "><i class="iconfont icon-rili"></i>{{ al.created_time }}</span>
+                        </div>
+
                     </div>
 
                 </div>

@@ -3,6 +3,9 @@
 from models.article import Article
 from models.user import User
 from models.comment import BlogComment
+from models.tags import Tag
+from models.tags import Article_has_Tags
+
 from routes.user import current_user
 from routes.user import is_superuser
 from . import *
@@ -20,13 +23,7 @@ main = Blueprint('myblog', __name__)
 def myblog_index():
     u = current_user()  # 判断是否登陆了，没有则重定向到登陆界面
     articles = Article.query.all()
-    # cs = BlogComment.query.all()    # 加载所有评论
-    # if is_superuser():
-    #     print('is superuser')
-    # # print(cs)
-    # # print(type(cs))   list
-    # log('article', articles)
-    # return 'hello'
+
     return render_template('myblog_index.html', article_list=articles, user=u)
 
 

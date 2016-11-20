@@ -20,6 +20,7 @@ ID、文章ID、标签ID
 # 自动关联 不用手动查询就有数据
 # 通过topic查找comment：c = t.comments
 # 也可以通过comment查找topic： t = c.topic
+class Topic
 comments = db.relationship('Comment', backref='topic')
 user = db.relationship('User', backref='topic')
 """

@@ -25,9 +25,7 @@ def is_superuser():
     管理员用户，只有一个
     """
     u = current_user()
-    if u is None:
-        return False
-    if u.username == 'cao' and u.password == '123':
+    if u is not None and u.username == 'root':
         return True
     else:
         return False
@@ -38,7 +36,7 @@ def user():
     return render_template('myblog_login.html')
 
 
-@main.route('/user/login', methods=['PoST'])
+@main.route('/user/login', methods=['POST'])
 def login():
     """
     登陆

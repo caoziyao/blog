@@ -24,7 +24,7 @@ class Article_has_Tags(db.Model, ModelHelper):
     created_time = db.Column(db.Integer, default=0)
 
     # 定义外键
-    article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
+    article_id = db.Column(db.Integer, db.ForeignKey('articles.id'))
     tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'))
 
 
@@ -32,7 +32,7 @@ class Article_has_Tags(db.Model, ModelHelper):
     # foreign_keys 有时候可以省略, 比如现在...
     # 自动关联 不用手动查询就有数据
     tag = db.relationship('Tag', backref='arttags')
-    article = db.relationship('BlogComment', backref='arttags')
+    article = db.relationship('Article', backref='arttags')
 
     def __init__(self):
         self.created_time = timestamp()

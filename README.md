@@ -21,8 +21,7 @@ pip3 install python-redis gunicorn
 - 运行 python3 app.py server
 
 - 项目地址
-45.76.101.36
-或 www.zycode.cc
+
 
 
 - 后续

@@ -3,8 +3,8 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
 from models import db
-from routes.article import main as article_routes
 from routes.api import main as api_routes
+from routes.article import main as article_routes
 from routes.myblog_index import main as myblog_routes
 from routes.user import main as user_routes
 
