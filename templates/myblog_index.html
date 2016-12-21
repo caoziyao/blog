@@ -22,6 +22,9 @@
                     </div>-->
                     <div class="info thumb post-title">
                         <h2 class=""><a href="{{ url_for('article.article', article_id=al.id) }}">{{ al.title }}</a></h2>
+                         {% if user.username == 'root'%}
+                            <a href="{{ url_for('article.delete_article', article_id=al.id) }}">删除</a>
+                        {% endif %}
                         <div class="subpost">
                             {% for at in al.arttags %}
                             <a class="tag" href="/">{{ at.tag.tagtitle }}</a>

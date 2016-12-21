@@ -54,6 +54,17 @@ def article(article_id):
     return render_template('myblog_article.html', acticle=a, user=u)
 
 
+@main.route('/delete/<int:article_id>', methods=['GET'])
+def delete_article(article_id):
+    """
+    博客文章
+    """
+    u = current_user()  
+    a = Article.query.get(article_id)
+    a.delete()
+    # print('acticle_id', article_id)
+    return redirect('/')
+
 @main.route('/myblog/comment/add', methods=['POST'])
 def comment_add():
     """

@@ -17,7 +17,6 @@ db_path = 'myblog.sqlite'
 manager = Manager(app)
 
 
-
 def register_route(app):
 	"""
 	蓝图注册
@@ -46,6 +45,11 @@ def configure_app():
 	# 创建数据库
 	# create_all()
 
+
+ # gunicorn
+def configured_app():
+    configure_app()
+    return app
 
 
 def configure_manager():

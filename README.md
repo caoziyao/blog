@@ -21,7 +21,7 @@ pip3 install python-redis gunicorn
 - 运行 python3 app.py server
 
 - 项目地址
-
+http://blog.codecc.cc/
 
 
 - 后续
