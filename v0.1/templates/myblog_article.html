@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+ {% block css %}
+    <link type="text/css" rel="stylesheet" href="/blog/static/css/myblog_article.css">
+ {% endblock %}
+ {% block script %}
+    <script src="/blog/static/js/jquery-3.1.0.min.js"></script>
+    <script src="/blog/static/js/showdown.min.js"></script>
+    <script src="/blog/static/js/myblog_article.js"></script>
+ {% endblock %}
+
+{% block main %}
+    <div id="main">
+        <div class="main-title">
+            <h2>{{ acticle.title }}</h2>
+        </div>
+        <div id='contentID'>
+            {{ acticle.content }}
+        </div>
+        
+    </div>
+
+
+
+<!--<script type="text/javascript">
+    var Showdown = require('showdown');
+    function compile(){
+        var text = document.getElementById("contentID").text;
+        var converter = new Showdown.converter();
+        var html = converter.makeHtml(text);
+        document.getElementById("result").innerHTML = html;
+    }
+     compile()
+</script>-->
+
+
+{% endblock %}
+
+ 

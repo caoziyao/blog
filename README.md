@@ -1,30 +1,14 @@
-# prj
 
-我的博客
+Getting started
+---------------
 
-配置：
+Yeah? You're ready? Let's go !::
 
-apt-get install python3-pip
-pip3 install setuptools
-pip3 install flask flask-sqlalchemy
+    $ pip install pblog
+    $ pblog -p /path/to/your/content/
+    ...
 
-apt-get install redis-server 
-pip3 install python-redis gunicorn
+And… that's all! You can see your weblog generated on the content/ folder.
 
-- apt-get install python3-pip
-- pip3 install flask flask-sqlalchemy
-
-- 自动迁移需要安装如下两个库
-- pip3 install flask-migrate flask-script
-
-
-- 运行 python3 app.py server
-
-- 项目地址
-http://blog.codecc.cc/
-
-
-- 后续
-下步部署 Nginx + Gunicore
 
 
