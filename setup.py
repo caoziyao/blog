@@ -1,13 +1,14 @@
+# coding: utf-8
 #!/usr/bin/env python
 from setuptools import setup
 
 setup(
-    name='hive-executor-py',
+    name='pblog',
     version='1.0.0.dev1',
-    description='A hive client python project',
-    url='https://github.com/calvinjiang/hive-executor-py',
-    author='Calvin Jiang',
-    author_email='jianghuachinacom@163.com',
+    description='A simple weblog generator python project',
+    url='https://github.com/caoziyao/pblog',
+    author='CXZY',
+    author_email='wycsyao@163.com',
     license='MIT',
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -21,8 +22,8 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    keywords='hive client python',
-    packages=['hive'],
+    keywords='weblog frame python',
+    packages=['pblog'],
 )
 
 
