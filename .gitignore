@@ -3,7 +3,7 @@ output/*
 bin/
 build/
 pblog.egg-info/
-v0.1/
+testblog/*
 TODO
 
 
