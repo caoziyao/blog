@@ -4,7 +4,7 @@
 import argparse
 import os
 
-
+from pblog.generator import Generator
 from pblog.generator import generate_output, generate_file, new_acticle, \
     generate_blog
 
@@ -46,9 +46,10 @@ def run(args):
     """
     if args.project_name is not None:
         print('init project {}'.format(args.project_name))
-        args.project_name = 'testblog'    # 调试默认为 testblog
+        args.project_name = 'samples'    # 调试默认为 testblog
         # 生成空项目
-        generate_output(args.project_name, settings=args.settings)
+        # generate_output(args.project_name, settings=args.settings)
+        gen = Generator(args.project_name)
 
     if args.article_name is not None:
         # 生成文章

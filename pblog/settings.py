@@ -1,27 +1,13 @@
 # coding: utf-8
 
 import os
+import yaml
 
 
-_DEFAULT_THEME = os.sep.join([os.path.dirname(os.path.abspath(__file__)), "themes"])
-
-
-_DEFAULT_CONFIG = {'PATH': None,
-                   'THEME': _DEFAULT_THEME,
-                   'OUTPUT_PATH': 'output/',
-                   'MARKUP': 'rst',
-                   'STATIC_PATHS': ['css', 'images'],
-                   'FEED_FILENAME': 'atom.xml',
-                   'BLOGNAME': 'A Pelican Blog',
-                   'BLOGURL': '',
-                   'SAMPLES': 'samples'}
-
-
-def read_settings(filename):
+def read_settings(blogname):
     """Load a Python file into a dictionary.
     """
-    context = _DEFAULT_CONFIG.copy()
-    if filename is None:
-        pass
-
-    return context
+    blog_path = os.path.join(blogname, '_config.yml')
+    with open(blog_path, 'r') as f:
+        context = yaml.load(f)
+        return context
