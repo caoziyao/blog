@@ -4,9 +4,7 @@
 import argparse
 import os
 
-from pblog.generator import Generator
-from pblog.generator import generate_output, generate_file, new_acticle, \
-    generate_blog
+from pblog.generator import Generator, ArticlesGenerator, CONF
 
 from pblog.server import run_server
 
@@ -45,19 +43,25 @@ def run(args):
     :return:
     """
     if args.project_name is not None:
-        print('init project {}'.format(args.project_name))
-        args.project_name = 'samples'    # 调试默认为 testblog
+        prjname = args.project_name
+        print('init project {}'.format(prjname))
+        prjname = 'samples'    # 调试默认为 testblog
         # 生成空项目
         # generate_output(args.project_name, settings=args.settings)
-        gen = Generator(args.project_name)
+        gen = ArticlesGenerator()
+        gen.generate_blog(prjname)
 
     if args.article_name is not None:
         # 生成文章
-        new_acticle(args.article_name)
+        gen = ArticlesGenerator()
+        gen.generate_article(args.article_name)
+
 
     # 渲染生成 html 文件
     if args.generate is True:
-        generate_file()
+        # generate_file()
+        gen = ArticlesGenerator()
+        gen.generate_static_output()
 
     # 启动服务
     if args.server is True:

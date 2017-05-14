@@ -1,19 +1,22 @@
 # coding: utf-8
 
+import os
 from werkzeug.wrappers import Request, Response
 from werkzeug.routing import Map, Rule
 from werkzeug.exceptions import HTTPException, NotFound
 from werkzeug.wsgi import SharedDataMiddleware
 from werkzeug.utils import redirect
 from jinja2 import Environment, FileSystemLoader
+from pblog.generator import CONF
 
 
 class Shortly(object):
 
 
     def __init__(self):
-        content_path = os.path.join(_PROJECT_NAME, 'content')
-        template_path = content_path
+        project_name = CONF['project_name']
+        output_path = os.path.join(project_name, 'output')
+        template_path = output_path
         self.jinja_env = Environment(loader=FileSystemLoader(template_path),
                                      autoescape=True)
 
@@ -25,7 +28,7 @@ class Shortly(object):
 
     def wsgi_app(self, environ, start_response):
         request = Request(environ)
-        response = self.render_template('helloworld.html', url='sss')
+        response = self.render_template('hello.html', url='sss')
         return response(environ, start_response)
 
 

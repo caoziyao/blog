@@ -6,17 +6,22 @@ from functools import partial
 from pblog.settings import read_settings
 from pblog.utils import endwith, generate_template
 
-
+CONF = {}
+CONF['project_name'] = 'samples'
 
 class Generator(object):
     """
     Base class generator
     """
-    def __init__(self, project_name):
+    def __init__(self):
+        project_name = 'samples'
         self.settings = read_settings(project_name)
         self.project_name = project_name
         print(self.settings)
 
+        for k, v in self.settings:
+            CONF[k] = v
+        # CONF['project_name'] = project_name
 
 
 class ArticlesGenerator(Generator):
@@ -26,68 +31,97 @@ class ArticlesGenerator(Generator):
     :param string: the string to parse, containing the original content.
     :param markup: the markup language to use while parsing.
     """
-    def __init__(self, project_name):
-        super(ArticlesGenerator, self).__init__(project_name)
+    def __init__(self):
+        super(ArticlesGenerator).__init__()
         self.articles = []
         self.dates = {}
         self.years = {}
         self.tags = {}
         self.categories = {}
 
-    def generate_file(self):
-        """
-        渲染生成改动的新文件
-        使用命令 pblog -g 调用
-        :return:
-        """
-        a = endwith('.md')
-        files_set = set()
-        content_path = os.path.join(self.project_name, 'content')
-        for root, dirs, files in os.walk(content_path, topdown=False):
-            for name in files:
-                files_set.add(name) if name.endswith('.md') else ''
 
-        # f_file = filter(a, files_set)
-        md_list = list(files_set)
 
-        for md in md_list:
-            md_path = os.path.join(content_path, md)
-            file_path = os.path.join(content_path, md.replace('md', 'html'))
-            with open(md_path, 'r') as f:
-                txt = f.read()
-                generate_template(file_path, txt)
-
-    def get_base_md(self):
+    def base_file(self):
         """
         创建文件基础
         :return:
         """
         supart = 'super_article.md'
-        supart_path = os.path.join(self.project_name, 'content', supart)
+        project_name = CONF['project_name']
+        supart_path = os.path.join(project_name, 'content', supart)
         with open(supart_path, 'r') as f:
             return f.read()
 
-    def new_acticle(self, filename):
+    def generate_article(self, filename):
         """
         创建新文件
         使用命令 pblog new filename 调用
         :param filename:
         :return:
         """
+        project_name = CONF['project_name']
         strtime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        supart = get_base_md()
-        super_article = supart.replace('TITLE', filename).replace('DATETIME', strtime)
+        supart = self.base_file()
+        super_article = supart.replace('TITLE', filename).replace('DATE', strtime)
         filename = filename + '.md'
-        output_path = os.path.join(_PROJECT_NAME, 'content', filename)
+        output_path = os.path.join(project_name, 'content', filename)
         with open(output_path, 'w+') as f:
             f.write(super_article)
         print(filename)
+
+
+    def generate_static_content(self):
+        pass
+
+
+    def generate_static_output(self):
+        """
+        渲染生成改动的新文件
+        使用命令 pblog -g 调用
+        :return:
+        """
+        blogname = CONF['project_name']
+        content_path = os.path.join(blogname, 'content')
+        output_path = os.path.join(blogname, 'output')
+
+        # 搜索后缀名为 .md 文件
+        files_set = set()
+        for root, dirs, files in os.walk(content_path, topdown=False):
+            for name in files:
+                files_set.add(name) if name.endswith('.md') else ''
+        content_list = list(files_set)
+
+        # 生成 html 文件
+        for md in content_list:
+            mfile = os.path.join(content_path, md)
+            htmlfilename = md.split('.', 1)[0] + '.html'
+            htmlfile = os.path.join(output_path, htmlfilename)
+            with open(mfile, 'r') as f:
+                txt = f.read()
+                html = markdown.markdown(txt)
+                with open(htmlfile, 'w+') as f:
+                    print('generate {}'.format(htmlfile))
+                    f.write(html)
+
+
+    def generate_configfile(self):
+        pass
+
 
     def generate_blog(self, blogname):
         """Search the given path for files, and generate a static blog in output,
         using the given theme.
         """
-        pass
+        output_path = os.path.join(blogname, 'output')
+        if not os.path.exists(blogname):
+            os.mkdir(blogname)
+            os.mkdir(output_path)
+            self.generate_static_content()
+            self.generate_configfile()
+
+        else:
+            print('{} exists'.format(blogname))
+
 
     def generate_output(self, path=None, settings=None):
         """Given a list of files, a template and a destination,

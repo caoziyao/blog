@@ -25,6 +25,7 @@ def generate_template(path, txt):
     :param txt:
     :return:
     """
-    html = markdown.markdown(txt)
-    with open(path, 'w+') as f:
-        f.write(html)
+    # html = markdown.markdown(txt)
+    # with open(path, 'w+') as f:
+    #     f.write(html)
+    pass

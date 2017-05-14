@@ -1,10 +1,9 @@
-output/*
+samples/content/*
+samples/output/*
 *.pyc
 bin/
 build/
 pblog.egg-info/
-testblog/*
-TODO
 
 
 # Byte-compiled / optimized / DLL files
