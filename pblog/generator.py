@@ -4,7 +4,7 @@ import os, sys
 import shutil, datetime, markdown
 from functools import partial
 from pblog.settings import read_settings
-from pblog.utils import endwith, generate_template
+from pblog.utils import endwith
 
 CONF = {}
 CONF['project_name'] = 'samples'

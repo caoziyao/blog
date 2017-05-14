@@ -16,16 +16,3 @@ def endwith(*endstring):
         f = map(s.endswith, ends)
         if True in f: return s
     return run
-
-
-def generate_template(path, txt):
-    """
-    md 渲染成 html
-    :param path:
-    :param txt:
-    :return:
-    """
-    # html = markdown.markdown(txt)
-    # with open(path, 'w+') as f:
-    #     f.write(html)
-    pass
