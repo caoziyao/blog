@@ -16,7 +16,8 @@ class Shortly(object):
 
     def __init__(self):
         project_name = CONF['project_name']
-        output_path = os.path.join(project_name, 'output')
+        # output_path = os.path.join(project_name, 'output')
+        output_path = os.path.join(project_name, 'themes','notmyidea', 'templates')
         template_path = output_path
         self.jinja_env = Environment(loader=FileSystemLoader(template_path),
                                      autoescape=True)
@@ -40,7 +41,9 @@ class Shortly(object):
                 name = os.path.splitext(file)[0]
                 filelist.add(name)
 
+        #  samples/themes/notmyidea/templates/index.html
         rules = [Rule('/{}'.format(name), endpoint='{}'.format(name)) for name in list(filelist)]
+        # index_path = os.path.join(project_name, 'themes', 'notmyidea', 'templates', 'index')
         rules.append(Rule('/', endpoint='index'))
 
         return Map(rules)
@@ -56,6 +59,7 @@ class Shortly(object):
             return self.render_template(htmlfile, **values)
         except HTTPException as e:
             return e
+
 
     def is_valid_url(url):
         pass
