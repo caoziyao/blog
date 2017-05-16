@@ -5,9 +5,8 @@ import shutil, datetime, markdown
 from functools import partial
 from pblog.settings import read_settings
 from pblog.utils import endwith
+from pblog.utils import project_name, output_path, CONF
 
-CONF = {}
-CONF['project_name'] = 'samples'
 
 class Generator(object):
     """
@@ -64,7 +63,6 @@ class ArticlesGenerator(Generator):
         supart = self.base_file()
         super_article = supart.replace('TITLE', filename).replace('DATE', strtime)
         filename = filename + '.md'
-        output_path = os.path.join(project_name, 'content', filename)
         with open(output_path, 'w+') as f:
             f.write(super_article)
         print(filename)
@@ -80,9 +78,7 @@ class ArticlesGenerator(Generator):
         使用命令 pblog -g 调用
         :return:
         """
-        blogname = CONF['project_name']
-        content_path = os.path.join(blogname, 'content')
-        output_path = os.path.join(blogname, 'output')
+        content_path = os.path.join(project_name, 'content')
 
         # 搜索后缀名为 .md 文件
         files_set = set()
@@ -112,7 +108,6 @@ class ArticlesGenerator(Generator):
         """Search the given path for files, and generate a static blog in output,
         using the given theme.
         """
-        output_path = os.path.join(blogname, 'output')
         if not os.path.exists(blogname):
             os.mkdir(blogname)
             os.mkdir(output_path)

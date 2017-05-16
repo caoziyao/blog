@@ -8,16 +8,13 @@ from werkzeug.exceptions import HTTPException, NotFound
 from werkzeug.wsgi import SharedDataMiddleware
 from werkzeug.utils import redirect
 from jinja2 import Environment, FileSystemLoader
-from pblog.generator import CONF
-
+from pblog.utils import project_name, output_path, CONF
 
 class Shortly(object):
 
-
     def __init__(self):
-        project_name = CONF['project_name']
-        # output_path = os.path.join(project_name, 'output')
-        output_path = os.path.join(project_name, 'themes','notmyidea', 'templates')
+
+        # output_path = os.path.join(project_name, 'themes','notmyidea', 'templates')
         template_path = output_path
         self.jinja_env = Environment(loader=FileSystemLoader(template_path),
                                      autoescape=True)
@@ -29,10 +26,6 @@ class Shortly(object):
         自动添加路由
         :return:
         """
-        project_name = CONF['project_name']
-        output_path = os.path.join(project_name, 'output')
-
-
         filelist = set()
         for file in os.listdir(output_path):
             print('file', file)
