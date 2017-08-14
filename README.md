@@ -4,12 +4,7 @@ Getting started
 
 Yeah? You're ready? Let's go !::
 
-    $ pip install pblog
-    $ pblog -init blog
-    $ cd blog
-    $ pblog -new “HelloWorld”
-    $ pblog -generate
-    $ pblog -server
+    $ python3 wiki.py
     Open browser with http://localhost:3000
     ...
 
