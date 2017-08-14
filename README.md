@@ -4,7 +4,7 @@ Getting started
 
 Yeah? You're ready? Let's go !::
 
-    $ python3 wiki.py
+    $ python3 main.py
     Open browser with http://localhost:3000
     ...
 
