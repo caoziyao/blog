@@ -3,3 +3,4 @@ import os
 
 WIKI_ROOT = '/Users/cczy/yun/wiki'
 ROOT_DIR = 'wiki'
+WIKI_PARENT = '/Users/cczy/yun'

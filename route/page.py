@@ -10,7 +10,6 @@ app = Blueprint('page', __name__, static_folder='static')
 
 def dir_from_url(url):
 
-    root = ROOT_DIR
     dirlist = url.get('f', '').split('_')
 
     path = '/'.join(dirlist)
@@ -19,7 +18,6 @@ def dir_from_url(url):
 
 def filename_from_url(url):
 
-    root = ROOT_DIR
     filename = url.get('f', '').split('_')[-1]
 
     return filename
@@ -31,7 +29,7 @@ def hello():
     args = request.args
     path = dir_from_url(args)
     filename = filename_from_url(args)
-    content = ''
+
     with open(path, 'r', encoding='utf-8') as f:
         content = f.read()
 

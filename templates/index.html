@@ -33,6 +33,8 @@
                     Home
                 </div>
                 <ul>
+                     <li><a href="/folder?d={{ dirs_files.current }}" class="folder">.</a></li>
+                    <li><a href="/folder?d={{ dirs_files.parent }}" class="folder">..</a></li>
                     {% for dir in dirs_files.dirs %}
                          <li><a href="/folder?d={{ dir.path }}" class="folder">{{ dir.filename }}</a></li>
                     {% endfor %}

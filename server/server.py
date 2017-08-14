@@ -20,8 +20,16 @@ def list_all_files(path):
     return f
 
 
+def parent_dir_from(folder):
+
+    dirlist = folder.split('/')[:-1]
+    # dirlist = [x for x in dirlist if x != '']
+    path = '_'.join(dirlist)
+    return path
+
 def listdir(folder):
     ls = os.listdir(folder)  # 列出目录下的所有文件和目录
+    parent = parent_dir_from(folder)
     files = []
     dirs = []
     for l in ls:
@@ -38,6 +46,8 @@ def listdir(folder):
             pass
 
     d = {
+        'current': folder.replace('/', '_'),
+        'parent': parent,
         'dirs': dirs,
         'files': files,
     }
