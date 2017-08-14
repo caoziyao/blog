@@ -1,13 +1,21 @@
 # coding: utf-8
 
-from flask import Flask, render_template
-
+from flask import Flask, render_template, blueprints
+from route.index import app as route_index
+from route.edit import app as route_edit
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+
+
+def register_app():
+    """
+    注册蓝图
+    :return:
+    """
+    app.register_blueprint(route_index)
+    app.register_blueprint(route_edit, url_prefix='/edit')
+
 
 
 def main():
@@ -16,6 +24,8 @@ def main():
         'port': 3000,
         'debug': True,
     }
+    register_app()
+
     app.run(**config)
 
 if __name__ == '__main__':

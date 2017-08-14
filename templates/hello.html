@@ -20,6 +20,7 @@
   <script>
       var baseUrl = '';
       var uploadDest   = '';
+      var pageFullPath = 'hello';
   </script>
 {#  <script type="text/javascript" src="/javascript/jquery-1.7.2.min.js"></script>#}
 {#  <script type="text/javascript" src="/javascript/mousetrap.min.js"></script>#}
@@ -27,16 +28,17 @@
 {#  <script type="text/javascript" src="/javascript/gollum.dialog.js"></script>#}
 {#  <script type="text/javascript" src="/javascript/gollum.placeholder.js"></script>#}
 {#  <script type="text/javascript" src="/javascript/editor/gollum.editor.js"></script>#}
+{##}
 
 
-
-  <title>All pages in master</title>
+  <title>hello</title>
 </head>
 <body>
 
-<div id="wiki-wrapper" class="results">
-<div id="head" style="border:none;">
-  <h1>All pages in master</h1>
+
+<div id="wiki-wrapper" class="page">
+<div id="head">
+  <h1>hello</h1>
   <ul class="actions">
     <li class="minibutton">
       <div id="searchbar">
@@ -51,34 +53,45 @@
       </div>    </li>
     <li class="minibutton"><a href="/"
        class="action-home-page">Home</a></li>
+    <li class="minibutton"><a href="/pages"
+      class="action-all-pages">All</a></li>
+    <li class="minibutton"><a href="/fileview"
+    class="action-fileview">Files</a></li>
       <li class="minibutton jaws">
-      <a href="#" id="minibutton-new-page">New</a></li>
+        <a href="#" id="minibutton-new-page">New</a></li>
+        <li class="minibutton jaws">
+          <a href="#" id="minibutton-rename-page">Rename</a></li>
+        <li class="minibutton"><a href="/edit/hello"
+           class="action-edit-page">Edit</a></li>
+    <li class="minibutton"><a href="/history/hello"
+       class="action-page-history">History</a></li>
+    <li class="minibutton"><a href="/latest_changes"
+       class="action-page-history">Latest Changes</a></li>
   </ul>
 </div>
-<div id="pages">
+<div id="wiki-content">
+<div class="">
+  <div id="wiki-body" class="gollum-markdown-content">
+    <div class="markdown-body">
+      <p>hjjjj</p>
 
-  <div id="file-browser">
-    <div class="breadcrumb">
-      Home
     </div>
-    <ul>
-      <li><a href="/pages/nnn/" class="folder">nnn</a></li>
-<li><a href="/cds-dot-js" class="file">cds dot js</a></li>
-<li><a href="/hello" class="file">hello</a></li>
-<li><a href="/Home" class="file">Home</a></li>
-<li><a href="/ssf" class="file">ssf</a></li>
-    </ul>
   </div>
-
+  </div>
 
 </div>
 <div id="footer">
-  <ul class="actions">
-    <li class="minibutton"><a href="#">Back to Top</a></li>
-  </ul>
+  <p id="last-edit">Last edited by <b>caoziyao</b>, 2017-08-14 16:12:25</p>
+    <p>
+      <a id="delete-link" href="/hello" data-confirm="Are you sure you want to delete this page?"><span>Delete this Page</span></a>
+    </p>
 </div>
 </div>
 
+<form name="rename" method="POST" action="/rename/hello">
+  <input type="hidden" name="rename"/>
+  <input type="hidden" name="message"/>
+</form>
 
 
 </body>
