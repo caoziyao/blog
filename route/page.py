@@ -1,12 +1,40 @@
 # coding: utf-8
 
-from flask import  render_template
+import markdown
+from flask import  render_template, request
 from flask.blueprints import Blueprint
-
+from config.constant import ROOT_DIR, WIKI_ROOT
 
 app = Blueprint('page', __name__, static_folder='static')
 
 
-@app.route('/<filename>')
-def hello(filename):
-    return render_template('hello.html')
+def dir_from_url(url):
+
+    root = ROOT_DIR
+    dirlist = url.get('f', '').split('_')
+
+    path = '/'.join(dirlist)
+
+    return path
+
+def filename_from_url(url):
+
+    root = ROOT_DIR
+    filename = url.get('f', '').split('_')[-1]
+
+    return filename
+
+
+@app.route('/')
+def hello():
+
+    args = request.args
+    path = dir_from_url(args)
+    filename = filename_from_url(args)
+    content = ''
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    html = markdown.markdown(content)
+
+    return render_template('page.html', content=html, filename=filename)

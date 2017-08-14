@@ -3,7 +3,7 @@
 
 <div id="wiki-wrapper" class="page">
 <div id="head">
-  <h1>hello</h1>
+  <h1>{{ filename }}</h1>
   <ul class="actions">
     <li class="minibutton">
       <div id="searchbar">
@@ -38,7 +38,7 @@
 <div class="">
   <div id="wiki-body" class="gollum-markdown-content">
     <div class="markdown-body">
-      <p>hjjjj</p>
+      {{ content | safe }}
 
     </div>
   </div>

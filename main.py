@@ -18,8 +18,8 @@ def register_app():
     """
     app.register_blueprint(route_index)
     app.register_blueprint(route_edit, url_prefix='/edit')
-    app.register_blueprint(route_page, url_prefix='/page/wiki')
-    app.register_blueprint(route_folder, url_prefix='/folder/wiki')
+    app.register_blueprint(route_page, url_prefix='/page')
+    app.register_blueprint(route_folder, url_prefix='/folder')
 
 
 

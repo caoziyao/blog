@@ -28,7 +28,7 @@ def listdir(folder):
         path = os.path.join(folder, l)
         dir = {
             'filename': l,
-            'path': path,
+            'path': path.replace('/', '_'),
         }
         if os.path.isdir(path):
             dirs.append(dir)

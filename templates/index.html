@@ -34,11 +34,11 @@
                 </div>
                 <ul>
                     {% for dir in dirs_files.dirs %}
-                         <li><a href="/folder/{{ dir.path }}" class="folder">{{ dir.filename }}</a></li>
+                         <li><a href="/folder?d={{ dir.path }}" class="folder">{{ dir.filename }}</a></li>
                     {% endfor %}
 
                     {% for file in dirs_files.files %}
-                         <li><a href="/page/{{ file.path }}" class="file">{{ file.filename }}</a></li>
+                         <li><a href="/page?f={{ file.path }}" class="file">{{ file.filename }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
