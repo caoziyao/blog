@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width">
+    <title>{% block title %}wiki{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/gollum.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/editor.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/dialog.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/template.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/print.css" media="print">
+    <script src="/static/js/template-web.js"></script>
+    {% block css%} {% endblock %}
+</head>
+<body>
+    {% block body %}{% endblock %}
+    {% block script%} {% endblock %}
+</body>
+</html>
