@@ -10,7 +10,7 @@ for root, dirs, files in os.walk(path, topdown=False):
 """
 
 
-def files_from_path(path):
+def list_all_files(path):
     files_set = set()
     for root, dirs, files in os.walk(path, topdown=False):
         for name in files:
@@ -18,3 +18,27 @@ def files_from_path(path):
     f = list(files_set)
 
     return f
+
+
+def listdir(folder):
+    ls = os.listdir(folder)  # 列出目录下的所有文件和目录
+    files = []
+    dirs = []
+    for l in ls:
+        path = os.path.join(folder, l)
+        dir = {
+            'filename': l,
+            'path': path,
+        }
+        if os.path.isdir(path):
+            dirs.append(dir)
+        elif os.path.isfile(path):
+            files.append(dir)
+        else:
+            pass
+
+    d = {
+        'dirs': dirs,
+        'files': files,
+    }
+    return d

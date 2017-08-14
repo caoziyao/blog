@@ -4,7 +4,9 @@ import os
 from flask import Flask, render_template, blueprints
 from route.index import app as route_index
 from route.edit import app as route_edit
-from server.server import files_from_path
+from route.page import app as route_page
+from route.folder import app as route_folder
+
 
 app = Flask(__name__)
 
@@ -16,13 +18,9 @@ def register_app():
     """
     app.register_blueprint(route_index)
     app.register_blueprint(route_edit, url_prefix='/edit')
+    app.register_blueprint(route_page, url_prefix='/page/wiki')
+    app.register_blueprint(route_folder, url_prefix='/folder/wiki')
 
-
-def test():
-    path = 'wiki'
-    f = files_from_path(path)
-
-    print('f', f)
 
 
 def main():
@@ -32,6 +30,7 @@ def main():
         'debug': True,
     }
     register_app()
+
 
     app.run(**config)
 

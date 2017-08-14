@@ -9,4 +9,11 @@ app = Blueprint('edit', __name__, static_folder='static')
 
 @app.route('/hello')
 def edit():
-    return render_template('hello.html')
+    folder = 'wiki'
+    dirs, files = listdir(folder)
+
+    d = {
+        'dirs': dirs,
+        'files': files,
+    }
+    return render_template('edit_hello.html')

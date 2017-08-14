@@ -33,11 +33,13 @@
                     Home
                 </div>
                 <ul>
-                    <li><a href="/pages/nnn/" class="folder">nnn</a></li>
-                    <li><a href="/cds-dot-js" class="file">cds dot js</a></li>
-                    <li><a href="/hello" class="file">hello</a></li>
-                    <li><a href="/Home" class="file">Home</a></li>
-                    <li><a href="/ssf" class="file">ssf</a></li>
+                    {% for dir in dirs_files.dirs %}
+                         <li><a href="/folder/{{ dir.path }}" class="folder">{{ dir.filename }}</a></li>
+                    {% endfor %}
+
+                    {% for file in dirs_files.files %}
+                         <li><a href="/page/{{ file.path }}" class="file">{{ file.filename }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
 
