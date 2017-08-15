@@ -4,7 +4,7 @@
 import re
 import sys
 from time import sleep
-from .password import *
+from password import *
 from fabric.api import settings, run, local, cd
 
 
@@ -62,9 +62,16 @@ def restartDebugSvr():
 
 
 def sendCodeToDebugSvr():
-    """发送代码到211测试服"""
-    local("rsync -vrtcp --progress --exclude '*.pyc' --delete --password-file=rsyncScode211.pass /Users/working/soovii/src/app/ shjd@192.168.3.211::01")
+    """发送代码到服务器"""
+    local("rsync -vrtcp --progress --exclude '*.pyc' --delete --password-file=rsyncScode211.pass /Users/Shared/github/wiki/ root@45.76.101.36:/root/wiki/app")
+
+
+
+def send_wiki():
+    """发送代码到服务器"""
+    local("rsync -vrtcp --progress --exclude '*.pyc' --delete --password-file=rsyncScode211.pass /Users/cczy/yun/wiki/ root@45.76.101.36:/root/wiki/wiki")
 
 
 if __name__ == '__main__':
     sendCodeToDebugSvr()
+    # send_wiki()

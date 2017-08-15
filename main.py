@@ -11,7 +11,7 @@ from route.folder import app as route_folder
 app = Flask(__name__)
 
 
-def register_app():
+def register_route():
     """
     注册蓝图
     :return:
@@ -22,6 +22,17 @@ def register_app():
     app.register_blueprint(route_folder, url_prefix='/folder')
 
 
+def configure_app():
+    """
+    # 设置 secret_key 来使用 flask 自带的 session
+    """
+
+    register_route()
+
+    return app  # gunicorn
+
+
+
 
 def main():
     config = {
@@ -29,10 +40,9 @@ def main():
         'port': 3000,
         'debug': True,
     }
-    register_app()
-
-
+    register_route()
     app.run(**config)
+
 
 if __name__ == '__main__':
     main()
