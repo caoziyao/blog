@@ -2,7 +2,7 @@
 
 from flask import  render_template
 from flask.blueprints import Blueprint
-from handlers.file_handler import listdir
+from handlers.file_handler import FileHandler
 
 app = Blueprint('edit', __name__, static_folder='static')
 
@@ -10,7 +10,8 @@ app = Blueprint('edit', __name__, static_folder='static')
 @app.route('/hello')
 def edit():
     folder = 'wiki'
-    dirs, files = listdir(folder)
+    f = FileHandler(folder)
+    dirs, files = f.all_files()
 
     d = {
         'dirs': dirs,

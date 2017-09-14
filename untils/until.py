@@ -2,6 +2,13 @@
 
 import os
 import json
+import datetime
+
+def log(*args, **kwargs):
+
+    now = datetime.datetime.now()
+    str = now.strftime('%Y-%m-%d %H:%M:%S')
+    print(str, *args, **kwargs)
 
 def load_file(path):
     with open(path, 'r') as f:

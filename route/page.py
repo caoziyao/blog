@@ -3,22 +3,24 @@
 import markdown
 from flask import  render_template, request
 from flask.blueprints import Blueprint
-
+from handlers.file_handler import FileHandler
+from config.constant import SEPARATOR
 
 app = Blueprint('page', __name__, static_folder='static')
 
 
-def dir_from_url(url):
+def path_from_url(url):
 
-    dirlist = url.get('f', '').split('_')
-
-    path = '/'.join(dirlist)
-
+    sep = 'f'
+    if sep in url:
+        path = url.get('f', '').replace(SEPARATOR, '/')
+    else:
+        path = ''
     return path
 
 def filename_from_url(url):
 
-    filename = url.get('f', '').split('_')[-1]
+    filename = url.get('f', '').split(SEPARATOR)[-1]
 
     return filename
 
@@ -27,7 +29,7 @@ def filename_from_url(url):
 def hello():
 
     args = request.args
-    path = dir_from_url(args)
+    path = path_from_url(args)
     filename = filename_from_url(args)
 
     with open(path, 'r', encoding='utf-8') as f:

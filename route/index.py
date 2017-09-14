@@ -4,8 +4,8 @@ import json
 import os
 from flask import  render_template
 from flask.blueprints import Blueprint
-from handlers.file_handler import listdir
-from untils import read_config
+from handlers.file_handler import  FileHandler
+from untils import read_config, log
 
 app = Blueprint('index', __name__, static_folder='static')
 
@@ -13,16 +13,20 @@ app = Blueprint('index', __name__, static_folder='static')
 
 @app.route('/')
 def index():
-
     config = read_config()
-
     root_path = config.get('root_path', '')
 
-    data = listdir(root_path)
+
+    f = FileHandler(root_path)
+
+    parent_path = f.parent_path(root_path)
+    current_path = f.current_path()
+
+    data = f.all_files()
 
     d = {
-        'parent': root_path.replace('/', '_'),
-        'current': root_path.replace('/', '_'),
+        'parent': parent_path,
+        'current': current_path,
     }
 
     data.update(d)

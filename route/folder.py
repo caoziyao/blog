@@ -3,15 +3,24 @@
 import os
 from flask import  render_template, request
 from flask.blueprints import Blueprint
-from handlers.file_handler import listdir
+from handlers.file_handler import FileHandler
+from config.constant import SEPARATOR
+from untils import log
 
 app = Blueprint('folder', __name__, static_folder='static')
 
 
-def dir_from_url(url):
-
-    dirlist = url.get('d', '').split('_')
-    path = '/'.join(dirlist)
+def path_from_url(url):
+    """
+    @Users@cczy@yun@wiki@notebook
+    :param url:
+    :return: /Users/cczy/yun/wiki/notebook
+    """
+    sep = 'd'
+    if sep in url:
+        path = url.get(sep, '').replace(SEPARATOR, '/')
+    else:
+        return ''
 
     return path
 
@@ -20,8 +29,12 @@ def dir_from_url(url):
 def folder():
     # folder = 'f'
     args = request.args
-    path = dir_from_url(args)
+    path = path_from_url(args)
 
-    data = listdir(path)
+    log('path', args)
+    f = FileHandler(path)
 
-    return render_template('index.html', current_dir=path, parent_dir = path, dirs_files=data)
+    # data = listdir(path)
+    data = f.all_files()
+
+    return render_template('index.html', current_dir=path, parent_dir=path, dirs_files=data)
