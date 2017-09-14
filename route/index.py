@@ -1,21 +1,28 @@
 # coding: utf-8
 
+import json
+import os
 from flask import  render_template
 from flask.blueprints import Blueprint
-from server.server import listdir
-from config.constant import ROOT_DIR, WIKI_ROOT, WIKI_PARENT
+from handlers.file_handler import listdir
+from untils import read_config
 
 app = Blueprint('index', __name__, static_folder='static')
 
 
+
 @app.route('/')
 def index():
-    folder = WIKI_ROOT
-    data = listdir(folder)
+
+    config = read_config()
+
+    root_path = config.get('root_path', '')
+
+    data = listdir(root_path)
 
     d = {
-        'parent': WIKI_PARENT.replace('/', '_'),
-        'current': WIKI_ROOT.replace('/', '_'),
+        'parent': root_path.replace('/', '_'),
+        'current': root_path.replace('/', '_'),
     }
 
     data.update(d)

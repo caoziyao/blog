@@ -32,8 +32,6 @@ def configure_app():
     return app  # gunicorn
 
 
-
-
 def main():
     config = {
         'host': '0.0.0.0',

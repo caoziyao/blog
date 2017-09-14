@@ -3,8 +3,8 @@
 import os
 from flask import  render_template, request
 from flask.blueprints import Blueprint
-from server.server import listdir
-from config.constant import ROOT_DIR, WIKI_ROOT
+from handlers.file_handler import listdir
+
 app = Blueprint('folder', __name__, static_folder='static')
 
 

@@ -3,7 +3,7 @@
 import markdown
 from flask import  render_template, request
 from flask.blueprints import Blueprint
-from config.constant import ROOT_DIR, WIKI_ROOT
+
 
 app = Blueprint('page', __name__, static_folder='static')
 

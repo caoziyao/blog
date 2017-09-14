@@ -9,7 +9,6 @@ for root, dirs, files in os.walk(path, topdown=False):
 第三个是起始路径下的文件.
 """
 
-
 def list_all_files(path):
     files_set = set()
     for root, dirs, files in os.walk(path, topdown=False):

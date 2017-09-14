@@ -2,8 +2,7 @@
 
 from flask import  render_template
 from flask.blueprints import Blueprint
-from server.server import listdir
-from config.constant import ROOT_DIR, WIKI_ROOT
+from handlers.file_handler import listdir
 
 app = Blueprint('edit', __name__, static_folder='static')
 
