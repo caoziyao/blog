@@ -22,3 +22,4 @@ def read_config():
     config = load_file(config_path)
 
     return config
+

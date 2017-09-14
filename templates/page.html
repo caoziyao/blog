@@ -38,7 +38,12 @@
 <div class="">
   <div id="wiki-body" class="gollum-markdown-content">
     <div class="markdown-body">
-      {{ content | safe }}
+        {% if file_type in ['jpg', 'png'] %}
+            <img src="{{ content }}">
+        {% else %}
+            {{ content | safe }}
+
+        {% endif %}
 
     </div>
   </div>

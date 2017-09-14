@@ -2,13 +2,7 @@
 
 import os
 from untils import log
-from config.constant import SEPARATOR
-"""
-for root, dirs, files in os.walk(path, topdown=False):
-第一个为起始路径，
-第二个为起始路径下的文件夹,
-第三个是起始路径下的文件.
-"""
+
 
 class FileHandler():
 
@@ -23,10 +17,8 @@ class FileHandler():
         :return:
         """
         sep = self.separator
-        if path == self.path:
-            parents = path.replace('/', sep)
-        else:
-            parents = path
+        dirlist = path.split('/')[:-1]
+        parents = sep.join(dirlist)
 
         return parents
 
@@ -51,25 +43,34 @@ class FileHandler():
 
         return l
 
+    def format_path(self, path):
+        """
+        文件路径 / 用 @ 代替
+        :return:
+        """
+        sep = self.separator
+        path = path.replace('/', sep)
+        return path
+
     def all_files(self):
         """
-
+        该文件夹下所有 文件 和 文件夹
         :return:
         """
         folder = self.path
         # 列出目录下的所有文件和目录
         file_list = os.listdir(folder)
+        file_list = self.ignore_file(file_list)
 
         files, dirs = [], []
-
-        file_list = self.ignore_file(file_list)
         for l in file_list:
 
             path = os.path.join(folder, l)
             dir = {
                 'filename': l,
-                'path': path.replace('/', SEPARATOR),
+                'path': self.format_path(path),
             }
+
             if os.path.isdir(path):
                 dirs.append(dir)
             elif os.path.isfile(path):
@@ -77,10 +78,9 @@ class FileHandler():
             else:
                 pass
 
-        pdir = self.parent_dir_from(folder)
-
+        pdir = self.parent_path(folder)
         d = {
-            'current': folder.replace('/', SEPARATOR),
+            'current': self.current_path(),
             'parent': pdir,
             'dirs': dirs,
             'files': files,
@@ -88,8 +88,13 @@ class FileHandler():
         return d
 
 
-
     def list_all_files(self, path):
+        """
+        for root, dirs, files in os.walk(path, topdown=False):
+        第一个为起始路径，
+        第二个为起始路径下的文件夹,
+        第三个是起始路径下的文件.
+        """
         files_set = set()
         for root, dirs, files in os.walk(path, topdown=False):
             for name in files:
@@ -97,11 +102,3 @@ class FileHandler():
         f = list(files_set)
 
         return f
-
-
-    def parent_dir_from(self, folder):
-
-        dirlist = folder.split('/')[:-1]
-        # dirlist = [x for x in dirlist if x != '']
-        path = SEPARATOR.join(dirlist)
-        return path

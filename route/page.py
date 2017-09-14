@@ -1,10 +1,12 @@
 # coding: utf-8
 
+import os
 import markdown
-from flask import  render_template, request
+from flask import render_template, request
 from flask.blueprints import Blueprint
-from handlers.file_handler import FileHandler
+from handlers import FileHandler, RenderFileHandler
 from config.constant import SEPARATOR
+from untils import log
 
 app = Blueprint('page', __name__, static_folder='static')
 
@@ -21,7 +23,6 @@ def path_from_url(url):
 def filename_from_url(url):
 
     filename = url.get('f', '').split(SEPARATOR)[-1]
-
     return filename
 
 
@@ -32,9 +33,10 @@ def hello():
     path = path_from_url(args)
     filename = filename_from_url(args)
 
-    with open(path, 'r', encoding='utf-8') as f:
-        content = f.read()
+    render = RenderFileHandler(path)
+    extent = render.file_extension()
+    html = render.render_file()
 
-    html = markdown.markdown(content)
+    file_type = extent[1:]
 
-    return render_template('page.html', content=html, filename=filename)
+    return render_template('page.html', content=html, filename=filename, file_type=file_type)
