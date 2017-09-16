@@ -1,9 +1,0 @@
-.file-browser-ul{
-    display: flex;
-    flex-wrap:  wrap;
-}
-
-.file-browser-ul li{
-    width: 200px;
-    height:  50px;
-}

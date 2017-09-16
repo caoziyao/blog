@@ -6,52 +6,47 @@
 
 {% block body %}
 
+
     <div id="wiki-wrapper" class="results">
-        <div id="head" style="border:none;">
-            <h1>All pages in master</h1>
-            <ul class="actions">
-                <li class="minibutton">
-                    <div id="searchbar">
-                        <form action="/search" method="get" id="search-form">
-                            <div id="searchbar-fauxtext">
-                                <input type="text" name="q" id="search-query" value="Search&hellip;" autocomplete="off">
-                                <a href="#" id="search-submit" title="Search this wiki">
-                                    <span>Search</span>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-                <li class="minibutton"><a href="/" class="action-home-page">Home</a></li>
-                <li class="minibutton"><a href="#" id="minibutton-new-page">New</a></li>
-            </ul>
-        </div>
-        <div id="pages">
 
-            <div id="file-browser">
-                <div class="breadcrumb">
-                    Home
+    <div id="pages">
+
+         <div class="file-browser-div">
+                <div class="file-browser-item">
+                    <a href="/folder?d={{ dirs_files.current }}" class="folder">
+                        <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe7a0; </i>
+                        .
+                    </a>
                 </div>
-                <ul class="file-browser-ul">
-                     <li><a href="/folder?d={{ dirs_files.current }}" class="folder">.</a></li>
-                    <li><a href="/folder?d={{ dirs_files.parent }}" class="folder">..</a></li>
-                    {% for dir in dirs_files.dirs %}
-                         <li><a href="/folder?d={{ dir.path }}" class="folder">{{ dir.filename }}</a></li>
-                    {% endfor %}
+                <div class="file-browser-item">
+                    <a href="/folder?d={{ dirs_files.parent }}" class="folder">
+                        <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe7a0; </i>
+                        ..
+                    </a>
+                </div>
 
-                    {% for file in dirs_files.files %}
-                         <li><a href="/page?f={{ file.path }}" class="file">{{ file.filename }}</a></li>
-                    {% endfor %}
-                </ul>
+                {% for dir in dirs_files.dirs %}
+                    <div class="file-browser-item">
+                        <a href="/folder?d={{ dir.path }}" class="folder">
+                            <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe7a0; </i>
+                            {{ dir.filename }}
+                        </a>
+                    </div>
+                     <li></li>
+                {% endfor %}
+
+                {% for file in dirs_files.files %}
+                    <div class="file-browser-item">
+                        <a href="/page?f={{ file.path }}" class="file">
+                            <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe621; </i>
+                            {{ file.filename }}
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
 
+     </div>
 
-        </div>
-        <div id="footer">
-            <ul class="actions">
-                <li class="minibutton"><a href="#">Back to Top</a></li>
-            </ul>
-        </div>
     </div>
 
 

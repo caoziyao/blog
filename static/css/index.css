@@ -1,0 +1,37 @@
+#wiki-wrapper{
+
+}
+#pages{
+    width: 800px;
+    margin: 100px auto;
+    display: block;
+}
+
+.file-browser-div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*width: 600px;*/
+}
+
+.file-browser-item{
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.page-content{
+    display: flex;
+    justify-content: center;
+}
+
+.page-content-left{
+    width: 600px;
+    margin-left: 20px;
+    /*margin: 0 auto;*/
+}
+
+.page-content-right{
+    margin-left: 20px;
+    width: 600px;
+}
+

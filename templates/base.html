@@ -7,23 +7,32 @@
     <meta name="viewport" content="width=device-width">
     <title>{% block title %}wiki{% endblock %}</title>
 
-
-    <script src="/static/js/template-web.js"></script>
     {% block css%} {% endblock %}
 </head>
 <body>
     {% block body %}{% endblock %}
 
-    <link rel="stylesheet" type="text/css" href="/static/css/gollum.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/static/css/editor.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/static/css/dialog.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/static/css/template.css" media="all">
-    <link rel="stylesheet" type="text/css" href="/static/css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/css/md.min.css" media="all">
+{#    <link rel="stylesheet" type="text/css" href="/static/css/dialog.css" media="all">#}
+{#    <link rel="stylesheet" type="text/css" href="/static/css/template.css" media="all">#}
+{#    <link rel="stylesheet" type="text/css" href="/static/css/print.css" media="print">#}
 
-    <!-- lib 相关文件 -->
+     <!-- lib 相关文件 -->
     <script src="/static/lib/nunjucks.min.js"></script>
     <script src="/static/lib/layui/layui.js"></script>
-    <link rel="stylesheet" href="/static/lib/layui/css/layui.css">
+    <script src="/static/lib/jquery-3.2.1.min.js"></script>
+
+    <!-- lib 相关文件 -->
+    <script src="/static/js/utils.js"></script>
+
+
+{#    <link rel="stylesheet" href="/static/lib/layui/css/layui.css">#}
+
+    <script  src="/static/lib/remarkable.min.js"></script>
+    <script  src="/static/lib/highlight.min.js"></script>
+{#    <script  src="/static/lib/md.min.js"></script>#}
+
 
     {% block script%} {% endblock %}
 </body>

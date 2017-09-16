@@ -7,7 +7,6 @@ from route.edit import app as route_edit
 from route.page import app as route_page
 from route.folder import app as route_folder
 
-
 app = Flask(__name__)
 
 
@@ -26,9 +25,7 @@ def configure_app():
     """
     # 设置 secret_key 来使用 flask 自带的 session
     """
-
     register_route()
-
     return app  # gunicorn
 
 

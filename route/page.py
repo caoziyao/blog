@@ -36,7 +36,8 @@ def hello():
     render = RenderFileHandler(path)
     extent = render.file_extension()
     html = render.render_file()
+    source = render.content_from_file()
 
     file_type = extent[1:]
 
-    return render_template('page.html', content=html, filename=filename, file_type=file_type)
+    return render_template('page.html', sourceContent=source, markDownContent=html, filename=filename, file_type=file_type)
