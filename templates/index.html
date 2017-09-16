@@ -9,40 +9,40 @@
 
     <div id="wiki-wrapper" class="results">
 
-    <div id="pages">
+    <ul id="pages">
 
-         <div class="file-browser-div">
-                <div class="file-browser-item">
+         <ul class="file-browser-div">
+                <li class="file-browser-item">
                     <a href="/folder?d={{ dirs_files.current }}" class="folder">
                         <i class="fa fa-folder-o fa-2x"></i>
-                        .
+                        <span class="item-file-name">.</span>
                     </a>
-                </div>
-                <div class="file-browser-item">
+                </li>
+                <li class="file-browser-item">
                     <a href="/folder?d={{ dirs_files.parent }}" class="folder">
                         <i class="fa fa-folder-o fa-2x"></i>
-                        ..
+                        <span class="item-file-name">..</span>
                     </a>
-                </div>
+                </li>
 
                 {% for dir in dirs_files.dirs %}
-                    <div class="file-browser-item">
+                    <li class="file-browser-item">
                         <a href="/folder?d={{ dir.path }}" class="folder">
                             <i class="fa fa-folder-o fa-2x"></i>
-                            {{ dir.filename }}
+                            <span class="item-file-name">{{ dir.filename }}</span>
                         </a>
-                    </div>
+                    </li>
                 {% endfor %}
 
                 {% for file in dirs_files.files %}
-                    <div class="file-browser-item">
+                    <li class="file-browser-item">
                         <a href="/page?f={{ file.path }}" class="file">
                              <i class="fa fa-file-o fa-2x"></i>
-                            {{ file.filename }}
+                            <span class="item-file-name">{{ file.filename }}</span>
                         </a>
-                    </div>
+                    </li>
                 {% endfor %}
-            </div>
+            </ul>
 
      </div>
 

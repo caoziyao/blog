@@ -1,22 +1,46 @@
+ul{
+    list-style-type:none;
+}
+
+li:hover{
+    text-decoration:none;
+}
+
+a{
+   text-decoration:none;
+}
+
+a:hover{
+   text-decoration:none !important;
+}
+
 #wiki-wrapper{
 
 }
 #pages{
-    width: 800px;
+    width: 1200px;
     margin: 100px auto;
     display: block;
 }
 
 .file-browser-div{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     /*width: 600px;*/
 }
 
-.file-browser-item{
-    margin-left: 100px;
-    margin-top: 30px;
+.file-browser-item {
+    margin-left: 20px;
+    margin-top: 50px;
+    width: 150px;
+}
+
+
+.item-file-name{
+    position: relative;
+    top: 22px;
+    right: 50px;
 }
 
 .page-content{
