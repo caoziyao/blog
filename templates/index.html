@@ -14,13 +14,13 @@
          <div class="file-browser-div">
                 <div class="file-browser-item">
                     <a href="/folder?d={{ dirs_files.current }}" class="folder">
-                        <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe7a0; </i>
+                        <i class="fa fa-folder-o fa-2x"></i>
                         .
                     </a>
                 </div>
                 <div class="file-browser-item">
                     <a href="/folder?d={{ dirs_files.parent }}" class="folder">
-                        <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe7a0; </i>
+                        <i class="fa fa-folder-o fa-2x"></i>
                         ..
                     </a>
                 </div>
@@ -28,17 +28,16 @@
                 {% for dir in dirs_files.dirs %}
                     <div class="file-browser-item">
                         <a href="/folder?d={{ dir.path }}" class="folder">
-                            <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe7a0; </i>
+                            <i class="fa fa-folder-o fa-2x"></i>
                             {{ dir.filename }}
                         </a>
                     </div>
-                     <li></li>
                 {% endfor %}
 
                 {% for file in dirs_files.files %}
                     <div class="file-browser-item">
                         <a href="/page?f={{ file.path }}" class="file">
-                            <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe621; </i>
+                             <i class="fa fa-file-o fa-2x"></i>
                             {{ file.filename }}
                         </a>
                     </div>

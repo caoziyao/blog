@@ -35,3 +35,17 @@
     width: 600px;
 }
 
+.bg-inverse{
+    background-color: #292b2c;
+    color: white;
+    overflow-x: hidden;
+    /*font-size: 1.1rem;*/
+    /*line-height: 1.5;*/
+}
+
+/*#id-input-src{*/
+    /*height: 800px;*/
+/*}*/
+/*#id-editor-result{*/
+    /*height: 800px;*/
+/*}*/

@@ -2,6 +2,7 @@
 
 import os
 import markdown
+import json
 from flask import render_template, request
 from flask.blueprints import Blueprint
 from handlers import FileHandler, RenderFileHandler
@@ -27,7 +28,7 @@ def filename_from_url(url):
 
 
 @app.route('/')
-def hello():
+def page_info():
 
     args = request.args
     path = path_from_url(args)
@@ -40,4 +41,32 @@ def hello():
 
     file_type = extent[1:]
 
-    return render_template('page.html', sourceContent=source, markDownContent=html, filename=filename, file_type=file_type)
+    return render_template('page.html', sourceContent=source, filePath=path, markDownContent=html, filename=filename, file_type=file_type)
+
+
+def save_page(path, content):
+    # log('path', path, content)
+
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+
+
+@app.route('/api/edit_page', methods=['POST'])
+def edit_page():
+    # data = request.form.get('data', '')
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+
+    content = data.get('content', '')
+    path = data.get('path', '')
+
+    save_page(path, content)
+
+
+    rdata = {
+        'status': 1,
+        'data': '',
+        'msg': '',
+    }
+    return json.dumps(rdata)
