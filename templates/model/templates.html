@@ -4,10 +4,41 @@
 <script  id="id-tmp-page-content" type="text/html">
     {{ each data }}
         <div class="page-content-right" id="id-editor-result">
+            <div class="file-title">{{ $value.title }}</div>
+            <div class="file-browser">
+                {{$value.content}}
+            </div>
 
-           a{{$value.content}}
         </div>
     {{ /each }}
+</script>
+
+<script id="id-tmp-page-edit" type="text/html">
+    <div class="page-content-left" id="id-input-src" data-noteid="{{ data.id }}">
+        <input class="file-title" value="{{ data.title }}">
+        <textarea class="bg-inverse" rows="240" cols="60" data-type="">{{ data.content }}</textarea>
+    </div>
+
+     <div class="page-content-right file-browser" id="id-editor-result">
+
+       <div class="file-browser">
+           {{data.content}}
+       </div>
+    </div>
+</script>
+
+
+<script id="id-tmp-page-new" type="text/html">
+    <div class="page-content-left" id="id-input-src">
+        <input class="file-title">
+        <textarea class="bg-inverse" rows="240" cols="60" data-type=""></textarea>
+    </div>
+
+     <div class="page-content-right file-browser" id="id-editor-result">
+
+       <div class="file-browser">
+       </div>
+    </div>
 </script>
 
 {% endraw %}

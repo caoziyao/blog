@@ -40,25 +40,25 @@
     });
     * */
 
-    const saveHtml = function (content) {
-
-        const callback = function (response) {
-            let r = JSON.parse(response);
-            if (r.status == 1){
-                log('保存成功')
-            }
-        };
-
-        let url = '/page/api/edit_page';
-        let path = _e('.head-filename').dataset.filepath;
-        let data = {
-            content: content,
-            path: path,
-        };
-
-        Api.post(url, JSON.stringify(data), callback)
-
-    };
+{#    const saveHtml = function (content) {#}
+{##}
+{#        const callback = function (response) {#}
+{#            let r = JSON.parse(response);#}
+{#            if (r.status == 1){#}
+{#                log('保存成功')#}
+{#            }#}
+{#        };#}
+{##}
+{#        let url = '/page/api/edit_page';#}
+{#        let path = _e('.head-filename').dataset.filepath;#}
+{#        let data = {#}
+{#            content: content,#}
+{#            path: path,#}
+{#        };#}
+{##}
+{#        Api.post(url, JSON.stringify(data), callback)#}
+{##}
+{#    };#}
 
 
 
@@ -72,11 +72,7 @@
         return codeList.includes(type)
     };
 
-    const renderHightLine = function () {
-         $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-         });
-    };
+
 
 
 

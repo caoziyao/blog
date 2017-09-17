@@ -48,3 +48,29 @@ const Api = {
     post: _post,
     get: _get,
 };
+
+//
+
+const AjaxApi = function () {
+
+};
+
+AjaxApi.prototype.loadCatalog = function (data, callback) {
+     let url = '/api/load_catalog';
+     Api.post(url, JSON.stringify(data), callback)
+}
+
+
+AjaxApi.prototype.loadNote = function (data, callback) {
+     let url = '/api/load_note';
+     Api.post(url, JSON.stringify(data), callback)
+}
+
+
+AjaxApi.prototype.saveHTML = function (data, callback) {
+     let url = '/page/api/edit_page';
+     Api.post(url, JSON.stringify(data), callback)
+}
+
+
+const ajax = new AjaxApi();

@@ -48,8 +48,8 @@ def index():
         }
         rdata.append(d)
 
-    log('members', catalogs)
-    log('notes', notes)
+    # log('members', catalogs)
+    # log('notes', notes)
 
     return render_template('index.html', rdata=rdata)
 
@@ -68,5 +68,29 @@ def load_catalog():
         'data': column,
         'msg': '',
     }
+
+    return json.dumps(rdata)
+
+@app.route('/api/load_note', methods=['POST'])
+def load_note():
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+
+    catalog_id = data.get('catalog_id', '')
+    note_id = data.get('note_id', '')
+
+    column = note_manager.get_note_content(note_id)
+    if column:
+        rdata = {
+            'status': 1,
+            'data': column[0],
+            'msg': '',
+        }
+    else:
+        rdata = {
+            'status': 1,
+            'data': {},
+            'msg': '',
+        }
 
     return json.dumps(rdata)

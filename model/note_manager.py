@@ -46,19 +46,18 @@ class NoteManager():
         column = data_manager.fetch_rows(table, fields, condition)
         return column
 
-    def get_note_content(self, catalog_id):
+    def get_note_content(self, note_id):
         """
         查找笔记内容
         :param parent_id:
         :return:
         """
-        catid = catalog_id
         data_manager = DataManager()
 
         table = 'tb_note'
         fields = ['id', 'catalog_id', 'title', 'content']
         condition = {
-            'catalog_id': catid
+            'id': note_id
         }
 
         column = data_manager.fetch_rows(table, fields, condition)

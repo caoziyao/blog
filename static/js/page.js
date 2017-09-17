@@ -8,26 +8,6 @@
 });
 * */
 
-const saveHtml = function (content) {
-
-    const callback = function (response) {
-        let r = JSON.parse(response);
-        if (r.status == 1){
-            log('保存成功')
-        }
-    };
-
-    let url = '/page/api/edit_page';
-    let path = _e('.head-filename').dataset.filepath;
-    let data = {
-        content: content,
-        path: path,
-    };
-
-    Api.post(url, JSON.stringify(data), callback)
-
-};
-
 
 const codeHtml = function (content) {
     let src = '``` \n' + content + ' \n ```'
@@ -39,11 +19,6 @@ const isCode = function (type) {
     return codeList.includes(type)
 };
 
-const renderHightLine = function () {
-     $('pre code').each(function(i, block) {
-        hljs.highlightBlock(block);
-     });
-};
 
 
 const init = function () {
@@ -60,21 +35,6 @@ const init = function () {
     renderHightLine()
 };
 
-_e('#id-input-src').addEventListener('input', function() {
-    let src = event.target.value;
-    let textarea = _e('#id-input-src textarea');
-    let type =  textarea.dataset.type;
-
-    if (isCode(type)) {
-         src = codeHtml(src)
-    }
-
-    let md = new Remarkable();
-    let html = md.render(src);
-    _e('#id-editor-result').innerHTML = html;
-
-     renderHightLine()
-});
 
 
 // 同步滚动
@@ -85,12 +45,6 @@ _e('textarea').addEventListener('scroll', function (event) {
 });
 
 
-_e('textarea').addEventListener('blur', function (event) {
-    let target = event.target;
-    let content = target.value;
-    //log('targ', target)
-    saveHtml(content)
-});
 
 
 

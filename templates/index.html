@@ -13,10 +13,10 @@
             <div class="dropdwon-box hidden">
                 {% for cat in rdata %}
                      <ul class="dropdwon-box-ul" data-catalogid="{{ cat.catalog_id }}">
-                        <li class="wiki-catalog-li"><a class="dropdwon-box-link">{{ cat.title }}</a></li>
-                    {% for note in cat.notes %}
-                        <li class="wiki-note"><a class="dropdwon-box-link">{{ note.title }}</a></li>
-                    {% endfor %}
+                        <li class="wiki-catalog-li"><a class="dropdwon-box-link catalog">{{ cat.title }}</a></li>
+                        {% for note in cat.notes %}
+                            <li class="wiki-note"><a class="dropdwon-box-link note" data-noteid="{{ note.id }}">{{ note.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 {% endfor %}
 
@@ -26,8 +26,8 @@
             <button id="id-new-btn" class="">新建</button>
             <div class="dropdwon-box hidden">
                 <ul>
-                    <li><a href="/edit">新建文档</a></li>
-                    <li><a>新建目录</a></li>
+                    <li><a id="id-new-note" href="#">新建文档</a></li>
+                    <li><a id="id-new-catalog">新建目录</a></li>
                 </ul>
             </div>
         </div>

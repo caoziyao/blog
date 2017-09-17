@@ -14,7 +14,6 @@ app = Blueprint('page', __name__, static_folder='static')
 
 
 def path_from_url(url):
-
     sep = 'f'
     if sep in url:
         path = url.get('f', '').replace(SEPARATOR, '/')
@@ -22,15 +21,14 @@ def path_from_url(url):
         path = ''
     return path
 
-def filename_from_url(url):
 
+def filename_from_url(url):
     filename = url.get('f', '').split(SEPARATOR)[-1]
     return filename
 
 
 @app.route('/')
 def page_info():
-
     args = request.args
     path = path_from_url(args)
     filename = filename_from_url(args)
@@ -42,52 +40,45 @@ def page_info():
 
     file_type = extent[1:]
 
-    return render_template('page.html', sourceContent=source, filePath=path, markDownContent=html, filename=filename, file_type=file_type)
+    return render_template('page.html', sourceContent=source, filePath=path, markDownContent=html, filename=filename,
+                           file_type=file_type)
 
 
-def save_page(path, content):
+def save_file(path, content):
     # log('path', path, content)
 
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
 
-def save_page_to_db(path, content):
+def save_page(data):
     db = DataManager()
 
+    note_id = data.get('note_id', 0)
+    content = data.get('content', '')
+    title = data.get('title', '')
+
     data = {
-        'title': path,
+        'title': title,
         'content': content
     }
 
     cond = {
-        'title': path,
+        'id': note_id,
     }
     res = db.fetch_rows('tb_note', condition=cond, fetchone=True)
     if not res:
-
         db.insert('tb_note', data=data)
     else:
-        cond = {
-            'id': res.get('id', 0),
-            'title': path,
-        }
         db.update('tb_note', data=data, condition=cond)
-        print('res', res)
 
 
 @app.route('/api/edit_page', methods=['POST'])
 def edit_page():
-    # data = request.form.get('data', '')
     data = request.data.decode('utf-8')
     data = json.loads(data)
 
-    content = data.get('content', '')
-    path = data.get('path', '')
-
-    # save_page(path, content)
-    save_page_to_db(path, content)
-
+    save_page(data)
 
     rdata = {
         'status': 1,
