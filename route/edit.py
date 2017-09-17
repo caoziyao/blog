@@ -9,4 +9,4 @@ app = Blueprint('edit', __name__, static_folder='static')
 @app.route('/')
 def edit():
 
-    return render_template('edit_hello.html')
+    return render_template('edit.html')

@@ -8,6 +8,7 @@ from flask.blueprints import Blueprint
 from handlers import FileHandler, RenderFileHandler
 from config.constant import SEPARATOR
 from untils import log
+from database import DataManager
 
 app = Blueprint('page', __name__, static_folder='static')
 
@@ -51,6 +52,29 @@ def save_page(path, content):
         f.write(content)
 
 
+def save_page_to_db(path, content):
+    db = DataManager()
+
+    data = {
+        'title': path,
+        'content': content
+    }
+
+    cond = {
+        'title': path,
+    }
+    res = db.fetch_rows('tb_note', condition=cond, fetchone=True)
+    if not res:
+
+        db.insert('tb_note', data=data)
+    else:
+        cond = {
+            'id': res.get('id', 0),
+            'title': path,
+        }
+        db.update('tb_note', data=data, condition=cond)
+        print('res', res)
+
 
 @app.route('/api/edit_page', methods=['POST'])
 def edit_page():
@@ -61,7 +85,8 @@ def edit_page():
     content = data.get('content', '')
     path = data.get('path', '')
 
-    save_page(path, content)
+    # save_page(path, content)
+    save_page_to_db(path, content)
 
 
     rdata = {

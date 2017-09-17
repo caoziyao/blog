@@ -6,6 +6,7 @@ from route.index import app as route_index
 from route.edit import app as route_edit
 from route.page import app as route_page
 from route.folder import app as route_folder
+from handlers import config
 
 app = Flask(__name__)
 
@@ -30,13 +31,14 @@ def configure_app():
 
 
 def main():
-    config = {
-        'host': '0.0.0.0',
-        'port': 3000,
-        'debug': True,
+    cf = config
+    setting = {
+        'host': cf.host,
+        'port': cf.port,
+        'debug': cf.debug,
     }
     register_route()
-    app.run(**config)
+    app.run(**setting)
 
 
 if __name__ == '__main__':

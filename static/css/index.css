@@ -14,10 +14,18 @@ a:hover{
    text-decoration:none !important;
 }
 
+.show{
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
 #wiki-wrapper{
 
 }
-#pages{
+.wiki-wrapper-ul{
     width: 1200px;
     margin: 100px auto;
     display: block;

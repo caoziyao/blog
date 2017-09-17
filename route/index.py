@@ -2,21 +2,19 @@
 
 import json
 import os
-from flask import  render_template
+from flask import render_template, request
 from flask.blueprints import Blueprint
 from handlers import FileHandler, RenderFileHandler
-from untils import read_config, log
-
+from untils import log
+from handlers import config
+from database import DataManager
+from model import note_manager, catalog_manager
 
 app = Blueprint('index', __name__, static_folder='static')
 
 
-
-@app.route('/')
-def index():
-    config = read_config()
-    root_path = config.get('root_path', '')
-
+def test_file():
+    root_path = config.root_path
 
     f = FileHandler(root_path)
 
@@ -32,4 +30,43 @@ def index():
 
     data.update(d)
 
-    return render_template('index.html', dirs_files=data)
+    return data
+
+
+@app.route('/')
+def index():
+
+    rdata = []
+    catalogs = catalog_manager.load_columns()
+    for cat in catalogs:
+        cat_id = cat['id']
+        notes = note_manager.get_notes(cat_id)
+        d = {
+            'catalog_id': cat_id,
+            'title': cat['title'],
+            'notes': notes,
+        }
+        rdata.append(d)
+
+    log('members', catalogs)
+    log('notes', notes)
+
+    return render_template('index.html', rdata=rdata)
+
+
+@app.route('/api/load_catalog', methods=['POST'])
+def load_catalog():
+
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+
+    catalog_id = data.get('catalog_id', '')
+
+    column = note_manager.get_catalog(catalog_id)
+    rdata = {
+        'status': 1,
+        'data': column,
+        'msg': '',
+    }
+
+    return json.dumps(rdata)

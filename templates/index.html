@@ -1,52 +1,42 @@
 {% extends 'base.html' %}
 
-{% block css %}
-{#<link rel="stylesheet" type="text/css" href="chrome-extension://fidicgekecdkdmkjghdgadgdmcfodfid/themes/default/content.css">#}
+{% block css %} {% endblock %}
+{% block other_script %}
+<script src="/static/js/components/file_browser.js"></script>
+<script src="/static/js/components/file_edit.js"></script>
 {% endblock %}
 
 {% block body %}
-
-
-    <div id="wiki-wrapper" class="results">
-
-    <ul id="pages">
-
-         <ul class="file-browser-div">
-                <li class="file-browser-item">
-                    <a href="/folder?d={{ dirs_files.current }}" class="folder">
-                        <i class="fa fa-folder-o fa-2x"></i>
-                        <span class="item-file-name">.</span>
-                    </a>
-                </li>
-                <li class="file-browser-item">
-                    <a href="/folder?d={{ dirs_files.parent }}" class="folder">
-                        <i class="fa fa-folder-o fa-2x"></i>
-                        <span class="item-file-name">..</span>
-                    </a>
-                </li>
-
-                {% for dir in dirs_files.dirs %}
-                    <li class="file-browser-item">
-                        <a href="/folder?d={{ dir.path }}" class="folder">
-                            <i class="fa fa-folder-o fa-2x"></i>
-                            <span class="item-file-name">{{ dir.filename }}</span>
-                        </a>
-                    </li>
+    <div id="id-wiki-wrapper" class="results">
+        <div class="wiki-dropdwon-div">
+            <button id="id-catalog-btn" class="">目录</button>
+            <div class="dropdwon-box hidden">
+                {% for cat in rdata %}
+                     <ul class="dropdwon-box-ul" data-catalogid="{{ cat.catalog_id }}">
+                        <li class="wiki-catalog-li"><a class="dropdwon-box-link">{{ cat.title }}</a></li>
+                    {% for note in cat.notes %}
+                        <li class="wiki-note"><a class="dropdwon-box-link">{{ note.title }}</a></li>
+                    {% endfor %}
+                    </ul>
                 {% endfor %}
 
-                {% for file in dirs_files.files %}
-                    <li class="file-browser-item">
-                        <a href="/page?f={{ file.path }}" class="file">
-                             <i class="fa fa-file-o fa-2x"></i>
-                            <span class="item-file-name">{{ file.filename }}</span>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+            </div>
+        </div>
+        <div class="wiki-dropdwon-div">
+            <button id="id-new-btn" class="">新建</button>
+            <div class="dropdwon-box hidden">
+                <ul>
+                    <li><a href="/edit">新建文档</a></li>
+                    <li><a>新建目录</a></li>
+                </ul>
+            </div>
+        </div>
 
-     </div>
-
+        <div class="page-content">
+        </div>
     </div>
 
+{% block templates %} {% include 'model/templates.html' %} {% endblock %}
 
+{% block script%} <script src="/static/js/index.js"></script> {% endblock %}
 {% endblock %}

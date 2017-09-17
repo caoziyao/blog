@@ -17,9 +17,4 @@ def load_file(path):
         return s
 
 
-def read_config():
-    config_path = os.path.join('config', 'config.json')
-    config = load_file(config_path)
-
-    return config
 

@@ -1,0 +1,47 @@
+
+
+{% raw %}
+<script  id="id-tmp-page-content" type="text/html">
+    {{ each data }}
+        <div class="page-content-right" id="id-editor-result">
+
+           a{{$value.content}}
+        </div>
+    {{ /each }}
+</script>
+
+{% endraw %}
+
+
+
+
+{#                <li class="file-browser-item">#}
+{#                    <a href="/folder?d={{ dirs_files.current }}" class="folder">#}
+{#                        <i class="fa fa-folder-o fa-2x"></i>#}
+{#                        <span class="item-file-name">.</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#                <li class="file-browser-item">#}
+{#                    <a href="/folder?d={{ dirs_files.parent }}" class="folder">#}
+{#                        <i class="fa fa-folder-o fa-2x"></i>#}
+{#                        <span class="item-file-name">..</span>#}
+{#                    </a>#}
+{#                </li>#}
+
+{#                {% for dir in dirs_files.dirs %}#}
+{#                    <li class="file-browser-item">#}
+{#                        <a href="/folder?d={{ dir.path }}" class="folder">#}
+{#                            <i class="fa fa-folder-o fa-2x"></i>#}
+{#                            <span class="item-file-name">{{ dir.filename }}</span>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                {% endfor %}#}
+{##}
+{#                {% for file in dirs_files.files %}#}
+{#                    <li class="file-browser-item">#}
+{#                        <a href="/page?f={{ file.path }}" class="file">#}
+{#                             <i class="fa fa-file-o fa-2x"></i>#}
+{#                            <span class="item-file-name">{{ file.filename }}</span>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                {% endfor %}#}

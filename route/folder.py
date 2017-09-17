@@ -28,13 +28,13 @@ def path_from_url(url):
 @app.route('/')
 def folder():
     # folder = 'f'
-    args = request.args
-    path = path_from_url(args)
+    # args = request.args
+    # path = path_from_url(args)
+    #
+    # log('path', args)
+    # f = FileHandler(path)
+    #
+    # # data = listdir(path)
+    # data = f.all_files()
 
-    log('path', args)
-    f = FileHandler(path)
-
-    # data = listdir(path)
-    data = f.all_files()
-
-    return render_template('index.html', current_dir=path, parent_dir=path, dirs_files=data)
+    return render_template('index.html', current_dir='', parent_dir='', dirs_files='')
