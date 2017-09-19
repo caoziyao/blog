@@ -2,6 +2,7 @@
 
 {% block css %} {% endblock %}
 {% block other_script %}
+<script src="/static/js/components/base_component.js"></script>
 <script src="/static/js/components/file_browser.js"></script>
 <script src="/static/js/components/file_edit.js"></script>
 {% endblock %}
@@ -18,6 +19,9 @@
                             <li class="wiki-note"><a class="dropdwon-box-link note" data-noteid="{{ note.id }}">{{ note.title }}</a></li>
                         {% endfor %}
                     </ul>
+                    <ul class="under-line">
+                        <li></li>
+                    </ul>
                 {% endfor %}
 
             </div>
@@ -32,7 +36,7 @@
             </div>
         </div>
 
-        <div class="page-content">
+        <div class="file-browser">
         </div>
     </div>
 

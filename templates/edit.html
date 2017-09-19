@@ -1,44 +1,50 @@
 {% extends 'base.html' %}
 
-{% block css%}
-{#    <link rel="stylesheet" href="">#}
-{% endblock %}
+{% block css %} {% endblock %}
+{% block other_script %}
+<script src="/static/js/components/base_component.js"></script>
 <script src="/static/js/components/file_browser.js"></script>
 <script src="/static/js/components/file_edit.js"></script>
-
-{% block body %}
-
-<div id="head">
-  <h4 class="head-filename" data-filepath="{{ filePath }}">{{ filename }}</h4>
-
-</div>
-    <div class="page-content">
-
-        <div class="page-content-left" id="id-input-src">
-            <div class="page-content-title">
-                <input class="title-input">
-            </div>
-            <textarea class="bg-inverse" rows="240" cols="60" ></textarea>
-        </div>
-
-         <div class="page-content-right" id="id-editor-result">
-
-        </div>
-    </div>
 {% endblock %}
 
-{% block script%}
+{% block body %}
+    <div id="id-wiki-wrapper" class="results">
+        <div class="wiki-dropdwon-div">
+            <button id="id-catalog-btn" class="">目录</button>
+            <div class="dropdwon-box hidden">
+                {% for cat in rdata %}
+                     <ul class="dropdwon-box-ul" data-catalogid="{{ cat.catalog_id }}">
+                        <li class="wiki-catalog-li"><a class="dropdwon-box-link catalog">{{ cat.title }}</a></li>
+                        {% for note in cat.notes %}
+                            <li class="wiki-note"><a class="dropdwon-box-link note" data-noteid="{{ note.id }}">{{ note.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="under-line">
+                        <li></li>
+                    </ul>
+                {% endfor %}
 
+            </div>
+        </div>
+        <div class="wiki-dropdwon-div">
+            <button id="id-new-btn" class="">新建</button>
+            <div class="dropdwon-box hidden">
+                <ul>
+                    <li><a id="id-new-note" href="#">新建文档</a></li>
+                    <li><a id="id-new-catalog">新建目录</a></li>
+                </ul>
+            </div>
+        </div>
 
-<script>
+        <div class="page-content">
+        </div>
+    </div>
 
-    // 自适应 textarea 高度
-    /*
-    * _e('textarea').addEventListener('keyup', function (event) {
-        let target = event.target;
-        target.height = target.scrollHeight
-    });
-    * */
+{% block templates %} {% include 'model/templates.html' %} {% endblock %}
+
+{% block script%} <script src="/static/js/edit.js"></script> {% endblock %}
+{% endblock %}
+
 
 {#    const saveHtml = function (content) {#}
 {##}
@@ -61,55 +67,50 @@
 {#    };#}
 
 
-
-    const codeHtml = function (content) {
-        let src = '``` \n' + content + ' \n ```'
-        return src
-    };
-
-    const isCode = function (type) {
-        let codeList = ['py', 'js'];
-        return codeList.includes(type)
-    };
-
-
-
-
-
-    _e('#id-input-src').addEventListener('input', function() {
-        let src = event.target.value;
-        let textarea = _e('#id-input-src textarea');
-        let type =  textarea.dataset.type;
-
-        if (isCode(type)) {
-             src = codeHtml(src)
-        }
-
-        let md = new Remarkable();
-        let html = md.render(src);
-        _e('#id-editor-result').innerHTML = html;
-
-         renderHightLine()
-    });
-
-    // 同步滚动
-    _e('textarea').addEventListener('scroll', function (event) {
-         let target = event.target;
-         document.body.scrollTop = target.scrollTop;
-         log('target.scrollTop', event)
-    });
-
-
-    _e('textarea').addEventListener('blur', function (event) {
-        let target = event.target;
-        let content = target.value;
-        //log('targ', target)
-        saveHtml(content)
-    })
-
-
-</script>
+{##}
+{#    const codeHtml = function (content) {#}
+{#        let src = '``` \n' + content + ' \n ```'#}
+{#        return src#}
+{#    };#}
+{##}
+{#    const isCode = function (type) {#}
+{#        let codeList = ['py', 'js'];#}
+{#        return codeList.includes(type)#}
+{#    };#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#    _e('#id-input-src').addEventListener('input', function() {#}
+{#        let src = event.target.value;#}
+{#        let textarea = _e('#id-input-src textarea');#}
+{#        let type =  textarea.dataset.type;#}
+{##}
+{#        if (isCode(type)) {#}
+{#             src = codeHtml(src)#}
+{#        }#}
+{##}
+{#        let md = new Remarkable();#}
+{#        let html = md.render(src);#}
+{#        _e('#id-editor-result').innerHTML = html;#}
+{##}
+{#         renderHightLine()#}
+{#    });#}
+{##}
+{#    // 同步滚动#}
+{#    _e('textarea').addEventListener('scroll', function (event) {#}
+{#         let target = event.target;#}
+{#         document.body.scrollTop = target.scrollTop;#}
+{#         log('target.scrollTop', event)#}
+{#    });#}
+{##}
+{##}
+{#    _e('textarea').addEventListener('blur', function (event) {#}
+{#        let target = event.target;#}
+{#        let content = target.value;#}
+{#        //log('targ', target)#}
+{#        saveHtml(content)#}
+{#    })#}
 
 
-
-{% endblock %}

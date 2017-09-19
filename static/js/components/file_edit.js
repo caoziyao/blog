@@ -1,13 +1,32 @@
 
 
-class FileEdit {
+class FileEdit extends BaseComponent{
     constructor() {
-        // hljs heightjs
+        super()
 
     }
 
     static new(...args) {
         return new this(...args)
+    }
+
+    renderMarkdown() {
+        let self = this;
+          _e('#id-input-src').addEventListener('input', function() {
+            let src = event.target.value;
+            let textarea = _e('#id-input-src textarea');
+            let type =  textarea.dataset.type;
+
+            // if (isCode(type)) {
+            //      src = codeHtml(src)
+            // }
+
+            let md = new Remarkable();
+            let html = md.render(src);
+            _e('#id-editor-result').innerHTML = html;
+
+             self.renderHightLine()
+        });
     }
 
     saveHTML() {
@@ -16,9 +35,11 @@ class FileEdit {
             let ele = target.closest('.page-content-left');
             let title = ele.querySelector('.file-title').value;
             let id = ele.dataset.noteid;
+            let catalogId = ele.dataset.catalogid || 0;
             let content = target.value;
             //log('targ', target)
             let data = {
+                catalog_id: catalogId,
                 note_id: id,
                 content: content,
                 title: title,
@@ -33,20 +54,6 @@ class FileEdit {
 
         });
 
-        _e('#id-input-src').addEventListener('input', function() {
-            let src = event.target.value;
-            let textarea = _e('#id-input-src textarea');
-            let type =  textarea.dataset.type;
 
-            // if (isCode(type)) {
-            //      src = codeHtml(src)
-            // }
-
-            let md = new Remarkable();
-            let html = md.render(src);
-            _e('#id-editor-result').innerHTML = html;
-
-             renderHightLine()
-        });
     }
 }

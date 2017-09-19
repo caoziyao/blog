@@ -1,5 +1,4 @@
 
-
 {% raw %}
 <script  id="id-tmp-page-content" type="text/html">
     {{ each data }}
@@ -14,9 +13,9 @@
 </script>
 
 <script id="id-tmp-page-edit" type="text/html">
-    <div class="page-content-left" id="id-input-src" data-noteid="{{ data.id }}">
+    <div class="page-content-left" id="id-input-src" data-catalogid="{{ data.catalog_id }}" data-noteid="{{ data.id }}">
         <input class="file-title" value="{{ data.title }}">
-        <textarea class="bg-inverse" rows="240" cols="60" data-type="">{{ data.content }}</textarea>
+        <textarea class="bg-inverse" rows="50" cols="100" data-type="">{{ data.content }}</textarea>
     </div>
 
      <div class="page-content-right file-browser" id="id-editor-result">
@@ -29,9 +28,9 @@
 
 
 <script id="id-tmp-page-new" type="text/html">
-    <div class="page-content-left" id="id-input-src">
+    <div class="page-content-left" id="id-input-src" data-catalogid="" data-noteid="">
         <input class="file-title">
-        <textarea class="bg-inverse" rows="240" cols="60" data-type=""></textarea>
+        <textarea class="bg-inverse" rows="50" cols="100" data-type=""></textarea>
     </div>
 
      <div class="page-content-right file-browser" id="id-editor-result">

@@ -1,9 +1,9 @@
 
 
-class FileBrowser {
+class FileBrowser extends BaseComponent{
     constructor(element) {
+        super()
         // hljs heightjs
-        this.hljs = hljs;
         this.md = new Remarkable();
         this.element = element;
 
@@ -12,13 +12,6 @@ class FileBrowser {
     static new(...args) {
         return new this(...args)
     }
-
-    renderHightLine() {
-        let hljs = this.hljs;
-         $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-         });
-    };
 
 
     renderMarkDown() {

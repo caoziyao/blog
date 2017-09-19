@@ -38,11 +38,7 @@ const init = function () {
 
 
 // 同步滚动
-_e('textarea').addEventListener('scroll', function (event) {
-     let target = event.target;
-     document.body.scrollTop = target.scrollTop;
-     log('target.scrollTop', event)
-});
+
 
 
 

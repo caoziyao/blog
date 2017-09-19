@@ -57,10 +57,12 @@ def save_page(data):
     note_id = data.get('note_id', 0)
     content = data.get('content', '')
     title = data.get('title', '')
+    catalog_id = data.get('catalog_id')
 
     data = {
         'title': title,
-        'content': content
+        'content': content,
+        'catalog_id': catalog_id,
     }
 
     cond = {
