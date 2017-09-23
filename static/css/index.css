@@ -26,6 +26,11 @@ button{
     display: none;
 }
 
+.wrapper{
+    display: flex;
+
+}
+
 #wiki-wrapper{
 
 }

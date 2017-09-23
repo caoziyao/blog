@@ -1,46 +1,58 @@
 {% extends 'base.html' %}
 
 {% block css %} {% endblock %}
-{% block other_script %}
-<script src="/static/js/components/base_component.js"></script>
-<script src="/static/js/components/file_browser.js"></script>
-<script src="/static/js/components/file_edit.js"></script>
-{% endblock %}
 
 {% block body %}
-    <div id="id-wiki-wrapper" class="results">
-        <div class="wiki-dropdwon-div">
-            <button id="id-catalog-btn" class="">目录</button>
-            <div class="dropdwon-box hidden">
-                {% for cat in rdata %}
-                     <ul class="dropdwon-box-ul" data-catalogid="{{ cat.catalog_id }}">
-                        <li class="wiki-catalog-li"><a class="dropdwon-box-link catalog">{{ cat.title }}</a></li>
-                        {% for note in cat.notes %}
-                            <li class="wiki-note"><a class="dropdwon-box-link note" data-noteid="{{ note.id }}">{{ note.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                    <ul class="under-line">
-                        <li></li>
-                    </ul>
+
+    <div class="wrapper">
+       <div class="wrapper-classify">
+        <ul class="dropdwon-box-ul">
+            {% for cat in rdata.catalogs %}
+                 <li class="wiki-catalog-li"><a class="wrapper-catalog-a" data-catalogid="{{ cat.id }}">{{ cat.title }}</a></li>
+             {% endfor %}
+          </ul>
+       </div>
+
+        <div class="wrapper-catalog">
+
+             <ul class="wrapper-note-list" >
+                {% for note in rdata.notes %}
+                    <li class="wiki-note">
+                        <a href="/article?node_id={{ note.id }}" class="dropdwon-box-link note" >{{ note.title }} </a>
+                        <span class="wiki-note-time">{{ note.update_time }}</span>
+                    </li>
                 {% endfor %}
+            </ul>
+            <ul class="under-line">
+                <li></li>
+            </ul>
 
+            <div>
+                {% for i in range(rdata.total_page) %}
+                    <a class="page-number"  data-value="{{ loop.index }}"><button>{{ loop.index }}</button></a>
+                {% endfor %}
             </div>
-        </div>
-        <div class="wiki-dropdwon-div">
-            <button id="id-new-btn" class="">新建</button>
-            <div class="dropdwon-box hidden">
-                <ul>
-                    <li><a id="id-new-note" href="#">新建文档</a></li>
-                    <li><a id="id-new-catalog">新建目录</a></li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="file-browser">
         </div>
     </div>
 
-{% block templates %} {% include 'model/templates.html' %} {% endblock %}
+    <script type="text/html" id="id-tmp-notelist">
+     {% raw %}
+        {{ each data as note index }}
+            <li class="wiki-note">
+                <a href="/article?node_id={{ note.id }}" class="dropdwon-box-link note" >{{ note.title }} </a>
+                <span class="wiki-note-time">{{ note.update_time }}</span>
+            </li>
+        {{ /each }}
+     {% endraw %}
+    </script>
 
-{% block script%} <script src="/static/js/index.js"></script> {% endblock %}
+
 {% endblock %}
+
+
+
+{% block script%}
+<script src="/static/js/index.js"></script>
+{% endblock %}
+

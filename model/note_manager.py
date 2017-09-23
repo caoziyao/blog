@@ -2,6 +2,7 @@
 
 from database import DataManager
 from .note_model import TbNoteModel
+from untils import log
 
 class NoteManager():
 
@@ -20,13 +21,47 @@ class NoteManager():
         data_manager = DataManager()
 
         table = 'tb_note'
-        fields = ['id', 'catalog_id', 'title']
+        fields = ['id', 'catalog_id', 'title', 'update_time']
         condition = {
             'catalog_id': catid
         }
 
         column = data_manager.fetch_rows(table, fields, condition)
         return column
+
+    def total_page(self):
+
+        sql = 'select count(`id`) as count from `tb_note`'
+        data_manager = DataManager()
+
+        r = data_manager.query(sql)
+
+        return r[0].get('count', 1) if r else 0
+
+
+
+
+    def all_notes(self, page_no):
+        """
+        全部笔记
+        page_no: 当前页数，0-返回全部
+        :return:
+        """
+        page_no = int(page_no)
+        data_manager = DataManager()
+        per_page = 20
+
+        table = 'tb_note'
+        fields = ['id', 'catalog_id', 'title', 'update_time']
+
+        if page_no:
+            start = (page_no-1) * per_page
+            limit = '{},{}'.format(start, per_page)
+            column = data_manager.fetch_rows(table, fields, limit=limit)
+        else:
+            column = data_manager.fetch_rows(table, fields)
+        return column
+
 
     def get_catalog(self, catalog_id):
         """
@@ -61,9 +96,7 @@ class NoteManager():
         }
 
         column = data_manager.fetch_rows(table, fields, condition)
-        return column
-
-
+        return column[0]
 
 
 note_manager = NoteManager()

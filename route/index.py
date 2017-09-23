@@ -13,50 +13,85 @@ from model import note_manager, catalog_manager
 app = Blueprint('index', __name__, static_folder='static')
 
 
-def test_file():
-    root_path = config.root_path
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
-    f = FileHandler(root_path)
 
-    parent_path = f.current_path()
-    current_path = f.current_path()
+def counter_page(total):
+    """
+    计算总页数
+    :param total: 总数目
+    :return:
+    """
+    pre_page = 20
 
-    data = f.all_files()
+    div = divmod(total, pre_page)
+    i = div[0]
+    m = div[1]
+    total_page = i if m == 0 else i + 1
 
-    d = {
-        'parent': parent_path,
-        'current': current_path,
+    return total_page
+
+
+@app.route('/page', methods=['POST'])
+def page():
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+    page_no = data.get('page_no', 0)
+    notes = note_manager.all_notes(page_no)
+
+    for n in notes:
+        n['update_time'] = str(n['update_time'])
+
+    rdata = {
+        'notes': notes,
     }
+    log('members', rdata)
 
-    data.update(d)
+    return json.dumps(rdata)
 
-    return data
+@app.route('/catalog', methods=['POST'])
+def catalog():
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+    catalog_id = data.get('catalog_id', 0)
+    notes = note_manager.get_notes(catalog_id)
 
+    for n in notes:
+        n['update_time'] = str(n['update_time'])
+
+    rdata = {
+        'notes': notes,
+    }
+    log('members', rdata)
+
+    return json.dumps(rdata)
 
 @app.route('/')
 def index():
+    # 页数
+    page_no = request.args.get('page', 1)
 
-    rdata = []
+
     catalogs = catalog_manager.load_columns()
-    for cat in catalogs:
-        cat_id = cat['id']
-        notes = note_manager.get_notes(cat_id)
-        d = {
-            'catalog_id': cat_id,
-            'title': cat['title'],
-            'notes': notes,
-        }
-        rdata.append(d)
+    notes = note_manager.all_notes(page_no)
+    total = note_manager.total_page()
 
-    # log('members', catalogs)
-    # log('notes', notes)
+    total_page = counter_page(total)
+
+    rdata = {
+        'catalogs': catalogs,
+        'notes': notes,
+        'total_page': total_page,
+    }
+    log('members', catalogs)
 
     return render_template('index.html', rdata=rdata)
 
 
 @app.route('/api/load_catalog', methods=['POST'])
 def load_catalog():
-
     data = request.data.decode('utf-8')
     data = json.loads(data)
 
@@ -70,6 +105,7 @@ def load_catalog():
     }
 
     return json.dumps(rdata)
+
 
 @app.route('/api/load_note', methods=['POST'])
 def load_note():

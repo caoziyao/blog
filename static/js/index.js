@@ -1,75 +1,50 @@
 
-// 绑定下拉事件
-var bindDropDownEvent = function (element) {
-    let ele = element;
-    _e(ele).addEventListener('click', function (event) {
-        let target = event.target;
-        let div = target.closest('.wiki-dropdwon-div');
-        // log('div', div);
-        div.querySelector('.dropdwon-box').classList.toggle('hidden')
-
-    })
-};
 
 
-_e('.dropdwon-box').addEventListener('mouseleave', function (event) {
-    let target = event.target
-    target.classList.add('hidden')
-    // this.style.display = 'none'
+const __main = function () {
 
-})
+    bindEvents('.page-number', function() {
+          let page = this.dataset.value
+            let url = '/page'
 
-
-
-
-
-var loadNote = function (target, ul) {
-     let noteId = target.dataset.noteid;
-     let catalogId = ul.dataset.catalogid;
-
-        let data = {
-            note_id: noteId,
-            catalog_id: catalogId,
-        };
-        // log('data', data)
-
-        ajax.loadNote(data, function (response) {
-             let r = JSON.parse(response);
-            if (r.status === 1) {
-                let data = r.data;
-                let html = data.content;
-                _e('.file-browser').innerHTML = html;
-
-                let fb = FileBrowser.new('.file-browser');
-                fb.renderMarkDown();
+            let data = {
+              page_no: page
             }
-        })
+
+            ajax.post(url,  data, function (response) {
+                let r = JSON.parse(response)
+                let notes = r.notes;
+
+                let html = template('id-tmp-notelist', {data: notes})
+
+                log('html', html)
+                _e('.wrapper-note-list').innerHTML = html
+            })
+    })
+
+
+    bindEvents('.wrapper-catalog-a', function () {
+           let catalogId = this.dataset.catalogid;
+
+           log('catalogId', catalogId, this)
+            let url = '/catalog'
+
+            let data = {
+              catalog_id: catalogId
+            }
+
+            ajax.post(url,  data, function (response) {
+                let r = JSON.parse(response)
+                let notes = r.notes;
+
+                let html = template('id-tmp-notelist', {data: notes})
+
+                log('html', html)
+                _e('.wrapper-note-list').innerHTML = html
+            })
+    })
+
 }
 
-// 绑定事件
-bindEvents('.dropdwon-box-link', function (event) {
 
-    let target = event.target;
-    let ul = target.closest('.dropdwon-box-ul');
-    let classList = target.classList;
-    if (classList.contains('catalog')) {
-       // loadCatalog(target, ul)
-
-    } else if (classList.contains('note')) {
-        loadNote(target, ul)
-
-    }
-
-});
-
-
-
-var __main = function () {
-
-    bindDropDownEvent('#id-catalog-btn')
-
-}
-
-window.onload = function () {
-    __main()
-}
+__main()
