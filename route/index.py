@@ -119,7 +119,7 @@ def load_note():
     if column:
         rdata = {
             'status': 1,
-            'data': column[0],
+            'data': column,
             'msg': '',
         }
     else:

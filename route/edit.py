@@ -35,9 +35,12 @@ def test_file():
 
 @app.route('/')
 def edit():
+    note_id = request.args.get('node_id', 1)
 
     rdata = []
     catalogs = catalog_manager.load_columns()
+    column = note_manager.get_note_content(note_id)
+
     for cat in catalogs:
         cat_id = cat['id']
         notes = note_manager.get_notes(cat_id)
@@ -51,7 +54,7 @@ def edit():
     # log('members', catalogs)
     # log('notes', notes)
 
-    return render_template('edit.html', rdata=rdata)
+    return render_template('edit.html', rdata=rdata, column=column)
 
 
 @app.route('/api/load_catalog', methods=['POST'])
@@ -93,4 +96,44 @@ def edit_load_note():
             'msg': '',
         }
 
+    return json.dumps(rdata)
+
+
+
+def save_page(data):
+    db = DataManager()
+
+    note_id = data.get('note_id', 0)
+    content = data.get('content', '')
+    title = data.get('title', '')
+    catalog_id = data.get('catalog_id')
+
+    data = {
+        'title': title,
+        'content': content,
+        'catalog_id': catalog_id,
+    }
+
+    cond = {
+        'id': note_id,
+    }
+    res = db.fetch_rows('tb_note', condition=cond, fetchone=True)
+    if not res:
+        db.insert('tb_note', data=data)
+    else:
+        db.update('tb_note', data=data, condition=cond)
+
+
+@app.route('/api/edit_page', methods=['POST'])
+def edit_page():
+    data = request.data.decode('utf-8')
+    data = json.loads(data)
+
+    save_page(data)
+
+    rdata = {
+        'status': 1,
+        'data': '',
+        'msg': '',
+    }
     return json.dumps(rdata)

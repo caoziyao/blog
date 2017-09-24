@@ -1,116 +1,32 @@
 {% extends 'base.html' %}
 
 {% block css %} {% endblock %}
-{% block other_script %}
-<script src="/static/js/components/base_component.js"></script>
-<script src="/static/js/components/file_browser.js"></script>
-<script src="/static/js/components/file_edit.js"></script>
-{% endblock %}
-
 {% block body %}
     <div id="id-wiki-wrapper" class="results">
-        <div class="wiki-dropdwon-div">
-            <button id="id-catalog-btn" class="">目录</button>
-            <div class="dropdwon-box hidden">
-                {% for cat in rdata %}
-                     <ul class="dropdwon-box-ul" data-catalogid="{{ cat.catalog_id }}">
-                        <li class="wiki-catalog-li"><a class="dropdwon-box-link catalog">{{ cat.title }}</a></li>
-                        {% for note in cat.notes %}
-                            <li class="wiki-note"><a class="dropdwon-box-link note" data-noteid="{{ note.id }}">{{ note.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                    <ul class="under-line">
-                        <li></li>
-                    </ul>
-                {% endfor %}
-
-            </div>
-        </div>
-        <div class="wiki-dropdwon-div">
-            <button id="id-new-btn" class="">新建</button>
-            <div class="dropdwon-box hidden">
-                <ul>
-                    <li><a id="id-new-note" href="#">新建文档</a></li>
-                    <li><a id="id-new-catalog">新建目录</a></li>
-                </ul>
-            </div>
-        </div>
 
         <div class="page-content">
+                <div class="page-content-left" id="id-input-src" data-catalogid="{{ column.catalog_id }}" data-noteid="{{ column.id }}">
+                    <input class="file-title" value="{{ column.title }}">
+                    <textarea class="bg-inverse" rows="50" cols="80" data-type="">{{ column.content }}</textarea>
+                </div>
+
+                 <div class="page-content-right file-browser" id="id-editor-result">
+
+                   <div class="file-browser">
+                       {{column.content}}
+                   </div>
+                </div>
+
         </div>
     </div>
 
+{% endblock %}
 {% block templates %} {% include 'model/templates.html' %} {% endblock %}
 
-{% block script%} <script src="/static/js/edit.js"></script> {% endblock %}
+{% block script%}
+    <script src="/static/js/components/base_component.js"></script>
+<script src="/static/js/components/file_browser.js"></script>
+<script src="/static/js/components/file_edit.js"></script>
+    <script src="/static/js/edit.js"></script>
 {% endblock %}
-
-
-{#    const saveHtml = function (content) {#}
-{##}
-{#        const callback = function (response) {#}
-{#            let r = JSON.parse(response);#}
-{#            if (r.status == 1){#}
-{#                log('保存成功')#}
-{#            }#}
-{#        };#}
-{##}
-{#        let url = '/page/api/edit_page';#}
-{#        let path = _e('.head-filename').dataset.filepath;#}
-{#        let data = {#}
-{#            content: content,#}
-{#            path: path,#}
-{#        };#}
-{##}
-{#        Api.post(url, JSON.stringify(data), callback)#}
-{##}
-{#    };#}
-
-
-{##}
-{#    const codeHtml = function (content) {#}
-{#        let src = '``` \n' + content + ' \n ```'#}
-{#        return src#}
-{#    };#}
-{##}
-{#    const isCode = function (type) {#}
-{#        let codeList = ['py', 'js'];#}
-{#        return codeList.includes(type)#}
-{#    };#}
-{##}
-{##}
-{##}
-{##}
-{##}
-{#    _e('#id-input-src').addEventListener('input', function() {#}
-{#        let src = event.target.value;#}
-{#        let textarea = _e('#id-input-src textarea');#}
-{#        let type =  textarea.dataset.type;#}
-{##}
-{#        if (isCode(type)) {#}
-{#             src = codeHtml(src)#}
-{#        }#}
-{##}
-{#        let md = new Remarkable();#}
-{#        let html = md.render(src);#}
-{#        _e('#id-editor-result').innerHTML = html;#}
-{##}
-{#         renderHightLine()#}
-{#    });#}
-{##}
-{#    // 同步滚动#}
-{#    _e('textarea').addEventListener('scroll', function (event) {#}
-{#         let target = event.target;#}
-{#         document.body.scrollTop = target.scrollTop;#}
-{#         log('target.scrollTop', event)#}
-{#    });#}
-{##}
-{##}
-{#    _e('textarea').addEventListener('blur', function (event) {#}
-{#        let target = event.target;#}
-{#        let content = target.value;#}
-{#        //log('targ', target)#}
-{#        saveHtml(content)#}
-{#    })#}
-
 

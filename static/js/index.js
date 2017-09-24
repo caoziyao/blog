@@ -17,7 +17,7 @@ const __main = function () {
 
                 let html = template('id-tmp-notelist', {data: notes})
 
-                log('html', html)
+                // log('html', html)
                 _e('.wrapper-note-list').innerHTML = html
             })
     })
@@ -26,7 +26,7 @@ const __main = function () {
     bindEvents('.wrapper-catalog-a', function () {
            let catalogId = this.dataset.catalogid;
 
-           log('catalogId', catalogId, this)
+           // log('catalogId', catalogId, this)
             let url = '/catalog'
 
             let data = {
@@ -39,7 +39,7 @@ const __main = function () {
 
                 let html = template('id-tmp-notelist', {data: notes})
 
-                log('html', html)
+                // log('html', html)
                 _e('.wrapper-note-list').innerHTML = html
             })
     })

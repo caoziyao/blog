@@ -22,11 +22,13 @@ class NoteManager():
 
         table = 'tb_note'
         fields = ['id', 'catalog_id', 'title', 'update_time']
+        order = 'update_time desc'
+
         condition = {
             'catalog_id': catid
         }
 
-        column = data_manager.fetch_rows(table, fields, condition)
+        column = data_manager.fetch_rows(table, fields=fields, condition=condition, order=order)
         return column
 
     def total_page(self):
@@ -53,13 +55,15 @@ class NoteManager():
 
         table = 'tb_note'
         fields = ['id', 'catalog_id', 'title', 'update_time']
+        order = 'update_time desc'
+
 
         if page_no:
             start = (page_no-1) * per_page
             limit = '{},{}'.format(start, per_page)
-            column = data_manager.fetch_rows(table, fields, limit=limit)
+            column = data_manager.fetch_rows(table, fields=fields, limit=limit, order=order)
         else:
-            column = data_manager.fetch_rows(table, fields)
+            column = data_manager.fetch_rows(table, fields=fields, order=order)
         return column
 
 

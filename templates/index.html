@@ -20,6 +20,7 @@
                     <li class="wiki-note">
                         <a href="/article?node_id={{ note.id }}" class="dropdwon-box-link note" >{{ note.title }} </a>
                         <span class="wiki-note-time">{{ note.update_time }}</span>
+                        <a href="/edit?node_id={{ note.id }}"><button>编辑</button></a>
                     </li>
                 {% endfor %}
             </ul>
@@ -42,6 +43,7 @@
             <li class="wiki-note">
                 <a href="/article?node_id={{ note.id }}" class="dropdwon-box-link note" >{{ note.title }} </a>
                 <span class="wiki-note-time">{{ note.update_time }}</span>
+                 <a href="/edit?node_id={{ note.id }}"><button>编辑</button></a>
             </li>
         {{ /each }}
      {% endraw %}

@@ -5,7 +5,6 @@ from flask import Flask, render_template, blueprints
 from route.index import app as route_index
 from route.edit import app as route_edit
 from route.article import app as route_page
-from route.folder import app as route_folder
 from handlers import config
 
 app = Flask(__name__)
@@ -19,8 +18,6 @@ def register_route():
     app.register_blueprint(route_index)
     app.register_blueprint(route_edit, url_prefix='/edit')
     app.register_blueprint(route_page, url_prefix='/article')
-    app.register_blueprint(route_folder, url_prefix='/folder')
-
 
 def configure_app():
     """

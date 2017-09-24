@@ -77,7 +77,7 @@ AjaxApi.prototype.loadNote = function (data, callback) {
 
 
 AjaxApi.prototype.saveHTML = function (data, callback) {
-     let url = '/page/api/edit_page';
+     let url = '/edit/api/edit_page';
      Api.post(url, JSON.stringify(data), callback)
 }
 

@@ -1,36 +1,11 @@
 
 {% raw %}
-<script  id="id-tmp-page-content" type="text/html">
-    {{ each data }}
-        <div class="page-content-right" id="id-editor-result">
-            <div class="file-title">{{ $value.title }}</div>
-            <div class="file-browser">
-                {{$value.content}}
-            </div>
-
-        </div>
-    {{ /each }}
-</script>
-
-<script id="id-tmp-page-edit" type="text/html">
-    <div class="page-content-left" id="id-input-src" data-catalogid="{{ data.catalog_id }}" data-noteid="{{ data.id }}">
-        <input class="file-title" value="{{ data.title }}">
-        <textarea class="bg-inverse" rows="50" cols="100" data-type="">{{ data.content }}</textarea>
-    </div>
-
-     <div class="page-content-right file-browser" id="id-editor-result">
-
-       <div class="file-browser">
-           {{data.content}}
-       </div>
-    </div>
-</script>
 
 
 <script id="id-tmp-page-new" type="text/html">
     <div class="page-content-left" id="id-input-src" data-catalogid="" data-noteid="">
         <input class="file-title">
-        <textarea class="bg-inverse" rows="50" cols="100" data-type=""></textarea>
+        <textarea class="bg-inverse" rows="50" cols="10" data-type=""></textarea>
     </div>
 
      <div class="page-content-right file-browser" id="id-editor-result">
