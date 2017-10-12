@@ -4,7 +4,7 @@ class FileBrowser extends BaseComponent{
     constructor(element) {
         super()
         // hljs heightjs
-        this.md = new Remarkable();
+
         this.element = element;
 
     }
@@ -15,15 +15,16 @@ class FileBrowser extends BaseComponent{
 
 
     renderMarkDown() {
-        let eles = _es(this.element);
+           let e = _e(this.element);
 
-        for (let i = 0; i < eles.length; i++){
-            let e = eles[i];
-            let html = e.innerHTML.trim();
-            html = this.md.render(html);
+            let src = _e('textarea').value.trim() ;
+            let md = new Remarkable();
+
+            let html = md.render(src);
+           // log('src', src)
+
             e.innerHTML = html;
 
-        }
         this.renderHightLine()
 
     }

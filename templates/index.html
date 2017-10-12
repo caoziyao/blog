@@ -20,7 +20,7 @@
                     <li class="wiki-note">
                         <a href="/article?node_id={{ note.id }}" class="dropdwon-box-link note" >{{ note.title }} </a>
                         <span class="wiki-note-time">{{ note.update_time }}</span>
-                        <a href="/edit?node_id={{ note.id }}"><button>编辑</button></a>
+                        <a href="/edit?node_id={{ note.id }}"><button class="btn btn-default btn-xs">编辑</button></a>
                     </li>
                 {% endfor %}
             </ul>
@@ -29,9 +29,25 @@
             </ul>
 
             <div>
-                {% for i in range(rdata.total_page) %}
-                    <a class="page-number"  data-value="{{ loop.index }}"><button>{{ loop.index }}</button></a>
-                {% endfor %}
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                  {% for i in range(rdata.total_page) %}
+                <li><a class="page-number"  data-value="{{ loop.index }}" href="#">{{ loop.index }}</a></li>
+                  {% endfor %}
+
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
             </div>
 
         </div>
@@ -43,7 +59,7 @@
             <li class="wiki-note">
                 <a href="/article?node_id={{ note.id }}" class="dropdwon-box-link note" >{{ note.title }} </a>
                 <span class="wiki-note-time">{{ note.update_time }}</span>
-                 <a href="/edit?node_id={{ note.id }}"><button>编辑</button></a>
+                 <a href="/edit?node_id={{ note.id }}"><button class="btn btn-default btn-xs">编辑</button></a>
             </li>
         {{ /each }}
      {% endraw %}

@@ -14,12 +14,11 @@ class FileEdit extends BaseComponent{
         let self = this;
           _e('#id-input-src').addEventListener('input', function() {
             let src = event.target.value;
-            let textarea = _e('#id-input-src textarea');
-            let type =  textarea.dataset.type;
+            // let textarea = _e('#id-input-src textarea');
+            // let type =  textarea.dataset.type;
 
-            // if (isCode(type)) {
-            //      src = codeHtml(src)
-            // }
+          //  log('srcwww', src)
+
 
             let md = new Remarkable();
             let html = md.render(src);

@@ -1,6 +1,7 @@
 
 
 
+
 const __main = function () {
 
     bindEvents('.page-number', function() {

@@ -7,7 +7,7 @@ const _ajax = function (request) {
 
 
     if (request.contentType !== undefined) {
-        log('contentType')
+     //   log('contentType')
         r.setRequestHeader('Content-Type', request.contentType)
     }
     r.onreadystatechange = function (event) {
@@ -19,7 +19,7 @@ const _ajax = function (request) {
     if (request.method === 'GET') {
         r.send()
     } else {
-        log('send post', request.data)
+     //   log('send post', request.data)
         r.send(request.data)
     }
 };

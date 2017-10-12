@@ -6,9 +6,7 @@ from route.index import app as route_index
 from route.edit import app as route_edit
 from route.article import app as route_page
 from handlers import config
-
 app = Flask(__name__)
-
 
 def register_route():
     """

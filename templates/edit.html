@@ -6,7 +6,10 @@
 
         <div class="page-content">
                 <div class="page-content-left" id="id-input-src" data-catalogid="{{ column.catalog_id }}" data-noteid="{{ column.id }}">
-                    <input class="file-title" value="{{ column.title }}">
+                    <div class="input-group input-group-sm">
+                      <input type="text" class="form-control file-title" value="{{ column.title }}" aria-describedby="sizing-addon1">
+                    </div>
+
                     <textarea class="bg-inverse" rows="50" cols="80" data-type="">{{ column.content }}</textarea>
                 </div>
 
@@ -24,9 +27,9 @@
 {% block templates %} {% include 'model/templates.html' %} {% endblock %}
 
 {% block script%}
-    <script src="/static/js/components/base_component.js"></script>
+<script src="/static/js/components/base_component.js"></script>
 <script src="/static/js/components/file_browser.js"></script>
 <script src="/static/js/components/file_edit.js"></script>
-    <script src="/static/js/edit.js"></script>
+<script src="/static/js/edit.js"></script>
 {% endblock %}
 

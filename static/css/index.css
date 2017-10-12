@@ -28,8 +28,14 @@ button{
 
 .wrapper{
     display: flex;
-
+    /*justify-content: center;*/
 }
+
+/*#id-wiki-wrapper {*/
+    /*width: 1800px;*/
+    /*margin: 0 auto;*/
+/*}*/
+
 
 #wiki-wrapper{
 
@@ -60,6 +66,14 @@ button{
     right: 50px;
 }
 
+.wiki-catalog-li {
+     margin-top: 2px;
+}
+
+.wiki-note {
+    margin-top: 2px;
+}
+
 .page-content{
     display: flex;
     justify-content: center;
@@ -80,21 +94,7 @@ button{
     overflow: auto;
 }
 
-/*下拉框*/
-.dropdwon-box{
-    position: fixed;
-    z-index: 1;
-    top: .5rem;
-    left: 10rem;
-    width: 20rem;
-    background: white url(../mer/img/bg.png) repeat;
-    border-radius: .25rem;
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: 0 2px 7px rgba(0,0,0,.2);
-    font-family: PingFang SC,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,sans-serif;
-    height: 60rem;
-    overflow: auto;
-}
+
 
 .under-line{
     border-bottom: dashed silver 1px;
@@ -109,9 +109,3 @@ button{
     /*line-height: 1.5;*/
 }
 
-/*#id-input-src{*/
-    /*height: 800px;*/
-/*}*/
-/*#id-editor-result{*/
-    /*height: 800px;*/
-/*}*/
