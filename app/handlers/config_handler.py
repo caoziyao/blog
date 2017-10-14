@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import os
-from untils import load_file
+from app.untils import load_file
 
 class ConfigHandler(object):
     _instance = None

@@ -4,14 +4,16 @@ import json
 import os
 from flask import render_template, request
 from flask.blueprints import Blueprint
-from handlers import FileHandler, RenderFileHandler
-from untils import log
-from handlers import config
-from database import DataManager
-from model import note_manager, catalog_manager
+from app.handlers import FileHandler, RenderFileHandler
+from app.untils import log
+from app.handlers import config
+from app.database import DataManager
+from app.model import note_manager, catalog_manager
+from config.constant import static_folder, template_folder
 
-app = Blueprint('edit', __name__, static_folder='static')
+app = Blueprint('edit', __name__, static_folder=static_folder, template_folder=template_folder)
 
+# print('aaaaa', static_folder, template_folder)
 
 def test_file():
     root_path = config.root_path

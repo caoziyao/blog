@@ -1,7 +1,8 @@
-static/lib/*
+app/static/lib/*
+media/*
 password.py
-rsyncScode211.pass
-wiki/*
+
+
 
 *.pyc
 bin/

@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from database import DataManager
+from app.database import DataManager
 
 class BaseModel(object):
 

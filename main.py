@@ -2,11 +2,13 @@
 
 import os
 from flask import Flask, render_template, blueprints
-from route.index import app as route_index
-from route.edit import app as route_edit
-from route.article import app as route_page
-from handlers import config
-app = Flask(__name__)
+from app.route.index import app as route_index
+from app.route.edit import app as route_edit
+from app.route.article import app as route_page
+from app.handlers import config
+from config.constant import static_folder
+
+app = Flask(__name__, static_url_path=static_folder)
 
 def register_route():
     """

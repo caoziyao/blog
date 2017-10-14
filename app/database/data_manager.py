@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import pymysql
-from handlers import config
+from app.handlers import config
 
 class DataManager(object):
     _instance = None

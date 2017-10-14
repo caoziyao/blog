@@ -4,10 +4,7 @@
 import re
 import sys
 from time import sleep
-from password import *
 from fabric.api import settings, run, local, cd
-
-
 
 def getPid(portNo):
     output = run("netstat -anp|grep "+ str(portNo) + "  |awk '{printf $7}'|cut -d/ -f1")
@@ -25,7 +22,6 @@ def progress(percent, pcount):
     sys.stdout.write("\rPercent: [%s] %0.2f%%" % (hashes + spaces, percent/pcount * 100))
     sys.stdout.flush()
     sleep(1)
-
 
 
 def send_wiki():

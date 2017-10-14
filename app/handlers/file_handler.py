@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import os
-from untils import log
+from app.untils import log
 
 
 class FileHandler():

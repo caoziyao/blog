@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from database import DataManager
+from app.database import DataManager
 from .catalog_model import TbCatalogModel
 
 class CatalogManager():
