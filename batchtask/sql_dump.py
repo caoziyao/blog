@@ -14,6 +14,5 @@ def backup_to_file():
     cmd = 'mysqldump -uroot -pzy123456 wiki > ../media/sql/wiki.sql'
     local(cmd)
 
-
 if __name__ == '__main__':
     backup_to_file()
