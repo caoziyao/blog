@@ -4,13 +4,11 @@ import json
 import os
 from flask import render_template, request
 from flask.blueprints import Blueprint
-from app.handlers import FileHandler, RenderFileHandler
 from app.untils import log
-from app.handlers import config
-from app.database import DataManager
+from app.database import DataManager, DataCache
 from app.model import note_manager, catalog_manager
 from config.constant import static_folder, template_folder
-
+from .hot_spot import incr_click_num, init_click_num
 app = Blueprint('index', __name__, static_folder=static_folder, template_folder=template_folder)
 
 
@@ -31,7 +29,6 @@ def counter_page(total):
     i = div[0]
     m = div[1]
     total_page = i if m == 0 else i + 1
-
     return total_page
 
 
@@ -52,6 +49,7 @@ def page():
 
     return json.dumps(rdata)
 
+
 @app.route('/catalog', methods=['POST'])
 def catalog():
     data = request.data.decode('utf-8')
@@ -69,17 +67,21 @@ def catalog():
 
     return json.dumps(rdata)
 
+
 @app.route('/')
 def index():
     # 页数
     page_no = request.args.get('page', 1)
-
-
     catalogs = catalog_manager.load_columns()
     notes = note_manager.all_notes(page_no)
     total = note_manager.total_page()
 
     total_page = counter_page(total)
+
+    for note in notes:
+        note_id = note.get('id', 0)
+        n = init_click_num(note_id)
+        note['number'] = n
 
     rdata = {
         'catalogs': catalogs,

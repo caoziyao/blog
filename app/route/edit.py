@@ -13,8 +13,6 @@ from config.constant import static_folder, template_folder
 
 app = Blueprint('edit', __name__, static_folder=static_folder, template_folder=template_folder)
 
-# print('aaaaa', static_folder, template_folder)
-
 def test_file():
     root_path = config.root_path
 

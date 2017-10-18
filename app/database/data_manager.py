@@ -15,7 +15,7 @@ class DataManager(object):
 
     def __init__(self):
         if self._pool is None:
-            cf = config.db
+            cf = config.mysql
             self._pool = pymysql.connect(
                 host=cf['host'],
                 port=cf['port'],

@@ -4,8 +4,6 @@ from time import sleep
 from fabric.api import settings, run, local, cd
 # from batchtask import DataManager
 
-
-
 def backup_to_file():
     """
     备份数据库到文件

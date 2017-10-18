@@ -2,8 +2,9 @@
 
 
 from .data_manager import DataManager
-
+from .data_cache import DataCache
 
 __all__ = [
-    DataManager
+    DataManager,
+    DataCache,
 ]

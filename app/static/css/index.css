@@ -109,3 +109,6 @@ button{
     /*line-height: 1.5;*/
 }
 
+.note-click:hover{
+    cursor: pointer;
+}
