@@ -2,6 +2,7 @@
 
 from .base_model import BaseModel
 
+
 class NoteModel(BaseModel):
     """
     tb_note

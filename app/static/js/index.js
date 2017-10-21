@@ -1,8 +1,5 @@
 
-
-
-
-const __main = function () {
+const bindNoteEvents = function () {
     bindEvents('.page-number', 'click',function() {
           let page = this.dataset.value
             let url = '/page'
@@ -48,7 +45,12 @@ const __main = function () {
         })
 
     })
+}
 
+
+const __main = function () {
+
+    bindNoteEvents()
 
 }
 

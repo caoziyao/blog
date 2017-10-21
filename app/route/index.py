@@ -4,11 +4,12 @@ import json
 import os
 from flask import render_template, request
 from flask.blueprints import Blueprint
-from app.untils import log
+from app.untils import log, send_failure, send_success
 # from app.database import  redis_client
 from app.database import note_manager, catalog_manager
 from config.constant import static_folder, template_folder
-from .hot_spot import update_views, views_from_cached
+
+# from .hot_spot import update_views, views_from_cached
 
 
 app = Blueprint(
@@ -75,8 +76,18 @@ def catalog():
     return json.dumps(rdata)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
+    rdata = {
+        'catalogs': [],
+        'notes': [],
+        'total_page': 0,
+    }
+    return render_template('index2.html', rdata=rdata)
+
+
+@app.route('/api/all_notes', methods=['GET'])
+def all_notes():
     # 页数
     page_no = request.args.get('page', 1)
     catalogs = catalog_manager.load_columns()
@@ -87,7 +98,7 @@ def index():
 
     for note in notes:
         note_id = note.get('id', 0)
-        n = views_from_cached(note_id)
+        n = note_manager.views_from_cached(note_id)
         note['number'] = n
 
     rdata = {
@@ -95,9 +106,8 @@ def index():
         'notes': notes,
         'total_page': total_page,
     }
-    log('members', catalogs)
 
-    return render_template('index.html', rdata=rdata)
+    return send_success(data=rdata)
 
 
 @app.route('/api/load_catalog', methods=['POST'])

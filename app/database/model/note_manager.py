@@ -1,13 +1,17 @@
 # coding: utf-8
 
 from .db_manager import DBManager
-# from app.untils import log
+from app.untils import log
 from .note_model import NoteModel
 from .base_manager import BaseManager
-
+from app.database.cache import redis_client
+from app.handlers import DatetimeHandler
 
 class NoteManager(BaseManager):
+
     def __init__(self):
+        """ init
+        """
         pass
 
     def get_notes(self, catalog_id):
@@ -26,7 +30,12 @@ class NoteManager(BaseManager):
         }
 
         note = NoteModel()
-        res = note.load_data(fields=fields, condition=condition, order=order, fetchone=False)
+        res = note.load_data(
+            fields=fields,
+            condition=condition,
+            order=order,
+            fetchone=False,
+        )
         if res:
             rdata = note.column
         else:
@@ -58,12 +67,19 @@ class NoteManager(BaseManager):
         if page_no:
             start = (page_no - 1) * per_page
             limit = '{},{}'.format(start, per_page)
-            res = note.load_data(fields=fields, limit=limit, order=order, fetchone=False)
+            res = note.load_data(
+                fields=fields,
+                limit=limit,
+                order=order,
+                fetchone=False,
+            )
         else:
             res = note.load_data(fields=fields, order=order, fetchone=False)
 
         if res:
             rdata = note.column
+            for r in rdata:
+                r['update_time'] = DatetimeHandler.format_tostring(r.get('update_time', None))
         else:
             rdata = []
 
@@ -125,26 +141,38 @@ class NoteManager(BaseManager):
             note.members['views'] = data.get('views', 0)
             note.update_data()
 
-    def views_from_db(self, note_id):
-        """ 从数据库读取
+    def views_from_cached(self, note_id):
+        """"""
+        return 0
+
+
+    def update_views(self, note_id):
         """
+        pass
+        :param note_id:
+        :return:
+        """
+        r = redis_client
         condition = {
             'id': note_id
         }
         note = NoteModel()
         res = note.load_data(condition=condition)
-        if res:
-            views = note.views
-            result = True
-        else:
-            result = False
-            views = None
 
-        rdata = {
-            'result': result,
-            'views': views,
-        }
-        return rdata
+        return res
+        # key = 'visit:{}:totals'.format(str(note_id))
+        # # 应用程序先从cache取数据，没有得到，则从数据库中取数据，成功后，放到缓存中
+        # if not r.exists(key):
+        #     res = note_manager.views_from_db(note_id)
+        #     if res.get('result'):
+        #         views = res.get('views', 0)
+        #         # 设置失效时间
+        #         r.set(key, views, ex=60)
+        #     else:
+        #         views = 0
+        # else:
+        #     views = r.get(key)
+        # return int(views)
 
 
 note_manager = NoteManager()

@@ -1,6 +1,8 @@
 # coding: utf-8
 
 from .db_manager import DBManager
+from app.untils import log
+from app.database.cache import redis_client
 
 
 class BaseModel(object):
@@ -50,6 +52,14 @@ class BaseModel(object):
         :param limit:  不指定 limit, 返回全部数据
         :return:
         """
+        # r = redis_client
+        # if condition and 'id' in condition:
+        #     log('load cached')
+        #     _id = condition['id']
+        #     key = '{}:{}'.format(self._table_name, _id)
+        #     if r.exists(key):
+        #         return r.get(key)
+
         manager = self._manager
         table = self._table_name
         column = manager.fetch_rows(table, fields=fields, condition=condition, order=order, limit=limit, fetchone=fetchone)
