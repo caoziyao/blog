@@ -21,7 +21,8 @@ class DataCache(object):
                 host=cf['host'],
                 port=cf['port'],
                 db=cf['db'],
-                password=cf['password']
+                password=cf['password'],
+                decode_responses=True,
             )
             self._client = redis.Redis(connection_pool=pool)
             self.test()
@@ -54,3 +55,5 @@ class DataCache(object):
     def __getattr__(self, name):
         return getattr(self._client, name)
 
+
+redis_client = DataCache().redis

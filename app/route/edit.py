@@ -7,22 +7,20 @@ from flask.blueprints import Blueprint
 from app.handlers import FileHandler, RenderFileHandler
 from app.untils import log
 from app.handlers import config
-from app.database import DataManager
-from app.model import note_manager, catalog_manager
+from app.database import DBManager, note_manager, catalog_manager
 from config.constant import static_folder, template_folder
 
 app = Blueprint('edit', __name__, static_folder=static_folder, template_folder=template_folder)
+
 
 def test_file():
     root_path = config.root_path
 
     f = FileHandler(root_path)
-
     parent_path = f.current_path()
     current_path = f.current_path()
 
     data = f.all_files()
-
     d = {
         'parent': parent_path,
         'current': current_path,
@@ -50,16 +48,11 @@ def edit():
             'notes': notes,
         }
         rdata.append(d)
-
-    # log('members', catalogs)
-    # log('notes', notes)
-
     return render_template('edit.html', rdata=rdata, column=column)
 
 
 @app.route('/api/load_catalog', methods=['POST'])
 def edit_load_catalog():
-
     data = request.data.decode('utf-8')
     data = json.loads(data)
 
@@ -74,6 +67,7 @@ def edit_load_catalog():
 
     return json.dumps(rdata)
 
+
 @app.route('/api/load_note', methods=['POST'])
 def edit_load_note():
     data = request.data.decode('utf-8')
@@ -84,24 +78,20 @@ def edit_load_note():
 
     column = note_manager.get_note_content(note_id)
     if column:
-        rdata = {
-            'status': 1,
-            'data': column[0],
-            'msg': '',
-        }
+        r = column[0]
     else:
-        rdata = {
-            'status': 1,
-            'data': {},
-            'msg': '',
-        }
+        r = {}
 
+    rdata = {
+        'status': 1,
+        'data': r,
+        'msg': '',
+    }
     return json.dumps(rdata)
 
 
-
 def save_page(data):
-    db = DataManager()
+    db = DBManager()
 
     note_id = data.get('note_id', 0)
     content = data.get('content', '')

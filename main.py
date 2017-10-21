@@ -1,15 +1,11 @@
 # coding: utf-8
-
-import os
 from flask import Flask
-from app.route.index import app as route_index
-from app.route.edit import app as route_edit
-from app.route.article import app as route_page
-from app.route.hot_spot import app as route_hot_spot
+from app.route import route_index, route_edit, route_hot_spot, route_page
 from app.handlers import config
 from config.constant import static_folder
 
 app = Flask(__name__, static_url_path=static_folder)
+
 
 def register_route():
     """
@@ -20,6 +16,7 @@ def register_route():
     app.register_blueprint(route_edit, url_prefix='/edit')
     app.register_blueprint(route_hot_spot, url_prefix='/hotspot')
     app.register_blueprint(route_page, url_prefix='/article')
+
 
 def configure_app():
     """

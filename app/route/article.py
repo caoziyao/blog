@@ -6,7 +6,7 @@ import json
 from flask import render_template, request
 from flask.blueprints import Blueprint
 from app.untils import log
-from app.model import note_manager, catalog_manager
+from app.database import note_manager, catalog_manager
 from config.constant import static_folder, template_folder
 
 app = Blueprint('article', __name__, static_folder=static_folder, template_folder=template_folder)

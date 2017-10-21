@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from app.database import DataManager
+from .db_manager import DBManager
 # from app.untils import log
 from .note_model import NoteModel
 from .base_manager import BaseManager
@@ -37,7 +37,7 @@ class NoteManager(BaseManager):
     def total_page(self):
 
         sql = 'select count(`id`) as count from `tb_note`'
-        data_manager = DataManager()
+        data_manager = DBManager()
 
         r = data_manager.query(sql)
 

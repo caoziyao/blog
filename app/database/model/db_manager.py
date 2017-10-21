@@ -3,13 +3,14 @@
 import pymysql
 from app.handlers import config
 
-class DataManager(object):
+
+class DBManager(object):
     _instance = None
     _pool = None
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(DataManager, cls).__new__(cls)
+            cls._instance = super(DBManager, cls).__new__(cls)
 
         return cls._instance
 
@@ -161,7 +162,7 @@ class DataManager(object):
             return cursor.fetchone().get('cnt')
 
     def fetch_rows(self, table, fields=None, condition=None, order=None, limit=None, fetchone=False):
-        """mysql select() function
+        """ mysql select() function
         fields = ('id', 'email')
         cond = {'email': 'ringzero@wooyun.org'}
         rows = dbconn.fetch_rows(
@@ -171,8 +172,7 @@ class DataManager(object):
             order='id asc',
             limit='0,5'
         )
-
-        'SELECT username FROM users WHERE `username` = %s ORDER BY id asc LIMIT 0,5'
+        #  SELECT username FROM users WHERE `username` = %s ORDER BY id asc LIMIT 0,5
 
         for row in rows:
             print(row)

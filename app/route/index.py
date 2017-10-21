@@ -5,11 +5,18 @@ import os
 from flask import render_template, request
 from flask.blueprints import Blueprint
 from app.untils import log
-from app.database import DataManager, DataCache
-from app.model import note_manager, catalog_manager
+# from app.database import  redis_client
+from app.database import note_manager, catalog_manager
 from config.constant import static_folder, template_folder
-from .hot_spot import incr_click_num, init_click_num
-app = Blueprint('index', __name__, static_folder=static_folder, template_folder=template_folder)
+from .hot_spot import update_views, views_from_cached
+
+
+app = Blueprint(
+    'index',
+    __name__,
+    static_folder=static_folder,
+    template_folder=template_folder,
+)
 
 
 @app.route('/test')
@@ -80,7 +87,7 @@ def index():
 
     for note in notes:
         note_id = note.get('id', 0)
-        n = init_click_num(note_id)
+        n = views_from_cached(note_id)
         note['number'] = n
 
     rdata = {
@@ -106,7 +113,6 @@ def load_catalog():
         'data': column,
         'msg': '',
     }
-
     return json.dumps(rdata)
 
 
@@ -119,17 +125,11 @@ def load_note():
     note_id = data.get('note_id', '')
 
     column = note_manager.get_note_content(note_id)
-    if column:
-        rdata = {
-            'status': 1,
-            'data': column,
-            'msg': '',
-        }
-    else:
-        rdata = {
-            'status': 1,
-            'data': {},
-            'msg': '',
-        }
+
+    rdata = {
+        'status': 1,
+        'data': column,
+        'msg': '',
+    }
 
     return json.dumps(rdata)
