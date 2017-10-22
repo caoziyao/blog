@@ -85,7 +85,7 @@ class NoteManager(BaseManager):
 
         return rdata
 
-    def get_catalog(self, catalog_id):
+    def note_from_catalog(self, catalog_id):
         """
         查找笔记内容
         :param parent_id:
@@ -97,15 +97,15 @@ class NoteManager(BaseManager):
         fields = ['id', 'catalog_id', 'title', 'content']
 
         note = NoteModel()
-        res = note.load_data(fields=fields, condition=cond)
+        res = note.load_data(fields=fields, condition=cond, fetchone=False)
         if res:
-            rdata = note.column[0]
+            rdata = note.column
         else:
             rdata = []
 
         return rdata
 
-    def get_note_content(self, note_id):
+    def note(self, note_id):
         """
         查找笔记内容
         :param parent_id:
@@ -117,11 +117,11 @@ class NoteManager(BaseManager):
         fields = ['id', 'catalog_id', 'title', 'content']
 
         note = NoteModel()
-        res = note.load_data(fields=fields, condition=cond)
+        res = note.load_data(fields=fields, condition=cond, fetchone=True)
         if res:
             rdata = note.column[0]
         else:
-            rdata = []
+            rdata = {}
 
         return rdata
 

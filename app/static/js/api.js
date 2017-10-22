@@ -12,7 +12,8 @@ const _ajax = function (request) {
     }
     r.onreadystatechange = function (event) {
         if (r.readyState === 4) {
-            request.callback(r.response)
+            let response = JSON.parse(r.response)
+            request.callback(response)
         }
     };
     //r.setRequestHeader("X-XSRFToken", _xsrf);
@@ -70,9 +71,14 @@ AjaxApi.prototype.loadCatalog = function (data, callback) {
 }
 
 
-AjaxApi.prototype.loadNote = function (data, callback) {
-     let url = '/api/load_note';
-     Api.post(url, JSON.stringify(data), callback)
+AjaxApi.prototype.noteById = function (note_id, callback) {
+     let url = '/article/api/note?note_id=' + note_id;
+     Api.get(url, callback)
+}
+
+AjaxApi.prototype.allNotes = function (callback) {
+     let url = '/api/all_notes';
+     Api.get(url, callback)
 }
 
 

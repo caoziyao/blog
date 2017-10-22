@@ -10,7 +10,6 @@ class FileHandler():
         self.path = path
         self.separator = '@'
 
-
     def parent_path(self, path):
         """
         父文件夹路径，/ 用 @ 代替

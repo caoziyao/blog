@@ -91,19 +91,24 @@ def all_notes():
     # 页数
     page_no = request.args.get('page', 1)
     catalogs = catalog_manager.load_columns()
-    notes = note_manager.all_notes(page_no)
+    # notes = note_manager.all_notes(page_no)
     total = note_manager.total_page()
 
     total_page = counter_page(total)
 
-    for note in notes:
-        note_id = note.get('id', 0)
-        n = note_manager.views_from_cached(note_id)
-        note['number'] = n
+    for cat in catalogs:
+        cid = cat.get('id', 0)
+        notes = note_manager.note_from_catalog(cid)
+        cat['notes'] = notes
+
+    # for note in notes:
+    #     note_id = note.get('id', 0)
+    #     n = note_manager.views_from_cached(note_id)
+    #     note['number'] = n
 
     rdata = {
         'catalogs': catalogs,
-        'notes': notes,
+        # 'notes': notes,
         'total_page': total_page,
     }
 

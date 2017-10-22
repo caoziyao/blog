@@ -16,7 +16,6 @@ const init2 = function () {
 
 const init = function () {
 
-
     let fb = FileBrowser.new('.file-browser');
     fb.renderMarkDown()
     //fb.renderMarkDown()
