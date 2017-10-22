@@ -20,9 +20,13 @@ app = Blueprint(
 )
 
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
+@app.route('/', methods=['GET'])
+def index():
+    """
+    页面入口
+    :return:
+    """
+    return render_template('index2.html')
 
 
 def counter_page(total):
@@ -42,6 +46,10 @@ def counter_page(total):
 
 @app.route('/page', methods=['POST'])
 def page():
+    """
+    页数
+    :return:
+    """
     data = request.data.decode('utf-8')
     data = json.loads(data)
     page_no = data.get('page_no', 0)
@@ -60,6 +68,10 @@ def page():
 
 @app.route('/catalog', methods=['POST'])
 def catalog():
+    """
+    目录
+    :return:
+    """
     data = request.data.decode('utf-8')
     data = json.loads(data)
     catalog_id = data.get('catalog_id', 0)
@@ -76,22 +88,14 @@ def catalog():
     return json.dumps(rdata)
 
 
-@app.route('/', methods=['GET'])
-def index():
-    rdata = {
-        'catalogs': [],
-        'notes': [],
-        'total_page': 0,
-    }
-    return render_template('index2.html', rdata=rdata)
-
-
 @app.route('/api/all_notes', methods=['GET'])
 def all_notes():
-    # 页数
+    """
+    加载笔记
+    :return:
+    """
     page_no = request.args.get('page', 1)
     catalogs = catalog_manager.catalog()
-    # notes = note_manager.all_notes(page_no)
     total = note_manager.total_page()
 
     total_page = counter_page(total)
@@ -117,6 +121,10 @@ def all_notes():
 
 @app.route('/api/load_catalog', methods=['POST'])
 def load_catalog():
+    """
+    加载目录
+    :return:
+    """
     data = request.data.decode('utf-8')
     data = json.loads(data)
 
@@ -133,10 +141,12 @@ def load_catalog():
 
 @app.route('/api/load_note', methods=['POST'])
 def load_note():
+    """
+    加载笔记
+    :return:
+    """
     data = request.data.decode('utf-8')
     data = json.loads(data)
-
-    catalog_id = data.get('catalog_id', '')
     note_id = data.get('note_id', '')
 
     column = note_manager.get_note_content(note_id)

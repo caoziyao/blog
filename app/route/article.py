@@ -12,12 +12,20 @@ from config.constant import static_folder, template_folder
 app = Blueprint('article', __name__, static_folder=static_folder, template_folder=template_folder)
 
 @app.route('/')
-def page_info():
+def article():
+    """
+    页面入口
+    :return:
+    """
     return render_template('article2.html')
 
 
 @app.route('/api/note', methods=['GET'])
-def note():
+def article_note():
+    """
+    加载笔记
+    :return:
+    """
     note_id = request.args.get('note_id', 0)
     rdata = note_manager.note(note_id)
     log('rdata', rdata)
