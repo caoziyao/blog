@@ -37,8 +37,8 @@
                 <h3 class="">{{ title }}</h3>
             </div>
             <div class="bl-header-right">
-                <button class="layui-btn-primary layui-btn-small">Edit</button>
-                <button class="layui-btn layui-btn-small">New Page</button>
+                <a href="/edit?note_id={{ id }}" class="layui-btn layui-btn-primary layui-btn-small">Edit</a>
+                <a href="/edit/new" class="layui-btn layui-btn-small">New Page</a>
             </div>
         </div>
         <div class="bl-content">
@@ -57,8 +57,8 @@
             <div>
                 <strong class="catalog-title">{{ cat.title }}</strong>
                 {{ each cat.notes note i }}
-                <li class="">
-                    <a href="/article?note_id={{ note.id }}" class="note-link">{{ note.title }} </a>
+                <li class="rightbar-li" data-noteid="{{ note.id }}">
+                    <a href="#" class="note-link">{{ note.title }} </a>
                 </li>
                 {{ /each }}
             </div>
@@ -77,32 +77,60 @@
             //  layer.msg('Hello World');
         });
 
-        let note_id = queryStringFromUrl('note_id')
-        ajax.noteById(note_id, function (r) {
-            let result = r.result
+        const renderNoteContent = (data) => {
+            let t = template('id-tmp-note', data)
+            _e('.body-left').innerHTML = t
+            let content = data.content
+            let fb = FileBrowser.new('.file-browser', content);
+            fb.renderMarkDown()
+        }
 
-            if (result === 1) {
-                let data = r.data
-                let t = template('id-tmp-note', data)
-                _e('.body-left').innerHTML = t
-                let content = _e('.file-browser').innerHTML
-                let fb = FileBrowser.new('.file-browser', content);
-                fb.renderMarkDown()
+        const renderNoteList = (data) => {
+            let bar = template('id-tmp-rightbar', data)
+            _e('.body-rightbar').innerHTML = bar
+        }
 
-                log('data', data)
-            }
+        const bindNoteEvent = () => {
+            bindEvents('.note-link', 'click', (event) => {
+                let target = event.target
+                let parentLi = target.closest('.rightbar-li')
+                let noteId = parentLi.dataset.noteid
+                ajax.noteById(noteId, (r) => {
+                    let result = r.result
+                    if (result === 1) {
+                        let data = r.data
+                        renderNoteContent(data)
+                    }
+                })
+            })
+        }
 
-        })
+        const init = ()=> {
+            let noteId = queryStringFromUrl('note_id')
+            ajax.noteById(noteId, (r) => {
+                let result = r.result
+                if (result === 1) {
+                    let data = r.data
+                    renderNoteContent(data)
+                    //log('data', data)
+                }
+            })
 
-        ajax.allNotes(function (r) {
-            let result = r.result
-            if (result === 1) {
-                let data = r.data
-                let bar = template('id-tmp-rightbar', data)
-                _e('.body-rightbar').innerHTML = bar
-            }
-        })
+            ajax.allNotes( (r) => {
+                let result = r.result
+                if (result === 1) {
+                    let data = r.data
+                    renderNoteList(data)
+                    bindNoteEvent()
+                }
+            })
+        }
 
+        const __main = () => {
+            init()
+        }
+
+        __main()
     </script>
 {% endblock %}
 

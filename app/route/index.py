@@ -90,7 +90,7 @@ def index():
 def all_notes():
     # 页数
     page_no = request.args.get('page', 1)
-    catalogs = catalog_manager.load_columns()
+    catalogs = catalog_manager.catalog()
     # notes = note_manager.all_notes(page_no)
     total = note_manager.total_page()
 

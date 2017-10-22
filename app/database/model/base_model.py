@@ -30,6 +30,23 @@ class BaseModel(object):
                 self._members[field] = default
         return True
 
+    def add_data(self, keyword):
+        """
+        添加数据到数据库
+        :param keyword:
+        :return:
+        """
+        manager = self._manager
+        members = self._members.copy()
+        table = self._table_name
+
+        self._members[keyword] = manager.insert(table, data=members)
+
+        if self._members[keyword] is not None:
+            return True
+        else:
+            return False
+
     def update_data(self):
         """
         更新数据库数据
@@ -40,7 +57,9 @@ class BaseModel(object):
         cond = {
             'id': self.members['id'],
         }
-        manager.update(table, data=self.members, condition=cond)
+        result = manager.update(table, data=self.members, condition=cond)
+        return True if result else False
+
 
     def load_data(self, fields=None, condition=None, order=None, limit=None, fetchone=True):
         """

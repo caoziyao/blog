@@ -24,3 +24,12 @@ class NoteModel(BaseModel):
         :return:
         """
         self.update_data('id')
+
+
+    def add_note(self):
+        """
+        将内存中数据以添加的方式写入数据库
+        :return:
+        """
+        resut = self.add_data('id')
+        return resut

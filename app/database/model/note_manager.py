@@ -125,6 +125,21 @@ class NoteManager(BaseManager):
 
         return rdata
 
+    def new_note(self, data):
+        """
+        新建 note
+        :param data:
+        :return: note_id
+        """
+        note = NoteModel()
+        for k, v in data.items():
+            note.members[k] = v
+
+        result = note.add_note()
+
+        return result, note.id
+
+
     def update_note(self, note_id, data):
         """
         更新note
@@ -138,8 +153,13 @@ class NoteManager(BaseManager):
         note = NoteModel()
         res = note.load_data(condition=condition)
         if res:
-            note.members['views'] = data.get('views', 0)
-            note.update_data()
+            for k, v in data.items():
+                note.members[k] = v
+            result = note.update_data()
+        else:
+            result = False
+
+        return result
 
     def views_from_cached(self, note_id):
         """"""

@@ -5,7 +5,7 @@ import os
 from flask import render_template, request
 from flask.blueprints import Blueprint
 from app.handlers import FileHandler, RenderFileHandler
-from app.untils import log
+from app.untils import log, send_success, send_failure
 from app.handlers import config
 from app.database import DBManager, note_manager, catalog_manager
 from config.constant import static_folder, template_folder
@@ -33,66 +33,23 @@ def test_file():
 
 @app.route('/')
 def edit():
-    note_id = request.args.get('node_id', 1)
-
-    rdata = []
-    catalogs = catalog_manager.load_columns()
-    column = note_manager.get_note_content(note_id)
-
-    for cat in catalogs:
-        cat_id = cat['id']
-        notes = note_manager.get_notes(cat_id)
-        d = {
-            'catalog_id': cat_id,
-            'title': cat['title'],
-            'notes': notes,
-        }
-        rdata.append(d)
-    return render_template('edit.html', rdata=rdata, column=column)
+    return render_template('edit2.html')
 
 
-@app.route('/api/load_catalog', methods=['POST'])
+@app.route('/new')
+def edit_new():
+    return render_template('edit_new.html')
+
+
+@app.route('/api/catalog', methods=['GET'])
 def edit_load_catalog():
-    data = request.data.decode('utf-8')
-    data = json.loads(data)
 
-    catalog_id = data.get('catalog_id', '')
-
-    column = note_manager.get_catalog(catalog_id)
-    rdata = {
-        'status': 1,
-        'data': column,
-        'msg': '',
-    }
-
-    return json.dumps(rdata)
-
-
-@app.route('/api/load_note', methods=['POST'])
-def edit_load_note():
-    data = request.data.decode('utf-8')
-    data = json.loads(data)
-
-    catalog_id = data.get('catalog_id', '')
-    note_id = data.get('note_id', '')
-
-    column = note_manager.get_note_content(note_id)
-    if column:
-        r = column[0]
-    else:
-        r = {}
-
-    rdata = {
-        'status': 1,
-        'data': r,
-        'msg': '',
-    }
-    return json.dumps(rdata)
+    column = catalog_manager.catalog()
+    return send_success(data=column)
 
 
 def save_page(data):
     db = DBManager()
-
     note_id = data.get('note_id', 0)
     content = data.get('content', '')
     title = data.get('title', '')
@@ -109,9 +66,13 @@ def save_page(data):
     }
     res = db.fetch_rows('tb_note', condition=cond, fetchone=True)
     if not res:
-        db.insert('tb_note', data=data)
+        result, note_id = note_manager.new_note(data=data)
+        # db.insert('tb_note', data=data)
     else:
-        db.update('tb_note', data=data, condition=cond)
+        result = note_manager.update_note(note_id, data=data)
+        # db.update('tb_note', data=data, condition=cond)
+
+    return result, note_id
 
 
 @app.route('/api/edit_page', methods=['POST'])
@@ -119,11 +80,17 @@ def edit_page():
     data = request.data.decode('utf-8')
     data = json.loads(data)
 
-    save_page(data)
-
-    rdata = {
-        'status': 1,
-        'data': '',
-        'msg': '',
-    }
-    return json.dumps(rdata)
+    result, note_id = save_page(data)
+    if result:
+        r = {
+            'note_id': note_id
+        }
+        return send_success(data=r)
+    else:
+        return send_failure(message='保存失败')
+    # rdata = {
+    #     'status': 1,
+    #     'data': '',
+    #     'msg': '',
+    # }
+    # return json.dumps(rdata)

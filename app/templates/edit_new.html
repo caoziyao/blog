@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/edit_new.css">
+{% endblock %}
+
+{% block body %}
+    <div class="layui-layout-body">
+        <div class="layui-layout layui-layout-admin">
+            {% block header %} {% include 'header.html' %} {% endblock %}
+
+            <div class="layui-container">
+                <div class="layui-row layui-col-space10">
+                    <div class="layui-col-md6">
+                        <div class="body-left">
+                            <div class="editarea-div">
+                                <div class="bl-header">
+                                    <div class="bl-header-left">
+                                        <input class="layui-input note-title" value="">
+                                    </div>
+                                    <div class="bl-header-right">
+                                        <div class="catalog-select"></div>
+                                        <a href="/" class="layui-btn layui-btn-primary layui-btn-small">首页</a>
+                                    </div>
+                                </div>
+                                <div class="bl-content">
+                                    <textarea id="id-editarea" class="bg-inverse" rows="50" cols="75"
+                                              data-type=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-md6">
+                        <div class="body-right">
+                            <div class="file-browser">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="id-tmp-catalog-select">
+        {% raw %}
+        <form class="layui-form" action="">
+            <select name="city" lay-verify="" class="form-catalog-select">
+                {{ each data d }}
+                <option value="{{ d.id }}">{{ d.title }}</option>
+                {{ /each }}
+            </select>
+        </form>
+        {% endraw %}
+    </script>
+
+    <script src="../static/js/components/base_component.js"></script>
+    <script src="../static/js/components/file_browser.js"></script>
+    <script src="../static/js/components/file_edit.js"></script>
+    <script>
+        layui.use(['layer', 'form'], function () {
+            let layer = layui.layer
+            let form = layui.form
+            //  layer.msg('Hello World');
+        });
+
+        // 失去焦点保存事件
+        const bindBlurEvent = () => {
+            let fe = FileEdit.new();
+            _e('#id-editarea').addEventListener('blur',  (event) => {
+                let target = event.target
+                let ele = target.closest('.editarea-div')
+                let id = ele.dataset.noteid || 0;
+                let title = ele.querySelector('.note-title').value
+                let catalogId = _e('.form-catalog-select').value
+                let content = target.value;
+                let data = {
+                    catalog_id: catalogId,
+                    note_id: id,
+                    content: content,
+                    title: title,
+                };
+                log('save ', data)
+                ajax.saveHTML(data, function (r) {
+                    if (r.result === 1) {
+                        log('r', r)
+                        let data = r.data
+                        ele.setAttribute('data-noteid', data.note_id)
+                    }
+                })
+
+            });
+            fe.renderMarkdown();
+        }
+
+        const init = () => {
+            ajax.catalog((r) => {
+                if (r.result === 1) {
+                    let data = r.data
+                    let t = template('id-tmp-catalog-select', {data: data})
+                    _e('.catalog-select').innerHTML = t
+                }
+            })
+            bindBlurEvent()
+        }
+
+        const __main = () => {
+            init()
+        }
+
+        __main()
+    </script>
+{% endblock %}
+
+

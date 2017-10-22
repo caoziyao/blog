@@ -1,13 +1,3 @@
-// 失去焦点保存事件
-var bindBlurEvent = function () {
-
-    let fe = FileEdit.new();
-    fe.saveHTML();
-    fe.renderMarkdown();
-}
-
-
-
 var autoSetHight = function () {
     $('textarea').on('focus', 'textarea', function () {
         let i = this
@@ -32,33 +22,32 @@ var autoSetHight = function () {
     });
 }
 
+// 失去焦点保存事件
+const bindBlurEvent = function () {
+
+    let fe = FileEdit.new();
+   // fe.saveHTML();
+    fe.renderMarkdown();
+}
 
 const init = function () {
-     let src = _e('#id-input-src textarea').value
+    let src = _e('#id-input-src textarea').value
+    let md = new Remarkable();
+    let html = md.render(src);
+    _e('#id-editor-result').innerHTML = html;
 
-  //  log('srccc', _e('#id-input-src'), src)
-     let md = new Remarkable();
-            let html = md.render(src);
-            _e('#id-editor-result').innerHTML = html;
-
-            $('pre code').each(function (i, block) {
+    $('pre code').each(function (i, block) {
         hljs.highlightBlock(block);
     });
 }
 
 
-const __main = function () {
-
-
+const __main = () => {
     let fb = FileBrowser.new('.file-browser');
     fb.renderMarkDown();
-
     bindBlurEvent()
     init()
     // autoSetHight()
-
-
-
 }
 
 window.onload = function () {

@@ -97,9 +97,14 @@ class DBManager(object):
         with self.pool.cursor() as cursor:
             params = self.join_field_value(data);
             sql = 'insert ignore into {table} set {params}'.format(table=table, params=params)
-            result = cursor.execute(sql, tuple(data.values()))
+            res = cursor.execute(sql, tuple(data.values()))
             self.pool.commit()
-            return result
+            if res:
+                rol_id = cursor.lastrowid
+            else:
+                rol_id = None
+
+            return rol_id
 
     def delete(self, table, condition=None, limit=None):
         """

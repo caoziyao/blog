@@ -65,9 +65,9 @@ AjaxApi.prototype.post = function (url, data, callback) {
      Api.post(url, JSON.stringify(data), callback)
 }
 
-AjaxApi.prototype.loadCatalog = function (data, callback) {
-     let url = '/api/load_catalog';
-     Api.post(url, JSON.stringify(data), callback)
+AjaxApi.prototype.catalog = function (callback) {
+     let url = '/edit/api/catalog';
+     Api.get(url, callback)
 }
 
 
