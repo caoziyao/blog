@@ -30,5 +30,3 @@ class DatetimeHandler(object):
 
         return d
 
-
-config = DatetimeHandler()

@@ -1,7 +1,7 @@
 app/static/lib/*
 media/*
 password.py
-
+log/*
 
 
 *.pyc

@@ -1,4 +1,7 @@
 # coding: utf-8
+
+import os
+import logging.config
 from flask import Flask
 from app.route import route_index, route_edit, route_hot_spot, route_page
 from app.handlers import config
@@ -6,6 +9,9 @@ from config.constant import static_folder
 
 app = Flask(__name__, static_url_path=static_folder)
 
+path = os.path.join('config', 'logger.conf')       # 默认配置日志路径
+logging.config.fileConfig(path)
+logger = logging.getLogger()
 
 def register_route():
     """
