@@ -2,7 +2,6 @@
 import sys
 import os
 import multiprocessing
-# gunicorn -w4 -b0.0.0.0:3400 appcorn:application
 
 path_of_current_file = os.path.abspath(__file__)
 path_of_current_dir = os.path.split(path_of_current_file)[0]
@@ -30,7 +29,7 @@ reload = True
 debug = False
 
 
-bind = "%s:%s" % ("0.0.0.0", 3200)
+bind = "%s:%s" % ("0.0.0.0", 3400)
 pidfile = '%s/log/run/%s.pid' % (path_of_current_dir, _file_name)
 errorlog = '%s/log/%s_error.log' % (path_of_current_dir, _file_name)
 accesslog = '%s/log/%s_access.log' % (path_of_current_dir, _file_name)
