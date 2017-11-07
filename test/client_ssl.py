@@ -3,10 +3,6 @@ import ssl
 
 
 """
-===
-pytest
-附带了测试和 https 请求
-
 
 资料:
 

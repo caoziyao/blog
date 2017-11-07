@@ -2,7 +2,8 @@ app/static/lib/*
 media/*
 password.py
 log/*
-
+test/output/*
+test/log/*
 
 *.pyc
 bin/

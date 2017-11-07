@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+  <div class="layui-layout-body">
+        <div class="layui-layout layui-layout-admin">
+            {% block header %} {% include 'header.html' %} {% endblock %}
+
+            <div class="layout-body">
+                <div class="body-left">
+                </div>
+
+                <div class="body-rightbar">
+                </div>
+            </div>
+            {% block footer %} {% include 'footer.html' %} {% endblock %}
+        </div>
+
+    </div>
+    <script>
+        layui.use(['layer', 'form'], function () {
+            let layer = layui.layer
+            let form = layui.form
+
+            //  layer.msg('Hello World');
+        });
+    </script>
+
+{% endblock %}
+
+

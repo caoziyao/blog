@@ -12,12 +12,7 @@ from config.constant import static_folder, template_folder
 # from .hot_spot import update_views, views_from_cached
 
 
-app = Blueprint(
-    'index',
-    __name__,
-    static_folder=static_folder,
-    template_folder=template_folder,
-)
+app = Blueprint( 'index', __name__, static_folder=static_folder, template_folder=template_folder)
 
 
 @app.route('/', methods=['GET'])

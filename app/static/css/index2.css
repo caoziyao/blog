@@ -7,6 +7,8 @@
 .body-left{
     /*padding-left: 100px;*/
     display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 .result-list-li{
     padding-bottom: 8px;
@@ -24,7 +26,7 @@
 
 
 .body-rightbar {
-      float: right;
+    float: right;
     width: 230px;
     padding-left: 10px;
     padding-top: 15px;
