@@ -230,6 +230,29 @@ class DBManager(object):
             else:
                 return cursor.fetchall()
 
+    def execute(self, sql, args=None):
+        """
+        执行插入和更新时调用此方法
+        :param sql_statement:
+        :param args:
+        :return:
+        """
+        with self.pool.cursor() as cursor:
+            if not sql:
+                return None
+
+            if self._has_bind_argument(args):
+                cursor.execute(sql, args)
+            else:
+                cursor.execute(sql)
+            self.pool.commit()
+            row_id = cursor.lastrowid
+
+            return row_id
+
+    @classmethod
+    def _has_bind_argument(cls, args):
+        return isinstance(args, (tuple, list))
 
     def __del__(self):
         """close mysql database connection"""
