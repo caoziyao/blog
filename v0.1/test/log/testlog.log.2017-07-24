@@ -1,0 +1,3 @@
+2017-07-24 19:01:42,311 [INFO] hello [mytest.py line:18]
+2017-07-24 19:04:36,219 [INFO] <Response [200]> [test_login.py line:39]
+2017-07-24 22:07:53,700 [INFO] [{u'username': u'wangxin02@soovii.com', u'password': u'123456'}] [test_login.py line:40]

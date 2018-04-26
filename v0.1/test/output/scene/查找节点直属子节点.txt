@@ -1,0 +1,38 @@
+url：/scenewordview/api/directly_chlid_node 
+请求方式：get 
+数据格式：json 
+备注: 测试查找节点直属子节点
+        请求参数：
+        node_id: int 必须 // 节点id
+        返回参数：
+        {
+          "status": 1,
+          "msg": "success",
+          "data": [
+            {
+              "Id":    int // 子节点id
+              "Name":   str // 子节点名称
+            }
+          ],
+          "result": 1
+        }
+ 
+例子: 
+请求格式: 
+?node_id=2 
+返回格式：
+{
+  "status": 1, 
+  "msg": "success", 
+  "data": [
+    {
+      "Id": 3, 
+      "Name": "朝阳"
+    }, 
+    {
+      "Id": 4, 
+      "Name": "海淀"
+    }
+  ], 
+  "result": 1
+}

@@ -1,9 +1,4 @@
-app/static/lib/*
-media/*
-password.py
-log/*
-test/output/*
-test/log/*
+fe/node_modules/*
 
 *.pyc
 bin/

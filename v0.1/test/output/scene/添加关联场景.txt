@@ -1,0 +1,46 @@
+url：/scenewordview/api/add_related_scene 
+请求方式：post 
+数据格式：json 
+备注: 添加关联场景
+        请求参数：
+        {
+          "relate_id": // 被关联的场景id,
+          "node_id": //节点id
+        }
+        返回参数：
+        {
+          "status": 1,
+          "msg": "success",
+          "data": {
+            "Name":
+            "level":
+            "ProjectId":
+            "RelateEffectIdList": // 被关联的场景id列表,
+            "PicUrl":
+            "Path":
+            "Id":
+          },
+          "result": 1
+        }
+ 
+例子: 
+请求格式: 
+{
+  "relate_id": 12, 
+  "node_id": 2
+} 
+返回格式：
+{
+  "status": 1, 
+  "msg": "success", 
+  "data": {
+    "Name": "深圳的", 
+    "level": 2, 
+    "ProjectId": 1, 
+    "RelateEffectIdList": "12,12,685,684,681,680,683,682", 
+    "PicUrl": "media/word_view/struct/20171106/7b17f803-1b4c-4868-9a9a-1473c4c820de.png", 
+    "Path": "/1/2", 
+    "Id": 2
+  }, 
+  "result": 1
+}

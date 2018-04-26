@@ -1,0 +1,50 @@
+url：/scenewordview/api/related_scene 
+请求方式：get 
+数据格式：json 
+备注: 加载场景已关联的数据
+        请求参数:
+        node_id: int 必须 // 节点Id
+        返回参数：
+        {
+          "status": 1,
+          "msg": "success",
+          "data": [
+            {
+              "Id":   // 被关联节点id
+              "Name":  // 被关联节点名称
+            },
+          ],
+          "result": 1
+        }
+ 
+例子: 
+请求格式: 
+?node_id=2 
+返回格式：
+{
+  "status": 1, 
+  "msg": "success", 
+  "data": [
+    {
+      "Id": 680, 
+      "Name": "场景3"
+    }, 
+    {
+      "Id": 681, 
+      "Name": "场景4"
+    }, 
+    {
+      "Id": 682, 
+      "Name": "详情场景5-场景5"
+    }, 
+    {
+      "Id": 683, 
+      "Name": "详情场景6-场景6"
+    }, 
+    {
+      "Id": 684, 
+      "Name": "详情场景7_new-场景7_new"
+    }
+  ], 
+  "result": 1
+}

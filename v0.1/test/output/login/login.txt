@@ -1,0 +1,18 @@
+url：/user/login 
+请求方式：post 
+数据格式：json 
+备注: 登录
+        请求参数：
+        {
+          "username": str 必须 // 用户名
+            "password": str 必须 // 密码
+        }
+        返回参数：
+ 
+例子: 
+请求格式: 
+{
+  "username": "wangxin02@soovii.com", 
+  "password": "123456"
+} 
+返回格式：
