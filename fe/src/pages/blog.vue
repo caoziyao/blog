@@ -4,7 +4,7 @@
 		<div class="bar"></div>
 		<el-container class="">
 	  	<el-aside width="200px">
-				<el-tree class="" :props="props" :load="loadNode" lazy></el-tree>
+				<qui-tree class="qui-tree" :model="treeData"></qui-tree>
 			</el-aside>
 
 			<div class="span-border"></div>
@@ -23,14 +23,31 @@
 
 <script>
 import quiHeader from '../components/header.vue'
+import quiTree from '../components/tree.vue'
 export default {
 	components: {
 		'qui-header': quiHeader,
+		'qui-tree': quiTree,
 	},
 	data() {
+		var data = {
+			name: 'My Tree',
+			children: [
+				 { name: 'hello' },
+				 { name: 'wat' },
+				 {
+      		name: 'child folder',
+					children: [
+						{ name: 'hello2' },
+	 				  { name: 'wat2' },
+					]
+				}
+			],
+		};
 		return {
+			treeData: data,
 			isActive: false,
-       props: {
+      props: {
          label: 'name',
          children: 'zones',
          isLeaf: 'leaf'
@@ -38,25 +55,40 @@ export default {
      };
  	},
 	 methods: {
-		 loadNode(node, resolve) {
-			 if (node.level === 0) {
-				 return resolve([{ name: 'aaa' }]);
-			 }
-			 if (node.level > 3) {
-				 return resolve([])
-			 };
-			 console.log('aaaaaaaa', node.level)
-			 setTimeout(() => {
-				 const data = [{
-					 name: 'leaf',
-					 leaf: true
-				 }, {
-					 name: 'zone'
-				 }];
-
-				 resolve(data);
-			 }, 500);
+		 getTree: function() {
+			 const log = this.
+			 log('aaaa')
+			 this.axios.get('/api/get/tree').then( (response) => {
+ 		    console.log(response);
+ 		  })
+ 		  .catch( (error) => {
+ 		    console.log(error);
+ 		  });
 		 },
+
+
+		 loadNode: function(node, resolve) {
+			 const log = this.log
+
+			 if (node.level === 0) {
+				 return resolve([{ name: 'wiki' }]);
+			 } else {
+				 setTimeout(() => {
+					 const data = [{
+						 name: 'leaf',
+						 leaf: true
+					 }, {
+						 name: 'zone'
+					 }];
+					 this.getTree();
+
+					 resolve(data);
+				 }, 500);
+			 }
+
+
+		 },
+
 		 mouseOver(event) {
 			 let target = event.target
 			 if (target.localName == 'li') {
@@ -78,6 +110,10 @@ export default {
 
 	.qui-header {
 		background: #f6f6f6;
+	}
+
+	.qui-tree {
+	  cursor: pointer;
 	}
 
 	.active {

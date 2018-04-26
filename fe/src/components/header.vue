@@ -4,7 +4,21 @@
 				<li class="header-ul-li"><a href="#/">首页</a></li>
 				<li class="header-ul-li"><a href="#/blog">博客</a></li>
 				<li class="header-ul-li"><a href="#">常见问题</a></li>
-				<li class="header-ul-li"><a href="#">工具</a></li>
+				<li class="header-ul-li">
+					<el-dropdown>
+					  <span class="el-dropdown-link">
+					    <a href="#">工具</a><i class="el-icon-arrow-down el-icon--right"></i>
+					  </span>
+					  <el-dropdown-menu slot="dropdown">
+					    <el-dropdown-item>1</el-dropdown-item>
+					    <el-dropdown-item>2</el-dropdown-item>
+					    <el-dropdown-item>3</el-dropdown-item>
+					    <el-dropdown-item disabled>4</el-dropdown-item>
+					    <el-dropdown-item divided>5</el-dropdown-item>
+					  </el-dropdown-menu>
+					</el-dropdown>
+				</li>
+
 				<li class="header-ul-li"><a href="#">反馈</a></li>
 			</ul>
 		</div>

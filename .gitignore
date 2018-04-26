@@ -1,4 +1,5 @@
 fe/node_modules/*
+./Todo.md
 
 *.pyc
 bin/
@@ -99,3 +100,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+Todo.md
+Todo.md
+Todo.md
+Todo.md
