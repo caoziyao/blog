@@ -1,6 +1,6 @@
 <template lang="html">
 	<div class="container">
-		<qui-header class="qui-header"></qui-header>
+		<qui-header class="qui-header" v-on:logannnn="logFun"></qui-header>
 		<div class="bar"></div>
 		<el-container class="">
 	  	<el-aside width="200px">
@@ -15,6 +15,9 @@
 					<li class="list-group-item"><a href="#">3333</a></li>
 					<li class="list-group-item"><a href="#">44444</a></li>
 				</ul>
+				<div class="">
+					{{ content }}
+				</div>
 			</el-main>
 		</el-container>
 
@@ -22,6 +25,7 @@
 </template>
 
 <script>
+import bus from '../assets/eventBus'
 import quiHeader from '../components/header.vue'
 import quiTree from '../components/tree.vue'
 export default {
@@ -31,22 +35,24 @@ export default {
 	},
 	data() {
 		var data = {
-			name: 'My Tree',
+			name: 'notebook',
+			isFolder: true,
 			children: [
-				 { name: 'hello' },
-				 { name: 'wat' },
-				 {
-      		name: 'child folder',
-					children: [
-						{ name: 'hello2' },
-	 				  { name: 'wat2' },
-					]
-				}
+				{
+						name: 'hell',
+						isFolder: false,
+				},
+				{
+						name: 'abccd',
+						isFolder: true,
+						children: [],
+				},
 			],
 		};
 		return {
 			treeData: data,
 			isActive: false,
+			content: '',
       props: {
          label: 'name',
          children: 'zones',
@@ -54,41 +60,18 @@ export default {
        },
      };
  	},
+	mounted() {
+		let self = this
+		bus.$on('showTreeContent', (msg) => {
+
+			self.content = msg
+			console.log('getdata', msg)
+		})
+	},
 	 methods: {
-		 getTree: function() {
-			 const log = this.
-			 log('aaaa')
-			 this.axios.get('/api/get/tree').then( (response) => {
- 		    console.log(response);
- 		  })
- 		  .catch( (error) => {
- 		    console.log(error);
- 		  });
+		 logFun(data) {
+			 console.log('abdb', data)
 		 },
-
-
-		 loadNode: function(node, resolve) {
-			 const log = this.log
-
-			 if (node.level === 0) {
-				 return resolve([{ name: 'wiki' }]);
-			 } else {
-				 setTimeout(() => {
-					 const data = [{
-						 name: 'leaf',
-						 leaf: true
-					 }, {
-						 name: 'zone'
-					 }];
-					 this.getTree();
-
-					 resolve(data);
-				 }, 500);
-			 }
-
-
-		 },
-
 		 mouseOver(event) {
 			 let target = event.target
 			 if (target.localName == 'li') {
@@ -100,9 +83,30 @@ export default {
 			 if (target.localName == 'li') {
  				 target.classList.remove('active')
  			 }
+		 },
+		 getListDir: function () {
+			 let url = '/api/tree/get_tree_root'
+			 // JSON.stringify(body)
+			 this.axios.get(url).then((res) => {
 
-		 }
-	 }
+				 let data = res.data
+
+				 console.log('res',  typeof data, data )
+				 this.treeData = data
+				 // for (let i = 0; i < data.length; i++) {
+				 // 	let item = data[i]
+				 // 	this.updateTreeModel(item)
+				 // }
+			 }).catch((res) => {
+				 console.log('res', res)
+			 })
+		 },
+	 },
+	 created(){
+      this.log('hellcrewate')
+ 			let root = '/Users/cczy/yun/wiki/notebook'
+ 			this.getListDir()
+   }
 }
 </script>
 

@@ -3,7 +3,7 @@
 			<ul class="header-ul">
 				<li class="header-ul-li"><a href="#/">首页</a></li>
 				<li class="header-ul-li"><a href="#/blog">博客</a></li>
-				<li class="header-ul-li"><a href="#">常见问题</a></li>
+				<li class="header-ul-li" v-on:click="loadNode"><a href="#">常见问题</a></li>
 				<li class="header-ul-li">
 					<el-dropdown>
 					  <span class="el-dropdown-link">
@@ -26,6 +26,12 @@
 
 <script>
 export default {
+	methods: {
+		loadNode: function() {
+			console.log('logannnn')
+			this.$emit('logannnn', 'content')
+		}
+	}
 }
 </script>
 

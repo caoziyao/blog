@@ -1,5 +1,6 @@
 fe/node_modules/*
 ./Todo.md
+*.md
 
 *.pyc
 bin/

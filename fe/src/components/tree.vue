@@ -2,9 +2,10 @@
 	<div class="">
 		<div
 			:class="{folder: isFolder}"
-			@click="toggle"
-			@dblclick="changeType">
-			{{ model.name }}
+			@click="toggle">
+			<div class="" v-on:click="loadNode(model)" >
+				{{ model.name }}
+			</div>
 			<span v-if="isFolder">[{{ open ? '-' : '+' }}]</span>
 		</div>
 		<div v-show="open" v-if="isFolder" class="chliden">
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import bus from '../assets/eventBus'
 export default {
 	name: 'item',
 	props: {
@@ -31,16 +33,29 @@ export default {
 		}
  	},
 	methods: {
+		loadNode: function (model) {
+			let that = this
+			if (!this.isFolder) {
+				let path = model.path
+				let url = '/api/tree/load_note'
+				let data = {
+					path: path,
+				}
+				this.axios.post(url, JSON.stringify(data)).then( (res) => {
+  		    console.log('res', res);
+					let data = res.data;
+					let content = data.content;
+					bus.$emit('showTreeContent', content)
+  		  })
+  		  .catch( (error) => {
+  		    console.log(error);
+  		  });
+			}
+
+		},
 		toggle: function () {
       if (this.isFolder) {
         this.open = !this.open
-      }
-    },
-		changeType: function () {
-      if (!this.isFolder) {
-        Vue.set(this.model, 'children', [])
-        this.addChild()
-        this.open = true
       }
     },
     addChild: function () {
@@ -51,13 +66,9 @@ export default {
 	},
 	computed: {
     isFolder: function () {
-      return this.model.children &&
-        this.model.children.length
+			return this.model.isFolder
     }
   },
-	created(){
-      this.log('hellcrewate')
-  }
 }
 </script>
 
