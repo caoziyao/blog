@@ -4,9 +4,13 @@
 			:class="{folder: isFolder}"
 			@click="toggle">
 			<div class="" v-on:click="loadNode(model)" >
+				<span v-if="isFolder">
+						<i v-if="open" class="fa fa-folder-open-o fa-lg"></i>
+						<i v-else class="fa fa-folder-o fa-lg"></i>
+				</span>
 				{{ model.name }}
 			</div>
-			<span v-if="isFolder">[{{ open ? '-' : '+' }}]</span>
+
 		</div>
 		<div v-show="open" v-if="isFolder" class="chliden">
 			<item
@@ -33,7 +37,7 @@ export default {
 		}
  	},
 	methods: {
-		loadNode: function (model) {
+		loadNode(model) {
 			let that = this
 			if (!this.isFolder) {
 				let path = model.path
@@ -42,10 +46,14 @@ export default {
 					path: path,
 				}
 				this.axios.post(url, JSON.stringify(data)).then( (res) => {
-  		    console.log('res', res);
 					let data = res.data;
-					let content = data.content;
-					bus.$emit('showTreeContent', content)
+					let ret = {
+						content: data.content,
+						path: data.path,
+						filename: data.filename,
+					}
+					// bus总线，发送 content 给自定义 showTreeContent 事件
+					bus.$emit('showTreeContent', ret)
   		  })
   		  .catch( (error) => {
   		    console.log(error);
@@ -53,12 +61,14 @@ export default {
 			}
 
 		},
-		toggle: function () {
+		toggle () {
       if (this.isFolder) {
         this.open = !this.open
+				this.model.open = this.open
+				// this.$store.state.
       }
     },
-    addChild: function () {
+    addChild () {
       this.model.children.push({
         name: 'new stuff'
       })
@@ -69,6 +79,11 @@ export default {
 			return this.model.isFolder
     }
   },
+	// 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+	updated() {
+		let model = this.model
+		this.open = model.open
+	}
 }
 </script>
 

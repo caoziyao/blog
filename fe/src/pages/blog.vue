@@ -1,6 +1,19 @@
 <template lang="html">
 	<div class="container">
-		<qui-header class="qui-header" v-on:logannnn="logFun"></qui-header>
+		<el-row>
+		  <el-col :span="16">
+				<qui-header class="qui-header" v-on:logannnn="logFun"></qui-header>
+			</el-col>
+		  <el-col :span="8">
+				<el-input
+					placeholder="search"
+					suffix-icon="el-icon-search"
+					v-model="searchData"
+					v-on:input="search">
+				</el-input>
+			</el-col>
+		</el-row>
+
 		<div class="bar"></div>
 		<el-container class="">
 	  	<el-aside width="200px">
@@ -9,15 +22,14 @@
 
 			<div class="span-border"></div>
 	  	<el-main>
-				<ul class="list-group" v-on:mouseover="mouseOver" v-on:mouseout="mouseOut">
+				 <a href="#/edit"><el-button v-if="content" v-on:click="editContent()" icon="el-icon-edit" circle></el-button></a>
+				<!-- <ul class="list-group" v-on:mouseover="mouseOver" v-on:mouseout="mouseOut">
 					<li class="list-group-item"><a href="#">12</a></li>
 					<li class="list-group-item"><a href="#">2222</a></li>
 					<li class="list-group-item"><a href="#">3333</a></li>
 					<li class="list-group-item"><a href="#">44444</a></li>
-				</ul>
-				<div class="">
-					{{ content }}
-				</div>
+				</ul> -->
+					<div v-html="content"></div>
 			</el-main>
 		</el-container>
 
@@ -25,6 +37,7 @@
 </template>
 
 <script>
+import Remarkable from 'remarkable';
 import bus from '../assets/eventBus'
 import quiHeader from '../components/header.vue'
 import quiTree from '../components/tree.vue'
@@ -34,22 +47,9 @@ export default {
 		'qui-tree': quiTree,
 	},
 	data() {
-		var data = {
-			name: 'notebook',
-			isFolder: true,
-			children: [
-				{
-						name: 'hell',
-						isFolder: false,
-				},
-				{
-						name: 'abccd',
-						isFolder: true,
-						children: [],
-				},
-			],
-		};
+		var data = {};
 		return {
+			searchData: '',
 			treeData: data,
 			isActive: false,
 			content: '',
@@ -60,43 +60,41 @@ export default {
        },
      };
  	},
+	// html 挂载到页面上执行的函数，只执行一次
 	mounted() {
 		let self = this
-		bus.$on('showTreeContent', (msg) => {
+		bus.$on('showTreeContent', (ret) => {
+			let content = ret.content
 
-			self.content = msg
-			console.log('getdata', msg)
+			let md = new Remarkable();
+			let m = md.render(content)
+			self.content = m
+
+			// update store
+			this.$store.commit('updateNoteData', ret)
+			// console.log('store', this.$store.state.noteData)
 		})
 	},
 	 methods: {
 		 logFun(data) {
-			 console.log('abdb', data)
+			 console.log('logFun', data)
 		 },
-		 mouseOver(event) {
-			 let target = event.target
-			 if (target.localName == 'li') {
-				 target.classList.add('active')
-			 }
+		 editContent(path) {
+			 console.log('abdb', path)
 		 },
-		 mouseOut(event) {
-			 let target = event.target
-			 if (target.localName == 'li') {
- 				 target.classList.remove('active')
- 			 }
+		 search() {
+			 // search
+			 console.log(this.searchData)
 		 },
-		 getListDir: function () {
+		 initTree: function () {
 			 let url = '/api/tree/get_tree_root'
 			 // JSON.stringify(body)
 			 this.axios.get(url).then((res) => {
-
 				 let data = res.data
-
-				 console.log('res',  typeof data, data )
-				 this.treeData = data
-				 // for (let i = 0; i < data.length; i++) {
-				 // 	let item = data[i]
-				 // 	this.updateTreeModel(item)
-				 // }
+				 if (data) {
+					// this.$store.commit('saveTreeData', data)
+					 this.treeData = data
+				 }
 			 }).catch((res) => {
 				 console.log('res', res)
 			 })
@@ -105,7 +103,7 @@ export default {
 	 created(){
       this.log('hellcrewate')
  			let root = '/Users/cczy/yun/wiki/notebook'
- 			this.getListDir()
+			this.initTree()
    }
 }
 </script>
@@ -118,6 +116,11 @@ export default {
 
 	.qui-tree {
 	  cursor: pointer;
+	}
+
+	.el-input {
+		position: relative;
+		top: 32px;
 	}
 
 	.active {
