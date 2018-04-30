@@ -3,6 +3,7 @@
 			<ul class="header-ul">
 				<li class="header-ul-li"><a href="#/">首页</a></li>
 				<li class="header-ul-li"><a href="#/blog">博客</a></li>
+				<li class="header-ul-li"><a href="#/book">书架</a></li>
 				<li class="header-ul-li" v-on:click="loadNode"><a href="#">常见问题</a></li>
 				<li class="header-ul-li">
 					<el-dropdown>
@@ -20,6 +21,7 @@
 				</li>
 
 				<li class="header-ul-li"><a href="#">反馈</a></li>
+				<li class="header-ul-li"><a href="#/todo">Todo</a></li>
 			</ul>
 		</div>
 </template>
@@ -46,12 +48,13 @@ export default {
 		/*width: 970px;*/
 		/*min-height: 50px;*/
 		margin-top: 20px;
-		background-color: #fff;
+		/*background-color: #fff;*/
 		color: #333;
 		/*line-height: 60px;*/
 		border-color: #e7e7e7;
 		border-radius: 4px;
     border: 1px solid transparent;
+		background: #f6f6f6;
 	}
 
 	.header-ul {

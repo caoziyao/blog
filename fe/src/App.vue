@@ -21,4 +21,17 @@ export default {
     height: 900px;
     /*margin-top: 60px;*/
   }
+
+  a:link {
+   color: #000000;
+   text-decoration: none;
+  }
+  a:visited {
+   color: #000000;
+   text-decoration: none;
+  }
+  a:hover {
+   color: #999999;
+   text-decoration: underline;
+  }
 </style>

@@ -2,9 +2,12 @@
 
 import os
 import json
+import datetime
 from app.utils.const import WikiRoot, ignore_file
 from .base_handler import BaseHandler
 from app.model import Node, Tree
+
+from app.dbbase import DBSession, BookModel
 
 class TreeHandler(BaseHandler):
     def get(self, action=''):
@@ -86,6 +89,21 @@ class TreeHandler(BaseHandler):
                 }
                 self.write(json.dumps(data))
 
+    def save_db(self):
+        pass
+        # 创建session对象:
+        session = DBSession()
+        # 创建新User对象:
+        now = datetime.datetime.now()
+        now = datetime.datetime.now()
+        new_user = BookModel(name='Bob', create_time=now, update_time=now)
+        # 添加到session:
+        session.add(new_user)
+        # 提交即保存到数据库:
+        session.commit()
+        # 关闭session:
+        session.close()
+
     def save_note(self):
         """post"""
         request_body = json.loads(self.request.body)
@@ -98,3 +116,4 @@ class TreeHandler(BaseHandler):
                     'status': 1,
                 }
                 self.write(json.dumps(data))
+

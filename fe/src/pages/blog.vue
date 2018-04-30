@@ -108,11 +108,7 @@ export default {
 }
 </script>
 
-<style lang="css">
-
-	.qui-header {
-		background: #f6f6f6;
-	}
+<style lang="css" scroped>
 
 	.qui-tree {
 	  cursor: pointer;

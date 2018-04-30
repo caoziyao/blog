@@ -89,7 +89,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scroped>
 
 	.container {
 		width: 970px;

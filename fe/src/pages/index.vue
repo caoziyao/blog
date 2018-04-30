@@ -26,7 +26,6 @@ export default {
  },
  methods: {
 	 greet: function (event) {
-	 	console.log('hhhhh', this.input)
 		this.axios.get('/api/')
 		  .then(function (response) {
 		    console.log(response);
@@ -39,11 +38,15 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 
 	.container {
 		width: 970px;
 		margin: 0 auto;
+	}
+
+	.main {
+		text-align: center;
 	}
 
 	.header {
