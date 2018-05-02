@@ -2,11 +2,11 @@
 
 
 
-from app.dbbase.db import Base
 from sqlalchemy import Column, String, DateTime, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
-from .book_model import BookModel
+from app.database.mysql import Base
+
 
 class ArticleModel(Base):
     # 表的名字:

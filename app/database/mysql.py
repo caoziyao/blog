@@ -4,7 +4,7 @@ import pymysql
 from sqlalchemy import Column, String, create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-
+from app.config import Config as conf
 
 # ImportError: No module named 'MySQLdb'
 pymysql.install_as_MySQLdb()
@@ -14,6 +14,6 @@ Base = declarative_base()
 
 
 # 初始化数据库连接:
-engine = create_engine('mysql://root:zy123456@localhost:3306/wiki?charset=utf8')
+engine = create_engine(conf.mysql_engine)
 # 创建DBSession类型:
 DBSession = sessionmaker(bind=engine)

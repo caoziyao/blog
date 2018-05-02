@@ -1,7 +1,8 @@
 # coding: utf-8
 
-from app.dbbase.db import Base
 from sqlalchemy import Column, String, DateTime, Integer
+
+from app.database.mysql import Base
 
 
 class BookModel(Base):

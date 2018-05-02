@@ -3,11 +3,15 @@
 		<qui-header class="qui-header"></qui-header>
 
 		  <div class="main">
+
 				<h2>Bad luck, U come here.</h2>
-				<el-input v-model="input" placeholder="请输入内容" clearable>
-					<el-button slot="append" icon="el-icon-search" v-on:click="greet"></el-button>
+				<el-input v-model="input"  placeholder="请输入内容"  @keydown.enter.native="keySearch" clearable>
+					<el-button slot="append"
+						icon="el-icon-search"
+						v-on:click="googleSearch">
+					</el-button>
 				</el-input>
-				<p>Message is: {{ input }}</p>
+				<p>google it: {{ input }}</p>
 			</div>
 	</div>
 
@@ -21,20 +25,24 @@ export default {
 	},
 	data() {
 	 return {
-		 input: ''
+		 input: '',
+		 searchType: '',
 	 }
  },
- methods: {
-	 greet: function (event) {
-		this.axios.get('/api/')
-		  .then(function (response) {
-		    console.log(response);
-		  })
-		  .catch(function (error) {
-		    console.log(error);
-		  });
-	 }
- }
+	methods: {
+		googleSearch() {
+			 let url = 'https://www.google.com/search?q=' + this.input
+			//  window.location.href = url
+			window.open(url, '_blank');
+		},
+		keySearch(event) {
+			this.googleSearch()
+		},
+	},
+	created() {
+
+	}
+
 }
 </script>
 

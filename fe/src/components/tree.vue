@@ -24,7 +24,7 @@
 	</div>
 </template>
 
-<script>
+<script scoped>
 import bus from '../assets/eventBus'
 export default {
 	name: 'item',

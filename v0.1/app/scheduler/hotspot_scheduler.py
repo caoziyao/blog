@@ -1,6 +1,6 @@
 # coding: utf-8
 from app.database import redis_client
-from app.model import note_manager, catalog_manager
+from app.database import note_manager, catalog_manager
 
 
 class Scheduler(object):

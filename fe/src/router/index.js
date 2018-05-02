@@ -5,6 +5,7 @@ import Blog from '@/pages/blog'
 import Edit from '@/pages/edit'
 import Book from '@/pages/book'
 import Todo from '@/pages/todo'
+import Video from '@/pages/video'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
       path: '/todo',
       name: 'todo',
       component: Todo
+    },
+    {
+      path: '/video',
+      name: 'video',
+      component: Video
     }
   ]
 })

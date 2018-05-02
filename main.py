@@ -3,8 +3,11 @@
 import os
 import tornado.ioloop
 import tornado.web
-from app.routes import routes
+from app.handler import handlers
+from tornado.options import define, options, parse_config_file
+from app.config import Config
 
+# redis-server /usr/local/etc/redis/conf/redis6400.conf
 
 def make_app():
     setting = dict(
@@ -13,7 +16,7 @@ def make_app():
         debug='True',
     )
     print(setting)
-    return tornado.web.Application(routes, **setting)
+    return tornado.web.Application(handlers, **setting)
 
 
 if __name__ == "__main__":

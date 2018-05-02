@@ -1,15 +1,19 @@
 # coding: utf-8
 
-from .test_handler import TestHandler
-from .index_handler import MainHandler
-from .tree_handler import TreeHandler
-from .book_handler import BookHandler
+from .index_handlers import handlers as index_handlers
+from .test_handlers import handlers as test_handlers
+from .tree_handlers import handlers as tree_handlers
+from .book_handlers import handlers as book_handlers
+
+handlers = []
+
+handlers.extend(index_handlers)
+handlers.extend(test_handlers)
+handlers.extend(tree_handlers)
+handlers.extend(book_handlers)
+
 
 __all__ = [
-    TestHandler,
-    MainHandler,
-    TreeHandler,
-    BookHandler,
+    handlers,
 ]
-
 
