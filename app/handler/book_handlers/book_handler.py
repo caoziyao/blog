@@ -5,10 +5,10 @@ import json
 import datetime
 from app.utils.const import WikiRoot, ignore_file
 from app.handler.base_handler import BaseHandler
-from app.model import Node, Tree,  BookModel, ArticleModel
+from app.model import NodeModel, TreeModel,  BookModel, ArticleModel
 
 from app.manager import BookManger
-from app.database import DBSession, redis_client
+from app.database import DBSession
 
 class BookHandler(BaseHandler):
     def get(self):

@@ -3,12 +3,13 @@
 
 from .article_model import ArticleModel
 from .book_model import BookModel
-
-from app.model.tree_model import Node, Tree
+from .user_model import UserModel
+from app.model.tree_model import NodeModel, TreeModel
 
 __all__ = [
-    Node,
-    Tree,
+    NodeModel,
+    TreeModel,
     BookModel,
     ArticleModel,
+    UserModel,
 ]

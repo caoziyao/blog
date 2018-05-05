@@ -6,6 +6,7 @@ import Edit from '@/pages/edit'
 import Book from '@/pages/book'
 import Todo from '@/pages/todo'
 import Video from '@/pages/video'
+import Login from '@/pages/login'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +40,11 @@ export default new Router({
       path: '/video',
       name: 'video',
       component: Video
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })

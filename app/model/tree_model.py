@@ -1,9 +1,12 @@
 # coding: utf-8
 
+# from .base_model import BaseModel
+from app.database import Base
 
-class Node(object):
+class NodeModel(object):
 
     def __init__(self, data=None):
+        super(NodeModel, self).__init__()
         self.data = data
         self.children = []
 
@@ -11,11 +14,12 @@ class Node(object):
         self.children.append(child)
 
 
-class Tree(object):
+class TreeModel(object):
 
     def __init__(self, root):
+        super(TreeModel, self).__init__()
         """
-        root: Node()
+        root: NodeModel()
         :param root:
         """
         self.root = root

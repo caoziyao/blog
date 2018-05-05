@@ -1,9 +1,9 @@
 # coding: utf-8
 
-from app.database.mysql import DBSession
-from app.database.redis import redis_client
+
+from app.database.mysql import DBSession, Base
 
 __all__ = [
     DBSession,
-    redis_client,
+    Base,
 ]

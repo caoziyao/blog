@@ -1,12 +1,9 @@
 # coding: utf-8
 
-
-
 from sqlalchemy import Column, String, DateTime, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-
-from app.database.mysql import Base
-
+# from .base_model import BaseModel
+from app.database import Base
 
 class ArticleModel(Base):
     # 表的名字:

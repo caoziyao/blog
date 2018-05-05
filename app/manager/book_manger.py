@@ -1,8 +1,9 @@
 # coding: utf-8
 
 import json
-from app.model import Node, Tree,  BookModel, ArticleModel
-from app.database import DBSession, redis_client
+from app.model import NodeModel, TreeModel,  BookModel, ArticleModel
+from app.database import DBSession
+from app.cache import redis_client
 
 class BookManger(object):
 
@@ -16,7 +17,8 @@ class BookManger(object):
 
     def get_book_list(self):
         r = redis_client
-        data = self.list_canche()
+        # data = self.list_canche()
+        data = None
         if not data:
             # 创建Session:
             session = DBSession()
@@ -46,7 +48,7 @@ class BookManger(object):
             session.close()
 
             data = json.dumps(temp).encode()
-            r.hset("hash1", "k1", data)
+            # r.hset("hash1", "k1", data)
         data = data.decode()
 
         return data

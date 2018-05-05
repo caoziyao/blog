@@ -5,7 +5,7 @@ import json
 import datetime
 from app.handler.base_handler import BaseHandler
 from app.utils.const import WikiRoot, ignore_file
-from app.model import Node, Tree, BookModel
+from app.model import NodeModel, TreeModel, BookModel
 
 from app.database import DBSession
 
@@ -19,8 +19,8 @@ class TreeHandler(BaseHandler):
             'path': WikiRoot,
             'open': True,
         }
-        root = Node(data)
-        tree = Tree(root)
+        root = NodeModel(data)
+        tree = TreeModel(root)
 
         self.traverse(root, WikiRoot, 0)
         d = tree.format_dict()
@@ -40,7 +40,7 @@ class TreeHandler(BaseHandler):
                     'path': child_path,
                     'open': False,
                 }
-                node = Node(data)
+                node = NodeModel(data)
                 root.add_child(node)
 
                 self.traverse(node, child_path, depth + 1)
@@ -52,6 +52,6 @@ class TreeHandler(BaseHandler):
                     'path': child_path,
                     'open': False,
                 }
-                node = Node(data)
+                node = NodeModel(data)
                 root.add_child(node)
 
