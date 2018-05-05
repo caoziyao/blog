@@ -3,6 +3,7 @@
 import os
 import json
 import datetime
+import tornado.web
 from app.handler.base_handler import BaseHandler
 from app.utils.const import WikiRoot, ignore_file
 from app.model import NodeModel, TreeModel, BookModel
@@ -10,6 +11,8 @@ from app.model import NodeModel, TreeModel, BookModel
 from app.database import DBSession
 
 class TreeHandler(BaseHandler):
+
+    @tornado.web.authenticated
     def get(self, action=''):
         name = os.path.basename(WikiRoot)
         data = {

@@ -29,14 +29,14 @@ class UserManger(object):
         else:
             return False
 
-    def valied_user(self, username, password):
-        res = self.get_user(username, password)
-        if res:
-            return True
-        else:
-            return False
+    # def load_user(self, username, password):
+    #     res = self.get_user(username, password)
+    #     if res:
+    #         return True
+    #     else:
+    #         return False
 
-    def get_user(self, username, password):
+    def load_user(self, username, password):
         r = redis_client
         session = DBSession()
 
@@ -49,6 +49,7 @@ class UserManger(object):
         if res:
             data = {
                 'username': res.username,
+                'id': res.id,
                 'email': res.email,
             }
             return data

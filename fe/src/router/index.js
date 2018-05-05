@@ -7,9 +7,12 @@ import Book from '@/pages/book'
 import Todo from '@/pages/todo'
 import Video from '@/pages/video'
 import Login from '@/pages/login'
+import FeedBack from '@/pages/feedback'
+
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: 'link-active',
   routes: [
     {
       path: '/',
@@ -45,6 +48,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: FeedBack
     }
   ]
 })

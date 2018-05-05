@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import time
 
 class Config(object):
 
@@ -11,3 +12,8 @@ class Config(object):
 
     # mysql
     mysql_engine = 'mysql://root:zy123456@localhost:3306/wiki?charset=utf8'
+
+    # session
+    # session_expires_min = 15
+    # session_expires = time.time() + session_expires_min * 60
+    session_expires = None

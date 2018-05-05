@@ -90,10 +90,17 @@ export default {
 			 let url = '/api/tree/get_tree_root'
 			 // JSON.stringify(body)
 			 this.axios.get(url).then((res) => {
+					console.log('reeee', res)
 				 let data = res.data
 				 if (data) {
+					 if (data.code === 401) {
+						 // 页面跳转
+						 this.$router.push({path:'/login'})
+					 } else {
+						 this.treeData = data
+					 }
 					// this.$store.commit('saveTreeData', data)
-					 this.treeData = data
+					//  this.treeData = data
 				 }
 			 }).catch((res) => {
 				 console.log('res', res)
@@ -101,6 +108,7 @@ export default {
 		 },
 	 },
 	 created(){
+
       this.log('hellcrewate')
  			let root = '/Users/cczy/yun/wiki/notebook'
 			this.initTree()

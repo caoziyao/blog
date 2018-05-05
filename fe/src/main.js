@@ -11,12 +11,14 @@ import http from './http'
 import util from './utils/util'
 import store from './assets/store'
 
+
 // prototype
 Vue.prototype.axios = http.axios;
 Vue.prototype.log = util.log;
 
 Vue.config.productionTip = false
 Vue.use(ElementUI, { size: 'normal' });
+
 
 /* eslint-disable no-new */
 new Vue({
