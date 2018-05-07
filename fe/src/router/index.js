@@ -8,6 +8,8 @@ import Todo from '@/pages/todo'
 import Video from '@/pages/video'
 import Login from '@/pages/login'
 import FeedBack from '@/pages/feedback'
+import MzNv from '@/pages/mznv'
+import Music from '@/pages/music'
 
 Vue.use(Router)
 
@@ -53,6 +55,16 @@ export default new Router({
       path: '/feedback',
       name: 'feedback',
       component: FeedBack
-    }
+    },
+    {
+      path: '/mznv',
+      name: 'mznv',
+      component: MzNv,
+    },
+    {
+      path: '/music',
+      name: 'music',
+      component: Music,
+    },
   ]
 })

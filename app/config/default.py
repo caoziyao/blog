@@ -17,3 +17,7 @@ class Config(object):
     # session_expires_min = 15
     # session_expires = time.time() + session_expires_min * 60
     session_expires = None
+
+    # 分类接口service层缓存时间 秒
+    minute = 60
+    redis_cache_time = 1 * minute

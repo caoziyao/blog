@@ -10,7 +10,6 @@ from .admin_manger import AdminManger
 
 
 class EmailManger(object):
-
     def __init__(self):
         self.smtp_server = 'smtp.163.com'
 
@@ -20,7 +19,6 @@ class EmailManger(object):
         return formataddr((Header(name, 'utf-8').encode(), addr))
 
     def send_email_from_to(self, from_addr, from_passwd, to_addr, msg):
-
         msg = MIMEText(msg, 'plain', 'utf-8')
         msg['From'] = self._format_addr('管理者 <%s>' % from_addr)
         # msg['To']接收的是字符串而不是list，如果有多个邮件地址，用,分隔即可
@@ -37,15 +35,11 @@ class EmailManger(object):
         server.sendmail(from_addr, [to_addr], msg.as_string())
         server.quit()
 
-
     def send_email(self, email_data, to_addr):
         msg = email_data
         admin = AdminManger()
         admin_data = admin.get_email()
         if admin_data:
-
             from_addr = admin_data.get('email', '')
             password = admin_data.get('email_password', '')
             self.send_email_from_to(from_addr, password, to_addr, msg)
-
-

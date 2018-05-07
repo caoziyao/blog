@@ -7,8 +7,8 @@ from app.database import DBSession
 from app.cache import redis_client
 from app.utils.utils import hexdigest
 
-class AdminManger(object):
 
+class AdminManger(object):
     def __init__(self):
         self.admin_name = 'admin'
 
@@ -43,7 +43,3 @@ class AdminManger(object):
             return data
         else:
             return False
-
-
-
-

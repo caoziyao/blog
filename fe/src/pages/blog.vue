@@ -124,7 +124,7 @@ export default {
 
 	.el-input {
 		position: relative;
-		top: 32px;
+		/*top: 32px;*/
 	}
 
 	.active {

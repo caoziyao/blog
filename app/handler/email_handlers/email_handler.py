@@ -5,18 +5,10 @@ import json
 import datetime
 from app.utils.const import WikiRoot, ignore_file
 from app.handler.base_handler import BaseHandler
-from app.model import NodeModel, TreeModel,  BookModel, ArticleModel
-
-from app.manager import BookManger
-from app.database import DBSession
-from app.manager import EmailManger, AdminManger
-
-
-
+from app.manager import EmailManger
 
 
 class EmailHandler(BaseHandler):
-
     def post(self):
         request_body = json.loads(self.request.body)
         email_data = request_body.get('emailData', '')

@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 # from .base_model import BaseModel
 from app.database import Base
 
+
 class AdminModel(Base):
     # 表的名字:
     __tablename__ = 'ac_admin'
@@ -17,4 +18,3 @@ class AdminModel(Base):
     email_password = Column(String(255), doc='email_password')
     create_time = Column(DateTime, doc='创建时间')
     update_time = Column(DateTime, doc='新建时间')
-

@@ -22,6 +22,8 @@
 
 				<li class="header-ul-li"><a href="#/feedback">反馈</a></li>
 				<li class="header-ul-li"><a href="#/todo">Todo</a></li>
+				<li class="header-ul-li"><a href="#/mznv">图片</a></li>
+				<li class="header-ul-li"><a href="#/music">音乐</a></li>
 			</ul>
 		</div>
 </template>
