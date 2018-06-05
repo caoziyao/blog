@@ -70,7 +70,7 @@ class Redis():
         }
         self.rdsclient.setex(key, json.dumps(real_data), expire_time)
         lock_key = key + ".lock"
-        # self.rdsclient.delete(lock_key)
+        self.rdsclient.delete(lock_key)
 
 
 redis_client = Redis(
