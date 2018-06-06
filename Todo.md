@@ -2,6 +2,31 @@
 - 使用用脚本执行所有部署流程（包括开发环境）
 - 通过单一命令运行部署
 
+
+使用sanic异步框架，简单，轻量，高效。
+使用uvloop为核心引擎，使sanic在很多情况下单机并发甚至不亚于Golang。
+使用asyncpg为数据库驱动，进行数据库连接，执行sql语句执行。
+使用aiohttp为Client，对其他微服务进行访问。
+使用peewee为ORM，但是只是用来做模型设计和migration。
+使用opentracing为分布式追踪系统。
+使用unittest做单元测试，并且使用mock来避免访问其他微服务。
+使用swagger做API标准，能自动生成API文档。
+
+
+用Flask开发一个RESTful API 服务
+实践测试驱动开发(TDD)
+在本地用Docker和Docker Compose配置和运行服务
+将代码挂载到一个容器中去
+在容器中运行单元测试和集成测试
+不同容器的服务间的交互
+在Docker容器中运行Python和Flask应用
+安装Flask、Nginx和Gunicorn
+
+flask-microservices-main - Docker Compose 文件、Nginx、Admin 脚本
+flask-microservices-users - 管理用户和认证的Flask 应用
+flask-microservices-client - 客户端，React 应用
+flask-microservices-swagger - Swagger API 文档
+
 todo
 微服务：
 

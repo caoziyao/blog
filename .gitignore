@@ -1,7 +1,7 @@
-fe/node_modules/*
 ./Todo.md
 *.md
-fe/static/lib/*
+env
+
 
 *.pyc
 bin/
@@ -102,7 +102,3 @@ ENV/
 
 # Rope project settings
 .ropeproject
-Todo.md
-Todo.md
-Todo.md
-Todo.md
