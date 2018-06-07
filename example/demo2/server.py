@@ -7,10 +7,13 @@
 @desc:
 """
 
-import grpc
 import time
 from concurrent import futures
-from example import data_pb2, data_pb2_grpc
+
+import grpc
+from demo2 import data_pb2
+
+from example.demo2 import data_pb2_grpc
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = 'localhost'

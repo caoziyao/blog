@@ -2,7 +2,7 @@
 import grpc
 
 # import data_pb2 as data__pb2
-from example import data_pb2 as data__pb2
+from example.demo2 import data_pb2 as data__pb2
 
 
 class FormatDataStub(object):

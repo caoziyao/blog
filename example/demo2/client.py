@@ -8,10 +8,15 @@
 """
 
 import grpc
-from example import data_pb2, data_pb2_grpc
+from demo2 import data_pb2
+
+from example.demo2 import data_pb2_grpc
+
+# _HOST = 'localhost'
+# _PORT = '8080'
 
 _HOST = 'localhost'
-_PORT = '8080'
+_PORT = '5672'
 
 def run():
     conn = grpc.insecure_channel(_HOST + ':' + _PORT)

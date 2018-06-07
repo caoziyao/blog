@@ -16,7 +16,7 @@ class Mail(object):
     def send(self, to, subject, contents):
         if settings.DEBUG:
             print(
-                u'Sending email "%s" to "%s" with contents "%s"' %
+                u'啊啊Sending email "%s" to "%s" with contents "%s"' %
                 (subject, to, contents)
             )
             return
@@ -33,9 +33,23 @@ class Mail(object):
                  contents=[contents.encode('utf-8')])
 
 
+class MailTest(object):
+    name = "test"
+
+    @rpc
+    def post(self, to, subject, contents):
+        if settings.DEBUG:
+            print(
+                u'aaapppail "%s" to "%s" with contents "%s"' %
+                (subject, to, contents)
+            )
+            return
+
+
 class Compute(object):
     name = "compute"
     mail = RpcProxy('mail')
+    test = RpcProxy('test')
 
     @rpc
     def compute(self, operation, value, other, email):
@@ -45,11 +59,17 @@ class Compute(object):
                       u'sub': lambda x, y: int(x) - int(y)}
         try:
             result = operations[operation](value, other)
+            print('sull', result)
         except Exception as e:
             self.mail.send.async(email, "An error occurred", str(e))
             raise
         else:
-            self.mail.send.async(
+            self.mail.send(
+                email,
+                "tesss!",
+                "Ttttt: %s" % result
+            )
+            self.test.post(
                 email,
                 "Your operation is complete!",
                 "The result is: %s" % result
