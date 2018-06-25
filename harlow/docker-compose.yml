@@ -1,0 +1,5 @@
+version: "3"
+services:
+  deomo:
+    build: .
+    entrypoint: serve all
