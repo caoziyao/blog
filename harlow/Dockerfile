@@ -1,4 +1,4 @@
 FROM golang:1.9
-COPY . /go/src/local-kuaibiji/go-micro-services
-WORKDIR /go/src/local-kuaibiji/go-micro-services
+COPY . /go/src/kuaibiji
+WORKDIR /go/src/kuaibiji
 RUN go install -ldflags="-s -w" ./cmd/...

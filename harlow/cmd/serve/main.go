@@ -5,6 +5,9 @@ import (
 	"os"
 	"flag"
 	"strings"
+
+	"kuaibiji/registry"
+
 )
 
 // 用法
@@ -31,7 +34,7 @@ func logSetting() {
 }
 
 // tmp
-func runUsage(port int) error {
+func runUsage(port int, consul *registry.Client) error {
 
 	usage()
 	fmt.Println("tmpFunc ", port)
@@ -39,8 +42,8 @@ func runUsage(port int) error {
 }
 
 // 根据参数返回对应的 函数
-func runFromArgs() (func(port int) error) {
-	var run func(port int) error
+func runFromArgs() (func(port int, consul *registry.Client) error) {
+	var run func(port int, consul *registry.Client) error
 
 	//解析命令参数
 	arg := strings.ToLower(os.Args[1])
@@ -63,6 +66,9 @@ func main() {
 	var (
 		// 声明了一个整数 flag，解析结果保存在 *int 指针 port 里
 		port = flag.Int("port", 5001, "The server port")
+
+		// Service Discovery
+		consuladdr = flag.String("consul_addr", "consul:8500", "Consul address")
 	)
 
 	// 解析命令行参数写入注册的 flag 里
@@ -75,8 +81,19 @@ func main() {
 	}
 	logArgs()
 
+	consul, err := registry.NewClient(*consuladdr)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%v\n", err)
+		os.Exit(1)
+	}
+
+
 	// run
 	run := runFromArgs()
 
-	run(*port)
+
+	if err := run(*port, consul); err != nil {
+		fmt.Fprintf(os.Stderr, "%v\n", err)
+		os.Exit(1)
+	}
 }

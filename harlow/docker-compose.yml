@@ -3,3 +3,6 @@ services:
   deomo:
     build: .
     entrypoint: serve all
+    ports:
+      - "5000:5000"
+

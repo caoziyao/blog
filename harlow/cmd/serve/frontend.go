@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"kuaibiji/registry"
+	"kuaibiji/services/frontend"
 )
 
-func runFrontend(port int) error {
+func runFrontend(port int, consul *registry.Client) error {
 	fmt.Println("runFrontend ", port)
 
-	fmt.Println("start sleeping...")
-	time.Sleep(6 * time.Second)
-	fmt.Println("end sleep.")
-
-	return nil
+	srv := frontend.NewServer()
+	return srv.Run(port)
 }
