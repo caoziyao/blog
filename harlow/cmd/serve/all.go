@@ -21,6 +21,15 @@ func wgRun(coroFunc func(port int, registry *registry.Client) error, port int, r
 	return nil
 }
 
+func runAll(port int, registry *registry.Client) error {
+	fmt.Println("runAll ", port)
+
+	go runCode(8001, registry)
+	go runNotebook(8002, registry)
+
+	return runFrontend(5000, registry)
+}
+
 func backRun() {
 	//var wg sync.WaitGroup
 
@@ -40,10 +49,4 @@ func backRun() {
 	//wg.Wait()
 }
 
-func runAll(port int, registry *registry.Client) error {
-	fmt.Println("runAll ", port)
 
-	go runCode(8001, registry)
-
-	return runFrontend(5000, registry)
-}

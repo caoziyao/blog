@@ -7,7 +7,6 @@ import (
 	"strings"
 
 	"kuaibiji/registry"
-
 )
 
 // 用法
@@ -87,10 +86,8 @@ func main() {
 		os.Exit(1)
 	}
 
-
 	// run
 	run := runFromArgs()
-
 
 	if err := run(*port, consul); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
