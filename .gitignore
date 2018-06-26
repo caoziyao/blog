@@ -1,7 +1,7 @@
 ./Todo.md
 *.md
 env
-
+**/vendor
 
 *.pyc
 bin/
