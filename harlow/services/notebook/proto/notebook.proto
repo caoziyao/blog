@@ -3,7 +3,7 @@ syntax = "proto3";  // 指定语法格式，注意 proto3 不再支持 proto2 �
 package notebook;   // 指定生成的 user.pb.go 的包名，防止命名冲突
 
 // service 定义开放调用的服务，即 NotebookService 微服务
-service NotebookService {
+service Notebook {
     // rpc 定义服务内的 GetNotebookInfo 远程调用
     rpc GetNotebookInfo (NotebookRequest) returns (NotebookResponse) {
     }

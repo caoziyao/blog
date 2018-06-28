@@ -21,13 +21,13 @@ func wgRun(coroFunc func(port int, registry *registry.Client) error, port int, r
 	return nil
 }
 
-func runAll(port int, registry *registry.Client) error {
+func runAll(port int, registry *registry.Client, jaegeraddr string) error {
 	fmt.Println("runAll ", port)
 
-	go runCode(8001, registry)
-	go runNotebook(8002, registry)
+	//go runCode(8001, registry, jaegeraddr)
+	go runNotebook(8004, registry, jaegeraddr)
 
-	return runFrontend(5000, registry)
+	return runFrontend(5000, registry, jaegeraddr)
 }
 
 func backRun() {

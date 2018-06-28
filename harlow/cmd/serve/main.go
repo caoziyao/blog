@@ -33,7 +33,7 @@ func logSetting() {
 }
 
 // tmp
-func runUsage(port int, consul *registry.Client) error {
+func runUsage(port int, consul *registry.Client, jaegeraddr string) error {
 
 	usage()
 	fmt.Println("tmpFunc ", port)
@@ -41,8 +41,8 @@ func runUsage(port int, consul *registry.Client) error {
 }
 
 // 根据参数返回对应的 函数
-func runFromArgs() (func(port int, consul *registry.Client) error) {
-	var run func(port int, consul *registry.Client) error
+func runFromArgs() (func(port int, consul *registry.Client, jaegeraddr string) error) {
+	var run func(port int, consul *registry.Client, jaegeraddr string) error
 
 	//解析命令参数
 	arg := strings.ToLower(os.Args[1])
@@ -52,7 +52,8 @@ func runFromArgs() (func(port int, consul *registry.Client) error) {
 	} else if arg == "code" {
 		run = runCode
 	} else {
-		run = runUsage
+		//run = runUsage
+		run = runAll
 	}
 
 	return run
@@ -64,8 +65,8 @@ func main() {
 	// setting
 	var (
 		// 声明了一个整数 flag，解析结果保存在 *int 指针 port 里
-		port = flag.Int("port", 5001, "The server port")
-
+		port = flag.Int("port", 5000, "The server port")
+		jaegeraddr = flag.String("jaeger_addr", "jaeger:6831", "Jaeger address")
 		// Service Discovery
 		consuladdr = flag.String("consul_addr", "consul:8500", "Consul address")
 	)
@@ -73,12 +74,13 @@ func main() {
 	// 解析命令行参数写入注册的 flag 里
 	flag.Parse()
 
-	// 参数
-	if len(os.Args) < 2 {
-		usage()
-		os.Exit(1)
-	}
-	logArgs()
+	//// 参数
+	//if len(os.Args) < 2 {
+	//	usage()
+	//	os.Exit(1)
+	//}
+	//logArgs()
+	run := runAll
 
 	consul, err := registry.NewClient(*consuladdr)
 	if err != nil {
@@ -87,9 +89,9 @@ func main() {
 	}
 
 	// run
-	run := runFromArgs()
+	//run := runFromArgs()
 
-	if err := run(*port, consul); err != nil {
+	if err := run(*port, consul, *jaegeraddr); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}

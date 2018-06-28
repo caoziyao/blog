@@ -37,7 +37,7 @@ func (m *NotebookRequest) Reset()         { *m = NotebookRequest{} }
 func (m *NotebookRequest) String() string { return proto.CompactTextString(m) }
 func (*NotebookRequest) ProtoMessage()    {}
 func (*NotebookRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_notebook_7d3481bd23b1813f, []int{0}
+	return fileDescriptor_notebook_36d757dad1c2d432, []int{0}
 }
 func (m *NotebookRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NotebookRequest.Unmarshal(m, b)
@@ -79,7 +79,7 @@ func (m *NotebookResponse) Reset()         { *m = NotebookResponse{} }
 func (m *NotebookResponse) String() string { return proto.CompactTextString(m) }
 func (*NotebookResponse) ProtoMessage()    {}
 func (*NotebookResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_notebook_7d3481bd23b1813f, []int{1}
+	return fileDescriptor_notebook_36d757dad1c2d432, []int{1}
 }
 func (m *NotebookResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NotebookResponse.Unmarshal(m, b)
@@ -140,66 +140,66 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// NotebookServiceClient is the client API for NotebookService service.
+// NotebookClient is the client API for Notebook service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type NotebookServiceClient interface {
+type NotebookClient interface {
 	// rpc 定义服务内的 GetNotebookInfo 远程调用
 	GetNotebookInfo(ctx context.Context, in *NotebookRequest, opts ...grpc.CallOption) (*NotebookResponse, error)
 }
 
-type notebookServiceClient struct {
+type notebookClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewNotebookServiceClient(cc *grpc.ClientConn) NotebookServiceClient {
-	return &notebookServiceClient{cc}
+func NewNotebookClient(cc *grpc.ClientConn) NotebookClient {
+	return &notebookClient{cc}
 }
 
-func (c *notebookServiceClient) GetNotebookInfo(ctx context.Context, in *NotebookRequest, opts ...grpc.CallOption) (*NotebookResponse, error) {
+func (c *notebookClient) GetNotebookInfo(ctx context.Context, in *NotebookRequest, opts ...grpc.CallOption) (*NotebookResponse, error) {
 	out := new(NotebookResponse)
-	err := c.cc.Invoke(ctx, "/notebook.NotebookService/GetNotebookInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/notebook.Notebook/GetNotebookInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NotebookServiceServer is the server API for NotebookService service.
-type NotebookServiceServer interface {
+// NotebookServer is the server API for Notebook service.
+type NotebookServer interface {
 	// rpc 定义服务内的 GetNotebookInfo 远程调用
 	GetNotebookInfo(context.Context, *NotebookRequest) (*NotebookResponse, error)
 }
 
-func RegisterNotebookServiceServer(s *grpc.Server, srv NotebookServiceServer) {
-	s.RegisterService(&_NotebookService_serviceDesc, srv)
+func RegisterNotebookServer(s *grpc.Server, srv NotebookServer) {
+	s.RegisterService(&_Notebook_serviceDesc, srv)
 }
 
-func _NotebookService_GetNotebookInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Notebook_GetNotebookInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NotebookRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NotebookServiceServer).GetNotebookInfo(ctx, in)
+		return srv.(NotebookServer).GetNotebookInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/notebook.NotebookService/GetNotebookInfo",
+		FullMethod: "/notebook.Notebook/GetNotebookInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotebookServiceServer).GetNotebookInfo(ctx, req.(*NotebookRequest))
+		return srv.(NotebookServer).GetNotebookInfo(ctx, req.(*NotebookRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _NotebookService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "notebook.NotebookService",
-	HandlerType: (*NotebookServiceServer)(nil),
+var _Notebook_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "notebook.Notebook",
+	HandlerType: (*NotebookServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetNotebookInfo",
-			Handler:    _NotebookService_GetNotebookInfo_Handler,
+			Handler:    _Notebook_GetNotebookInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -207,11 +207,11 @@ var _NotebookService_serviceDesc = grpc.ServiceDesc{
 }
 
 func init() {
-	proto.RegisterFile("services/notebook/proto/notebook.proto", fileDescriptor_notebook_7d3481bd23b1813f)
+	proto.RegisterFile("services/notebook/proto/notebook.proto", fileDescriptor_notebook_36d757dad1c2d432)
 }
 
-var fileDescriptor_notebook_7d3481bd23b1813f = []byte{
-	// 190 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_notebook_36d757dad1c2d432 = []byte{
+	// 188 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x2b, 0x4e, 0x2d, 0x2a,
 	0xcb, 0x4c, 0x4e, 0x2d, 0xd6, 0xcf, 0xcb, 0x2f, 0x49, 0x4d, 0xca, 0xcf, 0xcf, 0xd6, 0x2f, 0x28,
 	0xca, 0x2f, 0xc9, 0x87, 0x73, 0xf5, 0xc0, 0x5c, 0x21, 0x0e, 0x18, 0x5f, 0x49, 0x95, 0x8b, 0xdf,
@@ -220,8 +220,8 @@ var fileDescriptor_notebook_7d3481bd23b1813f = []byte{
 	0x8a, 0x0b, 0xf2, 0xf3, 0x8a, 0x53, 0x85, 0xf8, 0xb8, 0x98, 0x32, 0x53, 0xc0, 0xaa, 0x58, 0x83,
 	0x98, 0x32, 0x53, 0xe0, 0xfa, 0x98, 0x10, 0xfa, 0x84, 0x04, 0xb8, 0x98, 0x13, 0xd3, 0x53, 0x25,
 	0x98, 0xc1, 0x8a, 0x40, 0x4c, 0x21, 0x11, 0x2e, 0xd6, 0x92, 0xcc, 0x92, 0x9c, 0x54, 0x09, 0x16,
-	0x05, 0x66, 0x0d, 0xce, 0x20, 0x08, 0xc7, 0x28, 0x16, 0xe1, 0x8c, 0x60, 0x88, 0x17, 0x84, 0xbc,
-	0xb8, 0xf8, 0xdd, 0x53, 0x4b, 0x60, 0xa2, 0x9e, 0x79, 0x69, 0xf9, 0x42, 0x92, 0x7a, 0x70, 0x7f,
-	0xa0, 0x39, 0x5a, 0x4a, 0x0a, 0x9b, 0x14, 0xc4, 0xa1, 0x4a, 0x0c, 0x49, 0x6c, 0x60, 0x6f, 0x1b,
-	0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x88, 0xce, 0x68, 0x07, 0x20, 0x01, 0x00, 0x00,
+	0x05, 0x66, 0x0d, 0xce, 0x20, 0x08, 0xc7, 0x28, 0x8c, 0x8b, 0x03, 0x66, 0xbe, 0x90, 0x17, 0x17,
+	0xbf, 0x7b, 0x6a, 0x09, 0x8c, 0xeb, 0x99, 0x97, 0x96, 0x2f, 0x24, 0xa9, 0x07, 0xf7, 0x00, 0x9a,
+	0x6b, 0xa5, 0xa4, 0xb0, 0x49, 0x41, 0x5c, 0xa8, 0xc4, 0x90, 0xc4, 0x06, 0xf6, 0xaf, 0x31, 0x20,
+	0x00, 0x00, 0xff, 0xff, 0xc9, 0xc6, 0xb8, 0xf7, 0x19, 0x01, 0x00, 0x00,
 }
