@@ -6,3 +6,14 @@ proto:
 			protoc --go_out=plugins=grpc:. $$f; \
 			echo compiled: $$f; \
 		done
+
+build:
+		docker-compose build
+
+# --remove-orphans
+run:
+		# docker-compose build
+		docker-compose up --remove-orphans
+
+stop:
+		docker-compose stop

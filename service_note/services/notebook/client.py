@@ -4,7 +4,8 @@ from __future__ import print_function
 
 import grpc
 
-from proto import notebook_pb2, notebook_pb2_grpc
+import notebook_pb2
+import notebook_pb2_grpc
 
 
 def run():

@@ -1,12 +1,14 @@
 # coding: utf-8
-import grpc
-import time
 from concurrent import futures
+import time
 
-from proto import notebook_pb2, notebook_pb2_grpc
+import grpc
+
+from proto import notebook_pb2
+from proto import notebook_pb2_grpc
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
-_HOST = '127.0.0.1'
+_HOST = '0.0.0.0'
 _PORT = '8004'
 
 class Greeter(notebook_pb2_grpc.NotebookServicer):
@@ -21,8 +23,9 @@ def serve():
     print('------------[::]:8004--------')
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     notebook_pb2_grpc.add_NotebookServicer_to_server(Greeter(), server)
+    #server.add_insecure_port('0.0.0.0:8004')
     server.add_insecure_port('[::]:8004')
-    # server.add_insecure_port(_HOST + ':' + _PORT)
+    #server.add_insecure_port(_HOST + ':' + _PORT)
     server.start()  # start() 不会阻塞，如果运行时你的代码没有其它的事情可做，你可能需要循环等待。
     try:
         while True:
