@@ -1,4 +1,4 @@
-package main
+package serve
 
 import (
 	"fmt"
@@ -21,11 +21,13 @@ func wgRun(coroFunc func(port int, registry *registry.Client) error, port int, r
 	return nil
 }
 
-func runAll(port int, registry *registry.Client, jaegeraddr string) error {
-	fmt.Println("runAll ", port)
+func RunAll(port int, registry *registry.Client, jaegeraddr string) error {
+	fmt.Println("RunAll ", port)
 
 	//go runCode(8001, registry, jaegeraddr)
 	go runNotebook(8004, registry, jaegeraddr)
+
+	go runUser(8005, registry, jaegeraddr)
 
 	return runFrontend(5000, registry, jaegeraddr)
 }

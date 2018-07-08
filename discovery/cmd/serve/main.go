@@ -1,4 +1,4 @@
-package main
+package serve
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"kuaibiji/registry"
+
 )
 
 // 用法
@@ -48,12 +49,10 @@ func runFromArgs() (func(port int, consul *registry.Client, jaegeraddr string) e
 	arg := strings.ToLower(os.Args[1])
 
 	if arg == "all" {
-		run = runAll
-	} else if arg == "code" {
-		run = runCode
+		run = RunAll
 	} else {
 		//run = runUsage
-		run = runAll
+		run = RunAll
 	}
 
 	return run
@@ -83,7 +82,7 @@ func main() {
 	//	os.Exit(1)
 	//}
 	//logArgs()
-	run := runAll
+	run := RunAll
 
 	consul, err := registry.NewClient(*consuladdr)
 	if err != nil {
