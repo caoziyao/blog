@@ -28,6 +28,7 @@ func RunAll(port int, registry *registry.Client, jaegeraddr string) error {
 	go runNotebook(8004, registry, jaegeraddr)
 
 	go runUser(8005, registry, jaegeraddr)
+	go runApi(5001, registry, jaegeraddr)
 
 	return runFrontend(5000, registry, jaegeraddr)
 }
