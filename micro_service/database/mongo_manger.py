@@ -35,7 +35,7 @@ class MongoManger(object):
         db_name = self.db_name
 
         try:
-            client = MongoClient(host, port)
+            client = MongoClient(host=host, port=port, connect=False)
             admin = client[admin]
             admin.authenticate(username, passwd)
             db = client[db_name]
@@ -46,5 +46,3 @@ class MongoManger(object):
             print('connect mongodb failed {}:{} {}.'.format(host, port, db_name))
             sys.exit(1)
 
-
-mongodb = MongoManger().db

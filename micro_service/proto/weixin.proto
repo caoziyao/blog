@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package weixin;
+
+// repeated 修饰符表示字段是可变数组，即 slice 类型
+service Weixin {
+    rpc WeixinLogin (RequestWeixinLogin) returns (ResponseWeixinLogin);
+    rpc WeixinLogout (RequestWeixinLogout) returns (ResponseWeixinLogout);
+}
+
+// weixin login
+message RequestWeixinLogin {
+    string userId = 1;
+}
+
+message ResponseWeixinLogin {
+    string data = 1;
+}
+
+// weixin logout
+message RequestWeixinLogout {
+    string userId = 1;
+}
+
+message ResponseWeixinLogout {
+    string data = 1;
+}
+
+

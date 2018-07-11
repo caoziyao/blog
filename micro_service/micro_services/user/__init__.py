@@ -1,7 +1,7 @@
 # coding: utf-8
 
-from .service import UserService
+from .app import App
 
 __all__ = [
-    UserService
+    App
 ]

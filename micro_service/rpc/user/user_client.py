@@ -55,3 +55,29 @@ class UserClient(object):
         )
         data = message_to_json(response)
         return data
+
+    # def login(self, user_id):
+    #     # metadata = self.metadata
+    #     metadata = {}
+    #     request = user_pb2.GetUserRequest(
+    #         userId=user_id
+    #     )
+    #     response = self.client.stub.GetUserInfo(request,
+    #         metadata=metadata,
+    #         timeout=option.timeout_client_side,
+    #     )
+    #     data = message_to_json(response)
+    #     return data
+    #
+    # def logout(self, user_id):
+    #     # metadata = self.metadata
+    #     metadata = {}
+    #     request = user_pb2.GetUserRequest(
+    #         userId=user_id
+    #     )
+    #     response = self.client.stub.GetUserInfo(request,
+    #         metadata=metadata,
+    #         timeout=option.timeout_client_side,
+    #     )
+    #     data = message_to_json(response)
+    #     return data

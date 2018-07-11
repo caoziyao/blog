@@ -15,14 +15,23 @@ import json
 from bson import ObjectId
 from cryptography.fernet import Fernet
 from config import option
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta, date
 from tornado.httpclient import HTTPError
 from google.protobuf.json_format import MessageToJson
-
-# from src.common.exceptions import InternalError, ServerError
-# from src.common.server_code import EnumServiceCode, EnumSystemCode, error_msg_from_code
-
 logger = logging.getLogger('log')
+
+
+def ucode_json(data):
+    """
+
+    :param args:
+    :param kwargs:
+    :return:
+    """
+    s = json.loads(data, encoding='utf-8')
+    rdata = json.dumps(s, ensure_ascii=False)
+
+    return rdata
 
 
 def message_to_json(response):

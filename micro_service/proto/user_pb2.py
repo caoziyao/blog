@@ -19,41 +19,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/user.proto',
   package='user',
   syntax='proto3',
-  serialized_pb=_b('\n\x10proto/user.proto\x12\x04user\" \n\x0eGetUserRequest\x12\x0e\n\x06userId\x18\x01 \x01(\t\"S\n\x07MsgUser\x12\x0e\n\x06userId\x18\x01 \x01(\t\x12\x12\n\nupdateTime\x18\x02 \x01(\t\x12\x12\n\ncreateTime\x18\x03 \x01(\t\x12\x10\n\x08userName\x18\x04 \x01(\t\".\n\x0fGetUserResponse\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.user.MsgUser2B\n\x04User\x12:\n\x0bGetUserInfo\x12\x14.user.GetUserRequest\x1a\x15.user.GetUserResponseb\x06proto3')
+  serialized_pb=_b('\n\x10proto/user.proto\x12\x04user\"S\n\x07MsgUser\x12\x0e\n\x06userId\x18\x01 \x01(\t\x12\x12\n\nupdateTime\x18\x02 \x01(\t\x12\x12\n\ncreateTime\x18\x03 \x01(\t\x12\x10\n\x08userName\x18\x04 \x01(\t\"\x1f\n\rLogoutRequest\x12\x0e\n\x06userId\x18\x01 \x01(\t\"-\n\x0eLogoutResponse\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.user.MsgUser\"\x1e\n\x0cLoginRequest\x12\x0e\n\x06userId\x18\x01 \x01(\t\",\n\rLoginResponse\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.user.MsgUser\" \n\x0eGetUserRequest\x12\x0e\n\x06userId\x18\x01 \x01(\t\".\n\x0fGetUserResponse\x12\x1b\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32\r.user.MsgUser2\xa9\x01\n\x04User\x12:\n\x0bGetUserInfo\x12\x14.user.GetUserRequest\x1a\x15.user.GetUserResponse\x12\x30\n\x05Login\x12\x12.user.LoginRequest\x1a\x13.user.LoginResponse\x12\x33\n\x06Logout\x12\x13.user.LogoutRequest\x1a\x14.user.LogoutResponseb\x06proto3')
 )
 
 
-
-
-_GETUSERREQUEST = _descriptor.Descriptor(
-  name='GetUserRequest',
-  full_name='user.GetUserRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='userId', full_name='user.GetUserRequest.userId', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=26,
-  serialized_end=58,
-)
 
 
 _MSGUSER = _descriptor.Descriptor(
@@ -103,8 +72,163 @@ _MSGUSER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=60,
-  serialized_end=143,
+  serialized_start=26,
+  serialized_end=109,
+)
+
+
+_LOGOUTREQUEST = _descriptor.Descriptor(
+  name='LogoutRequest',
+  full_name='user.LogoutRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='user.LogoutRequest.userId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=111,
+  serialized_end=142,
+)
+
+
+_LOGOUTRESPONSE = _descriptor.Descriptor(
+  name='LogoutResponse',
+  full_name='user.LogoutResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='data', full_name='user.LogoutResponse.data', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=144,
+  serialized_end=189,
+)
+
+
+_LOGINREQUEST = _descriptor.Descriptor(
+  name='LoginRequest',
+  full_name='user.LoginRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='user.LoginRequest.userId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=191,
+  serialized_end=221,
+)
+
+
+_LOGINRESPONSE = _descriptor.Descriptor(
+  name='LoginResponse',
+  full_name='user.LoginResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='data', full_name='user.LoginResponse.data', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=223,
+  serialized_end=267,
+)
+
+
+_GETUSERREQUEST = _descriptor.Descriptor(
+  name='GetUserRequest',
+  full_name='user.GetUserRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='userId', full_name='user.GetUserRequest.userId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=269,
+  serialized_end=301,
 )
 
 
@@ -134,22 +258,21 @@ _GETUSERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=145,
-  serialized_end=191,
+  serialized_start=303,
+  serialized_end=349,
 )
 
+_LOGOUTRESPONSE.fields_by_name['data'].message_type = _MSGUSER
+_LOGINRESPONSE.fields_by_name['data'].message_type = _MSGUSER
 _GETUSERRESPONSE.fields_by_name['data'].message_type = _MSGUSER
-DESCRIPTOR.message_types_by_name['GetUserRequest'] = _GETUSERREQUEST
 DESCRIPTOR.message_types_by_name['MsgUser'] = _MSGUSER
+DESCRIPTOR.message_types_by_name['LogoutRequest'] = _LOGOUTREQUEST
+DESCRIPTOR.message_types_by_name['LogoutResponse'] = _LOGOUTRESPONSE
+DESCRIPTOR.message_types_by_name['LoginRequest'] = _LOGINREQUEST
+DESCRIPTOR.message_types_by_name['LoginResponse'] = _LOGINRESPONSE
+DESCRIPTOR.message_types_by_name['GetUserRequest'] = _GETUSERREQUEST
 DESCRIPTOR.message_types_by_name['GetUserResponse'] = _GETUSERRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-GetUserRequest = _reflection.GeneratedProtocolMessageType('GetUserRequest', (_message.Message,), dict(
-  DESCRIPTOR = _GETUSERREQUEST,
-  __module__ = 'proto.user_pb2'
-  # @@protoc_insertion_point(class_scope:user.GetUserRequest)
-  ))
-_sym_db.RegisterMessage(GetUserRequest)
 
 MsgUser = _reflection.GeneratedProtocolMessageType('MsgUser', (_message.Message,), dict(
   DESCRIPTOR = _MSGUSER,
@@ -157,6 +280,41 @@ MsgUser = _reflection.GeneratedProtocolMessageType('MsgUser', (_message.Message,
   # @@protoc_insertion_point(class_scope:user.MsgUser)
   ))
 _sym_db.RegisterMessage(MsgUser)
+
+LogoutRequest = _reflection.GeneratedProtocolMessageType('LogoutRequest', (_message.Message,), dict(
+  DESCRIPTOR = _LOGOUTREQUEST,
+  __module__ = 'proto.user_pb2'
+  # @@protoc_insertion_point(class_scope:user.LogoutRequest)
+  ))
+_sym_db.RegisterMessage(LogoutRequest)
+
+LogoutResponse = _reflection.GeneratedProtocolMessageType('LogoutResponse', (_message.Message,), dict(
+  DESCRIPTOR = _LOGOUTRESPONSE,
+  __module__ = 'proto.user_pb2'
+  # @@protoc_insertion_point(class_scope:user.LogoutResponse)
+  ))
+_sym_db.RegisterMessage(LogoutResponse)
+
+LoginRequest = _reflection.GeneratedProtocolMessageType('LoginRequest', (_message.Message,), dict(
+  DESCRIPTOR = _LOGINREQUEST,
+  __module__ = 'proto.user_pb2'
+  # @@protoc_insertion_point(class_scope:user.LoginRequest)
+  ))
+_sym_db.RegisterMessage(LoginRequest)
+
+LoginResponse = _reflection.GeneratedProtocolMessageType('LoginResponse', (_message.Message,), dict(
+  DESCRIPTOR = _LOGINRESPONSE,
+  __module__ = 'proto.user_pb2'
+  # @@protoc_insertion_point(class_scope:user.LoginResponse)
+  ))
+_sym_db.RegisterMessage(LoginResponse)
+
+GetUserRequest = _reflection.GeneratedProtocolMessageType('GetUserRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETUSERREQUEST,
+  __module__ = 'proto.user_pb2'
+  # @@protoc_insertion_point(class_scope:user.GetUserRequest)
+  ))
+_sym_db.RegisterMessage(GetUserRequest)
 
 GetUserResponse = _reflection.GeneratedProtocolMessageType('GetUserResponse', (_message.Message,), dict(
   DESCRIPTOR = _GETUSERRESPONSE,
@@ -173,8 +331,8 @@ _USER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=193,
-  serialized_end=259,
+  serialized_start=352,
+  serialized_end=521,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetUserInfo',
@@ -183,6 +341,24 @@ _USER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETUSERREQUEST,
     output_type=_GETUSERRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Login',
+    full_name='user.User.Login',
+    index=1,
+    containing_service=None,
+    input_type=_LOGINREQUEST,
+    output_type=_LOGINRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Logout',
+    full_name='user.User.Logout',
+    index=2,
+    containing_service=None,
+    input_type=_LOGOUTREQUEST,
+    output_type=_LOGOUTRESPONSE,
     options=None,
   ),
 ])

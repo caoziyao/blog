@@ -6,31 +6,24 @@
 @time: 2018/7/10 
 @desc:
 """
-from micro_services.api import ApiService
+import os
+from micro_services.api_kuaibiji import ApiService
 from micro_services.notebook import NotebookService
 from common.logger import log
-from micro_services.user import UserService
+from micro_services.user import App as user_app
+from micro_services.weixin import App as weixin_app
 from multiprocessing import Pool
-import os
-import random
-import time
 
 
-# def worker(num):
-#     for i in range(5):
-#         print('===pid=%d==num=%d=' % (os.getpid(), num))
-#         time.sleep(1)
-#
-#
-#
-#
-# # 子进程要执行的代码
-# def run_proc(name):
-#
+def run_weixin(name):
+    print('Run child process %s (%s)...' % (name, os.getpid()))
+    s = weixin_app()
+    s.run()
+
 
 def run_user(name):
     print('Run child process %s (%s)...' % (name, os.getpid()))
-    s = UserService()
+    s = user_app()
     s.run()
 
 
@@ -51,7 +44,8 @@ def main():
     pool = Pool(5)
     pool.apply_async(run_user, ('run_user',))
     pool.apply_async(run_notebook, ('run_notebook',))
-    pool.apply_async(run_api, ('run_api',))
+    pool.apply_async(run_weixin, ('run_weixin',))
+    # pool.apply_async(run_api, ('run_api',))
 
     pool.close()  # 关闭进程池
     pool.join()  # 主进程在这里等待，只有子进程全部结束之后，在会开启主线程

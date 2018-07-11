@@ -7,8 +7,10 @@
 @desc:
 """
 
-from .mongo_manger import mongodb
+from .mongo_manger import MongoManger
+from .redis_manger import RedisManager
 
 __all__ = [
-    mongodb
+    MongoManger,
+    RedisManager,
 ]

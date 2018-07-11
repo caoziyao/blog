@@ -5,10 +5,8 @@ from proto import user_pb2 as proto_dot_user__pb2
 
 
 class UserStub(object):
-  """service 定义开放调用的服务，即 NotebookService 微服务
-  rpc 定义服务内的 GetNotebookInfo 远程调用
-  方法名  方法参数                 返回值
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
   def __init__(self, channel):
     """Constructor.
@@ -21,17 +19,39 @@ class UserStub(object):
         request_serializer=proto_dot_user__pb2.GetUserRequest.SerializeToString,
         response_deserializer=proto_dot_user__pb2.GetUserResponse.FromString,
         )
+    self.Login = channel.unary_unary(
+        '/user.User/Login',
+        request_serializer=proto_dot_user__pb2.LoginRequest.SerializeToString,
+        response_deserializer=proto_dot_user__pb2.LoginResponse.FromString,
+        )
+    self.Logout = channel.unary_unary(
+        '/user.User/Logout',
+        request_serializer=proto_dot_user__pb2.LogoutRequest.SerializeToString,
+        response_deserializer=proto_dot_user__pb2.LogoutResponse.FromString,
+        )
 
 
 class UserServicer(object):
-  """service 定义开放调用的服务，即 NotebookService 微服务
-  rpc 定义服务内的 GetNotebookInfo 远程调用
-  方法名  方法参数                 返回值
-  """
+  # missing associated documentation comment in .proto file
+  pass
 
   def GetUserInfo(self, request, context):
-    """rpc GetNotebookInfo (NotebookRequest) returns (NotebookResponse);
-    """
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Login(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Logout(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -43,6 +63,16 @@ def add_UserServicer_to_server(servicer, server):
           servicer.GetUserInfo,
           request_deserializer=proto_dot_user__pb2.GetUserRequest.FromString,
           response_serializer=proto_dot_user__pb2.GetUserResponse.SerializeToString,
+      ),
+      'Login': grpc.unary_unary_rpc_method_handler(
+          servicer.Login,
+          request_deserializer=proto_dot_user__pb2.LoginRequest.FromString,
+          response_serializer=proto_dot_user__pb2.LoginResponse.SerializeToString,
+      ),
+      'Logout': grpc.unary_unary_rpc_method_handler(
+          servicer.Logout,
+          request_deserializer=proto_dot_user__pb2.LogoutRequest.FromString,
+          response_serializer=proto_dot_user__pb2.LogoutResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

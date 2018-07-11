@@ -12,14 +12,14 @@ import logging
 import traceback
 from bson import ObjectId
 from datetime import datetime
-from database import mongodb
+from database import MongoManger
 
 
 class BaseModel(object):
     def __init__(self, table_name):
         self._table_name = table_name
         self._document = {}
-        self.db = mongodb
+        self.db = MongoManger().db
         self.col = self.get_collection(table_name)
 
     def get_collection(self, coll_name):
