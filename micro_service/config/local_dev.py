@@ -31,6 +31,9 @@ class LocalDevConfig(DefaultConfig):
     redis_cluster = 0
     redis_cache_timeout = 5 * 60
 
+    # mysql
+    mysql_engine = 'mysql+pymysql://root:dbj@test#JIJ8@localhost:3308/db_notebook?charset=utf8'
+
     # service
     api_srv_port = 5001
     api_host = '0.0.0.0'

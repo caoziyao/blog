@@ -3,94 +3,39 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/7/6 
+@time: 2018/7/13
 @desc:
 """
-
-import pymongo
-import logging
-import traceback
+from datetime import datetime
+from sqlalchemy import Column, String, Integer, DateTime
 from .base_model import BaseModel
+from database import Base
 
-logger = logging.getLogger('dblog')
 
+class NotebookModel(Base):
+    __tablename__ = 'tb_notebook'
 
-class NoteBookModel(BaseModel):
-    """
-    笔记本
-    """
+    # 表的结构:
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    update_time = Column(DateTime, default=datetime.utcnow)
+    create_time = Column(DateTime, default=datetime.utcnow)
 
-    def __init__(self):
-        self.coll_name = 'tb_notebook'
-        super(NoteBookModel, self).__init__(self.coll_name)
-
-    def ensure_index(self):
-        """
-        添加索引
-        :return:
-        """
-        result = self.col.ensure_index([('title', pymongo.ASCENDING)], unique=True)
-        return result
-
-    def notebook_one_by_query(self, query, fields=None):
-        """
-        加载多条数据
-        :param query: 查询条件
-        :param fields: 是列表 []
-        :return:
-        """
-        need_fields = self.need_fields_dict(fields)
-        res = self.load_one_data(query, need_fields)
-        if res:
-            l = self.mongodb_to_dict(res)
-            return l
-        else:
-            return {}
-
-    def notebook_by_query(self, query, fields=None):
-        """
-        加载多条数据
-        :param query: 查询条件
-        :param fields: 是列表 []
-        :return:
-        """
-        need_fields = self.need_fields_dict(fields)
-        res = self.load_data(query, need_fields)
-        if res:
-            l = self.mongo_cursor_to_list(res)
-            return l
-        else:
-            return []
-
-    def add_notebook(self):
-        """
-        添加数据到数据库
-        :param keyword:
-        :return:
-        """
-        res = self.add_data()
-        return res
-
-    def update_notebook(self, spec):
-        """
-        将内存中的项目数据以更新的方式存入数据库
-        :return:
-        """
-        res = self.update_data(spec)
-        return res
-
-    def delete_notebook(self, query):
-        """
-         将数据从数据库中删除
-        :return:
-        """
-        result = self.delete_data(query)
-        return result
-
-    def delete_one_notebook(self, query):
-        """
-         将数据从数据库中删除一条数据
-        :return:
-        """
-        result = self.delete_one_data(query)
-        return result
+# session = MySQLManger().session()
+# # 创建新User对象:
+#
+# user = session.query(Notebook).filter(Notebook.id == 1).all()
+# new_user = Notebook(name='Bob')
+# # 添加到session:
+# session.add(new_user)
+# # 提交即保存到数据库:
+# session.commit()
+# # 关闭session:
+# session.close()
+#
+# # 创建Session:
+# s = MySQLManger().session()
+# # 创建Query查询，filter是where条件，最后调用one()返回唯一行，如果调用all()则返回所有行:
+# user = s.query(Notebook).all()
+# # 打印类型和对象的name属性:
+# print(user)

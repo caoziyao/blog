@@ -3,7 +3,7 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/7/10 
+@time: 2018/7/10
 @desc:
 """
 import time
@@ -11,10 +11,11 @@ import grpc
 from concurrent import futures
 from proto import notebook_pb2_grpc
 from config import option
-from .services.notebook import Greeter
+from .services.notebook_service import Greeter
+from common.logger import log
 
 
-class NotebookService(object):
+class App(object):
 
     def __init__(self):
         self.server = grpc.server(futures.ThreadPoolExecutor(max_workers=option.max_workers))

@@ -3,58 +3,24 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/7/6
+@time: 2018/7/6 
 @desc:
 """
 
-import sys
 import copy
 import logging
 import traceback
 from bson import ObjectId
-from config import option
-from pymongo import MongoClient
 from datetime import datetime
+from database import MongoManger
 
-from utilities.util import utc_to_localtime
 
-
-class MongoManger(object):
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if cls._instance is None:
-            cls._instance = super(MongoManger, cls).__new__(cls)
-        return cls._instance
-
-    def __init__(self):
-        self.host = option.mongodb_host
-        self.port = option.mongodb_port
-        self.admin = option.mongodb_admin
-        self.username = option.mongodb_username
-        self.passwd = option.mongodb_password
-        self.db_name = option.mongodb_db_name
-        self.db = self.connect_database()
-
-    def connect_database(self):
-        host = self.host
-        port = self.port
-        admin = self.admin
-        username = self.username
-        passwd = self.passwd
-        db_name = self.db_name
-
-        try:
-            client = MongoClient(host=host, port=port, connect=False)
-            admin = client[admin]
-            admin.authenticate(username, passwd)
-            db = client[db_name]
-            print('connect mongodb success {}:{} {}.'.format(host, port, db_name))
-            return db
-        except Exception as e:
-            logging.error(traceback.format_exc())
-            print('connect mongodb failed {}:{} {}.'.format(host, port, db_name))
-            sys.exit(1)
+class BaseModel(object):
+    def __init__(self, table_name):
+        self._table_name = table_name
+        self._document = {}
+        self.db = MongoManger().db
+        self.col = self.get_collection(table_name)
 
     def get_collection(self, coll_name):
         try:

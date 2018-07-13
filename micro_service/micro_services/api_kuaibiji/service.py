@@ -20,4 +20,5 @@ class ApiService(object):
 
     def run(self):
         config = app_config()
+        print('http://{}:{}'.format(config['host'], config['port']))
         app.run(**config)

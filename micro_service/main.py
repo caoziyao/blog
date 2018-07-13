@@ -7,23 +7,27 @@
 @desc:
 """
 import os
-from micro_services.api_kuaibiji import ApiService
-from micro_services.notebook import NotebookService
 from common.logger import log
-from micro_services.user import App as user_app
-from micro_services.weixin import App as weixin_app
+from micro_services.api_kuaibiji import ApiService
+from micro_services.notebook import App as app_notebook
+
+from micro_services.user import App as app_user
+from micro_services.weixin import App as app_weixin
 from multiprocessing import Pool
 
 
+log.error('error')
+log .debug('debug')
+
 def run_weixin(name):
     print('Run child process %s (%s)...' % (name, os.getpid()))
-    s = weixin_app()
+    s = app_weixin()
     s.run()
 
 
 def run_user(name):
     print('Run child process %s (%s)...' % (name, os.getpid()))
-    s = user_app()
+    s = app_user()
     s.run()
 
 
@@ -35,7 +39,7 @@ def run_api(name):
 
 def run_notebook(name):
     print('Run child process %s (%s)...' % (name, os.getpid()))
-    s = NotebookService()
+    s = app_notebook()
     s.run()
 
 
@@ -45,7 +49,7 @@ def main():
     pool.apply_async(run_user, ('run_user',))
     pool.apply_async(run_notebook, ('run_notebook',))
     pool.apply_async(run_weixin, ('run_weixin',))
-    # pool.apply_async(run_api, ('run_api',))
+    pool.apply_async(run_api, ('run_api',))
 
     pool.close()  # 关闭进程池
     pool.join()  # 主进程在这里等待，只有子进程全部结束之后，在会开启主线程

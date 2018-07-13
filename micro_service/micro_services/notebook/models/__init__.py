@@ -3,13 +3,15 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/7/6
+@time: 2018/7/13 
 @desc:
 """
 
-from .notebook_model import NoteBookModel
+from .notebook_model import NotebookModel
+from .note_model import NoteModel
 
 __all__ = [
-    NoteBookModel,
+    NoteModel,
+    NotebookModel,
 ]
 

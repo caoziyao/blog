@@ -46,11 +46,14 @@ class NoteBookClient(object):
         return client
 
     def get_notebooks(self):
+        """
+
+        :return:
+        """
         # metadata = self.metadata
         metadata = {}
-        metadata = {}
         request = notebook_pb2.GetNoteBookRequest(
-            user_id='oMNol0Yk9XeI_0jHsYuFgFsQ2h6s'
+            user_id='1'
         )
 
         response = self.client.stub.GetNotebookInfo(

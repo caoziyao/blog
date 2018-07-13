@@ -23,6 +23,10 @@ def user():
     user_client = UserClient()
     user = user_client.user_by_id(user_id)
     udata = user.get('data')
+
+    s = NoteBookClient()
+    data = s.get_notebooks()
+
     if udata:
         s = NoteBookClient()
         data = s.get_notebooks()

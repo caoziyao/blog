@@ -1,8 +1,8 @@
 # coding: utf-8
 
 
-from .service import NotebookService
+from .app import App
 
 __all__ = [
-    NotebookService
+    App
 ]

@@ -22,10 +22,6 @@ def creat_suite():
     return suite
 
 
-def option_define():
-    pass
-
-
 def main():
     suite = creat_suite_all()
     runner = unittest.TextTestRunner()

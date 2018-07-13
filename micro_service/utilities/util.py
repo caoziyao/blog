@@ -18,12 +18,12 @@ from config import option
 from datetime import datetime, timezone, timedelta, date
 from tornado.httpclient import HTTPError
 from google.protobuf.json_format import MessageToJson
+
 logger = logging.getLogger('log')
 
 
 def ucode_json(data):
     """
-
     :param args:
     :param kwargs:
     :return:
@@ -32,6 +32,32 @@ def ucode_json(data):
     rdata = json.dumps(s, ensure_ascii=False)
 
     return rdata
+
+
+def model_to_dict(model):
+    """
+    sqlachemy Model obj to dict
+    :param column:
+    :return:
+    """
+    d = {}
+    if model:
+        d = {c.name: getattr(model, c.name) for c in model.__table__.columns}
+    return d
+
+
+def models_to_list(models_list):
+    """
+    models_list
+    :param models_list:
+    :return:
+    """
+    l = []
+    for model in models_list:
+        d = model_to_dict(model)
+        l.append(d)
+
+    return l
 
 
 def message_to_json(response):

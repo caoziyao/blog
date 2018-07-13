@@ -22,9 +22,7 @@ class LoggerConfig(object):
         logger = logging.getLogger('log')  # 获取dblog的日志配置
         logger.info('init log')
 
-
 LoggerConfig()
 
 db_log = logging.getLogger('dblog')
 log = logging.getLogger('log')
-

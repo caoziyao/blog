@@ -13,5 +13,5 @@ from .views import mod_notebook
 
 def register_blue(app):
     app.register_blueprint(mod_index, url_prefix='/')
-    app.register_blueprint(mod_user, url_prefix='/user')
-    app.register_blueprint(mod_notebook, url_prefix='/notebook')
+    app.register_blueprint(mod_user, url_prefix='/api')
+    app.register_blueprint(mod_notebook, url_prefix='/api')
