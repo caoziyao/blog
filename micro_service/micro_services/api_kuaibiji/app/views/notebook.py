@@ -6,7 +6,7 @@
 @time: 2018/7/11 
 @desc:
 """
-from flask import request
+from flask import request, session
 from flask import Blueprint, render_template
 import json
 from rpc.notebook import NoteBookClient
@@ -16,12 +16,17 @@ from common.request_tool import send_failure, send_success
 mod = Blueprint('notebook', __name__)
 
 
-@mod.route('/notebook')
+@mod.route('/notebook', methods=['GET'])
 def user():
     args = request.args
-    user_id = args.get('user_id', '')
+    header = request.headers
+
+    notebook_id = args.get('notebook_id', '')
+    token = header.get('token', '')
+
+
     user_client = UserClient()
-    user = user_client.user_by_id(user_id)
+    user = user_client.user_by_id(notebook_id)
     udata = user.get('data')
 
     s = NoteBookClient()
@@ -36,5 +41,11 @@ def user():
 
 
 @mod.route('/notebook', methods=['POST'])
-def add_notebook():
+def notebook_add():
+    pass
+
+
+
+@mod.route('/notebook', methods=['DELETE'])
+def notebook_delete():
     pass

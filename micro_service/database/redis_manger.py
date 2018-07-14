@@ -46,14 +46,16 @@ class RedisClient(object):
 
 class RedisManager(object):
     _instance = None
-    default_retry_count = 2
+    default_retry_count = 1
 
     def __init__(self):
         self.client = RedisClient().client
+        self.expire_time = option.redis_cache_timeout
 
     def lock(self, lock_key):
         # model = DataCacheBase()
         # e = model.set(lock_key, "x", ex=self.default_retry_count, nx=True)
+        # EX second ：设置键的过期时间为 second 秒, NX ：只在键不存在时，才对键进行设置操作
         e = self.client.set(lock_key, "x", ex=self.default_retry_count, nx=True)
         return e
 
@@ -80,9 +82,7 @@ class RedisManager(object):
             real_data = json.loads(data)
             # 如果人为设置的超时时间超时了
             if real_data['expireat'] <= current:
-                # EX second ：设置键的过期时间为 second 秒, NX ：只在键不存在时，才对键进行设置操作
                 if self.lock(lock_key):
-                    # 如果获取到锁
                     return None
                 else:
                     # 如果没获取到锁
@@ -97,6 +97,7 @@ class RedisManager(object):
         避免redis超时时的惊群现象，请必须配合`get_bylock`使用
         调用方法与`setex`一样
         """
+        self.expire_time = expire_time
         current = int(time.time())
         expireat = current + expire_time - math.ceil(expire_time / 4)
         real_data = {
@@ -119,4 +120,4 @@ class RedisManager(object):
         self.client.delete(key)
 
 
-# data_cache = DataCacheManager()
+redis_client = RedisManager()

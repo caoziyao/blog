@@ -15,6 +15,12 @@ from config import option
 
 
 class LoggerConfig(object):
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(LoggerConfig, cls).__new__(cls)
+        return cls._instance
 
     def __init__(self):
         path = option.logging_conf_file  # 默认配置日志路径
@@ -22,7 +28,8 @@ class LoggerConfig(object):
         logger = logging.getLogger('log')  # 获取dblog的日志配置
         logger.info('init log')
 
+
 LoggerConfig()
 
-db_log = logging.getLogger('dblog')
+dblog = logging.getLogger('dblog')
 log = logging.getLogger('log')

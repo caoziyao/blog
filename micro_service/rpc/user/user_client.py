@@ -12,6 +12,7 @@ import grpc
 from utilities.util import message_to_json
 # from app.service.base_service import BaseService
 from rpc.client_wrapper import ServiceClient
+from common.exceptions import RPCException
 
 
 class UserClient(object):
@@ -40,8 +41,12 @@ class UserClient(object):
         pass
 
     def get_client(self):
-        client = ServiceClient(user_pb2_grpc, 'UserStub', self.host, self.port)
-        return client
+        try:
+            client = ServiceClient(user_pb2_grpc, 'UserStub', self.host, self.port)
+            return client
+        except grpc.RpcError as e:
+            msg = str(e)
+            raise RPCException(msg=msg)
 
     def user_by_id(self, user_id):
         # metadata = self.metadata
@@ -49,35 +54,15 @@ class UserClient(object):
         request = user_pb2.GetUserRequest(
             userId=user_id
         )
-        response = self.client.stub.GetUserInfo(request,
-            metadata=metadata,
-            timeout=option.timeout_client_side,
-        )
-        data = message_to_json(response)
-        return data
-
-    # def login(self, user_id):
-    #     # metadata = self.metadata
-    #     metadata = {}
-    #     request = user_pb2.GetUserRequest(
-    #         userId=user_id
-    #     )
-    #     response = self.client.stub.GetUserInfo(request,
-    #         metadata=metadata,
-    #         timeout=option.timeout_client_side,
-    #     )
-    #     data = message_to_json(response)
-    #     return data
-    #
-    # def logout(self, user_id):
-    #     # metadata = self.metadata
-    #     metadata = {}
-    #     request = user_pb2.GetUserRequest(
-    #         userId=user_id
-    #     )
-    #     response = self.client.stub.GetUserInfo(request,
-    #         metadata=metadata,
-    #         timeout=option.timeout_client_side,
-    #     )
-    #     data = message_to_json(response)
-    #     return data
+        try:
+            stub = self.client.stub
+            response = stub.GetUserInfo(request,
+                                        metadata=metadata,
+                                        timeout=option.timeout_client_side,
+                                        )
+        except grpc.RpcError as e:
+            msg = str(e)
+            raise RPCException(msg='calling rpc application')
+        else:
+            data = message_to_json(response)
+            return data

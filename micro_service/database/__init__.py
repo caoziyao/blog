@@ -8,12 +8,12 @@
 """
 
 from .mongo_manger import MongoManger
-from .redis_manger import RedisManager
+from .redis_manger import redis_client
 from .mysql_manger import MySQLManger, Base
 
 __all__ = [
     MongoManger,
-    RedisManager,
+    redis_client,
     MySQLManger,
     Base,
 ]

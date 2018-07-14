@@ -47,8 +47,8 @@ def main():
     # 3表示进程池中最多有三个进程一起执行
     pool = Pool(5)
     pool.apply_async(run_user, ('run_user',))
-    pool.apply_async(run_notebook, ('run_notebook',))
-    pool.apply_async(run_weixin, ('run_weixin',))
+    # pool.apply_async(run_notebook, ('run_notebook',))
+    # pool.apply_async(run_weixin, ('run_weixin',))
     pool.apply_async(run_api, ('run_api',))
 
     pool.close()  # 关闭进程池

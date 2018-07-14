@@ -14,6 +14,7 @@ import grpc
 from utilities.util import message_to_json
 # from app.service.base_service import BaseService
 from rpc.client_wrapper import ServiceClient
+from common.exceptions import RPCException
 
 
 class NoteBookClient(object):
@@ -42,8 +43,12 @@ class NoteBookClient(object):
         pass
 
     def get_client(self):
-        client = ServiceClient(notebook_pb2_grpc, 'NotebookStub', self.host, self.port)
-        return client
+        try:
+            client = ServiceClient(notebook_pb2_grpc, 'NotebookStub', self.host, self.port)
+            return client
+        except grpc.RpcError as e:
+            msg = str(e)
+            raise RPCException(msg=msg)
 
     def get_notebooks(self):
         """
@@ -56,11 +61,16 @@ class NoteBookClient(object):
             user_id='1'
         )
 
-        response = self.client.stub.GetNotebookInfo(
-            request,
-            metadata=metadata,
-            timeout=option.timeout_client_side,
-        )
-        s = message_to_json(response)
-        return s
-
+        stub = self.client.stub
+        try:
+            response = stub.GetNotebookInfo(
+                request,
+                metadata=metadata,
+                timeout=option.timeout_client_side,
+            )
+        except grpc.RpcError as e:
+            msg = str(e)
+            raise RPCException(msg='calling rpc application')
+        else:
+            s = message_to_json(response)
+            return s
