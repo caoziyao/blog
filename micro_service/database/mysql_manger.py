@@ -14,11 +14,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config import option
 from utilities.util import models_to_list, model_to_dict
+from common.logger import dblog
 
 # # 创建对象的基类:
 pymysql.install_as_MySQLdb()
 Base = declarative_base()
-engine = create_engine(option.mysql_engine)
 
 
 class MySQLManger(object):
@@ -31,7 +31,10 @@ class MySQLManger(object):
 
     def __init__(self):
         # 创建DBSession类型:
-        self.session = sessionmaker(bind=engine)
+        mysql_engine = option.mysql_engine.format(self.db_name)
+        engine = create_engine(mysql_engine)
+        DBSession = sessionmaker(bind=engine)
+        self.session = DBSession()
 
     def load_members(self, model):
         """

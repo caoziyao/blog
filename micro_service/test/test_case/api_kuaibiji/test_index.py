@@ -16,36 +16,36 @@ class FlaskrTestCase(BaseCase):
         rv = self.app.get('/')
         data = rv.data.decode()
         assert 'hello' in data
-
+    #
     def test_user(self):
         print('==========test_user=========')
         # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
-        rv = self.app.get('/user/user_info?user_id=121')
+        rv = self.app.get('/api/user_info?user_id=1')
         data = rv.data.decode()
-        # print('data', data)
+        # print('test_user data', data)
         assert 'data' in data
-
-    def test_notebook_info(self):
-        print('==========test_notebook info=========')
-        # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
-        rv = self.app.get('/notebook/notebook?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
-        data = rv.data.decode()
-        print('data', ucode_json(data), type(data))
-        assert 'data' in data
-
-    def test_weixin_login(self):
-        print('==========test_weixin_login=========')
-        # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
-        rv = self.app.get('/user/weixin_login?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
-        data = rv.data.decode()
-        # print('data', ucode_json(data), type(data))
-        # assert 'data' in data
-
-    def test_weixin_logout(self):
-        print('==========test_weixin_logout=========')
-        # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
-        rv = self.app.get('/user/weixin_logout?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
-        data = rv.data.decode()
-        # print('data', ucode_json(data), type(data))
-        # assert 'data' in data
+    #
+    # def test_notebook_info(self):
+    #     print('==========test_notebook info=========')
+    #     # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
+    #     rv = self.app.get('/notebook/notebook?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
+    #     data = rv.data.decode()
+    #     print('data', ucode_json(data), type(data))
+    #     assert 'data' in data
+    #
+    # def test_weixin_login(self):
+    #     print('==========test_weixin_login=========')
+    #     # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
+    #     rv = self.app.get('/user/weixin_login?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
+    #     data = rv.data.decode()
+    #     # print('data', ucode_json(data), type(data))
+    #     # assert 'data' in data
+    #
+    # def test_weixin_logout(self):
+    #     print('==========test_weixin_logout=========')
+    #     # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
+    #     rv = self.app.get('/user/weixin_logout?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
+    #     data = rv.data.decode()
+    #     # print('data', ucode_json(data), type(data))
+    #     # assert 'data' in data
 

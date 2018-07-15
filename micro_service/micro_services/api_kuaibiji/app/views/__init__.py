@@ -8,11 +8,9 @@
 """
 
 from .index import mod as mod_index
-from .user import mod as mod_user
 from .notebook import mod as mod_notebook
 
 __all__ = [
     mod_index,
-    mod_user,
     mod_notebook,
 ]

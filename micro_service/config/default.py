@@ -29,7 +29,7 @@ class DefaultConfig(object):
     session_timeout = 2 * day
 
     # redis 缓存时间
-    redis_cache_timeout = 5 * minute
+    # redis_cache_timeout = 5 * minute
 
     timeout_channel = 10
     timeout_client_side = seconds

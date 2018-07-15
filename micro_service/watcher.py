@@ -27,7 +27,7 @@ def kill_process():
     for process in process_list:
         process.kill()
         process.wait()
-        process = None
+        # process = None
 
 
 def start_process():

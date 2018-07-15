@@ -15,5 +15,5 @@ weixin_oauth_url = 'https://api.weixin.qq.com/sns/jscode2session'
 
 @unique
 class ResultCode(Enum):
-    failure = 0
-    success = 1
+    failure = 999
+    success = 0

@@ -10,15 +10,17 @@ import json
 from proto import user_pb2
 from proto import user_pb2_grpc
 from micro_services.user.database import UserManager
+from common.logger import log
+from utilities.util import dtime2str
 
 
 def data_to_fe(user):
     d = {}
     if user:
-        d['userId'] = user.get('user_id', '')
-        d['updateTime'] = user.get('update_time', '')
-        d['createTime'] = user.get('create_time', '')
-        d['userName'] = user.get('user_name', '')
+        d['userId'] = str(user.get('id', ''))
+        d['updateTime'] = dtime2str(user.get('update_time', ''))
+        d['createTime'] = dtime2str(user.get('create_time', ''))
+        d['userName'] = user.get('username', '')
     return d
 
 
@@ -27,13 +29,17 @@ def get_user_info(request, context):
     查询用户
     """
     metadata = dict(context.invocation_metadata())
-    print('metadata', metadata)
 
     user_id = request.userId
     user_manger = UserManager()
-    user_data = user_manger.user_by_userid(user_id)
+
+    query = {
+        'id': user_id
+    }
+    user_data = user_manger.user_from(query)
 
     data = data_to_fe(user_data)
+
     res = dict(
         data=data
     )

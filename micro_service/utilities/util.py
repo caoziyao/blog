@@ -12,6 +12,7 @@ import functools
 import logging
 import traceback
 import json
+from datetime import datetime
 from bson import ObjectId
 from cryptography.fernet import Fernet
 from config import option
@@ -20,6 +21,32 @@ from tornado.httpclient import HTTPError
 from google.protobuf.json_format import MessageToJson
 
 logger = logging.getLogger('log')
+
+
+def dtime2str(date, format="%Y-%m-%d %H:%M:%S"):
+    """
+
+    :param date: datetime
+    :return: str
+    """
+    if date:
+        s = datetime.strftime(date, format)
+        return s
+    else:
+        return ''
+
+
+def str2dtime(date_str, format="%Y-%m-%d %H:%M:%S"):
+    """
+
+    :param date: str
+    :return: datetime
+    """
+    if date_str:
+        d = datetime.strptime(date_str, format)
+        return d
+    else:
+        raise Exception('no datetime string')
 
 
 def ucode_json(data):

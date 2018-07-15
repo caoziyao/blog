@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import unittest
-from micro_services.api_kuaibiji import app_run as flaskr
+from micro_services.api_kuaibiji.service import ApiService
 
 class BaseCase(unittest.TestCase):
     """测试基础类"""
@@ -18,8 +18,9 @@ class BaseCase(unittest.TestCase):
         pass
 
     def setUp(self):
-        flaskr.app.config['TESTING'] = True
-        self.app = flaskr.app.test_client()
+        app = ApiService().make_app()
+        app.config['TESTING'] = True
+        self.app = app.test_client()
 
     def tearDown(self):
         pass

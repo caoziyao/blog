@@ -29,10 +29,11 @@ class LocalDevConfig(DefaultConfig):
     redis_max_connect = 1024
     redis_auto_connect = 1
     redis_cluster = 0
-    redis_cache_timeout = 5 * 60
+    redis_cache_timeout = 24 * 60 * 60
 
     # mysql
-    mysql_engine = 'mysql+pymysql://root:dbj@test#JIJ8@localhost:3308/db_notebook?charset=utf8'
+    # mysql_engine = 'mysql+pymysql://root:dbj@test#JIJ8@localhost:3308/db_notebook?charset=utf8'
+    mysql_engine = 'mysql+pymysql://root:dbj@test#JIJ8@localhost:3308/{}?charset=utf8'
 
     # service
     api_srv_port = 5001

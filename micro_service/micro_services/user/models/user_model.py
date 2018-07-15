@@ -17,9 +17,10 @@ class UserModel(Base):
 
     # 表的结构:
     id = Column(Integer, primary_key=True)
-    name = Column(String(255))
+    username = Column(String(255))
     update_time = Column(DateTime, default=datetime.utcnow)
     create_time = Column(DateTime, default=datetime.utcnow)
+
 
 
 # import pymongo

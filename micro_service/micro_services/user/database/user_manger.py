@@ -7,21 +7,21 @@
 @desc:
 """
 
-import logging
+from common.logger import dblog
 from micro_services.user.models import UserModel
 # from .note_manger import NoteManager
 from database import MySQLManger
 from utilities.util import models_to_list, model_to_dict
-
-logger = logging.getLogger('log')
 
 
 class UserManager(MySQLManger):
     _users = {}
 
     def __init__(self):
-        super(UserManager, self).__init__()
+        self.db_name = 'db_user'
         self.model = UserModel
+        super(UserManager, self).__init__()
+
 
     def add_user(self, data):
         """
@@ -95,7 +95,6 @@ class UserManager(MySQLManger):
             return True
         else:
             return False
-
 
 # import pymongo
 # from bson import ObjectId
