@@ -13,7 +13,8 @@ import grpc
 from utilities.util import message_to_json
 # from app.service.base_service import BaseService
 from rpc.client_wrapper import ServiceClient
-
+from common.exceptions import RPCException
+from .handlers import login
 
 class WeixinClient(object):
     _instance = None
@@ -41,21 +42,35 @@ class WeixinClient(object):
         pass
 
     def get_client(self):
-        client = ServiceClient(weixin_pb2_grpc, 'WeixinStub', self.host, self.port)
-        return client
+        try:
+            client = ServiceClient(weixin_pb2_grpc, 'WeixinStub', self.host, self.port)
+            return client
+        except grpc.RpcError as e:
+            msg = str(e)
+            raise RPCException(msg=msg)
 
-    def login(self, user_id):
+    def login(self, args):
         # metadata = self.metadata
-        metadata = {}
-        request = weixin_pb2.RequestWeixinLogin(
-            userId=user_id
-        )
-        response = self.client.stub.WeixinLogin(request,
-            metadata=metadata,
-            timeout=option.timeout_client_side,
-        )
-        data = message_to_json(response)
+        data = login(self.client, args)
         return data
+        # metadata = {}
+        # request = weixin_pb2.RequestWeixinLogin(
+        #     appid=appid,
+        #     secret=secret,
+        #     js_code=js_code,
+        #     grant_type=grant_type,
+        # )
+        # try:
+        #     response = self.client.stub.WeixinLogin(request,
+        #                                             metadata=metadata,
+        #                                             timeout=option.timeout_client_side,
+        #                                             )
+        # except grpc.RpcError as e:
+        #     msg = str(e)
+        #     raise RPCException(msg='calling rpc weixin application')
+        # else:
+        #     data = message_to_json(response)
+        #     return data
 
     def logout(self, user_id):
         # metadata = self.metadata
@@ -63,9 +78,14 @@ class WeixinClient(object):
         request = weixin_pb2.RequestWeixinLogout(
             userId=user_id
         )
-        response = self.client.stub.WeixinLogout(request,
-            metadata=metadata,
-            timeout=option.timeout_client_side,
-        )
-        data = message_to_json(response)
-        return data
+        try:
+            response = self.client.stub.WeixinLogout(request,
+                                                     metadata=metadata,
+                                                     timeout=option.timeout_client_side,
+                                                     )
+        except grpc.RpcError as e:
+            msg = str(e)
+            raise RPCException(msg='calling rpc weixin application')
+        else:
+            data = message_to_json(response)
+            return data

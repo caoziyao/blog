@@ -9,7 +9,7 @@
 import json
 import functools
 from enum import Enum
-from .constant import ResultCode
+from .constants import ResultCode
 from datetime import datetime
 from datetime import date
 from database import redis_client

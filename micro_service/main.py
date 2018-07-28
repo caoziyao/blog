@@ -46,7 +46,7 @@ def main():
     pool.apply_async(run_user, ('run_user',))
     pool.apply_async(run_notebook, ('run_notebook',))
     pool.apply_async(run_weixin, ('run_weixin',))
-    # pool.apply_async(run_api, ('run_api',))
+    pool.apply_async(run_api, ('run_api',))
 
     pool.close()  # 关闭进程池
     pool.join()  # 主进程在这里等待，只有子进程全部结束之后，在会开启主线程

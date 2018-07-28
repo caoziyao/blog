@@ -7,42 +7,26 @@
 @desc:
 """
 # import ipdb
-from flask import request, session, current_app, abort
-# from flask_login import current_user, login_user, logout_user, AnonymousUserMixin, UserMixin
-from flask import Blueprint, render_template, current_app, g
-import json
-from rpc.notebook import NoteBookClient
-from rpc.user import UserClient
-from common.request_tool import send_failure, send_success, login_required
-from database import redis_client
+from flask import request
+from flask import Blueprint
+from rpc.weixin import WeixinClient
+from common.request_tool import send_failure, send_success
+from common.constants import weixin_oauth_url, weixin_appid, weixin_secret
 
 mod = Blueprint('user_login', __name__)
 
+
 @mod.route('/login')
 def login():
-    # 'oMNol0Yk9XeI_0jHsYuFgFsQ2h6s'
     args = request.args
     code = args.get('code', '')
-    session.clear()
-    # WeixinService().weixin_login(code)
-    # session['user_id'] = 'adbd'
 
-    # username and password yes
-    username = 'abc'
-    token = 'jwmi hello ranndeeerom id'
-    data = {
-        'token': token,
-        'username': username,
+    args = {
+        'appid': weixin_appid,
+        'secret': weixin_secret,
+        'js_code': code,
+        'grant_type': 'authorization_code',
     }
-    redis_client.set_bylock(token, json.dumps(data))
+    data = WeixinClient().login(args)
 
-    # user = User('adbd')
-
-    # login_user(user, remember=True)
-
-    return send_success(msg='login ok')
-    # s = UserClient()
-    # user = s.user_by_id(user_id)
-    # user_data = user.get('data', '')
-    # if not user_data:
-    #     return send_failure(msg='no user')
+    return send_success(data=data)

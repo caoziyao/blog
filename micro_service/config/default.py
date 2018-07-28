@@ -32,6 +32,6 @@ class DefaultConfig(object):
     # redis_cache_timeout = 5 * minute
 
     timeout_channel = 10
-    timeout_client_side = seconds
+    timeout_client_side = 5 * minute
 
     logging_conf_file = os.path.join('config', 'log', 'logger.init')

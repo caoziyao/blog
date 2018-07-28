@@ -12,6 +12,6 @@ from .logout import mod as mod_logout
 
 
 def register_blue_user(app):
-    app.register_blueprint(mod_user_info, url_prefix='/api')
-    app.register_blueprint(mod_login, url_prefix='/api')
-    app.register_blueprint(mod_logout, url_prefix='/api')
+    app.register_blueprint(mod_user_info, url_prefix='/api/user')
+    app.register_blueprint(mod_login, url_prefix='/api/user')
+    app.register_blueprint(mod_logout, url_prefix='/api/user')

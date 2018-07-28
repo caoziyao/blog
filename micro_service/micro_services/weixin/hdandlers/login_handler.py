@@ -10,39 +10,42 @@ import requests
 import json
 from proto import weixin_pb2
 from proto import weixin_pb2_grpc
-from micro_services.user.database import UserManager
-from common.constant import weixin_oauth_url, weixin_appid, weixin_secret
+from common.constants import weixin_oauth_url, weixin_appid, weixin_secret
 
 
-def data_to_fe(user):
+def data_to_fe(data):
     d = {}
-    if user:
-        d['userId'] = user.get('user_id', '1')
-        d['updateTime'] = user.get('update_time', '2')
-        d['createTime'] = user.get('create_time', '3')
-        d['userName'] = user.get('user_name', '4')
+    if data:
+        d['openid'] = data.get('openid', '')
+        d['session_key'] = data.get('session_key', '')
+        d['unionid'] = data.get('unionid', '11')
     return d
 
 
 def login(request, context):
     """ 登录
     """
+    print('========ddd=====')
     metadata = dict(context.invocation_metadata())
-    print('metadata', metadata)
 
-    code = request.code
+    appid = request.appid
+    secret = request.secret
+    js_code = request.js_code
+    grant_type = request.grant_type
 
     url = weixin_oauth_url
     url_args = {
-        'appid': weixin_appid,
-        'secret': weixin_secret,
-        'js_code': code,
-        'grant_type': 'authorization_code',
+        'appid': appid,
+        'secret': secret,
+        'js_code': js_code,
+        'grant_type': grant_type,
     }
-    r = requests.get(url, url_args=url_args)
-    data = r.content
-    res = {
-        'data': data
-    }
+    r = requests.get(url, params=url_args)
 
-    return weixin_pb2.ResponseWeixinLogin(**res)
+    print('========rrrrrrrrr=====', r)
+    data = r.content.decode('utf-8')
+    if data:
+        data = json.loads(data)
+        data = data_to_fe(data)
+
+    return weixin_pb2.ResponseWeixinLogin(**data)

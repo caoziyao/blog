@@ -25,13 +25,14 @@ class FlaskrTestCase(BaseCase):
         # print('test_user data', data)
         assert 'data' in data
     #
-    # def test_notebook_info(self):
-    #     print('==========test_notebook info=========')
-    #     # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
-    #     rv = self.app.get('/notebook/notebook?user_id=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
-    #     data = rv.data.decode()
-    #     print('data', ucode_json(data), type(data))
-    #     assert 'data' in data
+    def test_api_login(self):
+        print('==========test_notebook info=========')
+        # oMNol0Yk9XeI_0jHsYuFgFsQ2h6s
+        rv = self.app.get('/api/login?code=oMNol0Yk9XeI_0jHsYuFgFsQ2h6s')
+        data = rv.data.decode()
+        # print('data', ucode_json(data), type(data))
+        print('data', data)
+        assert 'data' in data
     #
     # def test_weixin_login(self):
     #     print('==========test_weixin_login=========')

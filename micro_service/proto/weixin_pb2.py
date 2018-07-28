@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/weixin.proto',
   package='weixin',
   syntax='proto3',
-  serialized_pb=_b('\n\x12proto/weixin.proto\x12\x06weixin\"$\n\x12RequestWeixinLogin\x12\x0e\n\x06userId\x18\x01 \x01(\t\"#\n\x13ResponseWeixinLogin\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"%\n\x13RequestWeixinLogout\x12\x0e\n\x06userId\x18\x01 \x01(\t\"$\n\x14ResponseWeixinLogout\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t2\x9b\x01\n\x06Weixin\x12\x46\n\x0bWeixinLogin\x12\x1a.weixin.RequestWeixinLogin\x1a\x1b.weixin.ResponseWeixinLogin\x12I\n\x0cWeixinLogout\x12\x1b.weixin.RequestWeixinLogout\x1a\x1c.weixin.ResponseWeixinLogoutb\x06proto3')
+  serialized_pb=_b('\n\x12proto/weixin.proto\x12\x06weixin\"X\n\x12RequestWeixinLogin\x12\r\n\x05\x61ppid\x18\x01 \x01(\t\x12\x0e\n\x06secret\x18\x02 \x01(\t\x12\x0f\n\x07js_code\x18\x03 \x01(\t\x12\x12\n\ngrant_type\x18\x04 \x01(\t\"K\n\x13ResponseWeixinLogin\x12\x0e\n\x06openid\x18\x01 \x01(\t\x12\x13\n\x0bsession_key\x18\x02 \x01(\t\x12\x0f\n\x07unionid\x18\x03 \x01(\t\"%\n\x13RequestWeixinLogout\x12\x0e\n\x06userId\x18\x01 \x01(\t\"$\n\x14ResponseWeixinLogout\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t2\x9b\x01\n\x06Weixin\x12\x46\n\x0bWeixinLogin\x12\x1a.weixin.RequestWeixinLogin\x1a\x1b.weixin.ResponseWeixinLogin\x12I\n\x0cWeixinLogout\x12\x1b.weixin.RequestWeixinLogout\x1a\x1c.weixin.ResponseWeixinLogoutb\x06proto3')
 )
 
 
@@ -33,8 +33,29 @@ _REQUESTWEIXINLOGIN = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='userId', full_name='weixin.RequestWeixinLogin.userId', index=0,
+      name='appid', full_name='weixin.RequestWeixinLogin.appid', index=0,
       number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='secret', full_name='weixin.RequestWeixinLogin.secret', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='js_code', full_name='weixin.RequestWeixinLogin.js_code', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='grant_type', full_name='weixin.RequestWeixinLogin.grant_type', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -52,7 +73,7 @@ _REQUESTWEIXINLOGIN = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=30,
-  serialized_end=66,
+  serialized_end=118,
 )
 
 
@@ -64,8 +85,22 @@ _RESPONSEWEIXINLOGIN = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='data', full_name='weixin.ResponseWeixinLogin.data', index=0,
+      name='openid', full_name='weixin.ResponseWeixinLogin.openid', index=0,
       number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='session_key', full_name='weixin.ResponseWeixinLogin.session_key', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='unionid', full_name='weixin.ResponseWeixinLogin.unionid', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -82,8 +117,8 @@ _RESPONSEWEIXINLOGIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=103,
+  serialized_start=120,
+  serialized_end=195,
 )
 
 
@@ -113,8 +148,8 @@ _REQUESTWEIXINLOGOUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=105,
-  serialized_end=142,
+  serialized_start=197,
+  serialized_end=234,
 )
 
 
@@ -144,8 +179,8 @@ _RESPONSEWEIXINLOGOUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=144,
-  serialized_end=180,
+  serialized_start=236,
+  serialized_end=272,
 )
 
 DESCRIPTOR.message_types_by_name['RequestWeixinLogin'] = _REQUESTWEIXINLOGIN
@@ -190,8 +225,8 @@ _WEIXIN = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=183,
-  serialized_end=338,
+  serialized_start=275,
+  serialized_end=430,
   methods=[
   _descriptor.MethodDescriptor(
     name='WeixinLogin',
