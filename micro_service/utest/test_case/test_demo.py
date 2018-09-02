@@ -13,7 +13,7 @@ class TestDemoCase(BaseCase):
 
     def test_demo(self):
         """test_demo"""
-        print('hhh')
+        print('test_demo')
 
     @unittest.skip("I don't want to run this case.")
     def test_divide(self):
@@ -21,7 +21,7 @@ class TestDemoCase(BaseCase):
         # 跳过该测试
         self.assertEqual(2, 2)
 
-    @unittest.skipIf(True, "I don't want to run this case.")
+    @unittest.skipIf(False, "I don't want to run this case.")
     def test_condition(self):
         """test_condition"""
         # 第一个参数为 True 跳过该测试
