@@ -9,7 +9,7 @@
 # import ipdb
 from flask import request
 from flask import Blueprint
-from rpc.weixin import WeixinClient
+from rpc_client.weixin import WeixinClient
 from common.request_tool import send_failure, send_success
 from common.constants import weixin_oauth_url, weixin_appid, weixin_secret
 

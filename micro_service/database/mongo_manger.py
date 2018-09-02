@@ -12,7 +12,7 @@ import copy
 import logging
 import traceback
 from bson import ObjectId
-from config import option
+from config import config
 from pymongo import MongoClient
 from datetime import datetime
 
@@ -28,12 +28,12 @@ class MongoManger(object):
         return cls._instance
 
     def __init__(self):
-        self.host = option.mongodb_host
-        self.port = option.mongodb_port
-        self.admin = option.mongodb_admin
-        self.username = option.mongodb_username
-        self.passwd = option.mongodb_password
-        self.db_name = option.mongodb_db_name
+        self.host = config.mongodb_host
+        self.port = config.mongodb_port
+        self.admin = config.mongodb_admin
+        self.username = config.mongodb_username
+        self.passwd = config.mongodb_password
+        self.db_name = config.mongodb_db_name
         self.db = self.connect_database()
 
     def connect_database(self):

@@ -11,7 +11,7 @@ import time
 import grpc
 from concurrent import futures
 from proto import user_pb2_grpc
-from config import option
+from config import config
 from common.constants import weixin_oauth_url, weixin_appid, weixin_secret
 import json
 from proto import weixin_pb2, weixin_pb2_grpc

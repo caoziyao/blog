@@ -21,7 +21,7 @@ class Config(object):
 
     def __init__(self, mode):
         self.mode = mode
-        self.option = None
+        self.config = None
         self.local_config()
 
     def local_config(self):
@@ -36,7 +36,7 @@ class Config(object):
             # 本地开发配置
             conf = LocalDevConfig
 
-        self.option = conf
+        self.config = conf
 
 
-option = Config('local_dev').option
+config = Config('local_dev').config

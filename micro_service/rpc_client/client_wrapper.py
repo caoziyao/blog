@@ -9,12 +9,12 @@
 import sys
 import grpc
 from functools import partial
-from config import option
+from config import config
 
 
 class ServiceClient(object):
 
-    def __init__(self, service_module, stub_name, host, port, timeout=option.timeout_channel):
+    def __init__(self, service_module, stub_name, host, port, timeout=config.timeout_channel):
         self.service_module = service_module
         self.stub_name = stub_name
         self.host = host

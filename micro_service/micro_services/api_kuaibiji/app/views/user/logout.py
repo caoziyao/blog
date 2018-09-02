@@ -12,8 +12,8 @@ from flask import request, session, current_app, abort
 # from flask_login import current_user, login_user, logout_user, AnonymousUserMixin, UserMixin
 from flask import Blueprint, render_template, current_app, g
 import json
-from rpc.notebook import NoteBookClient
-from rpc.user import UserClient
+from rpc_client.notebook import NoteBookClient
+from rpc_client.user import UserClient
 from common.request_tool import send_failure, send_success, login_required
 from database import redis_client
 

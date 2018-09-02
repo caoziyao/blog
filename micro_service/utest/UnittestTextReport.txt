@@ -1,0 +1,11 @@
+test_condition (utest.test_case.test_demo.TestDemoCase)
+test_condition ... skipped "I don't want to run this case."
+test_demo (utest.test_case.test_demo.TestDemoCase)
+test_demo ... ok
+test_divide (utest.test_case.test_demo.TestDemoCase)
+test_divide ... skipped "I don't want to run this case."
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK (skipped=2)

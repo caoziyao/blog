@@ -13,7 +13,7 @@ import random
 import json
 import math
 import logging
-from config import option
+from config import config
 
 # from src.models import DataCacheBase
 # from .init_data_cache import client
@@ -31,10 +31,10 @@ class RedisClient(object):
         return cls._instance
 
     def __init__(self):
-        host = option.redis_host
-        port = option.redis_port
-        # password = option.redis_password
-        db = option.redis_db
+        host = config.redis_host
+        port = config.redis_port
+        # password = config.redis_password
+        db = config.redis_db
 
         # pool = redis.ConnectionPool(host=host, port=port, password=password, db=db)
         pool = redis.ConnectionPool(host=host, port=port, db=db)
@@ -51,7 +51,7 @@ class RedisManager(object):
 
     def __init__(self):
         self.client = RedisClient().client
-        self.expire_time = option.redis_cache_timeout
+        self.expire_time = config.redis_cache_timeout
 
     def lock(self, lock_key):
         # model = DataCacheBase()
@@ -93,7 +93,7 @@ class RedisManager(object):
         else:
             return None
 
-    def set_bylock(self, key, data, expire_time=option.redis_cache_timeout):
+    def set_bylock(self, key, data, expire_time=config.redis_cache_timeout):
         """
         避免redis超时时的惊群现象，请必须配合`get_bylock`使用
         调用方法与`setex`一样

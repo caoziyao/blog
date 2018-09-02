@@ -11,7 +11,7 @@ import logging
 import logging.config
 import json
 from logging import Logger
-from config import option
+from config import config
 
 
 class LoggerConfig(object):
@@ -23,7 +23,7 @@ class LoggerConfig(object):
         return cls._instance
 
     def __init__(self):
-        path = option.logging_conf_file  # 默认配置日志路径
+        path = config.logging_conf_file  # 默认配置日志路径
         logging.config.fileConfig(path)
         logger = logging.getLogger('log')  # 获取dblog的日志配置
         logger.info('init log')

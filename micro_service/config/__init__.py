@@ -7,8 +7,8 @@
 @desc:
 """
 
-from .config import option
+from .config import config
 
 __all__ = [
-    option
+    config
 ]

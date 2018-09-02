@@ -12,7 +12,7 @@ from datetime import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from config import option
+from config import config
 from utilities.util import models_to_list, model_to_dict
 from common.logger import dblog
 
@@ -31,7 +31,7 @@ class MySQLManger(object):
 
     def __init__(self):
         # 创建DBSession类型:
-        mysql_engine = option.mysql_engine.format(self.db_name)
+        mysql_engine = config.mysql_engine.format(self.db_name)
         engine = create_engine(mysql_engine)
         DBSession = sessionmaker(bind=engine)
         self.session = DBSession()

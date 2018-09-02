@@ -11,28 +11,28 @@ import time
 import grpc
 from concurrent import futures
 from proto import weixin_pb2_grpc
-from config import option
+from config import config
 from .services import WeixinService
 
 
 class App(object):
 
     def __init__(self):
-        self.server = grpc.server(futures.ThreadPoolExecutor(max_workers=option.max_workers))
+        self.server = grpc.server(futures.ThreadPoolExecutor(max_workers=config.max_workers))
         weixin_pb2_grpc.add_WeixinServicer_to_server(WeixinService(), self.server)
 
-        ins_port = '[::]:{}'.format(option.weixin_port)
+        ins_port = '[::]:{}'.format(config.weixin_port)
         self.server.add_insecure_port(ins_port)
 
     def delay(self):
         try:
             while True:
-                time.sleep(option.day)
+                time.sleep(config.day)
         except KeyboardInterrupt:
             self.server.stop(0)
 
     def run(self):
         # gRPC 服务器
-        print('run weixin {}:{}'.format(str(option.weixin_host), str(option.weixin_port)))
+        print('run weixin {}:{}'.format(str(config.weixin_host), str(config.weixin_port)))
         self.server.start()  # start() 不会阻塞，如果运行时你的代码没有其它的事情可做，你可能需要循环等待。
         self.delay()

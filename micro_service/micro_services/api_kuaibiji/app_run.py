@@ -7,7 +7,7 @@
 @desc: api 服务
 """
 
-# from config import option
+# from config import config
 # from flask import Flask
 # from flask_login import LoginManager, UserMixin
 # from .app.routes import register_blue
@@ -45,9 +45,9 @@
 #
 # def app_config():
 #     config = dict(
-#         port=option.api_port,
-#         host=option.api_host,
-#         debug=option.debug,
+#         port=config.api_port,
+#         host=config.api_host,
+#         debug=config.debug,
 #     )
 #     return config
 #

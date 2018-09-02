@@ -8,11 +8,11 @@
 """
 from common.logger import log, dblog
 import grpc
-from config import option
+from config import config
 import traceback
 from flask import Flask, current_app, g
 from concurrent import futures
-from config import option
+from config import config
 from common.request_tool import send_failure, send_success
 from .app.routes import register_blue
 from .app.handlers import BaseHandler
@@ -36,7 +36,7 @@ def error_handler_500(error):
     :return:
     """
     err_msg = traceback.format_exc()
-    if option.debug:
+    if config.debug:
         data = {
             'debug_info': err_msg
         }
@@ -66,10 +66,10 @@ class ApiService(object):
 
     def run(self):
         config = dict(
-            port=option.api_port,
-            host=option.api_host,
+            port=config.api_port,
+            host=config.api_host,
             debug=False,
-            # debug=option.debug,
+            # debug=config.debug,
         )
         print('http://{}:{}'.format(config['host'], config['port']))
         app.run(**config)

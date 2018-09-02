@@ -8,11 +8,11 @@
 """
 
 from proto import weixin_pb2, weixin_pb2_grpc
-from config import option
+from config import config
 import grpc
 from utilities.util import message_to_json
 # from app.service.base_service import BaseService
-from rpc.client_wrapper import ServiceClient
+from rpc_client.client_wrapper import ServiceClient
 from common.exceptions import RPCException
 from .handlers import login
 
@@ -27,8 +27,8 @@ class WeixinClient(object):
     def __init__(self):
         super(WeixinClient, self).__init__()
         self.server_name = 'srv-weixin'
-        self.host = option.weixin_host
-        self.port = option.weixin_port
+        self.host = config.weixin_host
+        self.port = config.weixin_port
 
     @property
     def client(self):
@@ -63,7 +63,7 @@ class WeixinClient(object):
         # try:
         #     response = self.client.stub.WeixinLogin(request,
         #                                             metadata=metadata,
-        #                                             timeout=option.timeout_client_side,
+        #                                             timeout=config.timeout_client_side,
         #                                             )
         # except grpc.RpcError as e:
         #     msg = str(e)
@@ -81,7 +81,7 @@ class WeixinClient(object):
         try:
             response = self.client.stub.WeixinLogout(request,
                                                      metadata=metadata,
-                                                     timeout=option.timeout_client_side,
+                                                     timeout=config.timeout_client_side,
                                                      )
         except grpc.RpcError as e:
             msg = str(e)

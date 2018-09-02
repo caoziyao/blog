@@ -8,7 +8,7 @@
 """
 from proto import notebook_pb2
 from proto import notebook_pb2_grpc
-from rpc.user import UserClient
+from rpc_client.user import UserClient
 from micro_services.notebook.database import NoteBookManager
 from micro_services.notebook.handlers import get_notebook
 

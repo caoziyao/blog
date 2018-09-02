@@ -3,33 +3,31 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/7/6
+@time: 2018/7/8 
 @desc:
 """
-from proto import notebook_pb2
-from proto import notebook_pb2_grpc, user_pb2, user_pb2_grpc
-from rpc.user import UserClient
-from config import option
+from proto import user_pb2, user_pb2_grpc
+from config import config
 import grpc
 from utilities.util import message_to_json
 # from app.service.base_service import BaseService
-from rpc.client_wrapper import ServiceClient
+from rpc_client.client_wrapper import ServiceClient
 from common.exceptions import RPCException
 
 
-class NoteBookClient(object):
+class UserClient(object):
     _instance = None
 
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
-            cls._instance = super(NoteBookClient, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(UserClient, cls).__new__(cls, *args, **kwargs)
         return cls._instance
 
     def __init__(self):
-        super(NoteBookClient, self).__init__()
-        self.server_name = 'srv-notebook'
-        self.host = option.notebook_host
-        self.port = option.notebook_port
+        super(UserClient, self).__init__()
+        self.server_name = 'srv-user'
+        self.host = config.user_host
+        self.port = config.user_port
 
     @property
     def client(self):
@@ -44,33 +42,27 @@ class NoteBookClient(object):
 
     def get_client(self):
         try:
-            client = ServiceClient(notebook_pb2_grpc, 'NotebookStub', self.host, self.port)
+            client = ServiceClient(user_pb2_grpc, 'UserStub', self.host, self.port)
             return client
         except grpc.RpcError as e:
             msg = str(e)
             raise RPCException(msg=msg)
 
-    def get_notebooks(self):
-        """
-
-        :return:
-        """
+    def user_by_id(self, user_id):
         # metadata = self.metadata
         metadata = {}
-        request = notebook_pb2.GetNoteBookRequest(
-            user_id='1'
+        request = user_pb2.GetUserRequest(
+            userId=user_id
         )
-
-        stub = self.client.stub
         try:
-            response = stub.GetNotebookInfo(
-                request,
-                metadata=metadata,
-                timeout=option.timeout_client_side,
-            )
+            stub = self.client.stub
+            response = stub.GetUserInfo(request,
+                                        metadata=metadata,
+                                        timeout=config.timeout_client_side,
+                                        )
         except grpc.RpcError as e:
             msg = str(e)
             raise RPCException(msg='calling rpc application')
         else:
-            s = message_to_json(response)
-            return s
+            data = message_to_json(response)
+            return data

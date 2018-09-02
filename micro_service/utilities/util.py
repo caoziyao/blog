@@ -15,7 +15,7 @@ import json
 from datetime import datetime
 from bson import ObjectId
 from cryptography.fernet import Fernet
-from config import option
+from config import config
 from datetime import datetime, timezone, timedelta, date
 from tornado.httpclient import HTTPError
 from google.protobuf.json_format import MessageToJson
@@ -150,7 +150,7 @@ def encrypt(code):
     :return:
     """
     code = code.encode()
-    key = option.secret.encode()
+    key = config.secret.encode()
     f = Fernet(key)
     token = f.encrypt(code).decode()
     return token
@@ -164,7 +164,7 @@ def decrypt(code):
     """
     try:
         bcode = code.encode()
-        key = option.secret.encode()
+        key = config.secret.encode()
         f = Fernet(key)
         de = f.decrypt(bcode)
 
@@ -193,6 +193,6 @@ def hexdigest(pwd):
 def delay(server):
     try:
         while True:
-            time.sleep(option.day)
+            time.sleep(config.day)
     except KeyboardInterrupt:
         server.stop(0)

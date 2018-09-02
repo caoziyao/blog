@@ -9,8 +9,8 @@
 from flask import request, session
 from flask import Blueprint, render_template
 import json
-from rpc.notebook import NoteBookClient
-from rpc.user import UserClient
+from rpc_client.notebook import NoteBookClient
+from rpc_client.user import UserClient
 from common.request_tool import send_failure, send_success
 
 mod = Blueprint('notebook', __name__)
