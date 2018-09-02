@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  kuaibiji-consul:
+    # 可以使用 env_file 的形式从文件中读取环境变量
+    env_file:
+      - env/debug.env
+    ports:
+      - "5000:5000"

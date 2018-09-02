@@ -20,12 +20,12 @@ class LocalDevConfig(DefaultConfig):
     mongodb_username = 'root'
     mongodb_password = 'test@123'
 
-    # redis
+    # redis redis = Redis(host='kuaibiji-redis', port=6379)
     driver = 'redis'
-    redis_host = '127.0.0.1'
-    redis_port = 6400
+    redis_host = 'kuaibiji-redis'
+    redis_port = 6379
     redis_db = 0
-    redis_password = 'kuaibiji123@Redis'
+    # redis_password = 'kuaibiji123@Redis'
     redis_max_connect = 1024
     redis_auto_connect = 1
     redis_cluster = 0
@@ -33,7 +33,7 @@ class LocalDevConfig(DefaultConfig):
 
     # mysql
     # mysql_engine = 'mysql+pymysql://root:dbj@test#JIJ8@localhost:3308/db_notebook?charset=utf8'
-    mysql_engine = 'mysql+pymysql://root:dbj@test#JIJ8@localhost:3308/{}?charset=utf8'
+    mysql_engine = 'mysql+pymysql://root:dbjVtest#JIJ8@kuaibiji-mysql:3307/{}?charset=utf8'
 
     # service
     api_srv_port = 5001

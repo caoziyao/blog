@@ -1,0 +1,39 @@
+version: "3"
+services:
+  kuaibiji-consul:
+    build: .
+    links:
+      - consul
+    depends_on:
+      - consul
+  consul:
+    image: consul:latest
+    ports:
+      - "8300:8300"
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:53/udp"
+  kuaibiji-micro-srv:
+    volumes:
+      - /Users/working/local-py3-site-packages:/usr/local/lib/python3.7/site-packages
+    build:
+      context: .
+      dockerfile: micro_service/Dockerfile
+    ports:
+      - "5002:5002"
+  kuaibiji-redis:
+      image: "redis:alpine"
+  kuaibiji-mysql:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: dbjVtest#JIJ8
+  # Database management in a single PHP file.
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

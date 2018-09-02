@@ -33,10 +33,11 @@ class RedisClient(object):
     def __init__(self):
         host = option.redis_host
         port = option.redis_port
-        password = option.redis_password
+        # password = option.redis_password
         db = option.redis_db
 
-        pool = redis.ConnectionPool(host=host, port=port, password=password, db=db)
+        # pool = redis.ConnectionPool(host=host, port=port, password=password, db=db)
+        pool = redis.ConnectionPool(host=host, port=port, db=db)
         self.client = redis.Redis(connection_pool=pool)
         testKey = "testKey%s" % random.randint(1, 100)
         self.client.set(testKey, "test redis ok")
