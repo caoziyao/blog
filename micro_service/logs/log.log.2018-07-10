@@ -1,8 +1,0 @@
-2018-07-10 22:36:22,640 logger.py[line:23] [process:12564] MainThread INFO init log
-2018-07-10 22:36:22,696 _internal.py[line:88] [process:12564] MainThread INFO  * Running on http://0.0.0.0:5002/ (Press CTRL+C to quit)
-2018-07-10 22:36:22,713 _internal.py[line:88] [process:12564] MainThread INFO  * Restarting with fsevents reloader
-2018-07-10 22:36:23,520 logger.py[line:23] [process:12571] MainThread INFO init log
-2018-07-10 22:36:23,544 _internal.py[line:88] [process:12571] MainThread WARNING  * Debugger is active!
-2018-07-10 22:36:23,563 _internal.py[line:88] [process:12571] MainThread INFO  * Debugger PIN: 202-833-239
-2018-07-10 23:52:59,534 logger.py[line:23] [process:23717] MainThread INFO init log
-2018-07-10 23:56:30,477 logger.py[line:23] [process:24049] MainThread INFO init log

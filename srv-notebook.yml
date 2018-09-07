@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  srv-notebook:
+    build:
+      context: .
+      dockerfile: services/py/notebook/Dockerfile
+    ports:
+      - 4001:4001
+    depends_on:
+      - consul
+      - microhq-sidecar
+    volumes:
+      - ./services:/code

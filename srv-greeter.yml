@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  srv-greeter:
+    build:
+      context: .
+      dockerfile: services/go/srv-greeter/Dockerfile
+#    build:
+#      .
+    volumes:
+      - .:/go/src/go-micro-docker-demo
+#    ports:
+#      - 50051:50051
+    links:
+      - consul
+    depends_on:
+      - consul
+#      - microhq-micro
+#    ports:
+#      - 8082:8080
+    environment:
+      MICRO_REGISTRY_ADDRESS: consul:8500
