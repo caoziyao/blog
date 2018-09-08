@@ -3,12 +3,6 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/9/7
+@time: 2018/9/3 
 @desc:
 """
-
-from .app import AppNotebookService
-
-__all__ = [
-    AppNotebookService,
-]

@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  mysql:
+    volumes:
+      - /Users/Shared/docker_data/kuaibiji/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: dbjVtest#JIJ8

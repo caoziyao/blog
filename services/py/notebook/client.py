@@ -15,9 +15,9 @@ def main():
 
     # Example echo method
     payload = {
-	"service": "go.micro.srv.pyapp",
-        "method": "Say.Hello",
-        "request": {"name": "sssssss"},
+	"service": "srv-notebook",
+        "method": "SayA.Hello",
+        "request": {"name": "zzzzzzzz"},
     }
     response = requests.post(
         url, data=json.dumps(payload), headers=headers)

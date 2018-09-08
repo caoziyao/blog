@@ -1,0 +1,7 @@
+test_get_notebook (test_sayhello.TestSayHello) ... skipped 'not'
+test_update_notebook (test_sayhello.TestSayHello) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.048s
+
+OK (skipped=1)

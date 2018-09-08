@@ -17,6 +17,7 @@ import os
 # from py.api_test import ApiTestService
 # from py.notebook import AppNotebookService
 from python_app import AppPyService
+from notebook import AppNotebookService
 
 def default_run():
     print('default_run')
@@ -31,6 +32,7 @@ def main():
         # 'api_test': ApiTestService,
         # 'notebook': AppNotebookService,
         'py': AppPyService,
+        'notebook': AppNotebookService,
     }
     if l == 2:
         print('argv', argv)
