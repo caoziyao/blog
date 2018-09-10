@@ -15,7 +15,8 @@ class BaseCase(unittest.TestCase):
         setup
         :return:
         """
-        self.url_rpc = 'http://localhost:8081/rpc'
+        self.url_rpc = 'http://microhq-sidecar:8081/rpc'
+        # self.url_rpc = 'http://localhost:8081/rpc'
         self.headers = {
             'content-type': 'application/json',
         }

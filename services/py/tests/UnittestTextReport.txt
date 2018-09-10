@@ -1,7 +1,9 @@
-test_get_notebook (test_sayhello.TestSayHello) ... skipped 'not'
-test_update_notebook (test_sayhello.TestSayHello) ... ok
+test_delete_notebook (test_note.TestNote) ... skipped 'not'
+test_exit_note (test_note.TestNote) ... skipped 'test_exit_note'
+test_get_note (test_note.TestNote) ... skipped 'not'
+test_update_note (test_note.TestNote) ... ok
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0.048s
+Ran 4 tests in 0.059s
 
-OK (skipped=1)
+OK (skipped=3)

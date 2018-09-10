@@ -7,6 +7,7 @@
 @desc:
 """
 from notebook.database.notebook_manger import NotebookManger
+from notebook.bussiness.notebook_controller import NotebookController
 
 
 def get_notebook(request):
@@ -18,6 +19,7 @@ def get_notebook(request):
     print('parms', request)
     _id = request['id']
 
-    manger = NotebookManger()
-    data = manger.get_notebook(_id)
+    ctr = NotebookController()
+    # manger = NotebookManger()
+    data = ctr.get_notebook(_id)
     return data

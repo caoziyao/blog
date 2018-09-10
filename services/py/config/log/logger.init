@@ -1,0 +1,59 @@
+#logger.init
+###############################################
+[loggers]
+keys = root, debug_log, dblog
+
+[logger_root]
+level = DEBUG
+handlers = baseHandler, logHandler
+
+[logger_debug_log]
+level = INFO
+handlers = baseHandler, dbHandler
+qualname = debug_log
+propagate = 0
+
+[logger_dblog]
+level = DEBUG
+qualname = dblog
+handlers = baseHandler, logHandler
+propagate = 0
+
+###############################################
+[handlers]
+keys = baseHandler, dbHandler, logHandler
+
+[handler_baseHandler]
+class = StreamHandler
+level = DEBUG
+formatter = form02
+args = (sys.stderr,)
+
+[handler_dbHandler]
+class = handlers.TimedRotatingFileHandler
+level = DEBUG
+formatter = form03
+args = ('./logs/debug_log.log','midnight',1,7)
+
+
+[handler_logHandler]
+class = handlers.TimedRotatingFileHandler
+# level = DEBUG
+level = INFO
+formatter = form03
+args = ('./logs/dblog.log','midnight',1,7)
+
+
+
+###############################################
+[formatters]
+keys = form01,form02, form03
+
+[formatter_form01]
+format = %(asctime)s %(pathname)s[func:%(funcName)s line:%(lineno)d] [%(levelname)s] %(message)s
+
+[formatter_form02]
+format = %(asctime)s %(pathname)s[func:%(funcName)s line:%(lineno)d] [%(levelname)s] %(message)s
+
+[formatter_form03]
+format = %(asctime)s [func:%(funcName)s line:%(lineno)d] [%(levelname)s] %(message)s

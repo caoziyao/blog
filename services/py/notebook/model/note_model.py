@@ -3,21 +3,23 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/9/8 
+@time: 2018/9/10 
 @desc:
 """
 from datetime import datetime
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer, DateTime
+from sqlalchemy import Column, String, Integer, DateTime, Text
 from notebook.database.init_mydql import Base
 
 
-class NotebookModel(Base):
-    __tablename__ = 'tb_notebook'
+class NoteModel(Base):
+    __tablename__ = 'tb_note'
 
     # 表的结构:
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=True)
+    notebook_id = Column(Integer)
     name = Column(String(255))
+    content = Column(Text)
+
     update_time = Column(DateTime, default=datetime.now)
     add_time = Column(DateTime, default=datetime.now)
 
