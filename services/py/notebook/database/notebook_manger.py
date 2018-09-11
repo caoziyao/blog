@@ -92,6 +92,7 @@ class NotebookManger(object):
         session = self.session
         _id = int(notebook_id)
         session.query(NotebookModel).filter(NotebookModel.id == _id).delete()
+        session.commit()
 
     # def add_notebook(self, data):
     #     """

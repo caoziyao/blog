@@ -110,3 +110,4 @@ class NoteManger(object):
         session = self.session
         _id = int(note_id)
         session.query(NoteModel).filter(NoteModel.id == _id).delete()
+        session.commit()

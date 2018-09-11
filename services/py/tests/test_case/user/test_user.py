@@ -3,48 +3,47 @@
 @author: csy
 @license: (C) Copyright 2017-2018
 @contact: wyzycao@gmail.com
-@time: 2018/9/8
+@time: 2018/9/11 
 @desc:
-python3 testmain.py notebook
-docker exec kuaibiji_srv-pyapp_1 python3 testmain.py notebook
+docker exec kuaibiji_srv-user_1 python3 testmain.py user
 """
 import requests
 import json
 import unittest
 from tests.test_case.base import BaseCase
-from notebook.bussiness.note_controller import NoteController
+from user.bussiness.user_controller import UserController
 
 
-class TestNote(BaseCase):
+class TestUser(BaseCase):
 
-    @unittest.skip('not')
-    def test_get_note(self):
+    # @unittest.skip('skip')
+    def test_get_user(self):
         url = self.url_rpc
         headers = self.headers
 
         payload = {
-            "service": "srv-notebook",
-            "method": "note.get",
-            "request": {'id': 1},
+            "service": "srv-user",
+            "method": "user.get",
+            "request": {'id': 2},
             # "params": {"id": 23, "minuend": 42},
             "jsonrpc": "2.0",
         }
         response = requests.post(
             url, data=json.dumps(payload), headers=headers)
 
-        self.assertEqual(response.status_code, 200)
         print('response', response.content)
+        self.assertEqual(response.status_code, 200)
 
-    # @unittest.skip('not')
-    def test_update_note(self):
+    @unittest.skip('skip')
+    def test_update_user(self):
         url = self.url_rpc
         headers = self.headers
 
-        d = {'id': 11, 'name': 'aaaaa', 'notebook_id': 16}
+        d = {'username': 'bbbb'}
 
         payload = {
-            "service": "srv-notebook",
-            "method": "note.update",
+            "service": "srv-user",
+            "method": "user.update",
             # "request": {'id': 1, 'name': 'abc'},
             "request": d,
             "jsonrpc": "2.0",
@@ -52,11 +51,11 @@ class TestNote(BaseCase):
         response = requests.post(
             url, data=json.dumps(payload), headers=headers)
 
-        # self.assertEqual(response.status_code, 200)
         print('response', response.content)
+        self.assertEqual(response.status_code, 200)
 
-    @unittest.skip('test_exit_note')
-    def test_exit_note(self):
+    @unittest.skip('skip')
+    def test_exit_user(self):
         """
         test_exit_notebook
         :return:
@@ -76,28 +75,30 @@ class TestNote(BaseCase):
             },
         ]
 
-        ctr = NoteController()
+        ctr = UserController()
         for d in data:
             _id = d['args']['id']
             expect = d['expect']
-            self.assertEqual(expect, ctr.exit_note(_id))
+            self.assertEqual(expect, ctr.exit_user(_id))
 
-    @unittest.skip('not')
-    def test_delete_notebook(self):
+    @unittest.skip('skip')
+    def test_delete_user(self):
         url = self.url_rpc
         headers = self.headers
 
-        d = [13]
+        d = {
+            'id': 1
+        }
 
         payload = {
-            "service": "srv-notebook",
-            "method": "note.delete",
-            # "request": {'id': 1, 'name': 'abc'},
+            "service": "srv-user",
+            "method": "user.delete",
             "request": d,
             "jsonrpc": "2.0",
         }
         response = requests.post(
             url, data=json.dumps(payload), headers=headers)
 
-        # self.assertEqual(response.status_code, 200)
+        #
         print('response', response.content)
+        self.assertEqual(response.status_code, 200)

@@ -2,11 +2,14 @@ version: "3"
 
 services:
   srv-api:
+#    build:
+#      context: .
+#      dockerfile: api/Dockerfile
     image: golang:1.10
-    working_dir: /go/src/go-micro-docker-demo
+    working_dir: /go/src/kuaibiji
     command: ["go", "run", "api/api.go"]
     volumes:
-      - .:/go/src/go-micro-docker-demo
+      - .:/go/src/kuaibiji
     links:
       - consul
     depends_on:
@@ -57,89 +60,3 @@ services:
       - "3307:3306"
     restart: always
 #    command: --default-authentication-plugin=mysql_native_password
-
-
-#version: "3"
-#services:
-#  kuaibiji-discovery:
-#    build: .
-#    ports:
-#      - "5000:5000"
-#    volumes:
-#      - .:/go/src/kuaibiji
-#    links:
-#      - consul
-#    depends_on:
-#      - consul
-#  kuaibiji-redis:
-#    ports:
-#      - "6385:6379"
-#    image: "redis:alpine"
-#  kuaibiji-mysql:
-#    image: mysql:5.7
-#    ports:
-#      - "3307:3306"
-#    restart: always
-#    command: --default-authentication-plugin=mysql_native_password
-#  consul:
-#    image: consul:latest
-#    ports:
-#      - "8300:8300"
-#      - "8400:8400"
-#      - "8500:8500"
-#      - "8600:53/udp"
-##  micro-srv-api_kuaibiji:
-###    build: micro_service/micro_services/api_kuaibiji
-##    build:
-##      context: .
-##      dockerfile: micro_service/micro_services/api_kuaibiji/Dockerfile
-##    depends_on:
-##      - kuaibiji-mysql
-##    volumes:
-##      - ./micro_service:/data/www/micro_service
-##    ports:
-##      - "5002:5002"
-##      - "5003:5003"
-##
-##      - "5005:5005"
-##      - "5006:5006"
-##      - "5007:5007"
-#  micro-srv-api_test:
-#    build:
-#      context: .
-#      dockerfile: micro_service/micro_services/api_test/Dockerfile
-#    depends_on:
-#      - kuaibiji-mysql
-#      - consul
-#    links:
-#      - consul
-#    volumes:
-#      - ./micro_service:/data/www/micro_service
-#    ports:
-#      - "5004:5004"
-##  micro-srv-notebook:
-##    build:
-##      context: .
-##      dockerfile: micro_service/micro_services/notebook/Dockerfile
-##    depends_on:
-##      - kuaibiji-mysql
-##      - consul
-##      - kuaibiji-discovery
-##    volumes:
-##      - ./micro_service:/data/www/micro_service
-##    links:
-##      - consul
-##      - kuaibiji-discovery
-#  micro-srv-hello:
-#    build:
-#      context: .
-#      dockerfile: micro_service/micro_services/hello/Dockerfile
-#    depends_on:
-#      - kuaibiji-mysql
-#      - consul
-#      - kuaibiji-discovery
-#    volumes:
-#      - ./micro_service:/data/www/micro_service
-#    links:
-#      - consul
-#      - kuaibiji-discovery

@@ -6,7 +6,7 @@
 @time: 2018/9/8 
 @desc:
 python3 testmain.py notebook
-docker exec go-micro-docker-demo_srv-pyapp_1 python3 testmain.py notebook
+docker exec kuaibiji_srv-pyapp_1 python3 testmain.py notebook
 """
 import requests
 import json
@@ -15,9 +15,9 @@ from tests.test_case.base import BaseCase
 from notebook.bussiness.notebook_controller import NotebookController
 
 
-class TestSayHello(BaseCase):
+class TestNotebook(BaseCase):
 
-    @unittest.skip('not')
+    @unittest.skip('skip')
     def test_get_notebook(self):
         url = self.url_rpc
         headers = self.headers
@@ -35,7 +35,7 @@ class TestSayHello(BaseCase):
         self.assertEqual(response.status_code, 200)
         print('response', response.content)
 
-    @unittest.skip('not')
+    @unittest.skip('skip')
     def test_update_notebook(self):
         url = self.url_rpc
         headers = self.headers
@@ -59,7 +59,7 @@ class TestSayHello(BaseCase):
         # self.assertEqual(response.status_code, 200)
         print('response', response.content)
 
-    @unittest.skip('test_exit_notebook')
+    @unittest.skip('skip')
     def test_exit_notebook(self):
         """
         test_exit_notebook
@@ -86,7 +86,7 @@ class TestSayHello(BaseCase):
             expect = d['expect']
             self.assertEqual(expect, ctr.exit_notebook(_id))
 
-    @unittest.skip('not')
+    @unittest.skip('skip')
     def test_delete_notebook(self):
         url = self.url_rpc
         headers = self.headers

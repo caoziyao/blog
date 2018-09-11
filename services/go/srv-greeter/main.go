@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/micro/go-micro"
 	"context"
-	proto "go-micro-docker-demo/services/proto"
+	proto "kuaibiji/services/proto"
 	"fmt"
 )
 

@@ -13,11 +13,11 @@ import os
 # sys.path.append(os.path.join(os.path.abspath(__file__), '..', '..'))
 # print(os.path.abspath(os.path.join(os.path.abspath(__file__), '..', '..')))
 
-# from py.api_kuaibiji.app import ApiService
-# from py.api_test import ApiTestService
-# from py.notebook import AppNotebookService
 from python_app import AppPyService
 from notebook import AppNotebookService
+from user import AppUserService
+from config.log import debug_log
+
 
 def default_run():
     print('default_run')
@@ -33,12 +33,13 @@ def main():
         # 'notebook': AppNotebookService,
         'py': AppPyService,
         'notebook': AppNotebookService,
+        'user': AppUserService,
     }
     if l == 2:
-        print('argv', argv)
+        s = argv[1]
         Api = args.get(argv[1])
-        print('api', Api)
         if Api is not None:
+            # debug_log.info('running {}...'.format(s))
             Api().run()
 
     else:

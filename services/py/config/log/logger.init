@@ -4,11 +4,11 @@
 keys = root, debug_log, dblog
 
 [logger_root]
-level = DEBUG
+level = INFO
 handlers = baseHandler, logHandler
 
 [logger_debug_log]
-level = INFO
+level = DEBUG
 handlers = baseHandler, dbHandler
 qualname = debug_log
 propagate = 0
@@ -25,13 +25,13 @@ keys = baseHandler, dbHandler, logHandler
 
 [handler_baseHandler]
 class = StreamHandler
-level = DEBUG
+# level = DEBUG
 formatter = form02
 args = (sys.stderr,)
 
 [handler_dbHandler]
 class = handlers.TimedRotatingFileHandler
-level = DEBUG
+# level = DEBUG
 formatter = form03
 args = ('./logs/debug_log.log','midnight',1,7)
 
@@ -39,7 +39,7 @@ args = ('./logs/debug_log.log','midnight',1,7)
 [handler_logHandler]
 class = handlers.TimedRotatingFileHandler
 # level = DEBUG
-level = INFO
+# level = DEBUG
 formatter = form03
 args = ('./logs/dblog.log','midnight',1,7)
 

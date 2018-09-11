@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	hello "go-micro-docker-demo/services/proto"
+	hello "kuaibiji/services/proto"
 	"github.com/micro/go-micro"
 	api "github.com/micro/micro/api/proto"
 
@@ -17,7 +17,7 @@ type Greetera struct {
 }
 
 // Greeter的handler实现
-// docker exec go-micro-docker-demo_api_1 go run api/api.go
+// docker exec kuaibiji_api_1 go run api/api.go
 // curl -H 'Content-Type: application/json' -d '{"name": "john"}' http://localhost:8080/api/gua/height\?name\=121
 // curl -H 'Content-Type: application/json' -d '{"name": "john"}' http://localhost:8080/api/greetera/helloa\?name\=121
 func (s *Greetera) Helloa(ctx context.Context, req *api.Request, rsp *api.Response) error {

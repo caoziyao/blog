@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 	"github.com/micro/go-micro"
-	proto "go-micro-docker-demo/services/proto"
+	proto "kuaibiji/services/proto"
 	"fmt"
 )
 
 
 // go run client.go
 // docker:
-// docker exec go-micro-docker-demo_api_1 go run client/client.go
+// docker exec kuaibiji_api_1 go run client/client.go
 func main() {
 	// Create a new service. Optionally include some options here.
 	service := micro.NewService(micro.Name("greeter.client"))

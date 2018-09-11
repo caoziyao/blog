@@ -25,7 +25,7 @@ SQL_CONFIG = {
     'convert_unicode': True
 }
 
-db_name = 'db_notebook'
+db_name = 'db_user'
 mysql_engine = 'mysql+pymysql://root:dbjVtest#JIJ8@mysql:3306/{}?charset=utf8mb4'
 mysql_engine = mysql_engine.format(db_name)
 
