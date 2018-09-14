@@ -9,7 +9,7 @@
 
 from notebook.model.note_model import NoteModel
 from notebook.database.init_mydql import get_session
-from config.log import debug_log
+from config_default.log import debug_log
 
 
 class NoteManger(object):

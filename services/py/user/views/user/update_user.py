@@ -9,8 +9,8 @@
 from user.database.user_manger import UserManger
 from datetime import datetime
 from user.bussiness.user_controller import UserController
-from common.request_service import send_failure, send_success
-from config.log import debug_log
+from base_common.request_service import send_failure, send_success
+from config_default.log import debug_log
 
 
 def clear_fe_data(data):
@@ -36,7 +36,6 @@ def update_user(request):
     :param request:
     :return:
     """
-    debug_log.info('aaaaaa')
     data = clear_fe_data(request)
     user_id = data.get('id', '')
     manger = UserManger()

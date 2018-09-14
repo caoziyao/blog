@@ -1,0 +1,18 @@
+test_delete_notebook (test_controller.TestNotebook) ... skipped 'skip'
+test_exit_notebook (test_controller.TestNotebook) ... skipped 'skip'
+test_get_mutil_notebook (test_controller.TestNotebook) ... skipped 'skip'
+test_get_notebook (test_controller.TestNotebook) ... FAIL
+test_update_notebook (test_controller.TestNotebook) ... skipped 'skip'
+
+======================================================================
+FAIL: test_get_notebook (test_controller.TestNotebook)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/code/tests/test_case/notebook/test_controller.py", line 36, in test_get_notebook
+    self.assertEqual(response.status_code, 200)
+AssertionError: 500 != 200
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.037s
+
+FAILED (failures=1, skipped=4)

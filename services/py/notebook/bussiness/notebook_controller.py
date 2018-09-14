@@ -18,7 +18,12 @@ class NotebookController(object):
         :return:
         """
         manger = NotebookManger()
-        data = manger.get_notebook(_id)
+        nb = manger.get_notebook(_id)
+
+        data = {
+            'id': nb.id,
+            'name': nb.name,
+        }
 
         return data
 

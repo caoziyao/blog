@@ -1,0 +1,4 @@
+2018-09-12 03:52:43,477 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:52:43,555 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:53:20,303 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:53:26,238 [func:_log line:88] [INFO]  * Restarting with inotify reloader

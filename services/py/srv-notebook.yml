@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  srv-notebook:
+    build:
+      context: .
+      dockerfile: notebook/Dockerfile
+#    depends_on:
+#      - consul
+#      - microhq-sidecar
+#      - mysql
+#      - redis
+    volumes:
+      - .:/code

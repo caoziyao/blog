@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  srv-weixin:
+    env_file:
+      - weixin/.debug.env

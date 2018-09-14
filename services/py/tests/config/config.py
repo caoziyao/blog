@@ -1,10 +1,10 @@
 # coding: utf-8
 
 import os
-
-
-class Config(object):
-
-    pass
-
-config = Config()
+#
+#
+# class Config(object):
+#
+#     pass
+#
+# config = Config()

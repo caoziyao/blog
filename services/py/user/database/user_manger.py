@@ -9,7 +9,7 @@
 
 from user.model.user_model import UserModel
 from user.database.init_mydql import get_session
-from config.log import debug_log
+from config_default.log import debug_log
 
 
 class UserManger(object):
@@ -84,7 +84,5 @@ class UserManger(object):
         """
         session = self.session
         _id = int(user_id)
-        r = session.query(UserModel).filter(UserModel.id == _id).delete()
+        session.query(UserModel).filter(UserModel.id == _id).delete()
         session.commit()
-        debug_log.info('delete_one_user')
-        debug_log.info(r)

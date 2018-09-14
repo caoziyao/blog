@@ -1,0 +1,40 @@
+version: '3'
+services:
+  drone:
+    image: drone/drone:0.8.6
+    ports:
+      - 8000:8000
+    volumes:
+      - /usr/docker_data/kuaibiji/drone/data:/var/lib/drone/
+    restart: always
+    environment:
+      # false 表示禁止注册
+      - DRONE_OPEN=true
+      # DRONE_ADMIN 配置的用户作为管理员
+#      - DRONE_ADMIN=kuaibiji.com
+      # 本机主机名
+#      - DRONE_HOST=http://47.75.143.227
+      - DRONE_HOST=http://drone:8000
+      # 随机输入一个字符串
+      - DRONE_SECRET=4b18c3d1random_abdofvjqjnoijf
+      # 使用 gitlab 服务
+      - DRONE_GITLAB=true
+      - DRONE_GITLAB_SKIP_VERIFY=true
+      - DRONE_GITLAB_PRIVATE_MODE=true
+      - DRONE_GITLAB_URL=https://gitlab.com
+      - DRONE_GITLAB_CLIENT=6366e89acce9eb9274e9448b68ca2dc98513adf78a9bcb41e6375f868fc30653
+      - DRONE_GITLAB_SECRET=5a60021a66afcb8e13c677f4df9fcbaf044d15c52adcccacf0b19feae06bcffb
+  drone-agent:
+    image: drone/agent:0.8.6
+    command: agent
+    restart: always
+    depends_on:
+      - drone
+    volumes:
+      # 这样才可以在容器中使用宿主机的 Docker 服务
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # secret 和上面的 DRONE_SECRET 配置一致
+      - DRONE_SECRET=4b18c3d1random_abdofvjqjnoijf
+      # 上面的 server 服务的 9000 端口
+      - DRONE_SERVER=drone:9000

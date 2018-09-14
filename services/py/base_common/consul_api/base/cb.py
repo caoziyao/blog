@@ -1,0 +1,15 @@
+# coding: utf-8
+"""
+@author: csy
+@license: (C) Copyright 2017-2018
+@contact: wyzycao@gmail.com
+@time: 2018/9/14 
+@desc:
+# Conveniences to create consistent callback handlers for endpoints
+"""
+
+class CB(object):
+
+    @classmethod
+    def pool(cls):
+        pass

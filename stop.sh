@@ -1,2 +1,2 @@
 
-docker-compose down --remove-orphans
+docker-compose -p prj-kuaibiji down --remove-orphans

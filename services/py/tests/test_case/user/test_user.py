@@ -5,7 +5,7 @@
 @contact: wyzycao@gmail.com
 @time: 2018/9/11 
 @desc:
-docker exec kuaibiji_srv-user_1 python3 testmain.py user
+docker exec prj-kuaibiji_srv-user_1 python3 testmain.py user
 """
 import requests
 import json
@@ -16,7 +16,7 @@ from user.bussiness.user_controller import UserController
 
 class TestUser(BaseCase):
 
-    # @unittest.skip('skip')
+    @unittest.skip('skip')
     def test_get_user(self):
         url = self.url_rpc
         headers = self.headers
@@ -34,7 +34,7 @@ class TestUser(BaseCase):
         print('response', response.content)
         self.assertEqual(response.status_code, 200)
 
-    @unittest.skip('skip')
+    # @unittest.skip('skip')
     def test_update_user(self):
         url = self.url_rpc
         headers = self.headers

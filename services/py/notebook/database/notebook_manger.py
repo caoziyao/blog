@@ -6,12 +6,12 @@
 @time: 2018/9/4
 @desc:
 """
-
+from .base_manager import BaseManager
 from notebook.model.notebook_model import NotebookModel
 from notebook.database.init_mydql import get_session
 
 
-class NotebookManger(object):
+class NotebookManger(BaseManager):
 
     def __init__(self):
         self.session = get_session()
@@ -32,9 +32,17 @@ class NotebookManger(object):
         session = self.session
 
         m = session.query(NotebookModel).filter(NotebookModel.id == _id).first()
-        # if m:
-        #
-        #  data = m.to_json()
+        return m
+
+    def get_notebooks(self, _ids):
+        """
+        获取 notebook
+        :param id:
+        :return:
+        """
+        session = self.session
+        # _ids = list()
+        m = session.query(NotebookModel).filter(NotebookModel.id.in_(_ids)).all()
         return m
 
     def add_mutil_notebook(self, data):
@@ -54,9 +62,9 @@ class NotebookManger(object):
             session.merge(m)
         session.commit()
 
-    def add_one_notebook(self, data):
+    def update_one_notebook(self, data):
         """
-        单个添加
+
         :param data:
         :return:
         """
@@ -66,13 +74,32 @@ class NotebookManger(object):
         _id = data.get('id', '')
         update_time = data.get('update_time', '')
 
-        if not _id:
-            m = NotebookModel(id=_id, name=name, update_time=update_time)
-        else:
-            m = NotebookModel(name=name, update_time=update_time)
-        session.merge(m)
+        m = NotebookModel
+        session.query(m).filter(m.id == _id).update({
+            m.name: name,
+            m.update_time: update_time,
+        })
+        session.commit()
+        return _id
+
+    def add_one_notebook(self, data):
+        """
+        单个添加
+        :param data:
+        :return:
+        """
+        session = self.session
+
+        name = data.get('name', '')
+        update_time = data.get('update_time', '')
+
+        m = NotebookModel(name=name, update_time=update_time)
+        session.add(m)
+        session.flush()
+        last_id = m.id
 
         session.commit()
+        return last_id
 
     def delete_mutil_notebook(self, notebook_ids):
         """
@@ -93,22 +120,3 @@ class NotebookManger(object):
         _id = int(notebook_id)
         session.query(NotebookModel).filter(NotebookModel.id == _id).delete()
         session.commit()
-
-    # def add_notebook(self, data):
-    #     """
-    #
-    #     :param data:
-    #     :return:
-    #     """
-    #     session = self.session
-    #
-    #
-    #     if isinstance(data, list):
-    #         for d in data:
-    #             name = d.get('name', '')
-    #             m = NotebookModel(name=name)
-    #             session.add(m)
-    #
-    #     session.commit()
-
-    # session.add(NotebookModel)

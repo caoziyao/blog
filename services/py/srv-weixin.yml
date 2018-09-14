@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  srv-weixin:
+    build:
+      context: .
+      dockerfile: weixin/Dockerfile
+    volumes:
+      - .:/code

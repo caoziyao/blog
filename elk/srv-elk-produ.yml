@@ -1,0 +1,12 @@
+
+# 5601 (Kibana web interface).
+# 9200 (Elasticsearch JSON interface).
+# 5044 (Logstash Beats interface, receives logs from Beats such as Filebeat – see the Forwarding logs with Filebeat section).
+
+version: '3'
+services:
+  elk:
+    volumes:
+      - /etc/logstash:/etc/logstash
+      - /etc/localtime:/etc/localtime
+

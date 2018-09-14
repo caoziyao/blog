@@ -10,8 +10,8 @@ from notebook.database.note_manger import NoteManger
 from datetime import datetime
 from notebook.bussiness.notebook_controller import NotebookController
 from notebook.bussiness.note_controller import NoteController
-from common.request_service import send_failure, send_success
-from config.log import debug_log
+from base_common.request_service import send_failure, send_success
+from config_default.log import debug_log
 
 
 def clear_fe_data(data):

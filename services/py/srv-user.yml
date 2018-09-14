@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  srv-user:
+    build:
+      context: .
+      dockerfile: user/Dockerfile
+    volumes:
+      - .:/code

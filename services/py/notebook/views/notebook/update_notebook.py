@@ -6,13 +6,14 @@
 @time: 2018/9/9 
 @desc:
 """
+from notebook.bussiness.notebook_controller import NotebookController
 from notebook.database.notebook_manger import NotebookManger
 from datetime import datetime
+from base_common.request_service import send_failure, send_success
 
 
 def clear_data(data):
     """
-
     :return:
     """
     d = {}
@@ -20,25 +21,6 @@ def clear_data(data):
     d['name'] = data.get('name', '')
     d['update_time'] = datetime.now()
     return d
-
-
-def clear_fe_data(data):
-    """
-
-    :return:
-    """
-    if isinstance(data, list):
-        l = []
-        for item in data:
-            d = clear_data(item)
-            l.append(d)
-        return l
-    elif isinstance(data, dict):
-        data = clear_data(data)
-        return data
-    else:
-        # error
-        return {}
 
 
 def update_notebook(request):
@@ -49,15 +31,16 @@ def update_notebook(request):
     :param request:
     :return:
     """
-    data = clear_fe_data(request)
+    data = clear_data(request)
+
+    ctr = NotebookController()
     manger = NotebookManger()
 
-    if isinstance(data, list):
-        manger.add_mutil_notebook(data)
-    elif isinstance(data, dict):
-        manger.add_one_notebook(data)
+    _id = data.get('id', '')
+    if ctr.exit_notebook(_id):
+        _id = manger.update_one_notebook(data)
     else:
-        # error
-        pass
+        _id = manger.add_one_notebook(data)
 
-    return 'ok'
+    notebook = ctr.get_notebook(_id)
+    return send_success(data=notebook)

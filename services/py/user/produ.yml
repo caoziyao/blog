@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  srv-user:
+    env_file:
+      - user/.debug.env

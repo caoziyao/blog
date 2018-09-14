@@ -6,7 +6,7 @@
 @time: 2018/9/8
 @desc:
 python3 testmain.py notebook
-docker exec kuaibiji_srv-pyapp_1 python3 testmain.py notebook
+docker exec prj-kuaibiji_srv-pyapp_1 python3 testmain.py note
 """
 import requests
 import json

@@ -6,7 +6,7 @@
 @time: 2018/9/8 
 @desc:
 python3 testmain.py notebook
-docker exec kuaibiji_srv-pyapp_1 python3 testmain.py notebook
+docker exec prj-kuaibiji_srv-notebook_1 python3 testmain.py notebook
 """
 import requests
 import json
@@ -17,7 +17,7 @@ from notebook.bussiness.notebook_controller import NotebookController
 
 class TestNotebook(BaseCase):
 
-    @unittest.skip('skip')
+    # @unittest.skip('skip')
     def test_get_notebook(self):
         url = self.url_rpc
         headers = self.headers
@@ -25,7 +25,26 @@ class TestNotebook(BaseCase):
         payload = {
             "service": "srv-notebook",
             "method": "notebook.get",
-            "request": {'id': 1},
+            "request": {'ids': 16},
+            # "params": {"id": 23, "minuend": 42},
+            "jsonrpc": "2.0",
+        }
+        response = requests.post(
+            url, data=json.dumps(payload), headers=headers)
+
+        print('response', response.content)
+        self.assertEqual(response.status_code, 200)
+
+
+    @unittest.skip('skip')
+    def test_get_mutil_notebook(self):
+        url = self.url_rpc
+        headers = self.headers
+
+        payload = {
+            "service": "srv-notebook",
+            "method": "notebook.get",
+            "request": {'id': [16, 17]},
             # "params": {"id": 23, "minuend": 42},
             "jsonrpc": "2.0",
         }
@@ -40,23 +59,16 @@ class TestNotebook(BaseCase):
         url = self.url_rpc
         headers = self.headers
 
-        d = [
-            {'id': 1, 'name': 'aaaaaaaa'},
-            {'id': 2, 'name': 'bbbbbb'},
-            {'name': 'vvvvv'},
-        ]
+        d = {'id': 2, 'name': 'adbs'}
 
         payload = {
             "service": "srv-notebook",
             "method": "notebook.update",
-            # "request": {'id': 1, 'name': 'abc'},
             "request": d,
             "jsonrpc": "2.0",
         }
         response = requests.post(
             url, data=json.dumps(payload), headers=headers)
-
-        # self.assertEqual(response.status_code, 200)
         print('response', response.content)
 
     @unittest.skip('skip')
@@ -103,5 +115,5 @@ class TestNotebook(BaseCase):
         response = requests.post(
             url, data=json.dumps(payload), headers=headers)
 
-        # self.assertEqual(response.status_code, 200)
         print('response', response.content)
+        self.assertEqual(response.status_code, 200)

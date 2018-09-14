@@ -1,0 +1,276 @@
+2018-09-12 03:52:43,495 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:52:43,562 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:52:44,666 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:52:44,667 [func:_log line:88] [INFO]  * Debugger PIN: 179-822-996
+2018-09-12 03:52:44,814 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:52:44,816 [func:_log line:88] [INFO]  * Debugger PIN: 296-372-128
+2018-09-12 03:53:18,549 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:53:18,549 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:53:18,560 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:53:18,561 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:53:20,280 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:53:21,522 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:53:21,526 [func:_log line:88] [INFO]  * Debugger PIN: 296-372-128
+2018-09-12 03:53:21,541 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:53:21,543 [func:_log line:88] [INFO]  * Debugger PIN: 179-822-996
+2018-09-12 03:53:25,445 [func:_log line:88] [INFO]  * Detected change in '/code/tests/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,446 [func:_log line:88] [INFO]  * Detected change in '/code/tests/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,459 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,459 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,474 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/demo/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,474 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/demo/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,489 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/demo/__pycache__/test_demo.cpython-37.pyc', reloading
+2018-09-12 03:53:25,489 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/demo/__pycache__/test_demo.cpython-37.pyc', reloading
+2018-09-12 03:53:25,499 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/__pycache__/base.cpython-37.pyc', reloading
+2018-09-12 03:53:25,498 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/__pycache__/base.cpython-37.pyc', reloading
+2018-09-12 03:53:25,509 [func:_log line:88] [INFO]  * Detected change in '/code/tests/common/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,510 [func:_log line:88] [INFO]  * Detected change in '/code/tests/common/__pycache__/__init__.cpython-37.pyc', reloading
+2018-09-12 03:53:25,522 [func:_log line:88] [INFO]  * Detected change in '/code/tests/common/__pycache__/constant.cpython-37.pyc', reloading
+2018-09-12 03:53:25,522 [func:_log line:88] [INFO]  * Detected change in '/code/tests/common/__pycache__/constant.cpython-37.pyc', reloading
+2018-09-12 03:53:25,538 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/__pycache__/test_note.cpython-37.pyc', reloading
+2018-09-12 03:53:25,538 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/__pycache__/test_note.cpython-37.pyc', reloading
+2018-09-12 03:53:25,699 [func:_log line:88] [INFO] 172.29.0.5 - - [12/Sep/2018 03:53:25] "POST / HTTP/1.1" 200 -
+2018-09-12 03:53:26,222 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:53:26,965 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:53:26,966 [func:_log line:88] [INFO]  * Debugger PIN: 296-372-128
+2018-09-12 03:53:26,987 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:53:26,989 [func:_log line:88] [INFO]  * Debugger PIN: 179-822-996
+2018-09-12 03:55:31,676 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:55:31,870 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:55:31,898 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:55:32,000 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:55:32,048 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:55:33,513 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:55:33,515 [func:_log line:88] [INFO]  * Debugger PIN: 613-851-721
+2018-09-12 03:55:33,597 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:55:33,598 [func:_log line:88] [INFO]  * Debugger PIN: 208-359-608
+2018-09-12 03:55:43,075 [func:_log line:88] [INFO] 172.30.0.6 - - [12/Sep/2018 03:55:43] "POST / HTTP/1.1" 200 -
+2018-09-12 03:55:46,462 [func:_log line:88] [INFO] 172.30.0.6 - - [12/Sep/2018 03:55:46] "POST / HTTP/1.1" 200 -
+2018-09-12 03:57:16,367 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:57:16,380 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:57:16,481 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:57:16,495 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 03:57:16,526 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:57:17,661 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:57:17,663 [func:_log line:88] [INFO]  * Debugger PIN: 181-858-560
+2018-09-12 03:57:18,076 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:57:18,078 [func:_log line:88] [INFO]  * Debugger PIN: 645-551-873
+2018-09-12 03:57:30,508 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:57:30,508 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:57:30,510 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:57:30,510 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/note/test_note.py', reloading
+2018-09-12 03:57:32,147 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:57:32,150 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 03:57:33,142 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:57:33,144 [func:_log line:88] [INFO]  * Debugger PIN: 645-551-873
+2018-09-12 03:57:33,147 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 03:57:33,148 [func:_log line:88] [INFO]  * Debugger PIN: 181-858-560
+2018-09-12 03:57:33,775 [func:_log line:88] [INFO] 172.31.0.5 - - [12/Sep/2018 03:57:33] "POST / HTTP/1.1" 200 -
+2018-09-12 06:12:55,657 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:12:55,703 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:12:55,729 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:12:55,750 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:12:55,774 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:12:57,091 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:12:57,094 [func:_log line:88] [INFO]  * Debugger PIN: 971-630-350
+2018-09-12 06:12:57,254 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:12:57,256 [func:_log line:88] [INFO]  * Debugger PIN: 236-741-224
+2018-09-12 06:13:06,153 [func:_log line:88] [INFO] 192.168.0.5 - - [12/Sep/2018 06:13:06] "POST / HTTP/1.1" 200 -
+2018-09-12 06:13:41,050 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:13:41,074 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:13:42,099 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:13:42,102 [func:_log line:88] [INFO]  * Debugger PIN: 236-741-224
+2018-09-12 06:13:44,664 [func:_log line:88] [INFO] 192.168.0.5 - - [12/Sep/2018 06:13:44] "POST / HTTP/1.1" 200 -
+2018-09-12 06:36:24,915 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:36:25,209 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:36:25,251 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:36:27,606 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:36:27,614 [func:_log line:88] [INFO]  * Debugger PIN: 253-495-358
+2018-09-12 06:40:48,447 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:40:48,468 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:40:49,119 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:40:49,120 [func:_log line:88] [INFO]  * Debugger PIN: 998-144-391
+2018-09-12 06:41:05,047 [func:_log line:88] [INFO] 192.168.16.6 - - [12/Sep/2018 06:41:05] "POST / HTTP/1.1" 200 -
+2018-09-12 06:41:07,595 [func:_log line:88] [INFO] 192.168.16.6 - - [12/Sep/2018 06:41:07] "POST / HTTP/1.1" 200 -
+2018-09-12 06:47:28,348 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:47:28,353 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:47:28,406 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:47:29,586 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:47:29,588 [func:_log line:88] [INFO]  * Debugger PIN: 237-365-118
+2018-09-12 06:47:34,504 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:47:34,539 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:47:36,408 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:47:36,411 [func:_log line:88] [INFO]  * Debugger PIN: 304-107-456
+2018-09-12 06:56:17,457 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 06:56:17,480 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:56:18,124 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:56:18,125 [func:_log line:88] [INFO]  * Debugger PIN: 614-544-466
+2018-09-12 06:56:23,756 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/user/__pycache__/test_user.cpython-37.pyc', reloading
+2018-09-12 06:56:24,007 [func:_log line:88] [INFO] 192.168.48.6 - - [12/Sep/2018 06:56:24] "POST / HTTP/1.1" 200 -
+2018-09-12 06:56:24,527 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 06:56:25,231 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 06:56:25,232 [func:_log line:88] [INFO]  * Debugger PIN: 614-544-466
+2018-09-12 06:56:27,212 [func:_log line:88] [INFO] 192.168.48.6 - - [12/Sep/2018 06:56:27] "POST / HTTP/1.1" 200 -
+2018-09-12 07:28:15,138 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 07:28:15,159 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 07:28:15,879 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 07:28:15,880 [func:_log line:88] [INFO]  * Debugger PIN: 112-649-648
+2018-09-12 07:30:32,285 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 07:30:32,326 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 07:30:33,498 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 07:30:33,501 [func:_log line:88] [INFO]  * Debugger PIN: 229-324-445
+2018-09-12 07:30:34,597 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 07:30:34,628 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 07:30:35,726 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 07:30:35,728 [func:_log line:88] [INFO]  * Debugger PIN: 223-725-728
+2018-09-12 07:30:41,740 [func:_log line:88] [INFO] 192.168.160.5 - - [12/Sep/2018 07:30:41] "POST / HTTP/1.1" 200 -
+2018-09-12 07:30:44,114 [func:_log line:88] [INFO] 192.168.160.5 - - [12/Sep/2018 07:30:44] "POST / HTTP/1.1" 200 -
+2018-09-12 08:18:43,953 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 08:18:44,018 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 08:18:45,526 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 08:18:45,527 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 08:18:46,493 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 08:18:46,531 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 08:18:47,608 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 08:18:47,610 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 08:58:30,512 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 08:58:30] "POST / HTTP/1.1" 200 -
+2018-09-12 08:59:09,300 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:09,300 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:09,302 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:09,303 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:10,204 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 08:59:10,205 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 08:59:11,774 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 08:59:11,777 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 08:59:11,791 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 08:59:11,792 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 08:59:34,984 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:34,987 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:34,985 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:34,989 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 08:59:35,578 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 08:59:35,581 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 08:59:36,404 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 08:59:36,405 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 08:59:36,407 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 08:59:36,408 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:00:58,383 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:00:58,384 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:00:58,383 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:00:58,387 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:00:59,949 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:00:59,958 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:01:00,885 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:01:00,887 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:01:00,917 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:01:00,919 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:01:01,585 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:01:01] "POST / HTTP/1.1" 200 -
+2018-09-12 09:01:25,393 [func:_log line:88] [INFO]  * Running on http://0.0.0.0:4000/ (Press CTRL+C to quit)
+2018-09-12 09:01:25,414 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:01:26,103 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:01:26,105 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:01:28,920 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:01:28] "POST / HTTP/1.1" 200 -
+2018-09-12 09:03:55,251 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:03:55,251 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:03:55,255 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:03:55,253 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:03:55,839 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:03:55,842 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:03:56,560 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:03:56,561 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:03:56,569 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:03:56,570 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:03:57,631 [func:_get_responses line:122] [ERROR] API Exception: {'type': 'AttributeError', 'args': ("'NoneType' object has no attribute 'id'",), 'message': "'NoneType' object has no attribute 'id'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/jsonrpc/manager.py", line 112, in _get_responses
+    result = method(*request.args, **request.kwargs)
+  File "/code/notebook/views/notebook/get_notebook.py", line 28, in get_notebook
+    'id': nb.id,
+AttributeError: 'NoneType' object has no attribute 'id'
+2018-09-12 09:03:57,635 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:03:57] "POST / HTTP/1.1" 200 -
+2018-09-12 09:03:57,661 [func:_get_responses line:122] [ERROR] API Exception: {'type': 'AttributeError', 'args': ("'NoneType' object has no attribute 'id'",), 'message': "'NoneType' object has no attribute 'id'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/jsonrpc/manager.py", line 112, in _get_responses
+    result = method(*request.args, **request.kwargs)
+  File "/code/notebook/views/notebook/get_notebook.py", line 28, in get_notebook
+    'id': nb.id,
+AttributeError: 'NoneType' object has no attribute 'id'
+2018-09-12 09:03:57,664 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:03:57] "POST / HTTP/1.1" 200 -
+2018-09-12 09:04:00,610 [func:_get_responses line:122] [ERROR] API Exception: {'type': 'AttributeError', 'args': ("'NoneType' object has no attribute 'id'",), 'message': "'NoneType' object has no attribute 'id'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/jsonrpc/manager.py", line 112, in _get_responses
+    result = method(*request.args, **request.kwargs)
+  File "/code/notebook/views/notebook/get_notebook.py", line 28, in get_notebook
+    'id': nb.id,
+AttributeError: 'NoneType' object has no attribute 'id'
+2018-09-12 09:04:00,612 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:04:00] "POST / HTTP/1.1" 200 -
+2018-09-12 09:04:00,629 [func:_get_responses line:122] [ERROR] API Exception: {'type': 'AttributeError', 'args': ("'NoneType' object has no attribute 'id'",), 'message': "'NoneType' object has no attribute 'id'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/jsonrpc/manager.py", line 112, in _get_responses
+    result = method(*request.args, **request.kwargs)
+  File "/code/notebook/views/notebook/get_notebook.py", line 28, in get_notebook
+    'id': nb.id,
+AttributeError: 'NoneType' object has no attribute 'id'
+2018-09-12 09:04:00,632 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:04:00] "POST / HTTP/1.1" 200 -
+2018-09-12 09:04:09,618 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:09,618 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:09,620 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:09,620 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:10,204 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:04:10,211 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:04:10,968 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:04:10,969 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:04:10,969 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:04:10,971 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:04:11,798 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:04:11] "POST / HTTP/1.1" 200 -
+2018-09-12 09:04:59,094 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:59,094 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:59,097 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:59,097 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:04:59,638 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:05:00,404 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:05:00,406 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:05:00,671 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:05:01,323 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:05:01,324 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:05:02,764 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:05:02] "POST / HTTP/1.1" 200 -
+2018-09-12 09:05:10,401 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:10,401 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:10,403 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:10,403 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:11,019 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:05:11,019 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:05:11,772 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:05:11,774 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:05:11,813 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:05:11,815 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:05:12,846 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:05:12] "POST / HTTP/1.1" 200 -
+2018-09-12 09:05:34,308 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:34,308 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:34,312 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:34,312 [func:_log line:88] [INFO]  * Detected change in '/code/notebook/views/notebook/get_notebook.py', reloading
+2018-09-12 09:05:35,913 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:05:35,914 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:05:36,783 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:05:36,785 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:05:36,788 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:05:36,789 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:18:59,396 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:18:59,396 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:18:59,404 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:18:59,405 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/test_controller.py', reloading
+2018-09-12 09:19:00,003 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:19:00,012 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:19:00,907 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:19:00,908 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:19:00,916 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:19:00,917 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
+2018-09-12 09:19:03,656 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/__pycache__/test_controller.cpython-37.pyc', reloading
+2018-09-12 09:19:03,657 [func:_log line:88] [INFO]  * Detected change in '/code/tests/test_case/notebook/__pycache__/test_controller.cpython-37.pyc', reloading
+2018-09-12 09:19:03,713 [func:_log line:88] [INFO] 192.168.176.5 - - [12/Sep/2018 09:19:03] "POST / HTTP/1.1" 200 -
+2018-09-12 09:19:04,256 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:19:04,257 [func:_log line:88] [INFO]  * Restarting with inotify reloader
+2018-09-12 09:19:05,004 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:19:05,004 [func:_log line:88] [WARNING]  * Debugger is active!
+2018-09-12 09:19:05,005 [func:_log line:88] [INFO]  * Debugger PIN: 242-350-419
+2018-09-12 09:19:05,006 [func:_log line:88] [INFO]  * Debugger PIN: 963-420-244
